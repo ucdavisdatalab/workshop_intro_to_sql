@@ -72,11 +72,18 @@ If you've ever subsetted data in R, for example, you've already done something s
 In Excel, you might sort your whole spreadsheet on the Temp column, then copy all of the rows that are greater than 80, and paste them into another tab.  You might remove all the other columns except for the Ozone and Temp columns.  You might have also used the cell highlighting tools to change the color of the cells based on the Temp column just to see which cells meet your criteria.
 
 ### Why do you want to learn to work with databases and SQL?
- * It's a good way to work with large amounts of data
- * Typically faster to run a process in a database than in a spreadsheet
- * Store lots of data (compare with Excel's limits)
- * One database file stores many, many tables --> easier data management
- * Write a query instead of making a new files or tabs
+ * Efficient
+    + Write a few lines of code rather than lots of manual data manipulation
+    + SQL is meant for data manipulation
+ * Reproducibility 
+    + save queries as a record of your workflow
+    + re-run code with updates
+ * Work with large amounts of data
+    + Typically faster to run a process in a database than in a spreadsheet
+    + Store lots of data (compare with Excel's row limits)
+ * Data management
+    + One database file stores many, many tables
+    + Write a query instead of making a new files or tabs
 
 ### What makes this challenging?
 If you currently work in a graphical user interface (GUI), you might be used to being able to see your data, have tools with guided interfaces, and seeing the results of your processing immediately. These aren't things you get with a typical database manager tool, however, you will get used to the typical workflow and seeing everything won't be so necessary.
