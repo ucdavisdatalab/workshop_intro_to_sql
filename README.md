@@ -67,7 +67,7 @@ Researchers typically are already thinking about querying data.
 
 Imagine you have a table about air quality data.  It contains columns with measurements about various environmental properties such as the temperature, the level of ozone, and perhaps measurements of various particulates.
 
-If you've ever subsetted data in R, for example, you've already done something similar to writing an SQL query!  `subset(airquality, Temp > 80, select = c(Ozone, Temp))` in R becomes `SELECT Ozone, Temp FROM airquality WHERE Temp > 80`.
+If you've ever subsetted data in R, for example, you've already done something similar to writing an SQL query! The R code `subset(airquality, Temp > 80, select = c(Ozone, Temp))` becomes `SELECT Ozone, Temp FROM airquality WHERE Temp > 80` in SQL.
 
 In Excel, you might sort your whole spreadsheet on the Temp column, then copy all of the rows that are greater than 80, and paste them into another tab.  You might remove all the other columns except for the Ozone and Temp columns.  You might have also used the cell highlighting tools to change the color of the cells based on the Temp column just to see which cells meet your criteria.
 
