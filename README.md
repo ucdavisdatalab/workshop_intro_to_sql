@@ -24,7 +24,9 @@ A database is a set of data in tables that are related to each other in some way
 
 Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a **key**. A key commonly used on campus is your student or employee ID number.
 
-**!!!!!!! EXAMPLE OF RELATED TABLES - student records? !!!!!!!!!!**
+Let's look at an example dataset of student data with data about courses, grades, and employment.  Can we say anything about the relationship between course grades and employment based on this data?
+
+**Table: Student**
 
 |ID|Name|
 |--|--|
@@ -32,17 +34,32 @@ Ideally each table can be connected to another table by a column that both table
 |456|Maria Martinez|
 |789|Paul Jones|
 
+**Table: Courses**
+
 |ID|Course|Grade|
 |--|--|--|
 |123|Calculus|A-|
 |456|Calculus|A|
-|789|Calculus|B+|
+|789|Calculus|C+|
 |123|Data Science|A-|
 |456|Data Science|B|
 |789|Data Science|B-|
 
+**Table: Employment**
+
+|ID|Position|Employer|HoursPerWeek|
+|--|--|--|--|
+|123|Student Assistant|University Research Lab|5|
+|456|Customer Service|Alumni Center|5|
+|456|Research Assistant|University Research Lab|15|
+|789|Student Assistant|University Research Lab|10|
+|789|Stock Room|Medical Supplier|20|
+|789|Customer Service|Alumi Center|15|
+
 ## What is Spatial SQL?
 SQL stands for "structured query language" and it's a language that allows you to ask questions of a database. 
+
+In the above example, it would be much easier to understand the relationships if we build a table aggregating and reshaping our data.  SQL allows us to do that.
 
 ### You're Already Doing This!
 
@@ -74,6 +91,10 @@ If you currently work in a graphical user interface (GUI), you might be used to 
 We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, graphical interface for working with SQL databases that works on all major computing operating systems. Installers are available on their [Downloads Page](https://sqlitebrowser.org/dl/).  If you do not have install permissions on your computer, the Portable App version may work without administrator permissions.
 
 ## Download the Workshop Data
+
+
+
+# Hands On
 
 
 
