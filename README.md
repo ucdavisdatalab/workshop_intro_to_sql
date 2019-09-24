@@ -17,3 +17,15 @@ No prior programming experience is necessary. Bring your laptop with SQLite inst
 # Resources
 [Sofware Carpentry's SQL Novice Workshop](http://swcarpentry.github.io/sql-novice-survey/)
 [Clark Fitzgeralds & Nick Ulle's SQL Workshop](https://github.com/clarkfitzg/SQLworkshop)
+
+
+# Concepts
+
+
+# Getting Setup
+
+## Install the Software
+
+We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, graphical interface for working with SQL databases that works on all major computing operating systems. Installers are available on their [Downloads Page](https://sqlitebrowser.org/dl/).  If you do not have install permissions on your computer, the Portable App version may work without administrator permissions.
+
+## Download the Workshop Data
