@@ -106,6 +106,9 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 
 # Resources
+
 [Sofware Carpentry's SQL Novice Workshop](http://swcarpentry.github.io/sql-novice-survey/)
+
 [Clark Fitzgeralds & Nick Ulle's SQL Workshop](https://github.com/clarkfitzg/SQLworkshop)
+
 [Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
