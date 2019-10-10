@@ -104,6 +104,51 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 # Hands On
 
+## Import the Data into a Database
+
+## Viewing Data
+
+Select * from Table
+
+Selecting Columns
+
+Limiting Results... limit 10
+
+Unique Values
+
+Calculating Values
+
+Aliasing... as
+
+Filtering Results... where
+
+Sorting... order by
+
+## Aggretating Data
+
+Count
+
+AVG
+
+SUM
+
+Group By
+
+Having
+
+## Saving Queries
+
+Create View
+
+Create Table
+
+## Joins
+
+Basic Joins
+
+Join/On vs. Where
+
+Join types... left, right, inner, etc.... which are allowed with this tool?
 
 
 
@@ -114,3 +159,5 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 [Clark Fitzgeralds & Nick Ulle's SQL Workshop](https://github.com/clarkfitzg/SQLworkshop)
 
 [Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
+
+[W3Schools SQL Materials](https://www.w3schools.com/sql/default.asp) - This is an excellent reference for SQL syntax with a fun "try it yourself" feature.
