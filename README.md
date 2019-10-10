@@ -99,9 +99,11 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 ## Download the Workshop Data
 
+## Understanding the Data
 
 
 # Hands On
+
 
 
 
