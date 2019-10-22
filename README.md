@@ -99,7 +99,13 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 ## Download the Workshop Data
 
-The data is available in the [data folder](/data)
+1. The data is available on [Michele's Workshop Data Box Drive](https://ucdavis.box.com/s/j2paxajpmtsg1ule8zgndy5vckpboex5).  
+
+1. Dismiss the banner that might pop-up at the top of the webpage directing you to log-in (you don't need to log-in or have an account).  
+
+1. Click the *Download* button in the upper right corner to download all the data in one zip.  
+
+1.  Save the data where you can find it easily, then unzip the folder.  You should have 8 files - 7 .csv files and 1 .txt
 
 ## Understanding the Data
 
