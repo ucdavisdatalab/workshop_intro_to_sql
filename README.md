@@ -12,8 +12,7 @@ After this workshop learners should be able to:
  * Access additional resources for using SQL in other software like R.
 
 ## Prerequisites
-No prior programming experience is necessary. Bring your laptop with SQLite installed (http://www.sqlitetutorial.net/download-install-sqlite/) and running. 
-
+No prior programming experience is necessary. Bring your laptop with DB Browser installed (https://sqlitebrowser.org/) and running.
 
 
 # Concepts
