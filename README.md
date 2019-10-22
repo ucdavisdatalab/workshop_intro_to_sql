@@ -111,6 +111,8 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 The data we'll be working with is an extract from the IMDB (Internet Movie Database) dataset from Oct. 18, 2019.  You can get updated data on the [IMDB Datasets Page](https://www.imdb.com/interfaces/#plain).  I've already pre-processed the data so that it's easier to import into your SQL database, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.
 
+![alt text](images/DataDiagram.png)
+
 # Hands On
 
 ## Import the Data into a Database
