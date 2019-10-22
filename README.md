@@ -182,13 +182,15 @@ Join/On vs. Where
 
 Join types... left, right, inner, etc.... which are allowed with this tool?
 
-## Manipulating Tables & Values
+## Data Management
 
 Update Table Where...
 
 Add column
 
 Update column
+
+Drop tables
 
 
 
