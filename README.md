@@ -11,7 +11,7 @@ After this workshop learners should be able to:
  * Identify the benefits of working with SQL.
  * Access additional resources for using SQL in other software like R.
 
-## Prereqs
+## Prerequisites
 No prior programming experience is necessary. Bring your laptop with SQLite installed (http://www.sqlitetutorial.net/download-install-sqlite/) and running. 
 
 
@@ -99,12 +99,37 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 ## Download the Workshop Data
 
+The data is available in the [data folder](/data)
+
 ## Understanding the Data
 
+The data we'll be working with is an extract from the IMDB (Internet Movie Database) dataset from Oct. 18, 2019.  You can get updated data on the [IMDB Datasets Page](https://www.imdb.com/interfaces/#plain).  I've already pre-processed the data so that it's easier to import into your SQL database, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.
 
 # Hands On
 
 ## Import the Data into a Database
+
+Open the DB Browser for SQLite program.
+
+Let's load the first data table:
+
+1. From the *File* menu, select *Import*, and then *Table from CSV...*.
+
+1. Navigate to where you saved your workshop data and select *name_basics.csv* and click the *Open* button.  A new dialog window should pop up now.
+
+1. In the *Table name* field, you can change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here.
+
+1. Check the box next to *Column names in first line* because our data has headers.
+
+1. Notice that the preview of the table does not look right.  The column names are not what we would expect for a table of information about actors.  Change the *Field separator* drop-down menu to *Tab*.  Notice the change in the preview.  That looks better!
+
+1. Change the *Quote character* to the blank space on the drop-down menu. The quotes that appear in the data do not indicate that something is text, but rather are used in a more literary sense.  If we don't change this, our data import will fail (your instructor learned this from personal experience).
+
+1. We can leave the *Encoding* as UTF-8.  If you get odd characters in your preivew, check to see what your character encoding should be.  *Trim fields* removes extra spaces.
+
+1. Click the *OK* button when everything looks as you would expect.
+
+Repeat the process with the *title_basics.csv* and *title_principles.csv* files.  The rest of the tables in the data folder are not needed for this workshop, but you can import them to try queries with them on your own.
 
 ## Viewing Data
 
