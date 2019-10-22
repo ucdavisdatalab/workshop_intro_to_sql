@@ -55,7 +55,7 @@ Let's look at an example dataset of student data with data about courses, grades
 |789|Stock Room|Medical Supplier|20|
 |789|Customer Service|Alumi Center|15|
 
-## What is Spatial SQL?
+## What is SQL?
 SQL stands for "structured query language" and it's a language that allows you to ask questions of a database. 
 
 In the above example, it would be much easier to understand the relationships if we build a table aggregating and reshaping our data.  SQL allows us to do that.
