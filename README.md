@@ -108,9 +108,21 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 ## Understanding the Data
 
-The data we'll be working with is an extract from the IMDB (Internet Movie Database) dataset from Oct. 18, 2019.  You can get updated data on the [IMDB Datasets Page](https://www.imdb.com/interfaces/#plain).  I've already pre-processed the data so that it's easier to import into your SQL database, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.
+For this workshop, we'll be working with some data from IMDB (Internet Movie Database). You can get updated data on the [IMDB Datasets Page](https://www.imdb.com/interfaces/#plain). The diagram below outlines the relationships between the data in the tables that make up the database.  Notice how information about the movie and TV show titles is all connected by the ```tconst``` column.  This is a **key**, a unique identifier for each title.  The cast and behind-the-scenes people also have a key - it's called ```nconst```.
+
 
 ![alt text](images/DataDiagram.png)
+
+
+I've already pre-processed the data so that it's easier to import into your SQL database and small enough to work reasonably well in a workshop, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.  The full IMDB database is rather large and growing daily, so feel free to explore it, but know that some of the tables are over 2GB in their original state.
+
+The data we'll be working with is an extract from the IMDB (dataset from Oct. 18, 2019.  Specifically, we'll be looking at the top 200 grossing movie titles and related data.  Here is a diagram of the data we'll be working with:
+
+![alt text](images/DataDiagram_200TopGross.jpg)
+
+Notice how all the tables can be connected with the ```tconst``` column.
+
+
 
 # Hands On
 
