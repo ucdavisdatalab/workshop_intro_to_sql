@@ -240,6 +240,30 @@ ORDER BY adj_lifetime_gross DESC
 LIMIT 10;
 ```
 
+### Calculating Values
+
+Let'd investigate the earnings of these movies.  In their current state, the numbers in the *adj_lifetime_gross* column are hard to compare.  
+
+**CHALLENGE:** Can you build a query that shows only the *title*, *year* and *adj_lifetime_gross* columns from the *gross* table?
+
+We can add mathematical operators and numbers to the column name to perform the calculation.  Let's calculate the adjusted lifetime gross column in billions of dollars (9 zeros):
+
+```
+SELECT title, year, adj_lifetime_gross/1000000000
+FROM gross;
+```
+
+### Renaming/Aliasing Columns
+
+Doing calculations is helpful for visualizing data, but the default column name is not always easy to read or interpret.  We can rename columns in the text of our query.  This is handy if you're planning to export this table for future use, especially if you're sending it to someone else.  Let's rename our calculated column using the *AS* option.
+
+```
+SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions
+FROM gross;
+```
+
+
+
 ### Unique Values
 
 In your data exploration, you might want to know which categories you're working with if you have a categorcal variable.  Let's look at the *principals* table which contains the roles played in each movie.
@@ -255,13 +279,11 @@ FROM principals;
 
 *DISTINCT* is a function that we can run on a column.  In this case, the function returns a list of unique values from the column, so each item is only listed once.
 
-Calculating Values
 
-Aliasing... as
 
-Filtering Results... where
+### Filtering Results
+where
 
-Sorting... order by
 
 ## Aggretating Data
 
