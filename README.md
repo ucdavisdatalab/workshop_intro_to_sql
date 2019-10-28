@@ -126,9 +126,25 @@ Notice how all the tables can be connected with the ```tconst``` column.
 
 # Hands On
 
+## Start DB Browser
+
+Start the **DB Browser for SQLite** program in the way you usually start new programs on your computer.  For example, on Windows 10, I typically search for the program name in the search box.
+
+## Create a New Database
+
+First, let's create a new database to store our data.  Remember that a database is like a container that holds related tables.
+
+1. Click on the *New Database* button ![alt text](images/Button_NewDatabase.PNG)
+
+1. Navigate to where you'd like to save your database.  I'd suggest putting it in the folder where you're keeping your workshop data.
+
+1. In the *File name* box, call your database "imdb", and then click *Save*.  You can dismiss the window that pops up to *Edit table definition*.  We'll load data in a different way.
+
+Now we have an empty database called *imdb.db*.
+
+
 ## Import the Data into a Database
 
-Open the DB Browser for SQLite program.
 
 Let's load the first data table:
 
