@@ -88,8 +88,6 @@ In Excel, you might sort your whole spreadsheet on the Temp column, then copy al
 If you currently work in a graphical user interface (GUI), you might be used to being able to see your data, have tools with guided interfaces, and seeing the results of your processing immediately. These aren't things you get with a typical database manager tool, however, you will get used to the typical workflow and seeing everything won't be so necessary.
 
 
-
-
 # Getting Setup
 
 ## Install the Software
@@ -145,7 +143,6 @@ Now we have an empty database called *imdb.db*.
 
 ## Import the Data into a Database
 
-
 Let's load the first data table:
 
 1. From the *File* menu, select *Import*, and then *Table from CSV...*.
@@ -166,13 +163,83 @@ Let's load the first data table:
 
 Repeat the process with the *gross.csv*, *principals.csv*, and *ratings.csv* files.  
 
+### The DB Browser Interface
+
+DB Browser has a number of tabs and tools to help you interact with your data.  We'll be mainly working with the *Execute SQL* tab, so go ahead and click on that tab.  We'll write our queries in the top portion of the interface, the results will be returned to the middle pannel, and messages will return to the bottom portion.
+
+Notice also the *DB Schema* panel on the right side of the window.  It should show all of the tables you've added.  If you click on the > symbol next to the table name, the interface will expand a list of the columns in your table.
+
+![alt](images/Interface_BasicQuery.PNG)
+
+
 ## Viewing Data
 
-Select * from Table
+### Anatomy of a SELECT Statement
 
-Selecting Columns
+We're ready to write our first queries! The most common query you'll use is the SELECT statement.  In it's most basic form, it shows you the data in a table, but you can add option to customize the view you get back.  Let's try!  Type this query into the query box:
 
-Limiting Results... limit 10
+```SELECT * FROM gross;```
+
+Now click the *Execute all* button. ![alt text](imates/Button_Execute.PNG)
+
+This query ask the database to select everything (* means "everything") from the table gross.  It ends with a semicolon to tell the database that this is the end of our request.  
+
+```SELECT 
+* 
+FROM 
+gross;
+```
+The above query does exactly the same thing as the first one, hence the need for the end of query indicator.  We can use new lines to help us organize large queries to make them easier to read.
+
+Capitolization in queries follows some general rules:
+
+* Commands are in all caps
+
+* Table names and column names are all lowercase
+
+Will the query work if you don't do this? It depends on the interface you're using, but generally it will work.  DB Browser doesn't mind either way.  In the text of this workshop, I will try to be consistent and use the proper form.
+
+### Selecting Columns
+
+What if we don't want to see all of the columns in the table?  We can ask for just the columns we want to see.  Let's get the title, the year the movie came out, and the ajusted lifetime gross income:
+
+```
+SELECT title, year, adj_lifetime_gross 
+FROM gross;
+```
+
+### Ordering Results
+
+What if I want to see them in order of the year they were made?
+
+```
+SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY year;
+```
+
+**CHALLENGE:** How would I order the table by the adjusted lifetime gross income?
+
+The default order by option sorts in ascending order.  We can sort in descending order to get the top grossing movies first by adding the DESC parameter:
+
+```
+SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY adj_lifetime_gross DESC;
+```
+
+### Limiting Number of Rows
+
+Our database has the top 200 movies.  What if we just want a table of the top 10?  We can use the *LIMIT* command to reduce the number of rows the query returns.
+
+```
+SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY adj_lifetime_gross DESC
+LIMIT 10;
+```
+
+
 
 Unique Values
 
