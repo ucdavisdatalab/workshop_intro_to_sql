@@ -150,9 +150,9 @@ Let's load the first data table:
 
 1. From the *File* menu, select *Import*, and then *Table from CSV...*.
 
-1. Navigate to where you saved your workshop data and select *name_basics.csv* and click the *Open* button.  A new dialog window should pop up now.
+1. Navigate to where you saved your workshop data and select *basics.csv* and click the *Open* button.  A new dialog window should pop up now.
 
-1. In the *Table name* field, you can change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here.
+1. In the *Table name* field, you can change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here. Let's leave the name as *basics*.
 
 1. Check the box next to *Column names in first line* because our data has headers.
 
@@ -160,11 +160,11 @@ Let's load the first data table:
 
 1. Change the *Quote character* to the blank space on the drop-down menu. The quotes that appear in the data do not indicate that something is text, but rather are used in a more literary sense.  If we don't change this, our data import will fail (your instructor learned this from personal experience).
 
-1. We can leave the *Encoding* as UTF-8.  If you get odd characters in your preivew, check to see what your character encoding should be.  *Trim fields* removes extra spaces.
+1. We can leave the *Encoding* as UTF-8.  Note: when you load your own data, if you get odd characters in your preivew, check to see what your character encoding should be.  *Trim fields* removes extra spaces.
 
 1. Click the *OK* button when everything looks as you would expect.
 
-Repeat the process with the *title_basics.csv* and *title_principles.csv* files.  The rest of the tables in the data folder are not needed for this workshop, but you can import them to try queries with them on your own.
+Repeat the process with the *gross.csv*, *principals.csv*, and *ratings.csv* files.  
 
 ## Viewing Data
 
