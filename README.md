@@ -184,7 +184,8 @@ Now click the *Execute all* button. ![alt text](imates/Button_Execute.PNG)
 
 This query ask the database to select everything (* means "everything") from the table gross.  It ends with a semicolon to tell the database that this is the end of our request.  
 
-```SELECT 
+```
+SELECT 
 * 
 FROM 
 gross;
@@ -239,9 +240,20 @@ ORDER BY adj_lifetime_gross DESC
 LIMIT 10;
 ```
 
+### Unique Values
 
+In your data exploration, you might want to know which categories you're working with if you have a categorcal variable.  Let's look at the *principals* table which contains the roles played in each movie.
 
-Unique Values
+**REVEIW** How would you see all the data in the *principals* table?  I'll typically view all the data (adding a LIMIT parameter if it's a big one) before I write queries just to get a better feel for the information that's contained there.
+
+I'm curious about how many different roles are used in the *category* field.
+
+```
+SELECT DISTINCT(category) 
+FROM principals;
+```
+
+*DISTINCT* is a function that we can run on a column.  In this case, the function returns a list of unique values from the column, so each item is only listed once.
 
 Calculating Values
 
