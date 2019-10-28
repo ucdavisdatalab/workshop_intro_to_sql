@@ -180,7 +180,7 @@ We're ready to write our first queries! The most common query you'll use is the 
 
 ```SELECT * FROM gross;```
 
-Now click the *Execute all* button. ![alt text](imates/Button_Execute.PNG)
+Now click the *Execute all* button. ![alt text](images/Button_Execute.PNG)
 
 This query ask the database to select everything (* means "everything") from the table gross.  It ends with a semicolon to tell the database that this is the end of our request.  
 
