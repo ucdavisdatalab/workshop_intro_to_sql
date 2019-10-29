@@ -347,14 +347,41 @@ FROM ratings
 WHERE averageRating >=8.0 AND averageRating < 8.5;
 ```
 
+### Average
+
+Averageing is another function we can use to aggregate data.  Let's find the average adjusted lifetime gross of our top 200 movies:
+
+```
+SELECT AVG(adj_lifetime_gross) 
+FROM gross;
+```
+
+### Sum
+
+We can also sum our data.  Let's find the sum of the adjusted lifetime gross of our movies;
+
+```
+SELECT SUM(adj_lifetime_gross) FROM gross;
+```
+
+### Grouping Data
+
+So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophiticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (so actress, actor, composer, etc.):
+
+```
+SELECT category, COUNT(nconst) 
+FROM principals
+GROUP BY category;
+```
+
+Notice here how we asked for two columns - the category and the count of the name ID.  This makes the resuts of the *COUNT* funtion easier to understand.  
 
 
 
-AVG
 
-SUM
 
-Group By
+
+
 
 Having
 
