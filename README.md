@@ -314,13 +314,41 @@ WHERE
 category LIKE 'act%';
 ```
 
-You can also use the wildcard character at the beginning of the word as well.
+You can also use the wildcard character at the beginning of the word as well.  We'll use a *WHERE* clause a lot later so we'll leave this topic for now.
 
 
 
 ## Aggretating Data
 
-Count
+We've just looked a number of ways to filter data, but now let's look at some ways to aggregate data
+
+### Count
+
+It probably won't surprise you that we can count the number of records or that this particular query returns the number 200:
+
+```
+SELECT COUNT(tconst) 
+FROM ratings;
+```
+
+You might also suspect that you can add *WHERE* clause to this to get more information.  Let's see how many movies in our dataset are rated better than or equal to 8.0:
+
+```
+SELECT COUNT(tconst) 
+FROM ratings
+WHERE averageRating >=8.0;
+```
+
+We could also find out how many are greater than or equal to 8.0 but less than 8.5 using an *AND*:
+
+```
+SELECT COUNT(tconst) 
+FROM ratings
+WHERE averageRating >=8.0 AND averageRating < 8.5;
+```
+
+
+
 
 AVG
 
