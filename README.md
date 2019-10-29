@@ -282,7 +282,40 @@ FROM principals;
 
 
 ### Filtering Results
-where
+
+Now that we know what kinds of job rolls are listed in the *principals* table's *category* field, let's filter the table to look at the records for just one job type.
+
+```
+SELECT * 
+FROM principals
+WHERE category LIKE 'actor';
+```
+
+The *WHERE* option lets us specify a condition of the record to filter on.  (For you spatially-minded folks, *WHERE* does not inherently mean a location.)
+
+What does *LIKE* mean?  Why not use = ? For text-based data (non-numeric data), the comparison operators are different.  You can think of *LIKE* for text as being about the same as = for numeric data.
+
+The above query returns just the actors, so male people in an acting role.  By now, you probably can figure out how to get filter for actresses, or female people in an acting role, BUT how can we get both?  We can ask *WHERE* to meet multiple conditions using either *OR* (for where a record can match either of two conditions) or *AND* (when a record must match both conditions).  Let's get both actors and actresses:
+
+```
+SELECT * 
+FROM principals
+WHERE 
+category LIKE 'actor' 
+OR category LIKE'actress';
+```
+
+There is another way to do this query.  Because our categories are similar, we can use a wildcard - *%* in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary.  Let's take a look:
+
+```
+SELECT * 
+FROM principals
+WHERE 
+category LIKE 'act%';
+```
+
+You can also use the wildcard character at the beginning of the word as well.
+
 
 
 ## Aggretating Data
