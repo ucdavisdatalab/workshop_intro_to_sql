@@ -395,6 +395,14 @@ So now we've seen how we can use functions to aggregate data and how grouping da
 
 ## Joins
 
+Joining tables allows us to combine information from two tables into a new table.  Both tables need to have information in common to be able to match up the records in each table, called a **key**.  For example, in the introduction, a student ID number links information in our tables.  In our IMDB data, the *tconst* variable links information in all of our tables
+
+SQL has 4 kinds of joins:
+
+![alt text](https://www.w3schools.com/sql/img_innerjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_leftjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_rightjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_fulljoin.gif)
+
+The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning.
+
 Basic Joins
 
 Join/On vs. Where
