@@ -367,7 +367,7 @@ SELECT SUM(adj_lifetime_gross) FROM gross;
 
 ### Grouping Data
 
-So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophiticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (so actress, actor, composer, etc.):
+So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophisticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (so actress, actor, composer, etc.):
 
 ```
 SELECT category, COUNT(nconst) 
@@ -445,6 +445,19 @@ USING (tconst);
 Occasionally, you can write a join-like query using a *WHERE* clause (```SELECT columns FROM table WHERE table_a.col = table_b.col```). I would suggest that this is ok, but the real power in writing SQL statements is in precision, so writing out a proper join is a good idea.
 
 
+## Saving Queries
+
+Normally, we don't need to save a bunch of tables because we can always run a query to get the information, but sometimes we might want to save a query as a table or a view if the contents of that query is something we plan to use repeatedly.  Use this new power sparingly to keep your database organized.
+
+We have two options to save a query as a table-like object.  One option is to make a new table.  This is a separate set of data stored in table format, just like the tables you've been working with.  The other option is to make a view.  A view is a virtual table.  The data in a view comes from other tables.  You can think of this as a query that automatically runs itself.  A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table.  The only major difference is that a view, because it is updating from other tables, is not able to be edited.  
+
+
+
+Create Table
+
+Create View
+
+
 ## Data Management
 
 Update Table Where...
@@ -456,11 +469,7 @@ Update column
 Drop tables
 
 
-## Saving Queries
 
-Create View
-
-Create Table
 
 
 
