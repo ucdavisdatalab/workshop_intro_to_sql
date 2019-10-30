@@ -377,13 +377,18 @@ GROUP BY category;
 Notice here how we asked for two columns - the category and the count of the name ID.  This makes the resuts of the *COUNT* funtion easier to understand.  
 
 
+### Having
 
+*HAVING* is just like *WHERE* but it specifically works with grouping data.  Perhaps we're only interested in the categories of principals that have more than 100 people.  Let's see what that looks like:
 
+```
+SELECT category, COUNT(nconst) 
+FROM principals
+GROUP BY category
+HAVING COUNT(nconst) > 100;
+```
 
-
-
-
-Having
+So now we've seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables.  There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
 
 ## Saving Queries
 
