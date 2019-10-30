@@ -403,12 +403,46 @@ SQL has 4 kinds of joins:
 
 The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning.
 
-Basic Joins
+What kinds of joins are there?
 
-Join/On vs. Where
+* JOIN: Returns records that have matching values in both tables; sometimes called an "inner join" because it gets you what's in the middle of the Venn diagram.
 
-Join types... left, right, inner, etc.... which are allowed with this tool?
+* LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table; the "left" table is the first table you write in the query.
 
+* RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table; the "right" table is the second table you write in the query or the "join" table. **Not currently supported in DB Browser.**
+
+* FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table.  **Not currently supported in DB Browser.**
+
+A join is a special kind of select statement.  We start in just the same way: select the columns we want in the output (using table.column syntax to indicate which table each column comes from).  Then we have the *FROM* statement to tell it which table to start with (this is our "left" table). Then we need our *JOIN* statement to say which table should get joined (this is our "right" table), and finally, we have to say which columns the join should be based on with either *ON* (for any columns) or *USING* (when the column names match... although *ON* also works in this case and it's what I always remember).  Let's try a join to see how this works:
+
+```
+SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
+FROM basics
+JOIN gross
+ON basics.tconst = gross.tconst;
+```
+
+We can use the *USING* clause when the join columns from both tables have the same name:
+
+```
+SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
+FROM basics
+JOIN gross
+USING (tconst);
+```
+
+**CHALLENGE:** Can you make a table that contains the movie names and all the principal jobs for each movie?
+
+Don't look, but here's one solution:
+
+```
+SELECT  basics.*, principals.* 
+FROM principals
+LEFT JOIN basics
+USING (tconst);
+```
+
+Occasionally, you can write a join-like query using a *WHERE* clause (```SELECT columns FROM table WHERE table_a.col = table_b.col```). I would suggest that this is ok, but the real power in writing SQL statements is in precision, so writing out a proper join is a good idea.
 
 
 ## Data Management
