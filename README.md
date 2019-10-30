@@ -485,20 +485,54 @@ Normally you wouldn't need to make both a view and a table, but this is a worksh
 
 ## Data Management
 
-Update Table Where...
+### Fix Mistakes with UPDATE
+Now you might have noticed that our new table *principals_movies* has some funny characters.  The IMDB database uses the characters *\n* instead of *NULL* or *NA*.  The good news is that we can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right.
 
-Add column
+First, I write some *SELECT* statements to make sure I know how to get the records I want:
 
-Update column
+```
+SELECT * FROM  principals_movies
+where job LIKE '\N';
+```
 
-Drop tables
+This looks good because it returns just the records where the *jobs* column is *\N* so I know I can update that column:
 
+```
+UPDATE principals_movies
+SET job = NULL
+where job LIKE '\N';
+```
 
+This query specifically targets just the job column and replaces whatever value is there with the one I want (NULL) if the condition is met in the *WHERE* clause.  It leaves the other values alone.  If I remove the *WHERE* clause, it will set the whole column to *NULL*, so proceed with caution.  Also note, that because we're working on a table that we made and aren't changing the original tables, we can always remake the table we're working on.  It's always a good idea to have back-up copies of data in case you make a mistake.
 
+**CHALLENGE:** Write a query that also removes the *\N* characters from the *characters* column.
 
+### Add & Populate a Column
 
+Sometimes we want to make a new column and add data into it.  Let's make a new column called *acting_role* and populate it with a 1 if the *category* is *actor* or *actress* and 0 if it's something else.
+
+First we add a column and set the default value to 0:
+
+```
+ALTER TABLE principals_movies
+ADD acting_role INTEGER DEFAULT 0;
+```
+
+And now we update the column to be 1 where the *category* is *actor* or *actress*:
+
+```
+UPDATE principals_movies
+SET acting_role = 1
+WHERE category LIKE 'act%';
+```
+
+# Conclusion
+
+We covered a wide variety of SQL processes you might need in setting up a database and querying data.  Did we cover everything you might need to know?  Of course not.  It's only a 2 hour workshop and SQL is a big language.  I highly encourage you to look at the resources below to learn more and expand your SQL skills.  I also welcome pull requests and issue for typo fixes or ideas for additional content.
 
 # Resources
+
+[W3Schools SQL Materials](https://www.w3schools.com/sql/default.asp) - This is an excellent reference for SQL syntax with a fun "try it yourself" feature.
 
 [Sofware Carpentry's SQL Novice Workshop](http://swcarpentry.github.io/sql-novice-survey/)
 
@@ -506,4 +540,4 @@ Drop tables
 
 [Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
 
-[W3Schools SQL Materials](https://www.w3schools.com/sql/default.asp) - This is an excellent reference for SQL syntax with a fun "try it yourself" feature.
+
