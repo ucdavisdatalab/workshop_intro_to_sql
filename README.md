@@ -161,7 +161,7 @@ Let's load the first data table:
 
 1. Click the *OK* button when everything looks as you would expect.
 
-Repeat the process with the *gross.csv*, *principals.csv*, and *ratings.csv* files.  
+Repeat the process with the *gross.csv*, *name.csv*, *principals.csv*, and *ratings.csv* files.  
 
 ### The DB Browser Interface
 
@@ -451,11 +451,36 @@ Normally, we don't need to save a bunch of tables because we can always run a qu
 
 We have two options to save a query as a table-like object.  One option is to make a new table.  This is a separate set of data stored in table format, just like the tables you've been working with.  The other option is to make a view.  A view is a virtual table.  The data in a view comes from other tables.  You can think of this as a query that automatically runs itself.  A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table.  The only major difference is that a view, because it is updating from other tables, is not able to be edited.  
 
+Let's write a fairly complicated query that we might want to keep around.  This one joins 3 tables into one:
 
+```
+SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;
+```
 
-Create Table
+If we want to make a table out of this query, we just need to add ```CREATE TABLE our_new_table_name AS``` in front of the query (adding in our own table name, of course).  This is what it looks like:
 
-Create View
+```CREATE TABLE principals_movies AS
+SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;
+```
+
+In much the same way we made the new table, we can make a view:
+```
+CREATE VIEW principals_movies_view AS
+SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;
+```
+
+You might notice now that your new view is the the views section of your DB Schema panel.
+
+Normally you wouldn't need to make both a view and a table, but this is a workshop and you need to see how to do all the important things.
 
 
 ## Data Management
