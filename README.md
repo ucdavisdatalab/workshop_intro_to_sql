@@ -305,6 +305,7 @@ category LIKE 'actor'
 OR category LIKE'actress';
 ```
 
+### Wildcard Matching
 There is another way to do this query.  Because our categories are similar, we can use a wildcard - *%* in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary.  Let's take a look:
 
 ```
@@ -314,7 +315,7 @@ WHERE
 category LIKE 'act%';
 ```
 
-You can also use the wildcard character at the beginning of the word as well.  We'll use a *WHERE* clause a lot later so we'll leave this topic for now.
+You can also use the wildcard character at the beginning of the word as well.  The % wildcard is useful for fairly simple situations.  You can also use regular expressions to match in more complicated situations.  Read more about using regular expressions [here](https://github.com/sqlitebrowser/sqlitebrowser/wiki/Regular-Expressions).
 
 
 
@@ -390,11 +391,7 @@ HAVING COUNT(nconst) > 100;
 
 So now we've seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables.  There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
 
-## Saving Queries
 
-Create View
-
-Create Table
 
 ## Joins
 
@@ -403,6 +400,8 @@ Basic Joins
 Join/On vs. Where
 
 Join types... left, right, inner, etc.... which are allowed with this tool?
+
+
 
 ## Data Management
 
@@ -413,6 +412,13 @@ Add column
 Update column
 
 Drop tables
+
+
+## Saving Queries
+
+Create View
+
+Create Table
 
 
 
