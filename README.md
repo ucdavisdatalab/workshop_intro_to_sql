@@ -118,7 +118,7 @@ The data we'll be working with is an extract from the IMDB (dataset from Oct. 18
 
 ![alt text](images/DataDiagram_200TopGross.jpg)
 
-Notice how all the tables can be connected with the ```tconst``` column.
+Notice how most of the tables can be connected with the ```tconst``` column.
 
 
 
