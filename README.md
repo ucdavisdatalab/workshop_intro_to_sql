@@ -1,8 +1,6 @@
 # Intro to SQL for Querying Databases
 
-**This workshop is under development. It should be complete before Nov. 6, 2019.**  The goal is to write a workshop that teaches the basics of (non-spatial) SQL using DB Browsesr and SQLite.
-
-This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and combining data from separate tables. 
+This workshop teaches the basics of (non-spatial) SQL using DB Browsesr and SQLite.  This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and combining data from separate tables. 
 
 ## Goals
 After this workshop learners should be able to:
@@ -21,9 +19,9 @@ No prior programming experience is necessary. Bring your laptop with DB Browser 
 
 A database is a set of data in tables that are related to each other in some way. That's it. It's just a collection of tables.
 
-Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a **key**. A key commonly used on campus is your student or employee ID number.
+Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a **key**. For example, a key commonly used on campus is your student or employee ID number.
 
-Let's look at an example dataset of student data with data about courses, grades, and employment.  Can we say anything about the relationship between course grades and employment based on this data?
+Let's look at an example dataset of fictional student data with data about courses, grades, and employment.  Can we say anything about the relationship between course grades and employment based on this data?
 
 **Table: Student**
 
@@ -71,7 +69,7 @@ If you've ever subsetted data in R, for example, you've already done something s
 In Excel, you might sort your whole spreadsheet on the Temp column, then copy all of the rows that are greater than 80, and paste them into another tab.  You might remove all the other columns except for the Ozone and Temp columns.  You might have also used the cell highlighting tools to change the color of the cells based on the Temp column just to see which cells meet your criteria.
 
 ### Why do you want to learn to work with databases and SQL?
- * Efficient
+ * Efficiency
     + Write a few lines of code rather than lots of manual data manipulation
     + SQL is meant for data manipulation
  * Reproducibility 
@@ -81,7 +79,7 @@ In Excel, you might sort your whole spreadsheet on the Temp column, then copy al
     + Typically faster to run a process in a database than in a spreadsheet
     + Store lots of data (compare with Excel's row limits)
  * Data management
-    + One database file stores many, many tables
+    + One database file stores many, many tables which is represented as one file in your file browser
     + Write a query instead of making a new files or tabs
 
 ### What makes this challenging?
@@ -98,11 +96,11 @@ We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, gr
 
 1. The data is available on [Michele's Workshop Data Box Drive](https://ucdavis.box.com/s/j2paxajpmtsg1ule8zgndy5vckpboex5).  
 
-1. Dismiss the banner that might pop-up at the top of the webpage directing you to log-in (you don't need to log-in or have an account).  
+1. Dismiss the banner that might pop-up at the top of the webpage directing you to log-in (you don't need to log-in or have an account to download the data). 
 
-1. Click the *Download* button in the upper right corner to download all the data in one zip.  
+1. Click the *Download* button in the upper right corner to download all the data in one zipped file.  
 
-1.  Save the data where you can find it easily, then unzip the folder.  You should have 8 files - 7 .csv files and 1 .txt
+1.  Save the data where you can find it easily, then unzip the folder.  
 
 ## Understanding the Data
 
@@ -114,11 +112,11 @@ For this workshop, we'll be working with some data from IMDB (Internet Movie Dat
 
 I've already pre-processed the data so that it's easier to import into your SQL database and small enough to work reasonably well in a workshop, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.  The full IMDB database is rather large and growing daily, so feel free to explore it, but know that some of the tables are over 2GB in their original state.
 
-The data we'll be working with is an extract from the IMDB (dataset from Oct. 18, 2019.  Specifically, we'll be looking at the top 200 grossing movie titles and related data.  Here is a diagram of the data we'll be working with:
+The data we'll be working with is an extract from the IMDB dataset from Oct. 18, 2019.  Specifically, we'll be looking at the top 200 grossing movie titles and related data.  Here is a diagram of the data we'll be working with:
 
 ![alt text](images/DataDiagram_200TopGross.jpg)
 
-Notice how most of the tables can be connected with the ```tconst``` column.
+Notice how most of the tables can be connected with the ```tconst``` column.  The contents of most of the tables are described on [IMDB's database documentation page](https://www.imdb.com/interfaces/#plain).  The data in the gross table are described by [BoxOffice Mojo, a division of IMDB](https://www.boxofficemojo.com/chart/top_lifetime_gross_adjusted/?adjust_gross_to=2019&ref_=bo_cso_ac).
 
 
 
@@ -149,7 +147,7 @@ Let's load the first data table:
 
 1. Navigate to where you saved your workshop data and select *basics.csv* and click the *Open* button.  A new dialog window should pop up now.
 
-1. In the *Table name* field, you can change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here. Let's leave the name as *basics*.
+1. In the *Table name* field, you could change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here. Let's leave the name as *basics*.
 
 1. Check the box next to *Column names in first line* because our data has headers.
 
@@ -182,7 +180,7 @@ We're ready to write our first queries! The most common query you'll use is the 
 
 Now click the *Execute all* button. ![alt text](images/Button_Execute.PNG)
 
-This query ask the database to select everything (* means "everything") from the table gross.  It ends with a semicolon to tell the database that this is the end of our request.  
+This query asks the database to select everything (* means "everything") from the table *gross*.  It ends with a semicolon to tell the database that this is the end of our request.  
 
 ```
 SELECT 
@@ -242,11 +240,11 @@ LIMIT 10;
 
 ### Calculating Values
 
-Let'd investigate the earnings of these movies.  In their current state, the numbers in the *adj_lifetime_gross* column are hard to compare.  
+Let's investigate the earnings of these movies.
 
 **CHALLENGE:** Can you build a query that shows only the *title*, *year* and *adj_lifetime_gross* columns from the *gross* table?
 
-We can add mathematical operators and numbers to the column name to perform the calculation.  Let's calculate the adjusted lifetime gross column in billions of dollars (9 zeros):
+In their current state, the numbers in the *adj_lifetime_gross* column are hard to compare.  We can add mathematical operators and numbers to the column name to perform the calculation.  Let's calculate the adjusted lifetime gross column in billions of dollars (9 zeros):
 
 ```
 SELECT title, year, adj_lifetime_gross/1000000000
@@ -262,6 +260,14 @@ SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions
 FROM gross;
 ```
 
+### Commenting Queries
+
+Sometimes we want to be able to write a comment, text that won't be interpreted by the interface as a part of the query.  Any text that follows two dashes *--* until the end of the ine is a comment.
+
+```
+SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions -- 1 billion has 9 zeros
+FROM gross;
+```
 
 
 ### Unique Values
@@ -306,7 +312,7 @@ OR category LIKE'actress';
 ```
 
 ### Wildcard Matching
-There is another way to do this query.  Because our categories are similar, we can use a wildcard - *%* in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary.  Let's take a look:
+There is another way to write this query.  Because our categories are similar, we can use a wildcard - *%* in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary.  Let's take a look:
 
 ```
 SELECT * 
@@ -321,7 +327,7 @@ You can also use the wildcard character at the beginning of the word as well.  T
 
 ## Aggretating Data
 
-We've just looked a number of ways to filter data, but now let's look at some ways to aggregate data
+We've just looked a number of ways to filter data, but now let's look at some ways to aggregate data.
 
 ### Count
 
@@ -337,7 +343,7 @@ You might also suspect that you can add *WHERE* clause to this to get more infor
 ```
 SELECT COUNT(tconst) 
 FROM ratings
-WHERE averageRating >=8.0;
+WHERE averageRating >= 8.0;
 ```
 
 We could also find out how many are greater than or equal to 8.0 but less than 8.5 using an *AND*:
@@ -345,17 +351,19 @@ We could also find out how many are greater than or equal to 8.0 but less than 8
 ```
 SELECT COUNT(tconst) 
 FROM ratings
-WHERE averageRating >=8.0 AND averageRating < 8.5;
+WHERE averageRating >= 8.0 AND averageRating < 8.5;
 ```
 
 ### Average
 
-Averageing is another function we can use to aggregate data.  Let's find the average adjusted lifetime gross of our top 200 movies:
+Averaging is another function we can use to aggregate data.  Let's find the average adjusted lifetime gross of our top 200 movies:
 
 ```
 SELECT AVG(adj_lifetime_gross) 
 FROM gross;
 ```
+
+**CHALLENGE:** How many billions of dollars is this?
 
 ### Sum
 
@@ -367,7 +375,7 @@ SELECT SUM(adj_lifetime_gross) FROM gross;
 
 ### Grouping Data
 
-So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophisticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (so actress, actor, composer, etc.):
+So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophisticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (actress, actor, composer, etc.):
 
 ```
 SELECT category, COUNT(nconst) 
@@ -389,19 +397,19 @@ GROUP BY category
 HAVING COUNT(nconst) > 100;
 ```
 
-So now we've seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables.  There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
+Now we've seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables.  There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
 
 
 
 ## Joins
 
-Joining tables allows us to combine information from two tables into a new table.  Both tables need to have information in common to be able to match up the records in each table, called a **key**.  For example, in the introduction, a student ID number links information in our tables.  In our IMDB data, the *tconst* variable links information in all of our tables
+Joining tables allows us to combine information from two tables into a new table.  Both tables need to have information in common to be able to match up the records in each table, called a **key**.  For example, in the introduction, a student ID number links information in our tables.  In our IMDB data, the *tconst* variable links information in most of our tables.
 
 SQL has 4 kinds of joins:
 
 ![alt text](https://www.w3schools.com/sql/img_innerjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_leftjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_rightjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_fulljoin.gif)
 
-The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning.
+The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning more about SQL.
 
 What kinds of joins are there?
 
@@ -413,7 +421,7 @@ What kinds of joins are there?
 
 * FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table.  **Not currently supported in DB Browser.**
 
-A join is a special kind of select statement.  We start in just the same way: select the columns we want in the output (using table.column syntax to indicate which table each column comes from).  Then we have the *FROM* statement to tell it which table to start with (this is our "left" table). Then we need our *JOIN* statement to say which table should get joined (this is our "right" table), and finally, we have to say which columns the join should be based on with either *ON* (for any columns) or *USING* (when the column names match... although *ON* also works in this case and it's what I always remember).  Let's try a join to see how this works:
+A join is a special kind of select statement.  We start in just the same way: *SELECT* the columns we want in the output (using table.column syntax to indicate which table each column comes from).  Then we have the *FROM* statement to tell it which table to start with (this is our "left" table). Then we need our *JOIN* statement to say which table should get joined (this is our "right" table), and finally, we have to say which columns the join should be based on with either *ON* (for any columns) or *USING* (when the column names match... although *ON* also works in this case and it's what I always remember).  Let's try a join to see how this works:
 
 ```
 SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
@@ -449,7 +457,7 @@ Occasionally, you can write a join-like query using a *WHERE* clause (```SELECT 
 
 Normally, we don't need to save a bunch of tables because we can always run a query to get the information, but sometimes we might want to save a query as a table or a view if the contents of that query is something we plan to use repeatedly.  Use this new power sparingly to keep your database organized.
 
-We have two options to save a query as a table-like object.  One option is to make a new table.  This is a separate set of data stored in table format, just like the tables you've been working with.  The other option is to make a view.  A view is a virtual table.  The data in a view comes from other tables.  You can think of this as a query that automatically runs itself.  A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table.  The only major difference is that a view, because it is updating from other tables, is not able to be edited.  
+We have two options to save a query as a table-like object.  One option is to make a **new table**.  This is a separate set of data stored in table format, just like the tables you've been working with.  The other option is to make a **view**.  A view is a virtual table.  The data in a view comes from other tables.  You can think of this as a query that automatically runs itself and will updat if the tables it queries changes.  A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table.  The only major difference is that a view, because it is updating from other tables, is not able to be edited.  
 
 Let's write a fairly complicated query that we might want to keep around.  This one joins 3 tables into one:
 
@@ -488,7 +496,7 @@ Normally you wouldn't need to make both a view and a table, but this is a worksh
 ### Fix Mistakes with UPDATE
 Now you might have noticed that our new table *principals_movies* has some funny characters.  The IMDB database uses the characters *\n* instead of *NULL* or *NA*.  The good news is that we can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right.
 
-First, I write some *SELECT* statements to make sure I know how to get the records I want:
+First, I construct a *SELECT* statement to make sure I know how to get the records I want to update:
 
 ```
 SELECT * FROM  principals_movies
@@ -503,7 +511,7 @@ SET job = NULL
 where job LIKE '\N';
 ```
 
-This query specifically targets just the job column and replaces whatever value is there with the one I want (NULL) if the condition is met in the *WHERE* clause.  It leaves the other values alone.  If I remove the *WHERE* clause, it will set the whole column to *NULL*, so proceed with caution.  Also note, that because we're working on a table that we made and aren't changing the original tables, we can always remake the table we're working on.  It's always a good idea to have back-up copies of data in case you make a mistake.
+This query specifically targets just the job column and replaces whatever value is there with the one I want (NULL) if the condition is met in the *WHERE* clause.  It leaves the other values alone.  If I remove the *WHERE* clause, it will set the whole column to *NULL* overwriting data I want to keep, so proceed with caution.  Also note, that because we're working on a table that we made and aren't changing the original tables, we can always remake the table we're working on if we make a mistake.  It's always a good idea to have back-up copies of data in case you make a mistake.
 
 **CHALLENGE:** Write a query that also removes the *\N* characters from the *characters* column.
 
@@ -528,7 +536,7 @@ WHERE category LIKE 'act%';
 
 # Conclusion
 
-We covered a wide variety of SQL processes you might need in setting up a database and querying data.  Did we cover everything you might need to know?  Of course not.  It's only a 2 hour workshop and SQL is a big language.  I highly encourage you to look at the resources below to learn more and expand your SQL skills.  I also welcome pull requests and issue for typo fixes or ideas for additional content.
+We covered a wide variety of SQL processes you might need in setting up a database and querying data.  Did we cover everything you might need to know?  Of course not.  It's only a 2 hour workshop and SQL is a big language.  I highly encourage you to look at the resources below to learn more and expand your SQL skills.  I also welcome pull requests and submitting issues for typo fixes or ideas for additional content.
 
 # Resources
 
