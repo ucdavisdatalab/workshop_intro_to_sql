@@ -548,4 +548,10 @@ We covered a wide variety of SQL processes you might need in setting up a databa
 
 [Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
 
+Working with SQL databases and queries in R:
+
+* [University of Michigan's Stat 701 Class Notes](http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html)
+
+* [RStudio's Database Queries with R](https://db.rstudio.com/getting-started/database-queries/)
+
 
