@@ -1,5 +1,7 @@
 # Intro to SQL for Querying Databases
 
+Author: Michele Tobias
+
 This workshop teaches the basics of (non-spatial) SQL using DB Browsesr and SQLite.  This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and combining data from separate tables. 
 
 ## Goals
