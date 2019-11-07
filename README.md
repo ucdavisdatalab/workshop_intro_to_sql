@@ -470,7 +470,8 @@ JOIN name on principals.nconst = name.nconst;
 
 If we want to make a table out of this query, we just need to add ```CREATE TABLE our_new_table_name AS``` in front of the query (adding in our own table name, of course).  This is what it looks like:
 
-```CREATE TABLE principals_movies AS
+```
+CREATE TABLE principals_movies AS
 SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
 FROM principals
 LEFT JOIN basics USING (tconst)
@@ -526,7 +527,7 @@ ALTER TABLE principals_movies
 ADD acting_role INTEGER DEFAULT 0;
 ```
 
-And now we update the column to be 1 where the *category* is *actor* or *actress*:
+Note that the *DEFAULT* argument is optional, but if you leave it blank, it will make the default value NULL.  Now we update the column to be 1 where the *category* is *actor* or *actress*:
 
 ```
 UPDATE principals_movies
