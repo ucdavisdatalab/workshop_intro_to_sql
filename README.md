@@ -242,8 +242,6 @@ LIMIT 10;
 
 Let's investigate the earnings of these movies.
 
-**CHALLENGE:** Can you build a query that shows only the *title*, *year* and *adj_lifetime_gross* columns from the *gross* table?
-
 In their current state, the numbers in the *adj_lifetime_gross* column are hard to compare.  We can add mathematical operators and numbers to the column name to perform the calculation.  Let's calculate the adjusted lifetime gross column in billions of dollars (9 zeros):
 
 ```
@@ -262,7 +260,7 @@ FROM gross;
 
 ### Commenting Queries
 
-Sometimes we want to be able to write a comment, text that won't be interpreted by the interface as a part of the query.  Any text that follows two dashes *--* until the end of the ine is a comment.
+Sometimes we want to be able to write a comment, text that won't be interpreted by the interface as a part of the query.  Any text that follows two dashes *--* until the end of the line is a comment.
 
 ```
 SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions -- 1 billion has 9 zeros
