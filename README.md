@@ -1,71 +1,25 @@
-# Template: Workshop Reader
-
-This repository is a template for workshop readers for the UC Davis DataLab.
-This template uses **bookdown** to knit the reader. You can also optionally use
-**renv** to manage packages and Git Large File Storage to manage large files
-(instructions included).
-
-To get started, create a new repo on GitHub from this template
-([instructions][gh]), then `git clone` your new repo.
-
-[gh]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
-
-Once you've cloned the repo, here's a checklist of things to do to prepare the
-repo:
-
-1. **renv** (optional): To set up **renv**, open R at the top level of the repo
-   and run:
-
-    ```r
-    renv::init()
-    ```
-
-    Restart R. Then, to install the **bookdown** toolchain to the project
-    package library, run:
-
-    ```r
-    install.packages("bookdown")
-    renv::snapshot()
-    ```
-
-    You can skip this step if you're not going to use **renv**.
-
-2. `index.Rmd`: Replace the all-caps text with your workshop details.
-    + Title (in 2 places, 1 of them in the `output:` HTML block)
-    + Author's name
-    + Repo name (in 4 places, 2 of them in the `output:` HTML block)
-    + Description, learning goals, & prerequisites
-
-3. `README.md`: Replace the all-caps text with your workshop details.
-    + Title
-    + Quarter & year
-    + Author's name & email
-    + Reader URL
-    + Event URL
-    + Description, learning goals, & prerequisites
-
-4. GitHub: In the repo's About section, add the reader URL and appropriate
-   tags.
-
-5. GitHub: In the repo's Settings page, enable GitHub pages. Set the branch to
-   `master` and the directory to `docs/`.
-
-6. `README.md`: Remove these template instructions, which end at the `#
-   Workshop:` header below
-
-7. `git add` all changed files, then `git commit` and `git push`.
-
-
-# Workshop: YOUR WORKSHOP TITLE
+# Workshop: Intro to SQL for Querying Databases
 
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
-_Spring 2021_  
-_Instructor: YOUR NAME <<YOUR_EMAIL@ucdavis.edu>>_  
+_Spring 2022_  
+_Guest Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
 
-* [Reader](https://ucdavisdatalab.github.io/YOUR_REPOSITORY/)
-* [Event Page](https://datalab.ucdavis.edu/eventscalendar/YOUR_EVENT/)
+* [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
+* Event Page
 
-YOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC
+This workshop teaches the basics of (non-spatial) SQL using DB Browsesr and SQLite. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and combining data from separate tables.
+
+__Goals__  
+After this workshop learners should be able to:
+
+- Perform common SQL commands including sorting, filtering, calculating values, aggregating, combining data, and basic data cleaning (i.e. replace missing values).
+- Combine commands to construct a query to answer a specific question.
+- Identify the benefits of working with SQL.
+- Access additional resources for using SQL in other software like R.
+
+__Prerequisites__  
+No prior programming experience is necessary. Bring your laptop with DB Browser 
+installed (https://sqlitebrowser.org/) and running.
 
 
 ## Contributing

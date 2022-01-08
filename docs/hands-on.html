@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Hands On | Intro to SQL for Querying Databases</title>
+  <meta name="description" content="3 Hands On | Intro to SQL for Querying Databases" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Hands On | Intro to SQL for Querying Databases" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
+  
+  
+  <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Hands On | Intro to SQL for Querying Databases" />
+  
+  
+  
+
+<meta name="author" content="Michele Tobias" />
+
+
+<meta name="date" content="2022-01-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-set-up.html"/>
+<link rel="next" href="conclusion.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://datalab.ucdavis.edu/">
+  <img src="https://datalab.ucdavis.edu/wp-content/uploads/2019/07/datalab-logo-full-color-rgb-1.png" style="height: 100%; width: 100%; object-fit: contain" />
+</a></li>
+<li><a href="./" style="font-size: 18px">Intro to SQL for Querying Databases</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i><b>1</b> Concepts</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
+<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.2.1</b> You’re Already Doing This!</a></li>
+<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.2.2</b> Why do you want to learn to work with databases and SQL?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="concepts.html"><a href="concepts.html#what-makes-this-challenging"><i class="fa fa-check"></i><b>1.2.3</b> What makes this challenging?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-set-up.html"><a href="getting-set-up.html"><i class="fa fa-check"></i><b>2</b> Getting Set Up</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-set-up.html"><a href="getting-set-up.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-set-up.html"><a href="getting-set-up.html#download-the-workshop-data"><i class="fa fa-check"></i><b>2.2</b> Download the Workshop Data</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-set-up.html"><a href="getting-set-up.html#understanding-the-data"><i class="fa fa-check"></i><b>2.3</b> Understanding the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hands-on.html"><a href="hands-on.html"><i class="fa fa-check"></i><b>3</b> Hands On</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="hands-on.html"><a href="hands-on.html#start-db-browser"><i class="fa fa-check"></i><b>3.1</b> Start DB Browser</a></li>
+<li class="chapter" data-level="3.2" data-path="hands-on.html"><a href="hands-on.html#create-a-new-database"><i class="fa fa-check"></i><b>3.2</b> Create a New Database</a></li>
+<li class="chapter" data-level="3.3" data-path="hands-on.html"><a href="hands-on.html#import-the-data-into-a-database"><i class="fa fa-check"></i><b>3.3</b> Import the Data into a Database</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="hands-on.html"><a href="hands-on.html#the-db-browser-interface"><i class="fa fa-check"></i><b>3.3.1</b> The DB Browser Interface</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.4</b> Viewing Data</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="hands-on.html"><a href="hands-on.html#anatomy-of-a-select-statement"><i class="fa fa-check"></i><b>3.4.1</b> Anatomy of a SELECT Statement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.4.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.4.3</b> Ordering Results</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.4.4</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="3.4.5" data-path="hands-on.html"><a href="hands-on.html#calculating-values"><i class="fa fa-check"></i><b>3.4.5</b> Calculating Values</a></li>
+<li class="chapter" data-level="3.4.6" data-path="hands-on.html"><a href="hands-on.html#renamingaliasing-columns"><i class="fa fa-check"></i><b>3.4.6</b> Renaming/Aliasing Columns</a></li>
+<li class="chapter" data-level="3.4.7" data-path="hands-on.html"><a href="hands-on.html#commenting-queries"><i class="fa fa-check"></i><b>3.4.7</b> Commenting Queries</a></li>
+<li class="chapter" data-level="3.4.8" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.4.8</b> Unique Values</a></li>
+<li class="chapter" data-level="3.4.9" data-path="hands-on.html"><a href="hands-on.html#filtering-results"><i class="fa fa-check"></i><b>3.4.9</b> Filtering Results</a></li>
+<li class="chapter" data-level="3.4.10" data-path="hands-on.html"><a href="hands-on.html#wildcard-matching"><i class="fa fa-check"></i><b>3.4.10</b> Wildcard Matching</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.5</b> Aggretating Data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.5.1</b> Count</a></li>
+<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.5.2</b> Average</a></li>
+<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.5.3</b> Sum</a></li>
+<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.5.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.5.5</b> Having</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#joins"><i class="fa fa-check"></i><b>3.6</b> Joins</a></li>
+<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#saving-queries"><i class="fa fa-check"></i><b>3.7</b> Saving Queries</a></li>
+<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.8</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="hands-on.html"><a href="hands-on.html#fix-mistakes-with-update"><i class="fa fa-check"></i><b>3.8.1</b> Fix Mistakes with UPDATE</a></li>
+<li class="chapter" data-level="3.8.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.8.2</b> Add &amp; Populate a Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to SQL for Querying Databases</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hands-on" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Hands On</h1>
+<div id="start-db-browser" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Start DB Browser</h2>
+<p>Start the <strong>DB Browser for SQLite</strong> program in the way you usually start new programs on your computer. For example, on Windows 10, I typically search for the program name in the search box.</p>
+</div>
+<div id="create-a-new-database" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Create a New Database</h2>
+<p>First, let’s create a new database to store our data. Remember that a database is like a container that holds related tables.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click on the <em>New Database</em> button <img src="images/Button_NewDatabase.PNG" alt="alt text" /></p></li>
+<li><p>Navigate to where you’d like to save your database. I’d suggest putting it in the folder where you’re keeping your workshop data.</p></li>
+<li><p>In the <em>File name</em> box, call your database “imdb”, and then click <em>Save</em>. You can dismiss the window that pops up to <em>Edit table definition</em>. We’ll load data in a different way.</p></li>
+</ol>
+<p>Now we have an empty database called <em>imdb.db</em>.</p>
+</div>
+<div id="import-the-data-into-a-database" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Import the Data into a Database</h2>
+<p>Let’s load the first data table:</p>
+<ol style="list-style-type: decimal">
+<li><p>From the <em>File</em> menu, select <em>Import</em>, and then <em>Table from CSV…</em>.</p></li>
+<li><p>Navigate to where you saved your workshop data and select <em>basics.csv</em> and click the <em>Open</em> button. A new dialog window should pop up now.</p></li>
+<li><p>In the <em>Table name</em> field, you could change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here. Let’s leave the name as <em>basics</em>.</p></li>
+<li><p>Check the box next to <em>Column names in first line</em> because our data has headers.</p></li>
+<li><p>Notice that the preview of the table does not look right. The column names are not what we would expect for a table of information about actors. Change the <em>Field separator</em> drop-down menu to <em>Tab</em>. Notice the change in the preview. That looks better!</p></li>
+<li><p>Change the <em>Quote character</em> to the blank space on the drop-down menu. The quotes that appear in the data do not indicate that something is text, but rather are used in a more literary sense. If we don’t change this, our data import will fail (your instructor learned this from personal experience).</p></li>
+<li><p>We can leave the <em>Encoding</em> as UTF-8. Note: when you load your own data, if you get odd characters in your preivew, check to see what your character encoding should be. <em>Trim fields</em> removes extra spaces.</p></li>
+<li><p>Click the <em>OK</em> button when everything looks as you would expect.</p></li>
+</ol>
+<p>Repeat the process with the <em>gross.csv</em>, <em>name.csv</em>, <em>principals.csv</em>, and <em>ratings.csv</em> files.</p>
+<div id="the-db-browser-interface" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> The DB Browser Interface</h3>
+<p>DB Browser has a number of tabs and tools to help you interact with your data. We’ll be mainly working with the <em>Execute SQL</em> tab, so go ahead and click on that tab. We’ll write our queries in the top portion of the interface, the results will be returned to the middle pannel, and messages will return to the bottom portion.</p>
+<p>Notice also the <em>DB Schema</em> panel on the right side of the window. It should show all of the tables you’ve added. If you click on the &gt; symbol next to the table name, the interface will expand a list of the columns in your table.</p>
+<div class="figure">
+<img src="images/Interface_BasicQuery.PNG" alt="" />
+<p class="caption">alt</p>
+</div>
+</div>
+</div>
+<div id="viewing-data" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Viewing Data</h2>
+<div id="anatomy-of-a-select-statement" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Anatomy of a SELECT Statement</h3>
+<p>We’re ready to write our first queries! The most common query you’ll use is the SELECT statement. In it’s most basic form, it shows you the data in a table, but you can add option to customize the view you get back. Let’s try! Type this query into the query box:</p>
+<p><code>SELECT * FROM gross;</code></p>
+<p>Now click the <em>Execute all</em> button. <img src="images/Button_Execute.PNG" alt="alt text" /></p>
+<p>This query asks the database to select everything (* means “everything”) from the table <em>gross</em>. It ends with a semicolon to tell the database that this is the end of our request.</p>
+<pre><code>SELECT 
+* 
+FROM 
+gross;</code></pre>
+<p>The above query does exactly the same thing as the first one, hence the need for the end of query indicator. We can use new lines to help us organize large queries to make them easier to read.</p>
+<p>Capitolization in queries follows some general rules:</p>
+<ul>
+<li><p>Commands are in all caps</p></li>
+<li><p>Table names and column names are all lowercase</p></li>
+</ul>
+<p>Will the query work if you don’t do this? It depends on the interface you’re using, but generally it will work. DB Browser doesn’t mind either way. In the text of this workshop, I will try to be consistent and use the proper form.</p>
+</div>
+<div id="selecting-columns" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Selecting Columns</h3>
+<p>What if we don’t want to see all of the columns in the table? We can ask for just the columns we want to see. Let’s get the title, the year the movie came out, and the ajusted lifetime gross income:</p>
+<pre><code>SELECT title, year, adj_lifetime_gross 
+FROM gross;</code></pre>
+</div>
+<div id="ordering-results" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Ordering Results</h3>
+<p>What if I want to see them in order of the year they were made?</p>
+<pre><code>SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY year;</code></pre>
+<p><strong>CHALLENGE:</strong> How would I order the table by the adjusted lifetime gross income?</p>
+<p>The default order by option sorts in ascending order. We can sort in descending order to get the top grossing movies first by adding the DESC parameter:</p>
+<pre><code>SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY adj_lifetime_gross DESC;</code></pre>
+</div>
+<div id="limiting-number-of-rows" class="section level3" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Limiting Number of Rows</h3>
+<p>Our database has the top 200 movies. What if we just want a table of the top 10? We can use the <em>LIMIT</em> command to reduce the number of rows the query returns.</p>
+<pre><code>SELECT title, year, adj_lifetime_gross 
+FROM gross
+ORDER BY adj_lifetime_gross DESC
+LIMIT 10;</code></pre>
+</div>
+<div id="calculating-values" class="section level3" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Calculating Values</h3>
+<p>Let’s investigate the earnings of these movies.</p>
+<p>In their current state, the numbers in the <em>adj_lifetime_gross</em> column are hard to compare. We can add mathematical operators and numbers to the column name to perform the calculation. Let’s calculate the adjusted lifetime gross column in billions of dollars (9 zeros):</p>
+<pre><code>SELECT title, year, adj_lifetime_gross/1000000000
+FROM gross;</code></pre>
+</div>
+<div id="renamingaliasing-columns" class="section level3" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Renaming/Aliasing Columns</h3>
+<p>Doing calculations is helpful for visualizing data, but the default column name is not always easy to read or interpret. We can rename columns in the text of our query. This is handy if you’re planning to export this table for future use, especially if you’re sending it to someone else. Let’s rename our calculated column using the <em>AS</em> option.</p>
+<pre><code>SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions
+FROM gross;</code></pre>
+</div>
+<div id="commenting-queries" class="section level3" number="3.4.7">
+<h3><span class="header-section-number">3.4.7</span> Commenting Queries</h3>
+<p>Sometimes we want to be able to write a comment, text that won’t be interpreted by the interface as a part of the query. Any text that follows two dashes <em>–</em> until the end of the line is a comment.</p>
+<pre><code>SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions -- 1 billion has 9 zeros
+FROM gross;</code></pre>
+</div>
+<div id="unique-values" class="section level3" number="3.4.8">
+<h3><span class="header-section-number">3.4.8</span> Unique Values</h3>
+<p>In your data exploration, you might want to know which categories you’re working with if you have a categorcal variable. Let’s look at the <em>principals</em> table which contains the roles played in each movie.</p>
+<p><strong>REVEIW</strong> How would you see all the data in the <em>principals</em> table? I’ll typically view all the data (adding a LIMIT parameter if it’s a big one) before I write queries just to get a better feel for the information that’s contained there.</p>
+<p>I’m curious about how many different roles are used in the <em>category</em> field.</p>
+<pre><code>SELECT DISTINCT(category) 
+FROM principals;</code></pre>
+<p><em>DISTINCT</em> is a function that we can run on a column. In this case, the function returns a list of unique values from the column, so each item is only listed once.</p>
+</div>
+<div id="filtering-results" class="section level3" number="3.4.9">
+<h3><span class="header-section-number">3.4.9</span> Filtering Results</h3>
+<p>Now that we know what kinds of job rolls are listed in the <em>principals</em> table’s <em>category</em> field, let’s filter the table to look at the records for just one job type.</p>
+<pre><code>SELECT * 
+FROM principals
+WHERE category LIKE &#39;actor&#39;;</code></pre>
+<p>The <em>WHERE</em> option lets us specify a condition of the record to filter on. (For you spatially-minded folks, <em>WHERE</em> does not inherently mean a location.)</p>
+<p>What does <em>LIKE</em> mean? Why not use = ? For text-based data (non-numeric data), the comparison operators are different. You can think of <em>LIKE</em> for text as being about the same as = for numeric data.</p>
+<p>The above query returns just the actors, so male people in an acting role. By now, you probably can figure out how to get filter for actresses, or female people in an acting role, BUT how can we get both? We can ask <em>WHERE</em> to meet multiple conditions using either <em>OR</em> (for where a record can match either of two conditions) or <em>AND</em> (when a record must match both conditions). Let’s get both actors and actresses:</p>
+<pre><code>SELECT * 
+FROM principals
+WHERE 
+category LIKE &#39;actor&#39; 
+OR category LIKE&#39;actress&#39;;</code></pre>
+</div>
+<div id="wildcard-matching" class="section level3" number="3.4.10">
+<h3><span class="header-section-number">3.4.10</span> Wildcard Matching</h3>
+<p>There is another way to write this query. Because our categories are similar, we can use a wildcard - <em>%</em> in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary. Let’s take a look:</p>
+<pre><code>SELECT * 
+FROM principals
+WHERE 
+category LIKE &#39;act%&#39;;</code></pre>
+<p>You can also use the wildcard character at the beginning of the word as well. The % wildcard is useful for fairly simple situations. You can also use regular expressions to match in more complicated situations. Read more about using regular expressions <a href="https://github.com/sqlitebrowser/sqlitebrowser/wiki/Regular-Expressions">here</a>.</p>
+</div>
+</div>
+<div id="aggretating-data" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Aggretating Data</h2>
+<p>We’ve just looked a number of ways to filter data, but now let’s look at some ways to aggregate data.</p>
+<div id="count" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Count</h3>
+<p>It probably won’t surprise you that we can count the number of records or that this particular query returns the number 200:</p>
+<pre><code>SELECT COUNT(tconst) 
+FROM ratings;</code></pre>
+<p>You might also suspect that you can add <em>WHERE</em> clause to this to get more information. Let’s see how many movies in our dataset are rated better than or equal to 8.0:</p>
+<pre><code>SELECT COUNT(tconst) 
+FROM ratings
+WHERE averageRating &gt;= 8.0;</code></pre>
+<p>We could also find out how many are greater than or equal to 8.0 but less than 8.5 using an <em>AND</em>:</p>
+<pre><code>SELECT COUNT(tconst) 
+FROM ratings
+WHERE averageRating &gt;= 8.0 AND averageRating &lt; 8.5;</code></pre>
+</div>
+<div id="average" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Average</h3>
+<p>Averaging is another function we can use to aggregate data. Let’s find the average adjusted lifetime gross of our top 200 movies:</p>
+<pre><code>SELECT AVG(adj_lifetime_gross) 
+FROM gross;</code></pre>
+<p><strong>CHALLENGE:</strong> How many billions of dollars is this?</p>
+</div>
+<div id="sum" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Sum</h3>
+<p>We can also sum our data. Let’s find the sum of the adjusted lifetime gross of our movies;</p>
+<pre><code>SELECT SUM(adj_lifetime_gross) FROM gross;</code></pre>
+</div>
+<div id="grouping-data" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Grouping Data</h3>
+<p>So now you’ve seen several functions working on a single column. But we sometimes want to summarize our data in more sophisticated ways. Let’s see what grouping can do for our data. Let’s make a table that counts the number of records in our <em>principals</em> table and summarizes it by the category (actress, actor, composer, etc.):</p>
+<pre><code>SELECT category, COUNT(nconst) 
+FROM principals
+GROUP BY category;</code></pre>
+<p>Notice here how we asked for two columns - the category and the count of the name ID. This makes the resuts of the <em>COUNT</em> funtion easier to understand.</p>
+</div>
+<div id="having" class="section level3" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Having</h3>
+<p><em>HAVING</em> is just like <em>WHERE</em> but it specifically works with grouping data. Perhaps we’re only interested in the categories of principals that have more than 100 people. Let’s see what that looks like:</p>
+<pre><code>SELECT category, COUNT(nconst) 
+FROM principals
+GROUP BY category
+HAVING COUNT(nconst) &gt; 100;</code></pre>
+<p>Now we’ve seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables. There are, of course, other functions available in SQL and we can’t go over all of them here, but now you’ve seen how they work and can apply your knowledge to new functions you find.</p>
+</div>
+</div>
+<div id="joins" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Joins</h2>
+<p>Joining tables allows us to combine information from two tables into a new table. Both tables need to have information in common to be able to match up the records in each table, called a <strong>key</strong>. For example, in the introduction, a student ID number links information in our tables. In our IMDB data, the <em>tconst</em> variable links information in most of our tables.</p>
+<p>SQL has 4 kinds of joins:</p>
+<p><img src="https://www.w3schools.com/sql/img_innerjoin.gif" alt="alt text" /> <img src="https://www.w3schools.com/sql/img_leftjoin.gif" alt="alt text" /> <img src="https://www.w3schools.com/sql/img_rightjoin.gif" alt="alt text" /> <img src="https://www.w3schools.com/sql/img_fulljoin.gif" alt="alt text" /></p>
+<p>The above images come from the <a href="https://www.w3schools.com/sql/sql_join.asp">W3Schools’ SQL join page</a>, an excellent resource for learning more about SQL.</p>
+<p>What kinds of joins are there?</p>
+<ul>
+<li><p>JOIN: Returns records that have matching values in both tables; sometimes called an “inner join” because it gets you what’s in the middle of the Venn diagram.</p></li>
+<li><p>LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table; the “left” table is the first table you write in the query.</p></li>
+<li><p>RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table; the “right” table is the second table you write in the query or the “join” table. <strong>Not currently supported in DB Browser.</strong></p></li>
+<li><p>FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn’t have a match in the other table. <strong>Not currently supported in DB Browser.</strong></p></li>
+</ul>
+<p>A join is a special kind of select statement. We start in just the same way: <em>SELECT</em> the columns we want in the output (using table.column syntax to indicate which table each column comes from). Then we have the <em>FROM</em> statement to tell it which table to start with (this is our “left” table). Then we need our <em>JOIN</em> statement to say which table should get joined (this is our “right” table), and finally, we have to say which columns the join should be based on with either <em>ON</em> (for any columns) or <em>USING</em> (when the column names match… although <em>ON</em> also works in this case and it’s what I always remember). Let’s try a join to see how this works:</p>
+<pre><code>SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
+FROM basics
+JOIN gross
+ON basics.tconst = gross.tconst;</code></pre>
+<p>We can use the <em>USING</em> clause when the join columns from both tables have the same name:</p>
+<pre><code>SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
+FROM basics
+JOIN gross
+USING (tconst);</code></pre>
+<p><strong>CHALLENGE:</strong> Can you make a table that contains the movie names and all the principal jobs for each movie?</p>
+<p>Don’t look, but here’s one solution:</p>
+<pre><code>SELECT  basics.*, principals.* 
+FROM principals
+LEFT JOIN basics
+USING (tconst);</code></pre>
+<p>Occasionally, you can write a join-like query using a <em>WHERE</em> clause (<code>SELECT columns FROM table WHERE table_a.col = table_b.col</code>). I would suggest that this is ok, but the real power in writing SQL statements is in precision, so writing out a proper join is a good idea.</p>
+</div>
+<div id="saving-queries" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Saving Queries</h2>
+<p>Normally, we don’t need to save a bunch of tables because we can always run a query to get the information, but sometimes we might want to save a query as a table or a view if the contents of that query is something we plan to use repeatedly. Use this new power sparingly to keep your database organized.</p>
+<p>We have two options to save a query as a table-like object. One option is to make a <strong>new table</strong>. This is a separate set of data stored in table format, just like the tables you’ve been working with. The other option is to make a <strong>view</strong>. A view is a virtual table. The data in a view comes from other tables. You can think of this as a query that automatically runs itself and will updat if the tables it queries changes. A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table. The only major difference is that a view, because it is updating from other tables, is not able to be edited.</p>
+<p>Let’s write a fairly complicated query that we might want to keep around. This one joins 3 tables into one:</p>
+<pre><code>SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;</code></pre>
+<p>If we want to make a table out of this query, we just need to add <code>CREATE TABLE our_new_table_name AS</code> in front of the query (adding in our own table name, of course). This is what it looks like:</p>
+<pre><code>CREATE TABLE principals_movies AS
+SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;</code></pre>
+<p>In much the same way we made the new table, we can make a view:</p>
+<pre><code>CREATE VIEW principals_movies_view AS
+SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
+FROM principals
+LEFT JOIN basics USING (tconst)
+JOIN name on principals.nconst = name.nconst;</code></pre>
+<p>You might notice now that your new view is the the views section of your DB Schema panel.</p>
+<p>Normally you wouldn’t need to make both a view and a table, but this is a workshop and you need to see how to do all the important things.</p>
+</div>
+<div id="data-management" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Data Management</h2>
+<div id="fix-mistakes-with-update" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Fix Mistakes with UPDATE</h3>
+<p>Now you might have noticed that our new table <em>principals_movies</em> has some funny characters. The IMDB database uses the characters <em>instead of </em>NULL* or <em>NA</em>. The good news is that we can fix this fairly easily, but we need to be careful. It’s challenging to undo something in a database so we want to be sure we’re doing it right.</p>
+<p>First, I construct a <em>SELECT</em> statement to make sure I know how to get the records I want to update:</p>
+<pre><code>SELECT * FROM  principals_movies
+where job LIKE &#39;\N&#39;;</code></pre>
+<p>This looks good because it returns just the records where the <em>jobs</em> column is *so I know I can update that column:</p>
+<pre><code>UPDATE principals_movies
+SET job = NULL
+where job LIKE &#39;\N&#39;;</code></pre>
+<p>This query specifically targets just the job column and replaces whatever value is there with the one I want (NULL) if the condition is met in the <em>WHERE</em> clause. It leaves the other values alone. If I remove the <em>WHERE</em> clause, it will set the whole column to <em>NULL</em> overwriting data I want to keep, so proceed with caution. Also note, that because we’re working on a table that we made and aren’t changing the original tables, we can always remake the table we’re working on if we make a mistake. It’s always a good idea to have back-up copies of data in case you make a mistake.</p>
+<p><strong>CHALLENGE:</strong> Write a query that also removes the <em>characters from the </em>characters* column.</p>
+</div>
+<div id="add-populate-a-column" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Add &amp; Populate a Column</h3>
+<p>Sometimes we want to make a new column and add data into it. Let’s make a new column called <em>acting_role</em> and populate it with a 1 if the <em>category</em> is <em>actor</em> or <em>actress</em> and 0 if it’s something else.</p>
+<p>First we add a column and set the default value to 0:</p>
+<pre><code>ALTER TABLE principals_movies
+ADD acting_role INTEGER DEFAULT 0;</code></pre>
+<p>Note that the <em>DEFAULT</em> argument is optional, but if you leave it blank, it will make the default value NULL. Now we update the column to be 1 where the <em>category</em> is <em>actor</em> or <em>actress</em>:</p>
+<pre><code>UPDATE principals_movies
+SET acting_role = 1
+WHERE category LIKE &#39;act%&#39;;</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-set-up.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/edit/master/03_hands-on.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/master/03_hands-on.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

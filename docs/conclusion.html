@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Conclusion | Intro to SQL for Querying Databases</title>
+  <meta name="description" content="Conclusion | Intro to SQL for Querying Databases" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Conclusion | Intro to SQL for Querying Databases" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
+  
+  
+  <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Conclusion | Intro to SQL for Querying Databases" />
+  
+  
+  
+
+<meta name="author" content="Michele Tobias" />
+
+
+<meta name="date" content="2022-01-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hands-on.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://datalab.ucdavis.edu/">
+  <img src="https://datalab.ucdavis.edu/wp-content/uploads/2019/07/datalab-logo-full-color-rgb-1.png" style="height: 100%; width: 100%; object-fit: contain" />
+</a></li>
+<li><a href="./" style="font-size: 18px">Intro to SQL for Querying Databases</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i><b>1</b> Concepts</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
+<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.2.1</b> You’re Already Doing This!</a></li>
+<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.2.2</b> Why do you want to learn to work with databases and SQL?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="concepts.html"><a href="concepts.html#what-makes-this-challenging"><i class="fa fa-check"></i><b>1.2.3</b> What makes this challenging?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-set-up.html"><a href="getting-set-up.html"><i class="fa fa-check"></i><b>2</b> Getting Set Up</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-set-up.html"><a href="getting-set-up.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-set-up.html"><a href="getting-set-up.html#download-the-workshop-data"><i class="fa fa-check"></i><b>2.2</b> Download the Workshop Data</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-set-up.html"><a href="getting-set-up.html#understanding-the-data"><i class="fa fa-check"></i><b>2.3</b> Understanding the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hands-on.html"><a href="hands-on.html"><i class="fa fa-check"></i><b>3</b> Hands On</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="hands-on.html"><a href="hands-on.html#start-db-browser"><i class="fa fa-check"></i><b>3.1</b> Start DB Browser</a></li>
+<li class="chapter" data-level="3.2" data-path="hands-on.html"><a href="hands-on.html#create-a-new-database"><i class="fa fa-check"></i><b>3.2</b> Create a New Database</a></li>
+<li class="chapter" data-level="3.3" data-path="hands-on.html"><a href="hands-on.html#import-the-data-into-a-database"><i class="fa fa-check"></i><b>3.3</b> Import the Data into a Database</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="hands-on.html"><a href="hands-on.html#the-db-browser-interface"><i class="fa fa-check"></i><b>3.3.1</b> The DB Browser Interface</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.4</b> Viewing Data</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="hands-on.html"><a href="hands-on.html#anatomy-of-a-select-statement"><i class="fa fa-check"></i><b>3.4.1</b> Anatomy of a SELECT Statement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.4.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.4.3</b> Ordering Results</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.4.4</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="3.4.5" data-path="hands-on.html"><a href="hands-on.html#calculating-values"><i class="fa fa-check"></i><b>3.4.5</b> Calculating Values</a></li>
+<li class="chapter" data-level="3.4.6" data-path="hands-on.html"><a href="hands-on.html#renamingaliasing-columns"><i class="fa fa-check"></i><b>3.4.6</b> Renaming/Aliasing Columns</a></li>
+<li class="chapter" data-level="3.4.7" data-path="hands-on.html"><a href="hands-on.html#commenting-queries"><i class="fa fa-check"></i><b>3.4.7</b> Commenting Queries</a></li>
+<li class="chapter" data-level="3.4.8" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.4.8</b> Unique Values</a></li>
+<li class="chapter" data-level="3.4.9" data-path="hands-on.html"><a href="hands-on.html#filtering-results"><i class="fa fa-check"></i><b>3.4.9</b> Filtering Results</a></li>
+<li class="chapter" data-level="3.4.10" data-path="hands-on.html"><a href="hands-on.html#wildcard-matching"><i class="fa fa-check"></i><b>3.4.10</b> Wildcard Matching</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.5</b> Aggretating Data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.5.1</b> Count</a></li>
+<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.5.2</b> Average</a></li>
+<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.5.3</b> Sum</a></li>
+<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.5.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.5.5</b> Having</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#joins"><i class="fa fa-check"></i><b>3.6</b> Joins</a></li>
+<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#saving-queries"><i class="fa fa-check"></i><b>3.7</b> Saving Queries</a></li>
+<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.8</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="hands-on.html"><a href="hands-on.html#fix-mistakes-with-update"><i class="fa fa-check"></i><b>3.8.1</b> Fix Mistakes with UPDATE</a></li>
+<li class="chapter" data-level="3.8.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.8.2</b> Add &amp; Populate a Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to SQL for Querying Databases</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conclusion" class="section level1 unnumbered">
+<h1>Conclusion</h1>
+<p>We covered a wide variety of SQL processes you might need in setting up a database and querying data. Did we cover everything you might need to know? Of course not. It’s only a 2 hour workshop and SQL is a big language. I highly encourage you to look at the resources below to learn more and expand your SQL skills. I also welcome pull requests and submitting issues for typo fixes or ideas for additional content.</p>
+<p><strong>Resources</strong><br />
+<a href="https://www.w3schools.com/sql/default.asp">W3Schools SQL Materials</a> - This is an excellent reference for SQL syntax with a fun “try it yourself” feature.</p>
+<p><a href="http://swcarpentry.github.io/sql-novice-survey/">Sofware Carpentry’s SQL Novice Workshop</a></p>
+<p><a href="https://github.com/clarkfitzg/SQLworkshop">Clark Fitzgeralds &amp; Nick Ulle’s SQL Workshop</a></p>
+<p><a href="https://github.com/MicheleTobias/Spatial_SQL">Michele Tobias’ Spatial SQL Workshop</a></p>
+<p>Working with SQL databases and queries in R:</p>
+<ul>
+<li><p><a href="http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html">University of Michigan’s Stat 701 Class Notes</a></p></li>
+<li><p><a href="https://db.rstudio.com/getting-started/database-queries/">RStudio’s Database Queries with R</a></p></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hands-on.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/edit/master/04_conclusion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/master/04_conclusion.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

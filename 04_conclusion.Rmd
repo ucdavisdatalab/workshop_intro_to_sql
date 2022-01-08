@@ -1,0 +1,20 @@
+# Conclusion {-}
+
+We covered a wide variety of SQL processes you might need in setting up a database and querying data.  Did we cover everything you might need to know?  Of course not.  It's only a 2 hour workshop and SQL is a big language.  I highly encourage you to look at the resources below to learn more and expand your SQL skills.  I also welcome pull requests and submitting issues for typo fixes or ideas for additional content.
+
+__Resources__  
+[W3Schools SQL Materials](https://www.w3schools.com/sql/default.asp) - This is an excellent reference for SQL syntax with a fun "try it yourself" feature.
+
+[Sofware Carpentry's SQL Novice Workshop](http://swcarpentry.github.io/sql-novice-survey/)
+
+[Clark Fitzgeralds & Nick Ulle's SQL Workshop](https://github.com/clarkfitzg/SQLworkshop)
+
+[Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
+
+Working with SQL databases and queries in R:
+
+* [University of Michigan's Stat 701 Class Notes](http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html)
+
+* [RStudio's Database Queries with R](https://db.rstudio.com/getting-started/database-queries/)
+
+

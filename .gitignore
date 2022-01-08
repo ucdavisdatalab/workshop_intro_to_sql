@@ -1,0 +1,14 @@
+# History Files
+.Rhistory
+.Rapp.history
+
+# R Studio Files 
+workshop_intro_to_sql.Rproj
+.Rproj.user
+
+# Session Files
+.RData
+.Ruserdata
+
+# Bookdown Intermediate Files
+docs/*.md
