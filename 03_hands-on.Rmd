@@ -1,412 +1,733 @@
-# Hands On
+# Hands-On
 
-## Start DB Browser
+## Data Background
 
-Start the **DB Browser for SQLite** program in the way you usually start new programs on your computer.  For example, on Windows 10, I typically search for the program name in the search box.
+We'll be working with the Library Checkouts Database, a fictious dataset about users checking out books from the library. 
 
-## Create a New Database
+<!--For more detailed information on how it was put together, please refer to the GitHub repository [here](). -->
 
-First, let's create a new database to store our data.  Remember that a database is like a container that holds related tables.
+Although the data is fictious, the database supports enough scenarios for us to learn and practice SQL! 
+<!-- *DataLab aims to expand this simulated dataset to a real-world data set based off UC Davis Shields Library.* -->
 
-1. Click on the *New Database* button ![alt text](images/Button_NewDatabase.PNG)
+## SQLiteStudio
 
-1. Navigate to where you'd like to save your database.  I'd suggest putting it in the folder where you're keeping your workshop data.
+[SQLiteStudio](https://sqlitestudio.pl/about/) is a free, open source, multi-platform desktop application for browsing and editing SQLite database files.
 
-1. In the *File name* box, call your database "imdb", and then click *Save*.  You can dismiss the window that pops up to *Edit table definition*.  We'll load data in a different way.
+### The SQLiteStudio Interface
 
-Now we have an empty database called *imdb.db*.
+![SQLiteStudio Interface](images/sqlitestudio-interface.png)
+
+SQLiteStudio has a number of tools and panes to help you interact with your data. We can view databases (outlined in green) and also write and run queries (outlined in orange).  
+
+### Load the SQL File
+
+1. Click the "Open SQL editor" icon and a new pane will appear. [**1**]
+2. Click the "Load SQL from file" icon and the file explorer window will pop up. [**2**]
+3. Navigate to the `intro_to_sql_spring22.sql` file on your computer and double-click.
+
+### Load the Database
+
+1. Click the "Add a database" icon and the Database dialog window will pop up. [**3**]
+2. Click the "Browse for existing database file on your local computer" icon and the file explorer window will pop up. 
+3. Navigate to the  `lcdb.db` file on your computer and double-click. 
+4. The Database dialog window will appear again and click the *OK* button.
+
+## Entity Relationship Diagrams
+
+Before we get started with SQL, let's cover what an Entity Relationship Diagram (ERD) is and why it's important. An ERD is simply a visual representation of a database. They help you understand what data is available, how data is stored, and how data is related with one another. Understanding your database means you can determine what types of questions you can answer with SQL!
+
+Below is the Library Checkouts ERD:
+
+<!-- ![Library Checkouts ERD](images/library-checkouts-erd.png) -->
+
+Lets break down the components of the ERD:
+
+1.  *Entities* represent the tables in the database.
+2.  *Attributes* represent the columns in the database.
+    1.  *Data Types*: Each attribute is made up of a certain *data type*. The most common data types you'll interact with are numeric, string, date, or boolean.
+    2.  *Primary Key (PK)*: This is a column(s) that uniquely identifies a row in a table.
+    3.  *Foreign Key (FK)*: This is a column that references a primary key. It’s used to identify a relationship between tables.
+3.  *Relationships* between tables are represented with lines connecting one entity to another
+    1.  The symbols at the end of the lines represent *cardinality*, the number of rows between two database tables.
+
+> **NOTE**:  
+> Lucidchart does an excellent job of breaking down Entity Relationship Diagrams [here](https://www.lucidchart.com/pages/er-diagrams).
+
+### Data Definitions
+
+Below are the data definitions of the tables and columns in the Library Checkouts DB.
+
+Table: **users**: All users that have an account with the library
+
+| column | description |
+| :--- | :--- |
+| id  | unique id of the user |
+| first_name | first name of the user |
+| last_name | last name of the user |
+| birth_date | birth date of the user |
+| phone | cell phone of the user |
+| email | email address of the user |
+| address | address where the the user lives |
+| city | city where the user lives |
+| state | state where the user lives |
+| zip_code | zip code where the user lives |
+
+Table: **checkouts**: A log of when a user checks out a book from the library
+
+| column | description |
+| :--- | :--- |
+| id  | unique id of the book checkout |
+| user_id | id of the user who checked out a book |
+| book_id | id of the book that was checked out |
+| checkout_date | date the book was checked out by the user |
+| days\_checking\_out | number of days the user will checkout the book |
+| due_date | date the book is due based off days\_checking\_out |
+| return_date | date the book was returned by the user |
+| days\_checked\_out | number of days the book was checked out for |
+| returned\_with\_damage | a number to distinguish whether the book was returned with damage<br>0 = the book was not returned with damage<br>1 = the book was returned with damage |
+
+Table: **books**: All the books in the library inventory system
+
+| column | description |
+| :--- | :--- |
+| id  | unique id of the book |
+| title | title of the book |
+| author | name of the author |
+| isbn | isbn of the book |
+| date_published | date the book was published |
+| publisher | publisher of the book |
+| format | the format of the book Ex) Hardcover |
+| pages | the number of pages the book has |
+
+Table: **book\_genre\_link**: A table to link books with their respective genre(s)
+
+| column | description |
+| :--- | :--- |
+| book_id | id of the book |
+| genre_id | id of the genre |
+
+Table: **genres**: All the genres in the library system
+
+| column | description |
+| :--- | :--- |
+| id  | unique id of the genre |
+| name | name of the genre |
 
 
-## Import the Data into a Database
+## The SQL Query Blueprint
 
-Let's load the first data table:
+Today we’ll learn about all the following SQL commands and how they’re used together to view, filter, aggregate, and join data.  
 
-1. From the *File* menu, select *Import*, and then *Table from CSV...*.
+```
+SELECT [DISTINCT] ...
+FROM ...
+[WHERE ...]
+    [ [INNER | LEFT] JOIN ...]
+[GROUP BY ... [HAVING ...]]
+[ORDER BY ...] 
+[LIMIT ...];
+```
 
-1. Navigate to where you saved your workshop data and select *basics.csv* and click the *Open* button.  A new dialog window should pop up now.
-
-1. In the *Table name* field, you could change your table name. This is handy because if your data file is named something complicated, you can name it something easier to type here. Let's leave the name as *basics*.
-
-1. Check the box next to *Column names in first line* because our data has headers.
-
-1. Notice that the preview of the table does not look right.  The column names are not what we would expect for a table of information about actors.  Change the *Field separator* drop-down menu to *Tab*.  Notice the change in the preview.  That looks better!
-
-1. Change the *Quote character* to the blank space on the drop-down menu. The quotes that appear in the data do not indicate that something is text, but rather are used in a more literary sense.  If we don't change this, our data import will fail (your instructor learned this from personal experience).
-
-1. We can leave the *Encoding* as UTF-8.  Note: when you load your own data, if you get odd characters in your preivew, check to see what your character encoding should be.  *Trim fields* removes extra spaces.
-
-1. Click the *OK* button when everything looks as you would expect.
-
-Repeat the process with the *gross.csv*, *name.csv*, *principals.csv*, and *ratings.csv* files.  
-
-### The DB Browser Interface
-
-DB Browser has a number of tabs and tools to help you interact with your data.  We'll be mainly working with the *Execute SQL* tab, so go ahead and click on that tab.  We'll write our queries in the top portion of the interface, the results will be returned to the middle pannel, and messages will return to the bottom portion.
-
-Notice also the *DB Schema* panel on the right side of the window.  It should show all of the tables you've added.  If you click on the > symbol next to the table name, the interface will expand a list of the columns in your table.
-
-![alt](images/Interface_BasicQuery.PNG)
-
+> **NOTE**:
+> 
+> - Keywords in brackets "[ ]" is optional
+> - Write queries in the order of the blueprint
+> - End queries with a semicolon ";"
 
 ## Viewing Data
 
-### Anatomy of a SELECT Statement
+### SELECT & FROM
 
-We're ready to write our first queries! The most common query you'll use is the SELECT statement.  In it's most basic form, it shows you the data in a table, but you can add option to customize the view you get back.  Let's try!  Type this query into the query box:
+We're ready to write our first query! Type this into the SQL editor pane:
 
-```SELECT * FROM gross;```
+`SELECT * FROM users;`
 
-Now click the *Execute all* button. ![alt text](images/Button_Execute.PNG)
+Place your cursor anywhere on `SELECT` and then click the *Execute query* button. ![alt text](/Applications/Joplin.app/Contents/Resources/app.asar/images/Button_Execute.PNG)
 
-This query asks the database to select everything (* means "everything") from the table *gross*.  It ends with a semicolon to tell the database that this is the end of our request.  
+This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specifiy which table to get the columns from.
+
+The query asks the database to select everything (* means "everything") from the table *users*. It ends with a semicolon to tell the database that this is the end of the request.
+
+The below query does exactly the same thing as the first one, hence the need for the end of query indicator. We can use new lines to help us organize queries to make them easier to read.
 
 ```
-SELECT 
-* 
-FROM 
-gross;
+SELECT * 
+FROM users;
 ```
-The above query does exactly the same thing as the first one, hence the need for the end of query indicator.  We can use new lines to help us organize large queries to make them easier to read.
 
-Capitolization in queries follows some general rules:
+> **NOTE**:  
+> Capitalization in queries follows some best practices:
+> 
+> - SQL commands are in all caps
+> - Table names and column names are all lowercase
 
-* Commands are in all caps
-
-* Table names and column names are all lowercase
-
-Will the query work if you don't do this? It depends on the interface you're using, but generally it will work.  DB Browser doesn't mind either way.  In the text of this workshop, I will try to be consistent and use the proper form.
 
 ### Selecting Columns
 
-What if we don't want to see all of the columns in the table?  We can ask for just the columns we want to see.  Let's get the title, the year the movie came out, and the ajusted lifetime gross income:
+What if we don't want to see all of the columns in the table? We can ask for just the columns we want to see. Let's get the first name, birth date, phone, city, and zip code.
 
 ```
-SELECT title, year, adj_lifetime_gross 
-FROM gross;
+SELECT
+    first_name,
+    birth_date,
+    phone,
+    city, 
+    zip_code 
+FROM users;
+```
+
+> **NOTE**:  
+> You can rearrange the columns however you'd like in the `SELECT` statement and select a column multiple times.
+
+### Column Referencing
+
+Another important nuance to writing queries is column referencing. This helps you distinguish from what table the columns come from. Use the table name followed by a period to reference the column.
+
+```
+SELECT 
+    users.first_name,
+    users.birth_date,
+    users.phone,
+    users.city, 
+    users.zip_code 
+FROM users;
+```
+
+> **NOTE**:  
+> This is optional when working with one table. When you start working with multiple tables, it'll be easier to keep track of where the columns come from. It's especially important and often necessary to do this if your tables have the same column name. In general it's best practice to reference your columns!
+
+### Aliasing Columns & Tables
+
+Sometimes the default column or table name is not easy to read, interpret, or representitive of what the data actually is. We can use `AS` to rename (*alias*) a column or table temporarily in the query. Let's rename a few columns from our previous query. This is handy if you're planning to export this table for future use, especially if you're sending it to someone else.
+
+```
+SELECT 
+    first_name,
+    birth_date AS dob,
+    phone AS cell_phone,
+    city, 
+    zip_code AS zip 
+FROM users;
+```
+
+Now let's rename our table to *students*.
+
+```
+SELECT 
+    first_name,
+    birth_date AS dob,
+    phone AS cell_phone,
+    city,
+    zip_code AS zip 
+FROM users AS students;
+```
+
+> **NOTE**:  
+> Notice that you can alias a table and columns in the same query. This will come handy when we learn about `JOIN`!
+> 
+> **CHALLENEGE**:  
+> How would you reference the columns when the table is aliased? Can you use *users*, *students*, or both?
+
+### Unique Values
+
+In your data exploration, you might want to know which unique values exist in a column. `SELECT DISTINCT` is the statement we run on one or more columns to achieve this.
+
+Let's look at the *users* table again and see which cities our users live in.
+
+```
+SELECT DISTINCT city
+FROM users;
+```
+
+If we wanted to see unique combinations across multiple columns, we just add the columns we're interested in. The query below shows unique city and zip code combinations.
+
+```
+SELECT DISTINCT 
+    city, 
+    zip_code
+FROM users;
 ```
 
 ### Ordering Results
 
-What if I want to see them in order of the year they were made?
+While we continue our data exploration, we also might want to sort the results in a specific way. You can sort on one or more columns with a combination of ascending or descending order using the `ORDER BY` command.
+
+Let's sort the *users* table by birth date.
 
 ```
-SELECT title, year, adj_lifetime_gross 
-FROM gross
-ORDER BY year;
+SELECT *
+FROM users
+ORDER BY birth_date;
 ```
 
-**CHALLENGE:** How would I order the table by the adjusted lifetime gross income?
-
-The default order by option sorts in ascending order.  We can sort in descending order to get the top grossing movies first by adding the DESC parameter:
+By default, `ORDER BY` sorts in ascending order. We can sort in descending order to get users born more recently by adding `DESC` after the column.
 
 ```
-SELECT title, year, adj_lifetime_gross 
-FROM gross
-ORDER BY adj_lifetime_gross DESC;
+SELECT *
+FROM users
+ORDER BY birth_date DESC;
 ```
+
+> **CHALLENGE**:  
+> How would you sort *users* by zip code in descending order and then birth date in ascending order?
 
 ### Limiting Number of Rows
 
-Our database has the top 200 movies.  What if we just want a table of the top 10?  We can use the *LIMIT* command to reduce the number of rows the query returns.
+Sometimes you'll be working with a large table to analyze with lots of columns and rows. You can use `LIMIT` to reduce the number of rows the query returns to give you a snapshot of the data you're working with.
 
 ```
-SELECT title, year, adj_lifetime_gross 
-FROM gross
-ORDER BY adj_lifetime_gross DESC
+SELECT *
+FROM users
 LIMIT 10;
 ```
 
-### Calculating Values
+### Commenting
 
-Let's investigate the earnings of these movies.
+As we're writing queries, sometimes we want to write helpful comments to ourselves and others. There's two ways to write comments so that text won't be interpreted as SQL. 
 
-In their current state, the numbers in the *adj_lifetime_gross* column are hard to compare.  We can add mathematical operators and numbers to the column name to perform the calculation.  Let's calculate the adjusted lifetime gross column in billions of dollars (9 zeros):
-
-```
-SELECT title, year, adj_lifetime_gross/1000000000
-FROM gross;
-```
-
-### Renaming/Aliasing Columns
-
-Doing calculations is helpful for visualizing data, but the default column name is not always easy to read or interpret.  We can rename columns in the text of our query.  This is handy if you're planning to export this table for future use, especially if you're sending it to someone else.  Let's rename our calculated column using the *AS* option.
+1. Single line comments: text following two dashses "*--*", like so `-- comment here`
+2. Multiline comments: text between the characters "*/\* \*/*", like so */\* comment here \*/*
 
 ```
-SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions
-FROM gross;
+/*
+all users in the library system 
+sorted by most recent birth date
+*/
+SELECT *
+FROM users
+ORDER BY birth_date DESC; -- sort most recent here
 ```
 
-### Commenting Queries
+> **CHECKPOINT**:  
+> Try and use all viewing commands together to give you insight to the dataset. Write your insights in comments.
 
-Sometimes we want to be able to write a comment, text that won't be interpreted by the interface as a part of the query.  Any text that follows two dashes *--* until the end of the line is a comment.
+## Filtering Data
 
-```
-SELECT title, year, adj_lifetime_gross/1000000000 AS gross_billions -- 1 billion has 9 zeros
-FROM gross;
-```
+Now that we've seen some ways to view our data, let’s learn how we can filter our data! This is really the core of SQL, where we can start to answer our own questions about the data!
 
+We use the `WHERE` command to filter rows of a query by specifying one or more conditions. Below are common operators that can be used and combined in the `WHERE` clause to create conditions, some of which you may already be familiar with.
 
-### Unique Values
+| Comparison Operators | Arithmetic Operators |
+| :--- | :--- |
+| `=` (equals) | `+` (addition) |
+| `>` (greater than) | `-` (subtraction) |
+| `>=` (greater than or equal to) | `*` (multiplication) |
+| `<` (less than) | `/` (division) |
+| `<=` (less than or equal to) | `%` (modulus) |
+| `<>` or `!=` (not equal to) |     |
 
-In your data exploration, you might want to know which categories you're working with if you have a categorcal variable.  Let's look at the *principals* table which contains the roles played in each movie.
-
-**REVEIW** How would you see all the data in the *principals* table?  I'll typically view all the data (adding a LIMIT parameter if it's a big one) before I write queries just to get a better feel for the information that's contained there.
-
-I'm curious about how many different roles are used in the *category* field.
-
-```
-SELECT DISTINCT(category) 
-FROM principals;
-```
-
-*DISTINCT* is a function that we can run on a column.  In this case, the function returns a list of unique values from the column, so each item is only listed once.
-
-
-
-### Filtering Results
-
-Now that we know what kinds of job rolls are listed in the *principals* table's *category* field, let's filter the table to look at the records for just one job type.
+Let's write a query to find all users that live in Davis.
 
 ```
 SELECT * 
-FROM principals
-WHERE category LIKE 'actor';
+FROM users
+WHERE city = 'Davis';
 ```
 
-The *WHERE* option lets us specify a condition of the record to filter on.  (For you spatially-minded folks, *WHERE* does not inherently mean a location.)
+### AND & OR Operators
 
-What does *LIKE* mean?  Why not use = ? For text-based data (non-numeric data), the comparison operators are different.  You can think of *LIKE* for text as being about the same as = for numeric data.
+We can ask `WHERE` to meet multiple conditions using
 
-The above query returns just the actors, so male people in an acting role.  By now, you probably can figure out how to get filter for actresses, or female people in an acting role, BUT how can we get both?  We can ask *WHERE* to meet multiple conditions using either *OR* (for where a record can match either of two conditions) or *AND* (when a record must match both conditions).  Let's get both actors and actresses:
+- `AND` (when a record must match both conditions)
+- `OR` (when a record can match either of two conditions)
 
-```
-SELECT * 
-FROM principals
-WHERE 
-category LIKE 'actor' 
-OR category LIKE'actress';
-```
-
-### Wildcard Matching
-There is another way to write this query.  Because our categories are similar, we can use a wildcard - *%* in SQL - to indicate that we want to match the beginning of the word, but the end is allowed to vary.  Let's take a look:
+Let's find all users who live in Davis ***and*** have a zip code of 95616.
 
 ```
 SELECT * 
-FROM principals
-WHERE 
-category LIKE 'act%';
+FROM users
+WHERE city = 'Davis' AND
+      zip_code = 95616;
 ```
 
-You can also use the wildcard character at the beginning of the word as well.  The % wildcard is useful for fairly simple situations.  You can also use regular expressions to match in more complicated situations.  Read more about using regular expressions [here](https://github.com/sqlitebrowser/sqlitebrowser/wiki/Regular-Expressions).
+Let's now find all users who live in Davis ***or*** Sacramento.
 
+```
+SELECT * 
+FROM users
+WHERE city = 'Davis' OR
+      city = 'Sacramento';
+```
 
+> **NOTE**:  
+> `AND` & `OR` will follow the order of operations. To use `AND` & `OR` in the same query, wrap parenthesis around the `OR` conditions.
+
+### IN Operator
+
+Sometimes we find ourselves writing multiple `OR` conditions on the same column which can make our query look more complex than it really is. In this scenario we can condense multiple `OR` conditions using `IN`.
+
+Let’s rewrite our previous query to use `IN`.
+
+```
+SELECT * 
+FROM users
+WHERE city IN ('Davis', 'Sacramento');
+```
+
+### BETWEEN Operator
+
+We can also also filter using ranges of values with `BETWEEN`. This is handy when you’re working with numerical or date values and you don't want to list out all possible values to meet your conditions.
+
+Let’s write a query to find all users born in the 1990’s.
+
+```
+SELECT * 
+FROM users
+WHERE birth_date BETWEEN '1990-01-01' AND '1999-12-31';
+```
+
+> **CHALLENGE**:  
+> Find all users with a zip code from 95000 - 96000.
+
+### LIKE Operator
+
+`LIKE` is used to search for patterns in strings using the wildcard (`%`). `%` is placeholder that means it can match *anything*. `LIKE` is case-insensitive.
+
+Let’s look at an example to indicate we want to match the beginning of a string, but the end is allowed to vary. To show this, let's find users that have a phone number area code that begins with 530 and can end with anything.
+
+```
+SELECT * 
+FROM users
+WHERE phone LIKE '530%';
+```
+
+> **NOTE**:  
+> The wildcard `%` can be used multiple times depending on how complicated your pattern is.
+> 
+> You can also use regular expressions in SQLite to match in more complicated situations. Read more about using regular expressions [here](https://www.sqlite.org/lang_expr.html#regexp).
+> 
+> **CHALLENGE**:  
+> How would you write a query so that the wild card finds users with an email that ends with icloud.com?
+
+### IS NULL Operator
+
+So far we've worked with complete data, but how do we work with missing data? In databases, *NULL* means missing data. `IS NULL` is used to test whether there is missing data in a column.
+
+Let's look at an example to find users with a missing address.
+
+```
+SELECT * 
+FROM users
+WHERE address IS NULL;
+```
+
+> **CHALLENGE**:  
+> How would you write a query to find users with a missing phone number or missing email?
+
+### NOT Operator
+
+There'll be times where we want to find the opposite (negate) the conditions we create. To do this we use `NOT` combined with the other operators like so,
+
+- `NOT IN`
+- `NOT BETWEEN`
+- `NOT LIKE`
+- `IS NOT NULL`
+
+Below is a query to find users that ***do not*** have a phone number area code that begins with 530.
+
+```
+SELECT * 
+FROM users
+WHERE phone NOT LIKE '530%';
+```
 
 ## Aggretating Data
 
-We've just looked a number of ways to filter data, but now let's look at some ways to aggregate data.
+We've just looked at a number of ways to filter data, but now let's look at some ways to aggregate data.
 
 ### Count
 
-It probably won't surprise you that we can count the number of records or that this particular query returns the number 200:
+We can count the total number of rows in a table using the `COUNT()` function. Let's see how many total books have been checked out.
 
 ```
-SELECT COUNT(tconst) 
-FROM ratings;
+SELECT 
+    COUNT(*) AS total_checkouts
+FROM checkouts;
 ```
 
-You might also suspect that you can add *WHERE* clause to this to get more information.  Let's see how many movies in our dataset are rated better than or equal to 8.0:
+> **NOTE**:  
+> Notice how we've aliased the aggregated column to something interpretable and representative of what it is.
+> 
+> You can combine `DISTINCT` with `COUNT()` using `COUNT(DISTINCT column_name)` to get a unique count of values in a column when duplicate values exist.
+>
+> **CHALLENGE**:  
+> Find the total number of users that have checked out a book.
+
+
+We can also include `WHERE`. Let's see how many books were checked out just today.
 
 ```
-SELECT COUNT(tconst) 
-FROM ratings
-WHERE averageRating >= 8.0;
-```
-
-We could also find out how many are greater than or equal to 8.0 but less than 8.5 using an *AND*:
-
-```
-SELECT COUNT(tconst) 
-FROM ratings
-WHERE averageRating >= 8.0 AND averageRating < 8.5;
+SELECT 
+    COUNT(*) AS total_checkouts
+FROM checkouts
+WHERE checkout_date = '2022-04-11';
 ```
 
 ### Average
 
-Averaging is another function we can use to aggregate data.  Let's find the average adjusted lifetime gross of our top 200 movies:
+`AVG()` is another way to aggregate our data. Let's find the average days a person is checking out a book for.
 
 ```
-SELECT AVG(adj_lifetime_gross) 
-FROM gross;
+SELECT 
+    AVG(days_checking_out) AS avg_days_checking_out
+FROM checkouts;
 ```
-
-**CHALLENGE:** How many billions of dollars is this?
 
 ### Sum
 
-We can also sum our data.  Let's find the sum of the adjusted lifetime gross of our movies;
+We can also sum our data with `SUM()`. Let's find the total number of books that were returned with damage.
 
 ```
-SELECT SUM(adj_lifetime_gross) FROM gross;
+SELECT 
+    SUM(returned_with_damage) AS books_returned_with_damage
+FROM checkouts;
+```
+
+Below is another way to accomplish the same task using `COUNT()` and `WHERE`.
+
+```
+SELECT 
+    COUNT(*) AS books_returned_with_damage
+FROM checkouts
+WHERE returned_with_damage = 1;
 ```
 
 ### Grouping Data
 
-So now you've seen several functions working on a single column.  But we sometimes want to summarize our data in more sophisticated ways.  Let's see what grouping can do for our data. Let's make a table that counts the number of records in our *principals* table and summarizes it by the category (actress, actor, composer, etc.):
+So now you've seen several functions working on a single column, but we sometimes want to summarize our data in more sophisticated ways. Let's see what grouping can do for our data. Let's write a query that counts the number of books checked out ***per day***.
 
 ```
-SELECT category, COUNT(nconst) 
-FROM principals
-GROUP BY category;
+SELECT 
+    checkout_date, 
+    COUNT(book_id) AS books_checked_out
+FROM checkouts
+GROUP BY checkout_date;
 ```
 
-Notice here how we asked for two columns - the category and the count of the name ID.  This makes the resuts of the *COUNT* funtion easier to understand.  
+Notice here how we asked for two columns - the *checkout_date* and the count of *book_id*.
 
+> **CHALLENGE**:  
+> You can also `GROUP BY` more than one column. How would you find the total number of times a person checked out a book on a given day?
 
 ### Having
 
-*HAVING* is just like *WHERE* but it specifically works with grouping data.  Perhaps we're only interested in the categories of principals that have more than 100 people.  Let's see what that looks like:
+`HAVING` is similar to `WHERE`, but it specifically works with `GROUP BY`. Perhaps we're only interested in days that had more than 5 checkouts. Let's see what that looks like:
 
 ```
-SELECT category, COUNT(nconst) 
-FROM principals
-GROUP BY category
-HAVING COUNT(nconst) > 100;
+SELECT 
+    checkout_date, 
+    COUNT(book_id) AS books_checked_out
+FROM checkouts
+GROUP BY checkout_date
+HAVING COUNT(book_id) > 5;
 ```
 
-Now we've seen how we can use functions to aggregate data and how grouping data can help us make meaningful tables.  There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
+Now we've seen how we can use functions to aggregate data and how grouping data can give us meaningful insights. There are, of course, other functions available in SQL and we can't go over all of them here, but now you've seen how they work and can apply your knowledge to new functions you find.
 
+## Joining Data
 
+Joining tables allows us to combine information from more than one table into a new table. The tables need to have a ***key***  to do so. In our Library Checkouts ERD, the *id* column in *books* is a key column that links to
 
-## Joins
+- *book_id* in *checkouts*
 
-Joining tables allows us to combine information from two tables into a new table.  Both tables need to have information in common to be able to match up the records in each table, called a **key**.  For example, in the introduction, a student ID number links information in our tables.  In our IMDB data, the *tconst* variable links information in most of our tables.
+	and
 
-SQL has 4 kinds of joins:
+- *book_id* in *book\_genre\_link*
 
-![alt text](https://www.w3schools.com/sql/img_innerjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_leftjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_rightjoin.gif)  ![alt text](https://www.w3schools.com/sql/img_fulljoin.gif)
+SQL has 4 main kinds of joins:
 
-The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning more about SQL.
+![INNER JOIN](https://www.w3schools.com/sql/img_innerjoin.gif) ![LEFT JOIN](https://www.w3schools.com/sql/img_leftjoin.gif)
+
+![RIGHT JOIN](https://www.w3schools.com/sql/img_rightjoin.gif)![FULL OUTER JOIN](https://www.w3schools.com/sql/img_fulljoin.gif)
+
+> **NOTE**:  
+> The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning more about SQL.
 
 What kinds of joins are there?
 
-* JOIN: Returns records that have matching values in both tables; sometimes called an "inner join" because it gets you what's in the middle of the Venn diagram.
+- `INNER JOIN`: Returns records that have matching values in both tables; it gets you what's in the middle of the venn diagram.
+    
+- `LEFT JOIN`: Returns all records from the left table, and the matched records from the right table; the "left" table is the first table you write in the query.
+    
+- `RIGHT JOIN`: Returns all records from the right table, and the matched records from the left table; the "right" table is the second table you write in the query or the "join" table. 
 
-* LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table; the "left" table is the first table you write in the query.
+	> **NOTE**:  
+	> This is not supported in SQLite, however switching the tables in a `LEFT JOIN` will emulate a `RIGHT JOIN`.
+    
+- `FULL OUTER JOIN`: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table. 
 
-* RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table; the "right" table is the second table you write in the query or the "join" table. **Not currently supported in DB Browser.**
+	> **NOTE**:  
+	> This is not supported in SQLite, however you can emulate a `FULL OUTER JOIN` described [here](https://www.sqlitetutorial.net/sqlite-full-outer-join/).
+    
+Below are the steps for writing a JOIN: 
 
-* FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table.  **Not currently supported in DB Browser.**
+1.  We start in just the same way: `SELECT` the columns we want in the output (using column references).
+2.  Then we have the `FROM` statement to tell it which table to start with (this is our "left" table).
+3.  Then we need our `JOIN` statement to say which table should get joined (this is our "right" table)
+4.  Finally, we have to say which columns the join should be based on with  `ON` .
 
-A join is a special kind of select statement.  We start in just the same way: *SELECT* the columns we want in the output (using table.column syntax to indicate which table each column comes from).  Then we have the *FROM* statement to tell it which table to start with (this is our "left" table). Then we need our *JOIN* statement to say which table should get joined (this is our "right" table), and finally, we have to say which columns the join should be based on with either *ON* (for any columns) or *USING* (when the column names match... although *ON* also works in this case and it's what I always remember).  Let's try a join to see how this works:
-
-```
-SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
-FROM basics
-JOIN gross
-ON basics.tconst = gross.tconst;
-```
-
-We can use the *USING* clause when the join columns from both tables have the same name:
-
-```
-SELECT  basics.tconst, gross.title, gross.year, basics.runtimeMinutes 
-FROM basics
-JOIN gross
-USING (tconst);
-```
-
-**CHALLENGE:** Can you make a table that contains the movie names and all the principal jobs for each movie?
-
-Don't look, but here's one solution:
+Let's try an `INNER JOIN` to see how this works:
 
 ```
-SELECT  basics.*, principals.* 
-FROM principals
-LEFT JOIN basics
-USING (tconst);
+SELECT 
+    checkouts.user_id,
+    books.title AS book,
+    checkouts.checkout_date
+FROM books
+    INNER JOIN checkouts ON books.id = checkouts.book_id;
 ```
 
-Occasionally, you can write a join-like query using a *WHERE* clause (```SELECT columns FROM table WHERE table_a.col = table_b.col```). I would suggest that this is ok, but the real power in writing SQL statements is in precision, so writing out a proper join is a good idea.
-
-
-## Saving Queries
-
-Normally, we don't need to save a bunch of tables because we can always run a query to get the information, but sometimes we might want to save a query as a table or a view if the contents of that query is something we plan to use repeatedly.  Use this new power sparingly to keep your database organized.
-
-We have two options to save a query as a table-like object.  One option is to make a **new table**.  This is a separate set of data stored in table format, just like the tables you've been working with.  The other option is to make a **view**.  A view is a virtual table.  The data in a view comes from other tables.  You can think of this as a query that automatically runs itself and will updat if the tables it queries changes.  A view behaves otherwise just like a table - you can use it in pretty much the same way you would a table.  The only major difference is that a view, because it is updating from other tables, is not able to be edited.  
-
-Let's write a fairly complicated query that we might want to keep around.  This one joins 3 tables into one:
+We interpret the `INNER JOIN` query as, "all books that have been checked out." Now let's try a `LEFT JOIN`:
 
 ```
-SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
-FROM principals
-LEFT JOIN basics USING (tconst)
-JOIN name on principals.nconst = name.nconst;
+SELECT 
+    checkouts.user_id,
+    books.title AS book,
+    checkouts.checkout_date
+FROM books
+    LEFT JOIN checkouts ON books.id = checkouts.book_id;
 ```
 
-If we want to make a table out of this query, we just need to add ```CREATE TABLE our_new_table_name AS``` in front of the query (adding in our own table name, of course).  This is what it looks like:
+We interpret the `LEFT JOIN` query as, "all books and if they have been checked out or not."
+
+You might be thinking, what would happed if the tables in the `LEFT JOIN` were flipped? We would get the same result as the  `INNER JOIN` query! That's because there's no instances where a checkout without a book could ever happen!
+
+> **CHALLENGE**:  
+> Can you write a query that contains the title of the books and the names of the genres they're categorized to?
+
+## Subqueries
+
+So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other commands like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases.
+
+Let's first look at a subquery in the `WHERE` clause:
 
 ```
-CREATE TABLE principals_movies AS
-SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
-FROM principals
-LEFT JOIN basics USING (tconst)
-JOIN name on principals.nconst = name.nconst;
+-- main query
+SELECT * 
+FROM checkouts
+WHERE book_id IN (
+	-- subquery
+	SELECT id
+	FROM books
+	WHERE format = 'Hardcover'
+);
+```
+
+We retrieve hardcover books in a subquery. We then use the results of the subquery to filter the *checkouts* table using *checkouts.book_id*. In the end we get, "all checked out hardcover books."
+
+> **NOTE**:  
+> When writing a subquery with `WHERE` and `IN`, the subquery must select only one column for `IN` to filter on.
+
+Now let's look at a subquery with `JOIN`:
+
+```
+-- main query
+SELECT 
+	checkouts.user_id,
+	hardcover_books.title AS book,
+	checkouts.checkout_date,
+	checkouts.return_date
+FROM checkouts
+	INNER JOIN (
+		-- subquery
+		SELECT *
+		FROM books
+		WHERE format = 'Hardcover'
+	) AS hardcover_books ON checkouts.book_id = hardcover_books.id;
+```
+
+We retrieve hardcover books in a subquery, just like before. Next, we write the subquery after `JOIN` and alias it *hardcover_books*. Finally, we join on the keys and return the columns we want in the main `SELECT` statement.
+
+> **NOTE**:  
+> If you're still a bit confused, just remember that every query results in a table. Subqueries give you the ability to create a "new" table on the fly even if that table didn't exist in the database before. 
+> 
+> Also, note that both subquery examples are just different ways to get to the same result, "checked out hardcover books."
+
+## Saving Query Results
+
+There will be times when we want to save the results of a query so we can reuse it later when needed. Two commands to save a query as a new database object follow:
+
+1. `CREATE TEMPORARY TABLE`
+	- This is a new table added to the database, just like the tables you've been working with, except it is only available in the current session. You typically do this to break down a complex problem into intermediate steps and pass your saved results to the final query. 
+2. `CREATE VIEW`
+	- A view is simply a saved query that can be executed when called. The query you save will usually be made up of multiple tables with added conditions if needed. You can use it in pretty much the same way you would a table. The only major difference is that a view, because it is updating from other tables, is not able to be edited.
+
+If we want to create a temporary table, we just need to add `CREATE TEMPORARY TABLE our_new_table_name AS`  at the beginning of the query (adding in our own table name, of course). This is what it looks like:
+
+```
+CREATE TEMPORARY TABLE davis_resident_checkouts AS
+	SELECT 
+		users.id AS user_id,
+		users.first_name,
+		users.last_name,
+		books.title AS book,
+		checkouts.checkout_date,
+		checkouts.return_date
+	FROM users
+		INNER JOIN checkouts ON users.id = checkouts.user_id
+		INNER JOIN books ON checkouts.book_id = books.id
+	WHERE users.city = 'Davis';
 ```
 
 In much the same way we made the new table, we can make a view:
+
 ```
-CREATE VIEW principals_movies_view AS
-SELECT principals.nconst, name.primaryName, principals.category, principals.job, principals.characters, basics.tconst, basics.primaryTitle, basics.startYear, basics.runtimeMinutes
-FROM principals
-LEFT JOIN basics USING (tconst)
-JOIN name on principals.nconst = name.nconst;
+CREATE VIEW davis_resident_checkouts AS
+	SELECT 
+		users.id AS user_id,
+		users.first_name,
+		users.last_name,
+		books.title AS book,
+		checkouts.checkout_date,
+		checkouts.return_date
+	FROM users
+		INNER JOIN checkouts ON users.id = checkouts.user_id
+		INNER JOIN books ON checkouts.book_id = books.id
+	WHERE users.city = 'Davis';
 ```
-
-You might notice now that your new view is the the views section of your DB Schema panel.
-
-Normally you wouldn't need to make both a view and a table, but this is a workshop and you need to see how to do all the important things.
-
 
 ## Data Management
 
-### Fix Mistakes with UPDATE
-Now you might have noticed that our new table *principals_movies* has some funny characters.  The IMDB database uses the characters *\n* instead of *NULL* or *NA*.  The good news is that we can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right.
+### Update Tables
 
-First, I construct a *SELECT* statement to make sure I know how to get the records I want to update:
+You might have noticed at the beginning the *users* table has *NULL* values across different columns. We can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right. Let's update the *NULL* values in the *users.address* to "*N/A*".
 
-```
-SELECT * FROM  principals_movies
-where job LIKE '\N';
-```
-
-This looks good because it returns just the records where the *jobs* column is *\N* so I know I can update that column:
+It's first helpful to write a query to be sure these are the records you want to update:
 
 ```
-UPDATE principals_movies
-SET job = NULL
-where job LIKE '\N';
+SELECT *
+FROM users
+WHERE address IS NULL;
 ```
 
-This query specifically targets just the job column and replaces whatever value is there with the one I want (NULL) if the condition is met in the *WHERE* clause.  It leaves the other values alone.  If I remove the *WHERE* clause, it will set the whole column to *NULL* overwriting data I want to keep, so proceed with caution.  Also note, that because we're working on a table that we made and aren't changing the original tables, we can always remake the table we're working on if we make a mistake.  It's always a good idea to have back-up copies of data in case you make a mistake.
+Once you've confirmed, the below statement updates the *NULL* values to "*N/A*"
 
-**CHALLENGE:** Write a query that also removes the *\N* characters from the *characters* column.
+```
+UPDATE users
+SET address = 'N/A'
+WHERE address IS NULL;
+```
+
+The `SET` command specifically targets just the *address* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
 
 ### Add & Populate a Column
 
-Sometimes we want to make a new column and add data into it.  Let's make a new column called *acting_role* and populate it with a 1 if the *category* is *actor* or *actress* and 0 if it's something else.
+Sometimes we want to make a new column and add data into it. Let's make a new column called *country* in the *users* table and populate it with "*USA*" if there is a value in the column *state*. 
 
-First we add a column and set the default value to 0:
-
-```
-ALTER TABLE principals_movies
-ADD acting_role INTEGER DEFAULT 0;
-```
-
-Note that the *DEFAULT* argument is optional, but if you leave it blank, it will make the default value NULL.  Now we update the column to be 1 where the *category* is *actor* or *actress*:
+First we'll add the column and set the default value to "*N/A*":
 
 ```
-UPDATE principals_movies
-SET acting_role = 1
-WHERE category LIKE 'act%';
+ALTER TABLE users
+ADD country TEXT DEFAULT 'N/A';
+```
+
+> **NOTE**:  
+> The `DEFAULT` argument is optional, but if you leave it blank, it will make the default value *NULL*. 
+
+Now we update all values in the column to be "*USA*" where the state is not null.
+
+```
+UPDATE users
+SET country = 'USA'
+WHERE state IS NOT NULL;
 ```

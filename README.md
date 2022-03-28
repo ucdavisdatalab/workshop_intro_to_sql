@@ -2,24 +2,27 @@
 
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Spring 2022_  
-_Guest Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
+_Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
-* Event Page
+* [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-sql-for-querying-databases/)
 
-This workshop teaches the basics of (non-spatial) SQL using DB Browsesr and SQLite. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and combining data from separate tables.
+This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.
 
 __Goals__  
 After this workshop learners should be able to:
 
-- Perform common SQL commands including sorting, filtering, calculating values, aggregating, combining data, and basic data cleaning (i.e. replace missing values).
+- Perform common SQL commands including viewing, filtering, aggregating, and joining data.
 - Combine commands to construct a query to answer a specific question.
 - Identify the benefits of working with SQL.
 - Access additional resources for using SQL in other software like R.
 
 __Prerequisites__  
-No prior programming experience is necessary. Bring your laptop with DB Browser 
-installed (https://sqlitebrowser.org/) and running.
+No prior programming experience is necessary: 
+
+- Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
+- Download the 2 workshop files (*lcdb.db* & *intro_to_sql.sql*) from the GitHub repo /materials folder [here]().
+
 
 
 ## Contributing

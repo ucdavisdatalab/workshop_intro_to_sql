@@ -1,31 +1,12 @@
 # Getting Set Up
 
-## Install the Software
+## Download Workshop Materials
 
-We'll be using [DB Browser](https://sqlitebrowser.org/), a free, open source, graphical interface for working with SQL databases that works on all major computing operating systems. Installers are available on their [Downloads Page](https://sqlitebrowser.org/dl/).  If you do not have install permissions on your computer, the Portable App version may work without administrator permissions.
+Workshop materials are available in the materials folder of the workshop [GitHub repo]().  
 
-## Download the Workshop Data
+- lcdb.db
+- intro_to_sql_spring22.sql
 
-1. The data is available on [Michele's Workshop Data Box Drive](https://ucdavis.box.com/s/j2paxajpmtsg1ule8zgndy5vckpboex5).  
+## Install & Launch SQLiteStudio
 
-1. Dismiss the banner that might pop-up at the top of the webpage directing you to log-in (you don't need to log-in or have an account to download the data). 
-
-1. Click the *Download* button in the upper right corner to download all the data in one zipped file.  
-
-1.  Save the data where you can find it easily, then unzip the folder.  
-
-## Understanding the Data
-
-For this workshop, we'll be working with some data from IMDB (Internet Movie Database). You can get updated data on the [IMDB Datasets Page](https://www.imdb.com/interfaces/#plain). The diagram below outlines the relationships between the data in the tables that make up the database.  Notice how information about the movie and TV show titles is all connected by the ```tconst``` column.  This is a **key**, a unique identifier for each title.  The cast and behind-the-scenes people also have a key - it's called ```nconst```.
-
-
-![alt text](images/DataDiagram.png)
-
-
-I've already pre-processed the data so that it's easier to import into your SQL database and small enough to work reasonably well in a workshop, so if you get new data, you'll have to unzip the downloaded data, and save it as a csv file before proceeding.  The full IMDB database is rather large and growing daily, so feel free to explore it, but know that some of the tables are over 2GB in their original state.
-
-The data we'll be working with is an extract from the IMDB dataset from Oct. 18, 2019.  Specifically, we'll be looking at the top 200 grossing movie titles and related data.  Here is a diagram of the data we'll be working with:
-
-![alt text](images/DataDiagram_200TopGross.jpg)
-
-Notice how most of the tables can be connected with the ```tconst``` column.  The contents of most of the tables are described on [IMDB's database documentation page](https://www.imdb.com/interfaces/#plain).  The data in the gross table are described by [BoxOffice Mojo, a division of IMDB](https://www.boxofficemojo.com/chart/top_lifetime_gross_adjusted/?adjust_gross_to=2019&ref_=bo_cso_ac).
+[SQLiteStudio](https://sqlitestudio.pl/about/) is a free, open source, multi-platform desktop application for browsing and editing SQLite database files. View the install guide  [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
