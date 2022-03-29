@@ -2,9 +2,7 @@
 
 ## Data Background
 
-We'll be working with the Library Checkouts Database, a fictious dataset about users checking out books from the library. 
-
-<!--For more detailed information on how it was put together, please refer to the GitHub repository [here](). -->
+We'll be working with the Library Checkouts Database, a fictitious dataset about users checking out books from the library. For more detailed information on how it was put together, please refer to the GitHub repository [here](https://github.com/diversifyds/library-checkouts-db).
 
 Although the data is fictious, the database supports enough scenarios for us to learn and practice SQL! 
 <!-- *DataLab aims to expand this simulated dataset to a real-world data set based off UC Davis Shields Library.* -->
@@ -38,7 +36,7 @@ Before we get started with SQL, let's cover what an Entity Relationship Diagram 
 
 Below is the Library Checkouts ERD:
 
-<!-- ![Library Checkouts ERD](images/library-checkouts-erd.png) -->
+![](images/library-checkouts-erd.png)
 
 Lets break down the components of the ERD:
 
