@@ -19,7 +19,7 @@ FROM ...
 
 > **NOTE**:
 > 
-> - Commands in brackets "[ ]" is optional
+> - Commands in brackets "[ ]" are optional
 > - Write commands in the order of the blueprint
 > - End queries with a semicolon ";"
 
@@ -33,12 +33,12 @@ We'll go more in-depth when we cover the workshop data set!
 
 ## What is a Relational Database Management System (RDBMS)?
 
-A RDBMS is a software that interacts with databases, users, and other applications. For the workshop we’ll be working with SQLite. It's a lightweight and portable RDBMS that runs on Windows, MacOS, and Linux with no complex setup. 
+A RDBMS is a software that interacts with databases, users, and other applications. For the workshop we’ll be working with [SQLite](https://sqlite.org/index.html). It's a portable RDBMS that runs on Windows, MacOS, and Linux with no complex setup! 
+
+Other popular RDBMS's include MySQL, Postgres, and Microsoft SQL Server, but it's an in-depth process to properly set up.
 
 Every RDBMS has it's own implementation or "dialect" of SQL. For SQLite there's sqlite3, but everything we learn will be applicable to other popular RDBMS!
 
-> **NOTE**:  
-> Other popular RDBMS's include MySQL, Postgres, and Microsoft SQL Server, but requre setting up a server.
 
 ## Why do you want to learn to work with databases and SQL?
 
@@ -57,7 +57,7 @@ Every RDBMS has it's own implementation or "dialect" of SQL. For SQLite there's 
     
 ### You're Already Doing This!
 
-Researchers typically are already thinking about querying data:
+If you work with data, you're typically already thinking about answering questions:
 
 - I would like to see ***XYZ*** that occurred in a certain time range.
 - How many of ***X*** or ***Y*** are there?
