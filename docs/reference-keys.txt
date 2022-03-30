@@ -1,9 +1,10 @@
 concepts
-what-is-a-relational-database
 what-is-sql
-youre-already-doing-this
+the-sql-query-blueprint
+what-is-a-relational-database
+what-is-a-relational-database-management-system-rdbms
 why-do-you-want-to-learn-to-work-with-databases-and-sql
-what-makes-this-challenging
+youre-already-doing-this
 getting-set-up
 download-workshop-materials
 install-launch-sqlitestudio
@@ -15,7 +16,6 @@ load-the-sql-file
 load-the-database
 entity-relationship-diagrams
 data-definitions
-the-sql-query-blueprint
 viewing-data
 select-from
 selecting-columns

@@ -9,4 +9,4 @@ Workshop materials are available in the materials folder of the workshop [GitHub
 
 ## Install & Launch SQLiteStudio
 
-[SQLiteStudio](https://sqlitestudio.pl/about/) is a free, open source, multi-platform desktop application for browsing and editing SQLite database files. View the install guide  [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
+[SQLiteStudio](https://sqlitestudio.pl/about/) is a free, open source, multi-platform desktop application for browsing and editing SQLite database files. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).

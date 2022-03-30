@@ -25,7 +25,7 @@
 <meta name="author" content="Michelle Tobias" />
 
 
-<meta name="date" content="2022-03-28" />
+<meta name="date" content="2022-03-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,12 +79,15 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i><b>1</b> Concepts</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
-<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
+<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.1</b> What is SQL?</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.2.1</b> You’re Already Doing This!</a></li>
-<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.2.2</b> Why do you want to learn to work with databases and SQL?</a></li>
-<li class="chapter" data-level="1.2.3" data-path="concepts.html"><a href="concepts.html#what-makes-this-challenging"><i class="fa fa-check"></i><b>1.2.3</b> What makes this challenging?</a></li>
+<li class="chapter" data-level="1.1.1" data-path="concepts.html"><a href="concepts.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>1.1.1</b> The SQL Query Blueprint</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.2</b> What is a Relational Database?</a></li>
+<li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system-rdbms"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System (RDBMS)?</a></li>
+<li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.4</b> Why do you want to learn to work with databases and SQL?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.4.1</b> You’re Already Doing This!</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-set-up.html"><a href="getting-set-up.html"><i class="fa fa-check"></i><b>2</b> Getting Set Up</a>
@@ -105,42 +108,41 @@
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="hands-on.html"><a href="hands-on.html#data-definitions"><i class="fa fa-check"></i><b>3.3.1</b> Data Definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>3.4</b> The SQL Query Blueprint</a></li>
-<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.5</b> Viewing Data</a>
+<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.4</b> Viewing Data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.5.1</b> SELECT &amp; FROM</a></li>
-<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.5.2</b> Selecting Columns</a></li>
-<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.5.3</b> Column Referencing</a></li>
-<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.5.4</b> Aliasing Columns &amp; Tables</a></li>
-<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.5.5</b> Unique Values</a></li>
-<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.5.6</b> Ordering Results</a></li>
-<li class="chapter" data-level="3.5.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.5.7</b> Limiting Number of Rows</a></li>
-<li class="chapter" data-level="3.5.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.5.8</b> Commenting</a></li>
+<li class="chapter" data-level="3.4.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.4.1</b> SELECT &amp; FROM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.4.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.4.3</b> Column Referencing</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.4.4</b> Aliasing Columns &amp; Tables</a></li>
+<li class="chapter" data-level="3.4.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.4.5</b> Unique Values</a></li>
+<li class="chapter" data-level="3.4.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.4.6</b> Ordering Results</a></li>
+<li class="chapter" data-level="3.4.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.4.7</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="3.4.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.4.8</b> Commenting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.6</b> Filtering Data</a>
+<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.5</b> Filtering Data</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.6.1</b> AND &amp; OR Operators</a></li>
-<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.6.2</b> IN Operator</a></li>
-<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.6.3</b> BETWEEN Operator</a></li>
-<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.6.4</b> LIKE Operator</a></li>
-<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.6.5</b> IS NULL Operator</a></li>
-<li class="chapter" data-level="3.6.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.6.6</b> NOT Operator</a></li>
+<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.5.1</b> AND &amp; OR Operators</a></li>
+<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.5.2</b> IN Operator</a></li>
+<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.5.3</b> BETWEEN Operator</a></li>
+<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.5.4</b> LIKE Operator</a></li>
+<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.5.5</b> IS NULL Operator</a></li>
+<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.5.6</b> NOT Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.7</b> Aggretating Data</a>
+<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.6</b> Aggretating Data</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.7.1</b> Count</a></li>
-<li class="chapter" data-level="3.7.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.7.2</b> Average</a></li>
-<li class="chapter" data-level="3.7.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.7.3</b> Sum</a></li>
-<li class="chapter" data-level="3.7.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.7.4</b> Grouping Data</a></li>
-<li class="chapter" data-level="3.7.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.7.5</b> Having</a></li>
+<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.6.1</b> Count</a></li>
+<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.6.2</b> Average</a></li>
+<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.6.3</b> Sum</a></li>
+<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.6.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.6.5</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.8</b> Joining Data</a></li>
-<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.9</b> Subqueries</a></li>
-<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.10</b> Saving Query Results</a></li>
-<li class="chapter" data-level="3.11" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.11</b> Data Management</a>
+<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.7</b> Joining Data</a></li>
+<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.8</b> Subqueries</a></li>
+<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.9</b> Saving Query Results</a></li>
+<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.10</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="3.11.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.11.1</b> Update Tables</a></li>
-<li class="chapter" data-level="3.11.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.11.2</b> Add &amp; Populate a Column</a></li>
+<li class="chapter" data-level="3.10.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.10.1</b> Update Tables</a></li>
+<li class="chapter" data-level="3.10.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.10.2</b> Add &amp; Populate a Column</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -165,7 +167,7 @@
 <h1 class="title">Intro to SQL for Querying Databases</h1>
 <p class="author"><em>Nicholas Alonzo</em></p>
 <p class="author"><em>Michelle Tobias</em></p>
-<p class="date"><em>2022-03-28</em></p>
+<p class="date"><em>2022-03-29</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>

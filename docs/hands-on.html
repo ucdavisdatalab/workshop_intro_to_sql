@@ -25,7 +25,7 @@
 <meta name="author" content="Michelle Tobias" />
 
 
-<meta name="date" content="2022-03-28" />
+<meta name="date" content="2022-03-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,12 +79,15 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i><b>1</b> Concepts</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
-<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
+<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.1</b> What is SQL?</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.2.1</b> You’re Already Doing This!</a></li>
-<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.2.2</b> Why do you want to learn to work with databases and SQL?</a></li>
-<li class="chapter" data-level="1.2.3" data-path="concepts.html"><a href="concepts.html#what-makes-this-challenging"><i class="fa fa-check"></i><b>1.2.3</b> What makes this challenging?</a></li>
+<li class="chapter" data-level="1.1.1" data-path="concepts.html"><a href="concepts.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>1.1.1</b> The SQL Query Blueprint</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.2</b> What is a Relational Database?</a></li>
+<li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system-rdbms"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System (RDBMS)?</a></li>
+<li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.4</b> Why do you want to learn to work with databases and SQL?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.4.1</b> You’re Already Doing This!</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-set-up.html"><a href="getting-set-up.html"><i class="fa fa-check"></i><b>2</b> Getting Set Up</a>
@@ -105,42 +108,41 @@
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="hands-on.html"><a href="hands-on.html#data-definitions"><i class="fa fa-check"></i><b>3.3.1</b> Data Definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>3.4</b> The SQL Query Blueprint</a></li>
-<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.5</b> Viewing Data</a>
+<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.4</b> Viewing Data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.5.1</b> SELECT &amp; FROM</a></li>
-<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.5.2</b> Selecting Columns</a></li>
-<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.5.3</b> Column Referencing</a></li>
-<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.5.4</b> Aliasing Columns &amp; Tables</a></li>
-<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.5.5</b> Unique Values</a></li>
-<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.5.6</b> Ordering Results</a></li>
-<li class="chapter" data-level="3.5.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.5.7</b> Limiting Number of Rows</a></li>
-<li class="chapter" data-level="3.5.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.5.8</b> Commenting</a></li>
+<li class="chapter" data-level="3.4.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.4.1</b> SELECT &amp; FROM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.4.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.4.3</b> Column Referencing</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.4.4</b> Aliasing Columns &amp; Tables</a></li>
+<li class="chapter" data-level="3.4.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.4.5</b> Unique Values</a></li>
+<li class="chapter" data-level="3.4.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.4.6</b> Ordering Results</a></li>
+<li class="chapter" data-level="3.4.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.4.7</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="3.4.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.4.8</b> Commenting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.6</b> Filtering Data</a>
+<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.5</b> Filtering Data</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.6.1</b> AND &amp; OR Operators</a></li>
-<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.6.2</b> IN Operator</a></li>
-<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.6.3</b> BETWEEN Operator</a></li>
-<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.6.4</b> LIKE Operator</a></li>
-<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.6.5</b> IS NULL Operator</a></li>
-<li class="chapter" data-level="3.6.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.6.6</b> NOT Operator</a></li>
+<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.5.1</b> AND &amp; OR Operators</a></li>
+<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.5.2</b> IN Operator</a></li>
+<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.5.3</b> BETWEEN Operator</a></li>
+<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.5.4</b> LIKE Operator</a></li>
+<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.5.5</b> IS NULL Operator</a></li>
+<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.5.6</b> NOT Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.7</b> Aggretating Data</a>
+<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.6</b> Aggretating Data</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.7.1</b> Count</a></li>
-<li class="chapter" data-level="3.7.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.7.2</b> Average</a></li>
-<li class="chapter" data-level="3.7.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.7.3</b> Sum</a></li>
-<li class="chapter" data-level="3.7.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.7.4</b> Grouping Data</a></li>
-<li class="chapter" data-level="3.7.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.7.5</b> Having</a></li>
+<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.6.1</b> Count</a></li>
+<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.6.2</b> Average</a></li>
+<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.6.3</b> Sum</a></li>
+<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.6.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.6.5</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.8</b> Joining Data</a></li>
-<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.9</b> Subqueries</a></li>
-<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.10</b> Saving Query Results</a></li>
-<li class="chapter" data-level="3.11" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.11</b> Data Management</a>
+<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.7</b> Joining Data</a></li>
+<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.8</b> Subqueries</a></li>
+<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.9</b> Saving Query Results</a></li>
+<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.10</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="3.11.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.11.1</b> Update Tables</a></li>
-<li class="chapter" data-level="3.11.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.11.2</b> Add &amp; Populate a Column</a></li>
+<li class="chapter" data-level="3.10.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.10.1</b> Update Tables</a></li>
+<li class="chapter" data-level="3.10.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.10.2</b> Add &amp; Populate a Column</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -230,99 +232,121 @@ Lucidchart does an excellent job of breaking down Entity Relationship Diagrams <
 <tr class="header">
 <th align="left">column</th>
 <th align="left">description</th>
+<th align="left">data type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">id</td>
 <td align="left">unique id of the user</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">first_name</td>
 <td align="left">first name of the user</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">last_name</td>
 <td align="left">last name of the user</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">birth_date</td>
 <td align="left">birth date of the user</td>
+<td align="left">date</td>
 </tr>
 <tr class="odd">
 <td align="left">phone</td>
 <td align="left">cell phone of the user</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">email</td>
 <td align="left">email address of the user</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">address</td>
 <td align="left">address where the the user lives</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">city</td>
 <td align="left">city where the user lives</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="left">state where the user lives</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">zip_code</td>
 <td align="left">zip code where the user lives</td>
+<td align="left">integer</td>
 </tr>
 </tbody>
 </table>
 <table>
 <caption><strong>checkouts</strong>: A log of when a user checks out a book from the library</caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">column</th>
 <th align="left">description</th>
+<th align="left">data type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">id</td>
 <td align="left">unique id of the book checkout</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">user_id</td>
 <td align="left">id of the user who checked out a book</td>
+<td align="left">integer</td>
 </tr>
 <tr class="odd">
 <td align="left">book_id</td>
 <td align="left">id of the book that was checked out</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">checkout_date</td>
 <td align="left">date the book was checked out by the user</td>
+<td align="left">date</td>
 </tr>
 <tr class="odd">
 <td align="left">days_checking_out</td>
 <td align="left">number of days the user will checkout the book</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">due_date</td>
 <td align="left">date the book is due based off days_checking_out</td>
+<td align="left">date</td>
 </tr>
 <tr class="odd">
 <td align="left">return_date</td>
 <td align="left">date the book was returned by the user</td>
+<td align="left">date</td>
 </tr>
 <tr class="even">
 <td align="left">days_checked_out</td>
 <td align="left">number of days the book was checked out for</td>
+<td align="left">integer</td>
 </tr>
 <tr class="odd">
 <td align="left">returned_with_damage</td>
 <td align="left">a number to distinguish whether the book was returned with damage<br>0 = the book was not returned with damage<br>1 = the book was returned with damage</td>
+<td align="left">integer</td>
 </tr>
 </tbody>
 </table>
@@ -332,40 +356,49 @@ Lucidchart does an excellent job of breaking down Entity Relationship Diagrams <
 <tr class="header">
 <th align="left">column</th>
 <th align="left">description</th>
+<th align="left">data type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">id</td>
 <td align="left">unique id of the book</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">title</td>
 <td align="left">title of the book</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">author</td>
 <td align="left">name of the author</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">isbn</td>
 <td align="left">isbn of the book</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">date_published</td>
 <td align="left">date the book was published</td>
+<td align="left">date</td>
 </tr>
 <tr class="even">
 <td align="left">publisher</td>
 <td align="left">publisher of the book</td>
+<td align="left">text</td>
 </tr>
 <tr class="odd">
 <td align="left">format</td>
 <td align="left">the format of the book Ex) Hardcover</td>
+<td align="left">text</td>
 </tr>
 <tr class="even">
 <td align="left">pages</td>
 <td align="left">the number of pages the book has</td>
+<td align="left">integer</td>
 </tr>
 </tbody>
 </table>
@@ -375,16 +408,19 @@ Lucidchart does an excellent job of breaking down Entity Relationship Diagrams <
 <tr class="header">
 <th align="left">column</th>
 <th align="left">description</th>
+<th align="left">data type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">book_id</td>
 <td align="left">id of the book</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">genre_id</td>
 <td align="left">id of the genre</td>
+<td align="left">integer</td>
 </tr>
 </tbody>
 </table>
@@ -394,44 +430,28 @@ Lucidchart does an excellent job of breaking down Entity Relationship Diagrams <
 <tr class="header">
 <th align="left">column</th>
 <th align="left">description</th>
+<th align="left">data type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">id</td>
 <td align="left">unique id of the genre</td>
+<td align="left">integer</td>
 </tr>
 <tr class="even">
 <td align="left">name</td>
 <td align="left">name of the genre</td>
+<td align="left">text</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="the-sql-query-blueprint" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> The SQL Query Blueprint</h2>
-<p>Today we’ll learn about all the following SQL commands and how they’re used together to view, filter, aggregate, and join data.</p>
-<pre><code>SELECT [DISTINCT] ...
-FROM ...
-[WHERE ...]
-    [ [INNER | LEFT] JOIN ...]
-[GROUP BY ... [HAVING ...]]
-[ORDER BY ...] 
-[LIMIT ...];</code></pre>
-<blockquote>
-<p><strong>NOTE</strong>:</p>
-<ul>
-<li>Keywords in brackets “[ ]” is optional</li>
-<li>Write queries in the order of the blueprint</li>
-<li>End queries with a semicolon “;”</li>
-</ul>
-</blockquote>
-</div>
-<div id="viewing-data" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Viewing Data</h2>
-<div id="select-from" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> SELECT &amp; FROM</h3>
+<div id="viewing-data" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Viewing Data</h2>
+<div id="select-from" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> SELECT &amp; FROM</h3>
 <p>We’re ready to write our first query! Type this into the SQL editor pane:</p>
 <p><code>SELECT * FROM users;</code></p>
 <p>Place your cursor anywhere on <code>SELECT</code> and then click the <em>Execute query</em> button. <img src="/Applications/Joplin.app/Contents/Resources/app.asar/images/Button_Execute.PNG" alt="alt text" /></p>
@@ -449,8 +469,8 @@ Capitalization in queries follows some best practices:</p>
 </ul>
 </blockquote>
 </div>
-<div id="selecting-columns" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Selecting Columns</h3>
+<div id="selecting-columns" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Selecting Columns</h3>
 <p>What if we don’t want to see all of the columns in the table? We can ask for just the columns we want to see. Let’s get the first name, birth date, phone, city, and zip code.</p>
 <pre><code>SELECT
     first_name,
@@ -464,8 +484,8 @@ FROM users;</code></pre>
 You can rearrange the columns however you’d like in the <code>SELECT</code> statement and select a column multiple times.</p>
 </blockquote>
 </div>
-<div id="column-referencing" class="section level3" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Column Referencing</h3>
+<div id="column-referencing" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Column Referencing</h3>
 <p>Another important nuance to writing queries is column referencing. This helps you distinguish from what table the columns come from. Use the table name followed by a period to reference the column.</p>
 <pre><code>SELECT 
     users.first_name,
@@ -479,8 +499,8 @@ FROM users;</code></pre>
 This is optional when working with one table. When you start working with multiple tables, it’ll be easier to keep track of where the columns come from. It’s especially important and often necessary to do this if your tables have the same column name. In general it’s best practice to reference your columns!</p>
 </blockquote>
 </div>
-<div id="aliasing-columns-tables" class="section level3" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Aliasing Columns &amp; Tables</h3>
+<div id="aliasing-columns-tables" class="section level3" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Aliasing Columns &amp; Tables</h3>
 <p>Sometimes the default column or table name is not easy to read, interpret, or representitive of what the data actually is. We can use <code>AS</code> to rename (<em>alias</em>) a column or table temporarily in the query. Let’s rename a few columns from our previous query. This is handy if you’re planning to export this table for future use, especially if you’re sending it to someone else.</p>
 <pre><code>SELECT 
     first_name,
@@ -504,8 +524,8 @@ Notice that you can alias a table and columns in the same query. This will come 
 How would you reference the columns when the table is aliased? Can you use <em>users</em>, <em>students</em>, or both?</p>
 </blockquote>
 </div>
-<div id="unique-values" class="section level3" number="3.5.5">
-<h3><span class="header-section-number">3.5.5</span> Unique Values</h3>
+<div id="unique-values" class="section level3" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Unique Values</h3>
 <p>In your data exploration, you might want to know which unique values exist in a column. <code>SELECT DISTINCT</code> is the statement we run on one or more columns to achieve this.</p>
 <p>Let’s look at the <em>users</em> table again and see which cities our users live in.</p>
 <pre><code>SELECT DISTINCT city
@@ -516,8 +536,8 @@ FROM users;</code></pre>
     zip_code
 FROM users;</code></pre>
 </div>
-<div id="ordering-results" class="section level3" number="3.5.6">
-<h3><span class="header-section-number">3.5.6</span> Ordering Results</h3>
+<div id="ordering-results" class="section level3" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Ordering Results</h3>
 <p>While we continue our data exploration, we also might want to sort the results in a specific way. You can sort on one or more columns with a combination of ascending or descending order using the <code>ORDER BY</code> command.</p>
 <p>Let’s sort the <em>users</em> table by birth date.</p>
 <pre><code>SELECT *
@@ -532,15 +552,15 @@ ORDER BY birth_date DESC;</code></pre>
 How would you sort <em>users</em> by zip code in descending order and then birth date in ascending order?</p>
 </blockquote>
 </div>
-<div id="limiting-number-of-rows" class="section level3" number="3.5.7">
-<h3><span class="header-section-number">3.5.7</span> Limiting Number of Rows</h3>
+<div id="limiting-number-of-rows" class="section level3" number="3.4.7">
+<h3><span class="header-section-number">3.4.7</span> Limiting Number of Rows</h3>
 <p>Sometimes you’ll be working with a large table to analyze with lots of columns and rows. You can use <code>LIMIT</code> to reduce the number of rows the query returns to give you a snapshot of the data you’re working with.</p>
 <pre><code>SELECT *
 FROM users
 LIMIT 10;</code></pre>
 </div>
-<div id="commenting" class="section level3" number="3.5.8">
-<h3><span class="header-section-number">3.5.8</span> Commenting</h3>
+<div id="commenting" class="section level3" number="3.4.8">
+<h3><span class="header-section-number">3.4.8</span> Commenting</h3>
 <p>As we’re writing queries, sometimes we want to write helpful comments to ourselves and others. There’s two ways to write comments so that text won’t be interpreted as SQL.</p>
 <ol style="list-style-type: decimal">
 <li>Single line comments: text following two dashses “<em>–</em>”, like so <code>-- comment here</code></li>
@@ -559,8 +579,8 @@ Try and use all viewing commands together to give you insight to the dataset. Wr
 </blockquote>
 </div>
 </div>
-<div id="filtering-data" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Filtering Data</h2>
+<div id="filtering-data" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Filtering Data</h2>
 <p>Now that we’ve seen some ways to view our data, let’s learn how we can filter our data! This is really the core of SQL, where we can start to answer our own questions about the data!</p>
 <p>We use the <code>WHERE</code> command to filter rows of a query by specifying one or more conditions. Below are common operators that can be used and combined in the <code>WHERE</code> clause to create conditions, some of which you may already be familiar with.</p>
 <table>
@@ -601,8 +621,8 @@ Try and use all viewing commands together to give you insight to the dataset. Wr
 <pre><code>SELECT * 
 FROM users
 WHERE city = &#39;Davis&#39;;</code></pre>
-<div id="and-or-operators" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> AND &amp; OR Operators</h3>
+<div id="and-or-operators" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> AND &amp; OR Operators</h3>
 <p>We can ask <code>WHERE</code> to meet multiple conditions using</p>
 <ul>
 <li><code>AND</code> (when a record must match both conditions)</li>
@@ -623,16 +643,16 @@ WHERE city = &#39;Davis&#39; OR
 <code>AND</code> &amp; <code>OR</code> will follow the order of operations. To use <code>AND</code> &amp; <code>OR</code> in the same query, wrap parenthesis around the <code>OR</code> conditions.</p>
 </blockquote>
 </div>
-<div id="in-operator" class="section level3" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> IN Operator</h3>
+<div id="in-operator" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> IN Operator</h3>
 <p>Sometimes we find ourselves writing multiple <code>OR</code> conditions on the same column which can make our query look more complex than it really is. In this scenario we can condense multiple <code>OR</code> conditions using <code>IN</code>.</p>
 <p>Let’s rewrite our previous query to use <code>IN</code>.</p>
 <pre><code>SELECT * 
 FROM users
 WHERE city IN (&#39;Davis&#39;, &#39;Sacramento&#39;);</code></pre>
 </div>
-<div id="between-operator" class="section level3" number="3.6.3">
-<h3><span class="header-section-number">3.6.3</span> BETWEEN Operator</h3>
+<div id="between-operator" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> BETWEEN Operator</h3>
 <p>We can also also filter using ranges of values with <code>BETWEEN</code>. This is handy when you’re working with numerical or date values and you don’t want to list out all possible values to meet your conditions.</p>
 <p>Let’s write a query to find all users born in the 1990’s.</p>
 <pre><code>SELECT * 
@@ -643,8 +663,8 @@ WHERE birth_date BETWEEN &#39;1990-01-01&#39; AND &#39;1999-12-31&#39;;</code></
 Find all users with a zip code from 95000 - 96000.</p>
 </blockquote>
 </div>
-<div id="like-operator" class="section level3" number="3.6.4">
-<h3><span class="header-section-number">3.6.4</span> LIKE Operator</h3>
+<div id="like-operator" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> LIKE Operator</h3>
 <p><code>LIKE</code> is used to search for patterns in strings using the wildcard (<code>%</code>). <code>%</code> is placeholder that means it can match <em>anything</em>. <code>LIKE</code> is case-insensitive.</p>
 <p>Let’s look at an example to indicate we want to match the beginning of a string, but the end is allowed to vary. To show this, let’s find users that have a phone number area code that begins with 530 and can end with anything.</p>
 <pre><code>SELECT * 
@@ -658,8 +678,8 @@ The wildcard <code>%</code> can be used multiple times depending on how complica
 How would you write a query so that the wild card finds users with an email that ends with icloud.com?</p>
 </blockquote>
 </div>
-<div id="is-null-operator" class="section level3" number="3.6.5">
-<h3><span class="header-section-number">3.6.5</span> IS NULL Operator</h3>
+<div id="is-null-operator" class="section level3" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> IS NULL Operator</h3>
 <p>So far we’ve worked with complete data, but how do we work with missing data? In databases, <em>NULL</em> means missing data. <code>IS NULL</code> is used to test whether there is missing data in a column.</p>
 <p>Let’s look at an example to find users with a missing address.</p>
 <pre><code>SELECT * 
@@ -670,8 +690,8 @@ WHERE address IS NULL;</code></pre>
 How would you write a query to find users with a missing phone number or missing email?</p>
 </blockquote>
 </div>
-<div id="not-operator" class="section level3" number="3.6.6">
-<h3><span class="header-section-number">3.6.6</span> NOT Operator</h3>
+<div id="not-operator" class="section level3" number="3.5.6">
+<h3><span class="header-section-number">3.5.6</span> NOT Operator</h3>
 <p>There’ll be times where we want to find the opposite (negate) the conditions we create. To do this we use <code>NOT</code> combined with the other operators like so,</p>
 <ul>
 <li><code>NOT IN</code></li>
@@ -685,11 +705,11 @@ FROM users
 WHERE phone NOT LIKE &#39;530%&#39;;</code></pre>
 </div>
 </div>
-<div id="aggretating-data" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Aggretating Data</h2>
+<div id="aggretating-data" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Aggretating Data</h2>
 <p>We’ve just looked at a number of ways to filter data, but now let’s look at some ways to aggregate data.</p>
-<div id="count" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> Count</h3>
+<div id="count" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Count</h3>
 <p>We can count the total number of rows in a table using the <code>COUNT()</code> function. Let’s see how many total books have been checked out.</p>
 <pre><code>SELECT 
     COUNT(*) AS total_checkouts
@@ -707,15 +727,15 @@ Find the total number of users that have checked out a book.</p>
 FROM checkouts
 WHERE checkout_date = &#39;2022-04-11&#39;;</code></pre>
 </div>
-<div id="average" class="section level3" number="3.7.2">
-<h3><span class="header-section-number">3.7.2</span> Average</h3>
+<div id="average" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Average</h3>
 <p><code>AVG()</code> is another way to aggregate our data. Let’s find the average days a person is checking out a book for.</p>
 <pre><code>SELECT 
     AVG(days_checking_out) AS avg_days_checking_out
 FROM checkouts;</code></pre>
 </div>
-<div id="sum" class="section level3" number="3.7.3">
-<h3><span class="header-section-number">3.7.3</span> Sum</h3>
+<div id="sum" class="section level3" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Sum</h3>
 <p>We can also sum our data with <code>SUM()</code>. Let’s find the total number of books that were returned with damage.</p>
 <pre><code>SELECT 
     SUM(returned_with_damage) AS books_returned_with_damage
@@ -726,8 +746,8 @@ FROM checkouts;</code></pre>
 FROM checkouts
 WHERE returned_with_damage = 1;</code></pre>
 </div>
-<div id="grouping-data" class="section level3" number="3.7.4">
-<h3><span class="header-section-number">3.7.4</span> Grouping Data</h3>
+<div id="grouping-data" class="section level3" number="3.6.4">
+<h3><span class="header-section-number">3.6.4</span> Grouping Data</h3>
 <p>So now you’ve seen several functions working on a single column, but we sometimes want to summarize our data in more sophisticated ways. Let’s see what grouping can do for our data. Let’s write a query that counts the number of books checked out <strong><em>per day</em></strong>.</p>
 <pre><code>SELECT 
     checkout_date, 
@@ -740,8 +760,8 @@ GROUP BY checkout_date;</code></pre>
 You can also <code>GROUP BY</code> more than one column. How would you find the total number of times a person checked out a book on a given day?</p>
 </blockquote>
 </div>
-<div id="having" class="section level3" number="3.7.5">
-<h3><span class="header-section-number">3.7.5</span> Having</h3>
+<div id="having" class="section level3" number="3.6.5">
+<h3><span class="header-section-number">3.6.5</span> Having</h3>
 <p><code>HAVING</code> is similar to <code>WHERE</code>, but it specifically works with <code>GROUP BY</code>. Perhaps we’re only interested in days that had more than 5 checkouts. Let’s see what that looks like:</p>
 <pre><code>SELECT 
     checkout_date, 
@@ -752,8 +772,8 @@ HAVING COUNT(book_id) &gt; 5;</code></pre>
 <p>Now we’ve seen how we can use functions to aggregate data and how grouping data can give us meaningful insights. There are, of course, other functions available in SQL and we can’t go over all of them here, but now you’ve seen how they work and can apply your knowledge to new functions you find.</p>
 </div>
 </div>
-<div id="joining-data" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Joining Data</h2>
+<div id="joining-data" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Joining Data</h2>
 <p>Joining tables allows us to combine information from more than one table into a new table. The tables need to have a <strong><em>key</em></strong> to do so. In our Library Checkouts ERD, the <em>id</em> column in <em>books</em> is a key column that links to</p>
 <ul>
 <li><p><em>book_id</em> in <em>checkouts</em></p>
@@ -810,8 +830,8 @@ FROM books
 Can you write a query that contains the title of the books and the names of the genres they’re categorized to?</p>
 </blockquote>
 </div>
-<div id="subqueries" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> Subqueries</h2>
+<div id="subqueries" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Subqueries</h2>
 <p>So far we’ve been working with one <code>SELECT</code> statement, but we can actually combine multiple <code>SELECT</code> statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other commands like <code>JOIN</code> and <code>WHERE</code>. Below are 2 examples of these use cases.</p>
 <p>Let’s first look at a subquery in the <code>WHERE</code> clause:</p>
 <pre><code>-- main query
@@ -849,8 +869,8 @@ If you’re still a bit confused, just remember that every query results in a ta
 <p>Also, note that both subquery examples are just different ways to get to the same result, “checked out hardcover books.”</p>
 </blockquote>
 </div>
-<div id="saving-query-results" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> Saving Query Results</h2>
+<div id="saving-query-results" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Saving Query Results</h2>
 <p>There will be times when we want to save the results of a query so we can reuse it later when needed. Two commands to save a query as a new database object follow:</p>
 <ol style="list-style-type: decimal">
 <li><code>CREATE TEMPORARY TABLE</code>
@@ -889,10 +909,10 @@ If you’re still a bit confused, just remember that every query results in a ta
         INNER JOIN books ON checkouts.book_id = books.id
     WHERE users.city = &#39;Davis&#39;;</code></pre>
 </div>
-<div id="data-management" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> Data Management</h2>
-<div id="update-tables" class="section level3" number="3.11.1">
-<h3><span class="header-section-number">3.11.1</span> Update Tables</h3>
+<div id="data-management" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Data Management</h2>
+<div id="update-tables" class="section level3" number="3.10.1">
+<h3><span class="header-section-number">3.10.1</span> Update Tables</h3>
 <p>You might have noticed at the beginning the <em>users</em> table has <em>NULL</em> values across different columns. We can fix this fairly easily, but we need to be careful. It’s challenging to undo something in a database so we want to be sure we’re doing it right. Let’s update the <em>NULL</em> values in the <em>users.address</em> to “<em>N/A</em>”.</p>
 <p>It’s first helpful to write a query to be sure these are the records you want to update:</p>
 <pre><code>SELECT *
@@ -904,8 +924,8 @@ SET address = &#39;N/A&#39;
 WHERE address IS NULL;</code></pre>
 <p>The <code>SET</code> command specifically targets just the <em>address</em> column and replaces <em>NULL</em> values with “<em>N/A</em>” when the condition is met in the <code>WHERE</code> clause. It leaves the other values alone. If the <code>WHERE</code> clause is removed, it will set all values in the whole column to “<em>N/A</em>” overwriting the users address, so proceed with caution!</p>
 </div>
-<div id="add-populate-a-column" class="section level3" number="3.11.2">
-<h3><span class="header-section-number">3.11.2</span> Add &amp; Populate a Column</h3>
+<div id="add-populate-a-column" class="section level3" number="3.10.2">
+<h3><span class="header-section-number">3.10.2</span> Add &amp; Populate a Column</h3>
 <p>Sometimes we want to make a new column and add data into it. Let’s make a new column called <em>country</em> in the <em>users</em> table and populate it with “<em>USA</em>” if there is a value in the column <em>state</em>.</p>
 <p>First we’ll add the column and set the default value to “<em>N/A</em>”:</p>
 <pre><code>ALTER TABLE users

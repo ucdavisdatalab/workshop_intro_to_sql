@@ -5,6 +5,7 @@ Created By/Instructor: Nicholas Alonzo (nicholas@diversifyds.org)
 *****************************************************/
 
 /************** The SQL Query Blueprint **************
+Write commands in the order of the blueprint:
 SELECT [DISTINCT] ...
 FROM ...
 [WHERE ...]
@@ -12,11 +13,6 @@ FROM ...
 [GROUP BY ... [HAVING ...]]
 [ORDER BY ...] 
 [LIMIT ...];
-
-NOTE: 
-  - Keywords in brackets "[ ]" is optional
-  - Write queries in the order of the blueprint
-  - End queries with a semicolon ";"
 *****************************************************/
 
 
@@ -143,27 +139,32 @@ NOTE:
 Challenge Queries:
 Keep in mind, there's no one "right" answer! If you'd like to go over these in
 more depth, visit DataLab's office hours: https://datalab.ucdavis.edu/office-hours/
+*********************************************************/
 
-1. Suppose the library is offering a prize to the person who read the most pages. 
-Help the library find the person so they can claim their prize.
+/* 1. Suppose the library is offering a prize to the person who read the most pages. 
+Help the library find the person so they can claim their prize. */
 
-2. Suppose the library received complaints from people that not all books can be searched up by their information.
-Help the library identify the books that need clean up.
 
-3. Suppose the library wants to expand their book collection based off what people check out.
-Help the library decide what types of books to purchase.
 
-4. Suppose the library has a policy that charges 10 cents each day a book is returned after the due date
+/* 2. Suppose the library received complaints from people that not all books can be searched up by their information.
+Help the library identify the books that need clean up. */
+
+
+
+/* 3. Suppose the library wants to expand their book collection based off what people check out.
+Help the library decide what types of books to purchase. */
+
+
+
+/* 4. Suppose the library has a policy that charges 10 cents each day a book is returned after the due date
 and an additional 75 cents if a book is returned with damage.
 Help the library find the people who will be charged. 
-
   There are different ways to get to the same result. Below are a list of helpful 
   SQL commands not covered in the workshop
     CASE: https://www.w3schools.com/sql/sql_case.asp
     COALESCE(): https://www.w3schools.com/SQL/func_sqlserver_coalesce.asp
-    UNION: https://www.w3schools.com/SQL/sql_union.asp
+    UNION: https://www.w3schools.com/SQL/sql_union.asp */
 
-*********************************************************/
 
 
 

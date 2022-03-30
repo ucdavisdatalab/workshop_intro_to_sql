@@ -25,7 +25,7 @@
 <meta name="author" content="Michelle Tobias" />
 
 
-<meta name="date" content="2022-03-28" />
+<meta name="date" content="2022-03-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,12 +79,15 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i><b>1</b> Concepts</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
-<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
+<li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.1</b> What is SQL?</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.2.1</b> You’re Already Doing This!</a></li>
-<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.2.2</b> Why do you want to learn to work with databases and SQL?</a></li>
-<li class="chapter" data-level="1.2.3" data-path="concepts.html"><a href="concepts.html#what-makes-this-challenging"><i class="fa fa-check"></i><b>1.2.3</b> What makes this challenging?</a></li>
+<li class="chapter" data-level="1.1.1" data-path="concepts.html"><a href="concepts.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>1.1.1</b> The SQL Query Blueprint</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.2</b> What is a Relational Database?</a></li>
+<li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system-rdbms"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System (RDBMS)?</a></li>
+<li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#why-do-you-want-to-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.4</b> Why do you want to learn to work with databases and SQL?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.4.1</b> You’re Already Doing This!</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-set-up.html"><a href="getting-set-up.html"><i class="fa fa-check"></i><b>2</b> Getting Set Up</a>
@@ -105,42 +108,41 @@
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="hands-on.html"><a href="hands-on.html#data-definitions"><i class="fa fa-check"></i><b>3.3.1</b> Data Definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>3.4</b> The SQL Query Blueprint</a></li>
-<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.5</b> Viewing Data</a>
+<li class="chapter" data-level="3.4" data-path="hands-on.html"><a href="hands-on.html#viewing-data"><i class="fa fa-check"></i><b>3.4</b> Viewing Data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.5.1</b> SELECT &amp; FROM</a></li>
-<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.5.2</b> Selecting Columns</a></li>
-<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.5.3</b> Column Referencing</a></li>
-<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.5.4</b> Aliasing Columns &amp; Tables</a></li>
-<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.5.5</b> Unique Values</a></li>
-<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.5.6</b> Ordering Results</a></li>
-<li class="chapter" data-level="3.5.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.5.7</b> Limiting Number of Rows</a></li>
-<li class="chapter" data-level="3.5.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.5.8</b> Commenting</a></li>
+<li class="chapter" data-level="3.4.1" data-path="hands-on.html"><a href="hands-on.html#select-from"><i class="fa fa-check"></i><b>3.4.1</b> SELECT &amp; FROM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hands-on.html"><a href="hands-on.html#selecting-columns"><i class="fa fa-check"></i><b>3.4.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hands-on.html"><a href="hands-on.html#column-referencing"><i class="fa fa-check"></i><b>3.4.3</b> Column Referencing</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hands-on.html"><a href="hands-on.html#aliasing-columns-tables"><i class="fa fa-check"></i><b>3.4.4</b> Aliasing Columns &amp; Tables</a></li>
+<li class="chapter" data-level="3.4.5" data-path="hands-on.html"><a href="hands-on.html#unique-values"><i class="fa fa-check"></i><b>3.4.5</b> Unique Values</a></li>
+<li class="chapter" data-level="3.4.6" data-path="hands-on.html"><a href="hands-on.html#ordering-results"><i class="fa fa-check"></i><b>3.4.6</b> Ordering Results</a></li>
+<li class="chapter" data-level="3.4.7" data-path="hands-on.html"><a href="hands-on.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.4.7</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="3.4.8" data-path="hands-on.html"><a href="hands-on.html#commenting"><i class="fa fa-check"></i><b>3.4.8</b> Commenting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.6</b> Filtering Data</a>
+<li class="chapter" data-level="3.5" data-path="hands-on.html"><a href="hands-on.html#filtering-data"><i class="fa fa-check"></i><b>3.5</b> Filtering Data</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.6.1</b> AND &amp; OR Operators</a></li>
-<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.6.2</b> IN Operator</a></li>
-<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.6.3</b> BETWEEN Operator</a></li>
-<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.6.4</b> LIKE Operator</a></li>
-<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.6.5</b> IS NULL Operator</a></li>
-<li class="chapter" data-level="3.6.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.6.6</b> NOT Operator</a></li>
+<li class="chapter" data-level="3.5.1" data-path="hands-on.html"><a href="hands-on.html#and-or-operators"><i class="fa fa-check"></i><b>3.5.1</b> AND &amp; OR Operators</a></li>
+<li class="chapter" data-level="3.5.2" data-path="hands-on.html"><a href="hands-on.html#in-operator"><i class="fa fa-check"></i><b>3.5.2</b> IN Operator</a></li>
+<li class="chapter" data-level="3.5.3" data-path="hands-on.html"><a href="hands-on.html#between-operator"><i class="fa fa-check"></i><b>3.5.3</b> BETWEEN Operator</a></li>
+<li class="chapter" data-level="3.5.4" data-path="hands-on.html"><a href="hands-on.html#like-operator"><i class="fa fa-check"></i><b>3.5.4</b> LIKE Operator</a></li>
+<li class="chapter" data-level="3.5.5" data-path="hands-on.html"><a href="hands-on.html#is-null-operator"><i class="fa fa-check"></i><b>3.5.5</b> IS NULL Operator</a></li>
+<li class="chapter" data-level="3.5.6" data-path="hands-on.html"><a href="hands-on.html#not-operator"><i class="fa fa-check"></i><b>3.5.6</b> NOT Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.7</b> Aggretating Data</a>
+<li class="chapter" data-level="3.6" data-path="hands-on.html"><a href="hands-on.html#aggretating-data"><i class="fa fa-check"></i><b>3.6</b> Aggretating Data</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.7.1</b> Count</a></li>
-<li class="chapter" data-level="3.7.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.7.2</b> Average</a></li>
-<li class="chapter" data-level="3.7.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.7.3</b> Sum</a></li>
-<li class="chapter" data-level="3.7.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.7.4</b> Grouping Data</a></li>
-<li class="chapter" data-level="3.7.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.7.5</b> Having</a></li>
+<li class="chapter" data-level="3.6.1" data-path="hands-on.html"><a href="hands-on.html#count"><i class="fa fa-check"></i><b>3.6.1</b> Count</a></li>
+<li class="chapter" data-level="3.6.2" data-path="hands-on.html"><a href="hands-on.html#average"><i class="fa fa-check"></i><b>3.6.2</b> Average</a></li>
+<li class="chapter" data-level="3.6.3" data-path="hands-on.html"><a href="hands-on.html#sum"><i class="fa fa-check"></i><b>3.6.3</b> Sum</a></li>
+<li class="chapter" data-level="3.6.4" data-path="hands-on.html"><a href="hands-on.html#grouping-data"><i class="fa fa-check"></i><b>3.6.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="3.6.5" data-path="hands-on.html"><a href="hands-on.html#having"><i class="fa fa-check"></i><b>3.6.5</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.8</b> Joining Data</a></li>
-<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.9</b> Subqueries</a></li>
-<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.10</b> Saving Query Results</a></li>
-<li class="chapter" data-level="3.11" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.11</b> Data Management</a>
+<li class="chapter" data-level="3.7" data-path="hands-on.html"><a href="hands-on.html#joining-data"><i class="fa fa-check"></i><b>3.7</b> Joining Data</a></li>
+<li class="chapter" data-level="3.8" data-path="hands-on.html"><a href="hands-on.html#subqueries"><i class="fa fa-check"></i><b>3.8</b> Subqueries</a></li>
+<li class="chapter" data-level="3.9" data-path="hands-on.html"><a href="hands-on.html#saving-query-results"><i class="fa fa-check"></i><b>3.9</b> Saving Query Results</a></li>
+<li class="chapter" data-level="3.10" data-path="hands-on.html"><a href="hands-on.html#data-management"><i class="fa fa-check"></i><b>3.10</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="3.11.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.11.1</b> Update Tables</a></li>
-<li class="chapter" data-level="3.11.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.11.2</b> Add &amp; Populate a Column</a></li>
+<li class="chapter" data-level="3.10.1" data-path="hands-on.html"><a href="hands-on.html#update-tables"><i class="fa fa-check"></i><b>3.10.1</b> Update Tables</a></li>
+<li class="chapter" data-level="3.10.2" data-path="hands-on.html"><a href="hands-on.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.10.2</b> Add &amp; Populate a Column</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -163,139 +165,46 @@
             <section class="normal" id="section-">
 <div id="concepts" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Concepts</h1>
-<div id="what-is-a-relational-database" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> What is a Relational Database?</h2>
-<p>A database is a set of data in tables that are related to each other in some way. That’s it. It’s just a collection of tables.</p>
-<p>Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a <strong>key</strong>. For example, a key commonly used on campus is your student or employee ID number.</p>
-<p>Let’s look at an example dataset of fictional student data with data about courses, grades, and employment. Can we say anything about the relationship between course grades and employment based on this data?</p>
-<p><strong>Table: Student</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Jane Smith</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Maria Martinez</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Paul Jones</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table: Courses</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Course</th>
-<th>Grade</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Calculus</td>
-<td>A-</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Calculus</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Calculus</td>
-<td>C+</td>
-</tr>
-<tr class="even">
-<td>123</td>
-<td>Data Science</td>
-<td>A-</td>
-</tr>
-<tr class="odd">
-<td>456</td>
-<td>Data Science</td>
-<td>B</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Data Science</td>
-<td>B-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table: Employment</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Position</th>
-<th>Employer</th>
-<th>HoursPerWeek</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Customer Service</td>
-<td>Alumni Center</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>456</td>
-<td>Research Assistant</td>
-<td>University Research Lab</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Stock Room</td>
-<td>Medical Supplier</td>
-<td>20</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Customer Service</td>
-<td>Alumi Center</td>
-<td>15</td>
-</tr>
-</tbody>
-</table>
+<div id="what-is-sql" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> What is SQL?</h2>
+<p>SQL, also pronounced “sequel,” stands for “structured query language.” It’s a database programming language that allows you to answer questions about a database using a standard set of commands.</p>
+<div id="the-sql-query-blueprint" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> The SQL Query Blueprint</h3>
+<p>Today we’ll learn about all the following SQL commands and how they’re used together to view, filter, aggregate, and join data.</p>
+<pre><code>SELECT [DISTINCT] ...
+FROM ...
+[WHERE ...]
+    [ [INNER | LEFT] JOIN ...]
+[GROUP BY ... [HAVING ...]]
+[ORDER BY ...] 
+[LIMIT ...];</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>Keywords in brackets “[ ]” is optional</li>
+<li>Write commands in the order of the blueprint</li>
+<li>End queries with a semicolon “;”</li>
+</ul>
+</blockquote>
 </div>
-<div id="what-is-sql" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> What is SQL?</h2>
-<p>SQL stands for “structured query language” and it’s a language that allows you to ask questions of a database.</p>
-<p>In the above example, it would be much easier to understand the relationships if we build a table aggregating and reshaping our data. SQL allows us to do that.</p>
-<div id="youre-already-doing-this" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> You’re Already Doing This!</h3>
-<p>Researchers typically are already thinking about querying data.</p>
-<p>Imagine you have a table about air quality data. It contains columns with measurements about various environmental properties such as the temperature, the level of ozone, and perhaps measurements of various particulates.</p>
-<p>If you’ve ever subsetted data in R, for example, you’ve already done something similar to writing an SQL query! The R code <code>subset(airquality, Temp &gt; 80, select = c(Ozone, Temp))</code> becomes <code>SELECT Ozone, Temp FROM airquality WHERE Temp &gt; 80</code> in SQL.</p>
-<p>In Excel, you might sort your whole spreadsheet on the Temp column, then copy all of the rows that are greater than 80, and paste them into another tab. You might remove all the other columns except for the Ozone and Temp columns. You might have also used the cell highlighting tools to change the color of the cells based on the Temp column just to see which cells meet your criteria.</p>
 </div>
-<div id="why-do-you-want-to-learn-to-work-with-databases-and-sql" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Why do you want to learn to work with databases and SQL?</h3>
+<div id="what-is-a-relational-database" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> What is a Relational Database?</h2>
+<p>A relational database is a collection of tables (organized in rows and columns of data) that are related to each other in some way.</p>
+<p>If you’ve worked in Excel this would be the equivalent to sheets of data. Or, if you have experience with R or Python programming languages, this would be the equivalent to data frames.</p>
+<p>We’ll go more in-depth when we cover the workshop data set!</p>
+</div>
+<div id="what-is-a-relational-database-management-system-rdbms" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System (RDBMS)?</h2>
+<p>A RDBMS is a software that interacts with databases, users, and other applications. For the workshop we’ll be working with SQLite. It’s a lightweight and portable RDBMS that runs on Windows, MacOS, and Linux with no complex setup.</p>
+<p>Every RDBMS has it’s own implementation or “dialect” of SQL. For SQLite there’s sqlite3, but everything we learn will be applicable to other popular RDBMS!</p>
+<blockquote>
+<p><strong>NOTE</strong>:<br />
+Other popular RDBMS’s include MySQL, Postgres, and Microsoft SQL Server, but requre setting up a server.</p>
+</blockquote>
+</div>
+<div id="why-do-you-want-to-learn-to-work-with-databases-and-sql" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Why do you want to learn to work with databases and SQL?</h2>
 <ul>
 <li>Efficiency
 <ul>
@@ -304,8 +213,8 @@
 </ul></li>
 <li>Reproducibility
 <ul>
-<li>save queries as a record of your workflow</li>
-<li>re-run code with updates</li>
+<li>Save queries as a record of your workflow</li>
+<li>Re-run code with updates</li>
 </ul></li>
 <li>Work with large amounts of data
 <ul>
@@ -318,10 +227,14 @@
 <li>Write a query instead of making a new files or tabs</li>
 </ul></li>
 </ul>
-</div>
-<div id="what-makes-this-challenging" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> What makes this challenging?</h3>
-<p>If you currently work in a graphical user interface (GUI), you might be used to being able to see your data, have tools with guided interfaces, and seeing the results of your processing immediately. These aren’t things you get with a typical database manager tool, however, you will get used to the typical workflow and seeing everything won’t be so necessary.</p>
+<div id="youre-already-doing-this" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> You’re Already Doing This!</h3>
+<p>Researchers typically are already thinking about querying data:</p>
+<ul>
+<li>I would like to see <strong><em>XYZ</em></strong> that occurred in a certain time range.</li>
+<li>How many of <strong><em>X</em></strong> or <strong><em>Y</em></strong> are there?</li>
+<li>What unique values of <strong><em>X</em></strong> exist?</li>
+</ul>
 
 </div>
 </div>
