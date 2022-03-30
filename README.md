@@ -21,8 +21,9 @@ __Prerequisites__
 No prior programming experience is necessary: 
 
 - Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
-- Download the 2 workshop files (*lcdb.db* & *intro_to_sql_spring22.sql*) from the GitHub repo materials folder [here](https://github.com/ucdavisdatalab/workshop_intro_to_sql/tree/main/materials).
-
+- Download the 2 workshop files from the following link [here]()
+  - lcdb.db
+  - intro_to_sql_spring22.sql
 
 
 ## Contributing
