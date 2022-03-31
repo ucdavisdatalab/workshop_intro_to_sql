@@ -22,10 +22,10 @@
   
 
 <meta name="author" content="Nicholas Alonzo" />
-<meta name="author" content="Michelle Tobias" />
+<meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-03-29" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -195,21 +195,11 @@ FROM ...
 <h2><span class="header-section-number">1.3</span> What is a Relational Database Management System (RDBMS)?</h2>
 <p>A RDBMS is a software that interacts with databases, users, and other applications. For the workshop we’ll be working with <a href="https://sqlite.org/index.html">SQLite</a>. It’s a portable RDBMS that runs on Windows, MacOS, and Linux with no complex setup!</p>
 <p>Other popular RDBMS’s include MySQL, Postgres, and Microsoft SQL Server, but it’s an in-depth process to properly set up.</p>
-<p>Every RDBMS has it’s own implementation or “dialect” of SQL. For SQLite there’s sqlite3, but everything we learn will be applicable to other popular RDBMS!</p>
+<p>Every RDBMS has it’s own implementation or “dialect” of the SQL standard. For SQLite there’s sqlite3, but everything we learn will be applicable to other popular RDBMS!</p>
 </div>
 <div id="why-do-you-want-to-learn-to-work-with-databases-and-sql" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Why do you want to learn to work with databases and SQL?</h2>
 <ul>
-<li>Efficiency
-<ul>
-<li>Write a few lines of code rather than lots of manual data manipulation</li>
-<li>SQL is meant for data manipulation</li>
-</ul></li>
-<li>Reproducibility
-<ul>
-<li>Save queries as a record of your workflow</li>
-<li>Re-run code with updates</li>
-</ul></li>
 <li>Work with large amounts of data
 <ul>
 <li>Typically faster to run a process in a database than in a spreadsheet</li>
@@ -220,10 +210,20 @@ FROM ...
 <li>One database file stores many, many tables which is represented as one file in your file browser</li>
 <li>Write a query instead of making a new files or tabs</li>
 </ul></li>
+<li>Efficiency
+<ul>
+<li>Write a few lines of code rather than lots of manual data manipulation</li>
+<li>SQL is meant for data manipulation</li>
+</ul></li>
+<li>Reproducibility
+<ul>
+<li>Save queries as a record of your workflow</li>
+<li>Re-run code with updates</li>
+</ul></li>
 </ul>
 <div id="youre-already-doing-this" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> You’re Already Doing This!</h3>
-<p>If you work with data, you’re typically already thinking about answering questions:</p>
+<p>If you work with data, you’re probably already trying to answer specific questions:</p>
 <ul>
 <li>I would like to see <strong><em>XYZ</em></strong> that occurred in a certain time range.</li>
 <li>How many of <strong><em>X</em></strong> or <strong><em>Y</em></strong> are there?</li>

@@ -7,6 +7,8 @@ _Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
 * [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-sql-for-querying-databases/)
 
+__Authors__: [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Michele Tobias](https://github.com/MicheleTobias)
+
 This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.
 
 __Goals__  
@@ -21,7 +23,7 @@ __Prerequisites__
 No prior programming experience is necessary: 
 
 - Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
-- Download the 2 workshop files from the following link [here]()
+- Download the workshop materials from the Google Drive link [here](https://drive.google.com/file/d/19XAjvRScly5yRLcvhcHWJq577VlSm6DP/view?usp=sharing). Make sure to unzip the folder and keep track of where it's saved. There will be 2 files:
   - lcdb.db
   - intro_to_sql_spring22.sql
 
