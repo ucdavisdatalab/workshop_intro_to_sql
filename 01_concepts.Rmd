@@ -40,21 +40,16 @@ Other popular RDBMS's include MySQL, Postgres, and Microsoft SQL Server, but it'
 Every RDBMS has it's own implementation or "dialect" of the SQL standard. For SQLite there's sqlite3, but everything we learn will be applicable to other popular RDBMS!
 
 
-## Why do you want to learn to work with databases and SQL?
+## Why should you learn to work with databases and SQL?
 
-* Work with large amounts of data
-  + Typically faster to run a process in a database than in a spreadsheet
-  + Store lots of data (compare with Excel's row limits)
-* Data management
-  + One database file stores many, many tables which is represented as one file in your file browser
-  + Write a query instead of making a new files or tabs
-* Efficiency
-  + Write a few lines of code rather than lots of manual data manipulation
-  + SQL is meant for data manipulation
-* Reproducibility 
-  + Save queries as a record of your workflow
-  + Re-run code with updates
-    
+- You can work with large amounts of data
+  - Databases are meant to store "Big Data"
+- You can manage multiple data sources
+  - With an RDBMS, you have access to more than one database
+- Writing SQL is efficient
+  - SQL is optimized to return results __fast__
+  - SQL is reproducible - you can save, edit, and run queries at a later date
+
 ### You're Already Doing This!
 
 If you work with data, you're probably already thinking about answering specific questions:

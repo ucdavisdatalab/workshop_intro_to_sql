@@ -3,7 +3,7 @@ what-is-sql
 the-sql-query-blueprint
 what-is-a-relational-database
 what-is-a-relational-database-management-system-rdbms
-why-do-you-want-to-learn-to-work-with-databases-and-sql
+why-should-you-learn-to-work-with-databases-and-sql
 youre-already-doing-this
 data-background-and-set-up
 sqlitestudio
