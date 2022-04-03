@@ -28,16 +28,6 @@ FROM ...
 
 
 
--- Column Referencing
-
-
-
-
--- Aliasing Columns & Tables 
-
-
-
-
 -- Unique Values
 
 
@@ -97,6 +87,11 @@ FROM ...
 
 
 
+-- Renaming/Aliasing Columns
+
+
+
+
 -- AGV() Function
 
 
@@ -117,7 +112,15 @@ FROM ...
 
 
 
-/************* Joining Data *************/
+/************* Joining Data *************
+Below are the steps for writing a JOIN:
+1. We start in just the same way: SELECT the columns we want in the output (using column references)
+NOTE: Column referencing helps you distinguish from what table the columns come from.
+      Use the table name followed by a period to reference the column: table_name.column_name
+2. Then we have the FROM statement to tell it which table to start with (this is our “left” table)
+3. Then we need our JOIN statement to say which table should get joined (this is our “right” table)
+4. Finally, we have to say which columns the join should be based on with ON
+****************************************/
 
 -- INNER JOIN 
 
@@ -135,11 +138,11 @@ FROM ...
 
 
 
-/*********************************************************
-Challenge Queries:
-Keep in mind, there's no one "right" answer! If you'd like to go over these in
-more depth, visit DataLab's office hours: https://datalab.ucdavis.edu/office-hours/
-*********************************************************/
+
+/************* Challenge Queries *************
+Keep in mind, there's no one "right" answer! If you'd like to go over these in more depth, 
+visit DataLab's office hours: https://datalab.ucdavis.edu/office-hours/
+*********************************************/
 
 /* 1. Suppose the library is offering a prize to the person who read the most pages. 
 Help the library find the person so they can claim their prize. */
@@ -153,19 +156,6 @@ Help the library identify the books that need clean up. */
 
 /* 3. Suppose the library wants to expand their book collection based off what people check out.
 Help the library decide what types of books to purchase. */
-
-
-
-/* 4. Suppose the library has a policy that charges 10 cents each day a book is returned after the due date
-and an additional 75 cents if a book is returned with damage.
-Help the library find the people who will be charged. 
-  There are different ways to get to the same result. Below are a list of helpful 
-  SQL commands not covered in the workshop
-    CASE: https://www.w3schools.com/sql/sql_case.asp
-    COALESCE(): https://www.w3schools.com/SQL/func_sqlserver_coalesce.asp
-    UNION: https://www.w3schools.com/SQL/sql_union.asp */
-
-
 
 
 
