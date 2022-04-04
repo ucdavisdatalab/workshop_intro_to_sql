@@ -1,11 +1,21 @@
 # Concepts
 
+## What is a Relational Database?
+
+A relational database is a collection of tables (organized in rows and columns of data) that are related to each other in some way. 
+
+If you’ve worked in Excel this would be the equivalent to sheets of data. Or, if you have experience with R or Python programming languages, this would be the equivalent to data frames. 
+
+We'll go more in-depth on the *relational* part when we cover the workshop dataset!
+
+
 ## What is SQL?
+
 SQL, also pronounced "sequel," stands for "structured query language." It's a database programming language that allows you to answer questions about a database using a standard set of commands. 
 
 ### The SQL Query Blueprint
 
-Today we’ll learn about all the following SQL commands and how they’re used together to view, filter, aggregate, and join data.  
+Today we’ll learn about all the following common SQL commands and how they’re used together to view, filter, aggregate, and join data.  
 
 ```
 SELECT [DISTINCT] ...
@@ -23,27 +33,26 @@ FROM ...
 > - Write commands in the order of the blueprint
 > - End queries with a semicolon ";"
 
-## What is a Relational Database?
-
-A relational database is a collection of tables (organized in rows and columns of data) that are related to each other in some way. 
-
-If you’ve worked in Excel this would be the equivalent to sheets of data. Or, if you have experience with R or Python programming languages, this would be the equivalent to data frames. 
-
-We'll go more in-depth when we cover the workshop data set!
-
 ## What is a Relational Database Management System (RDBMS)?
 
-A RDBMS is a software that interacts with databases, users, and other applications. For the workshop we’ll be working with [SQLite](https://sqlite.org/index.html). It's a portable RDBMS that runs on Windows, MacOS, and Linux with no complex setup! 
+A RDBMS is a software that interacts with databases, users, and other applications and it's also where you write and execute SQL on a database.
 
-Other popular RDBMS's include MySQL, Postgres, and Microsoft SQL Server, but it's an in-depth process to properly set up.
+For the workshop we’ll be working with the RDBMS called [SQLite](https://sqlite.org/index.html). 
 
-Every RDBMS has it's own implementation or "dialect" of the SQL standard. For SQLite there's sqlite3, but everything we learn will be applicable to other popular RDBMS!
+![](images/sqlite-logo.png)
+<!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg -->
+
+It runs on Windows, MacOS, and Linux with no complex setup! 
+
+You may have heard of other RDBMS's like MySQL, Postgres, and Microsoft SQL Server that we could work with, but these require an in-depth process to set up.
+
+It's important to note that every RDBMS has it's own implementation or "dialect" of the SQL standard. This means RDBMS's might not share all the same SQL commands or that SQL queries might be written differently. For SQLite there's the sqlite3 dialect, but almost all commands we cover will be applicable to other popular RDBMS's!
 
 
 ## Why should you learn to work with databases and SQL?
 
 - You can work with large amounts of data
-  - Databases are meant to store "Big Data"
+  - Databases are meant to store and handle "Big Data"
 - You can manage multiple data sources
   - With an RDBMS, you have access to more than one database
 - Writing SQL is efficient

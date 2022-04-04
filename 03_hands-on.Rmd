@@ -4,11 +4,11 @@
 
 ### SELECT & FROM
 
-We're ready to write our first query! Type this into the SQL editor pane:
+We're ready to write our first query! Type this into the *SQL Editor Pane*:
 
 `SELECT * FROM users;`
 
-Place your cursor anywhere on `SELECT` and then click the *Execute query* button. ![alt text](/Applications/Joplin.app/Contents/Resources/app.asar/images/Button_Execute.PNG)
+Place your cursor anywhere on `SELECT` and then click the *Execute query* button. ![alt text](images/Button_Execute.PNG)
 
 This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specifiy which table to get the columns from.
 
@@ -44,55 +44,6 @@ FROM users;
 
 > **NOTE**:  
 > You can rearrange the columns however you'd like in the `SELECT` statement and select a column multiple times.
-
-### Column Referencing
-
-Another important nuance to writing queries is column referencing. This helps you distinguish from what table the columns come from. Use the table name followed by a period to reference the column.
-
-```
-SELECT 
-    users.first_name,
-    users.birth_date,
-    users.phone,
-    users.city, 
-    users.zip_code 
-FROM users;
-```
-
-> **NOTE**:  
-> This is optional when working with one table. When you start working with multiple tables, it'll be easier to keep track of where the columns come from. It's especially important and often necessary to do this if your tables have the same column name. In general it's best practice to reference your columns!
-
-### Aliasing Columns & Tables
-
-Sometimes the default column or table name is not easy to read, interpret, or representitive of what the data actually is. We can use `AS` to rename (*alias*) a column or table temporarily in the query. Let's rename a few columns from our previous query. This is handy if you're planning to export this table for future use, especially if you're sending it to someone else.
-
-```
-SELECT 
-    first_name,
-    birth_date AS dob,
-    phone AS cell_phone,
-    city, 
-    zip_code AS zip 
-FROM users;
-```
-
-Now let's rename our table to *students*.
-
-```
-SELECT 
-    first_name,
-    birth_date AS dob,
-    phone AS cell_phone,
-    city,
-    zip_code AS zip 
-FROM users AS students;
-```
-
-> **NOTE**:  
-> Notice that you can alias a table and columns in the same query. This will come handy when we learn about `JOIN`!
-> 
-> **CHALLENEGE**:  
-> How would you reference the columns when the table is aliased? Can you use *users*, *students*, or both?
 
 ### Unique Values
 
@@ -152,7 +103,7 @@ LIMIT 10;
 As we're writing queries, sometimes we want to write helpful comments to ourselves and others. There's two ways to write comments so that text won't be interpreted as SQL. 
 
 1. Single line comments: text following two dashses "*--*", like so `-- comment here`
-2. Multiline comments: text between the characters "*/\* \*/*", like so */\* comment here \*/*
+2. Multiline comments: text between the characters "*/\* \*/*", like so `/* comment here */`
 
 ```
 /*
@@ -169,9 +120,9 @@ ORDER BY birth_date DESC; -- sort most recent here
 
 ## Filtering Data
 
-Now that we've seen some ways to view our data, let’s learn how we can filter our data! This is really the core of SQL, where we can start to answer our own questions about the data!
+Now that we've seen some ways to view our data, let’s learn how we can filter our data. This is really the core of SQL, where we can start to answer our own questions about the data!
 
-We use the `WHERE` command to filter rows of a query by specifying one or more conditions. Below are common operators that can be used and combined in the `WHERE` clause to create conditions, some of which you may already be familiar with.
+We use the `WHERE` command to filter rows of a query by specifying one or more conditions. Below are common operators that can be used and combined with `WHERE` to create conditions, some of which you may have seen before in other programming languages.
 
 | Comparison Operators | Arithmetic Operators |
 | :--- | :--- |
@@ -182,7 +133,26 @@ We use the `WHERE` command to filter rows of a query by specifying one or more c
 | `<=` (less than or equal to) | `%` (modulus) |
 | `<>` or `!=` (not equal to) |     |
 
-Let's write a query to find all users that live in Davis.
+__Common Rules__:
+
+- Comparison operators are used to compare same data type values or columns. 
+  - *text_column* `=` *text_value*
+  - *date_column* `>` *date_value*
+  - *numeric_column* `>=` *numeric_value*
+  - *numeric_column* `>=` *numeric_column*
+
+- Arithmetic operators are used with numeric data types or columns.
+  - *numeric_column* `+` *numeric_value*
+  - *numeric_column1* `-` *numeric_column2*
+  
+- When working with **text** or **date** data types, it's necessary to wrap values in single quotes.
+  - *text_column* `=` `'text_value'`
+  - *date_column* `>` `'2000-01-01'`
+
+- When working with **numeric** data types, values don't need to be wrapped in single quotes.
+  - *numeric_column* `+` `1`
+
+Now that we've gone through the rules. Let's write a query to find all users that live in Davis.
 
 ```
 SELECT * 
@@ -192,10 +162,14 @@ WHERE city = 'Davis';
 
 ### AND & OR Operators
 
+In the previous example, we saw a condition with one column, but the power of writing queries is being able to combine multiple conditions.
+
 We can ask `WHERE` to meet multiple conditions using
 
 - `AND` (when a record must match both conditions)
 - `OR` (when a record can match either of two conditions)
+
+These are logical operators in SQL that evaluate to TRUE or FALSE.
 
 Let's find all users who live in Davis ***and*** have a zip code of 95616.
 
@@ -282,7 +256,7 @@ WHERE address IS NULL;
 
 ### NOT Operator
 
-There'll be times where we want to find the opposite (negate) the conditions we create. To do this we use `NOT` combined with the other operators like so,
+There will be times where we want to find the opposite (negate) the conditions we create. To do this we use `NOT` combined with the other operators like so,
 
 - `NOT IN`
 - `NOT BETWEEN`
@@ -303,17 +277,27 @@ We've just looked at a number of ways to filter data, but now let's look at some
 
 ### Count
 
-We can count the total number of rows in a table using the `COUNT()` function. Let's see how many total books have been checked out.
+We can count the total number of rows in a table using the `COUNT()` function. `COUNT()` takes any column as an argument. Let's see how many total books have been checked out.
 
 ```
 SELECT 
-    COUNT(*) AS total_checkouts
+    COUNT(id)
+FROM checkouts;
+```
+
+#### Renaming/Aliasing Columns
+
+In the previous query, you'll notice that the default column name in the result isn't easy to read or interpret. We can use `AS` to rename (*alias*) a column in the result of the query. This is handy if you're planning to export the result for future use, especially if you're sending it to someone else. 
+
+Let's rename the column to *total_checkouts*. This is something interpretable and representative of what it is.
+
+```
+SELECT 
+    COUNT(id) AS total_checkouts
 FROM checkouts;
 ```
 
 > **NOTE**:  
-> Notice how we've aliased the aggregated column to something interpretable and representative of what it is.
-> 
 > You can combine `DISTINCT` with `COUNT()` using `COUNT(DISTINCT column_name)` to get a unique count of values in a column when duplicate values exist.
 >
 > **CHALLENGE**:  
@@ -324,14 +308,14 @@ We can also include `WHERE`. Let's see how many books were checked out just toda
 
 ```
 SELECT 
-    COUNT(*) AS total_checkouts
+    COUNT(id) AS total_checkouts
 FROM checkouts
 WHERE checkout_date = '2022-04-11';
 ```
 
 ### Average
 
-`AVG()` is another way to aggregate our data. Let's find the average days a person is checking out a book for.
+`AVG()` is another way to aggregate our data. It returns the average value of a numeric column. Let's find the average days a person is checking out a book for.
 
 ```
 SELECT 
@@ -341,7 +325,7 @@ FROM checkouts;
 
 ### Sum
 
-We can also sum our data with `SUM()`. Let's find the total number of books that were returned with damage.
+We can also sum the values in a column with `SUM()`. It returns the total sum of a numeric column. Let's find the total number of books that were returned with damage.
 
 ```
 SELECT 
@@ -353,7 +337,7 @@ Below is another way to accomplish the same task using `COUNT()` and `WHERE`.
 
 ```
 SELECT 
-    COUNT(*) AS books_returned_with_damage
+    COUNT(id) AS books_returned_with_damage
 FROM checkouts
 WHERE returned_with_damage = 1;
 ```
@@ -400,11 +384,13 @@ Joining tables allows us to combine information from more than one table into a 
 
 - *book_id* in *book\_genre\_link*
 
+### JOIN Types
+
 SQL has 4 main kinds of joins:
 
 ![INNER JOIN](https://www.w3schools.com/sql/img_innerjoin.gif) ![LEFT JOIN](https://www.w3schools.com/sql/img_leftjoin.gif)
 
-![RIGHT JOIN](https://www.w3schools.com/sql/img_rightjoin.gif)![FULL OUTER JOIN](https://www.w3schools.com/sql/img_fulljoin.gif)
+![RIGHT JOIN](https://www.w3schools.com/sql/img_rightjoin.gif) ![FULL OUTER JOIN](https://www.w3schools.com/sql/img_fulljoin.gif)
 
 > **NOTE**:  
 > The above images come from the [W3Schools' SQL join page](https://www.w3schools.com/sql/sql_join.asp), an excellent resource for learning more about SQL.
@@ -425,12 +411,20 @@ What kinds of joins are there?
 	> **NOTE**:  
 	> This is not supported in SQLite, however you can emulate a `FULL OUTER JOIN` described [here](https://www.sqlitetutorial.net/sqlite-full-outer-join/).
     
+### JOIN steps
+    
 Below are the steps for writing a JOIN: 
 
 1.  We start in just the same way: `SELECT` the columns we want in the output (using column references).
+
+> **NOTE**:  
+> Column referencing helps you distinguish from what table the columns come from. Use the table name followed by a period to reference the column: `table_name.column_name`.
+
 2.  Then we have the `FROM` statement to tell it which table to start with (this is our "left" table).
 3.  Then we need our `JOIN` statement to say which table should get joined (this is our "right" table)
 4.  Finally, we have to say which columns the join should be based on with  `ON` .
+
+### INNER JOIN
 
 Let's try an `INNER JOIN` to see how this works:
 
@@ -443,7 +437,17 @@ FROM books
     INNER JOIN checkouts ON books.id = checkouts.book_id;
 ```
 
-We interpret the `INNER JOIN` query as, "all books that have been checked out." Now let's try a `LEFT JOIN`:
+We interpret the `INNER JOIN` query as, "all books that have been checked out." 
+
+> **NOTE**:  
+> Notice that you can alias a table and columns in the same query. This will come handy when we learn about `JOIN`!
+> 
+> **CHALLENEGE**:  
+> How would you reference the columns when the table is aliased? Can you use *users*, *students*, or both?
+
+### LEFT JOIN
+
+Now let's try a `LEFT JOIN`:
 
 ```
 SELECT 
