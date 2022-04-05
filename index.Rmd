@@ -39,6 +39,6 @@ __Prerequisites__
 No prior programming experience is necessary: 
 
 - Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
-- Download the workshop materials from the Google Drive link [here](https://drive.google.com/file/d/19XAjvRScly5yRLcvhcHWJq577VlSm6DP/view?usp=sharing). Make sure to unzip the folder and keep track of where it's saved. There will be 2 files:
+- Download *2022-04-04_intro-sql.zip* from the Google Drive link [here](https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing). Make sure to unzip the file and keep track of where it's saved on your computer. It contains a data set and script that will be used during the workshop.
   - lcdb.db
   - intro_to_sql_spring22.sql
