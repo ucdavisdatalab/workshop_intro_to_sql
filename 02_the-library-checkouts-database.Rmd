@@ -1,14 +1,12 @@
-# Data Background and Setup
-
-## Data Background
+# The Library Checkouts Database
 
 We'll be working with the Library Checkouts Database, a fictitious SQLite database about how and what a library keeps track of when lending books. This includes information like:
 
-- Books and their details: Title, author, genres, etc... 
+- Books and their details: title, author, genres, etc... 
 - People who sign up for a library card: Name and contact info
 - Checkouts of books by who and when etc...
 
-Why would a library want to keep track of this information in a RDBMS? 
+Why would a library want to track this information in a database? 
 
 - Data management
     - Centralized location for all data being tracked
@@ -21,15 +19,15 @@ Why would a library want to keep track of this information in a RDBMS?
 
 For more detailed information on how the SQLite database was put together, refer to the GitHub repository [here](https://github.com/diversifyds/library-checkouts-db).
 
-> **NOTE**:  
-> Although the data is fictious, the database is set up to support enough scenarios for us to learn and practice SQL! 
 
+## Entity Relationship Diagrams
 
-### Entity Relationship Diagram (ERD)
+An **entity relationship diagram** ERD is a visual representation of a
+relational database. ERDs help with understanding what data is available, how
+the data is stored, and how tables and columns are related. These details are
+important for determining what types of questions you can answer with SQL!
 
-Let's learn how the information tracked can be represented as a relational database using an Entity Relationship Diagram (ERD). An ERD is a visual representation of a relational database. They help you understand what data is available, how data is stored, and how data is related with one another. Understanding your database means you can determine what types of questions you can answer with SQL!
-
-Below is the Library Checkouts ERD which represents the database we're working with today.
+Here's an ERD for the Library Checkouts database:
 
 ![](images/library-checkouts-erd.png)
 
@@ -46,7 +44,7 @@ Lets break down the components of the ERD:
 > **NOTE**:  
 > The Library Checkouts ERD was made with the diagramming software [Lucidchart](https://www.lucidchart.com/). Lucidchart also does an excellent job of breaking down Entity Relationship Diagrams [here](https://www.lucidchart.com/pages/er-diagrams).
 
-### Data Definitions
+## Data Definitions
 
 Below are the data definitions of the tables and columns in the Library Checkouts Database.
 
@@ -107,29 +105,24 @@ Table: **genres**: All the genres in the library system
 | name | name of the genre | text |
 
 
-## Data Setup
-
-To work with our database, we'll be using [SQLiteStudio](https://sqlitestudio.pl/about/). 
+## SQLiteStudio
 
 ![](images/sqlitestudio-logo.png)
 
-It's a free, open source, multi-platform desktop application for browsing and editing SQLite database files.
+To work with our database, we'll use [SQLiteStudio][]. It's a free, open
+source, multi-platform desktop application for browsing SQLite databases and
+writing SQL queries.
 
-### The SQLiteStudio Interface
+[SQLiteStudio]: https://sqlitestudio.pl/about/
+
+SQLiteStudio has a number of tools and panes to help you interact with your
+data:
 
 ![](images/sqlitestudio-interface.png)
 
-SQLiteStudio has a number of tools and panes to help you interact with your data. We can view databases (outlined in green) and also write and run queries in the editor (outlined in orange).  
+You can view databases in the pane outlined in green. You can also write and
+run queries in the editor pane outlined in orange.
 
-### Load the SQL File
-
-1. Click the "Open SQL editor" icon ![](images/sqlitestudio-editor-icon.png) [**1**]
-    - The *SQL Editor Pane* of the interface will appear (outlined in green)
-2. Click the "Load SQL from file" icon ![](images/sqlitestudio-folder-icon.png) [**2**] 
-    - Your computer file explorer window will pop up
-3. Navigate to the `intro_to_sql_spring22.sql` file on your computer and double-click
-    - The SQL file will load in the *SQL Editor Pane*. This is where we'll write our SQL queries!
-4. Click the "Save SQL to file" icon ![](images/sqlitestudio-save-sql-icon.png) to save the queries you write to `intro_to_sql_spring22.sql`
 
 ### Load the Database
 
@@ -151,4 +144,15 @@ SQLiteStudio has a number of tools and panes to help you interact with your data
     
 6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) [**4**]
     - You are now connected to the database and can execute SQL to the database!
+
+
+### Load the SQL Script
+
+1. Click the "Open SQL editor" icon ![](images/sqlitestudio-editor-icon.png) [**1**]
+    - The *SQL Editor Pane* of the interface will appear (outlined in green)
+2. Click the "Load SQL from file" icon ![](images/sqlitestudio-folder-icon.png) [**2**] 
+    - Your computer file explorer window will pop up
+3. Navigate to the `intro_to_sql_spring22.sql` file on your computer and double-click
+    - The SQL file will load in the *SQL Editor Pane*. This is where we'll write our SQL queries!
+4. Click the "Save SQL to file" icon ![](images/sqlitestudio-save-sql-icon.png) to save the queries you write to `intro_to_sql_spring22.sql`
 
