@@ -1,10 +1,10 @@
 concepts
 what-is-a-relational-database
 what-is-sql
-the-sql-query-blueprint
-what-is-a-relational-database-management-system-rdbms
-why-should-you-learn-to-work-with-databases-and-sql
-youre-already-doing-this
+what-kinds-of-questions-can-sql-answer
+the-basics-of-writing-sql-code
+what-is-a-relational-database-management-system
+advantages-disadvantages-of-sql
 data-background-and-setup
 data-background
 entity-relationship-diagram-erd

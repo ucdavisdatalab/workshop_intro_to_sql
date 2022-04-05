@@ -2,18 +2,36 @@
 
 ## What is a Relational Database?
 
-A relational database is a collection of tables (organized in rows and columns of data) that are related to each other in some way. 
+A **relational database** is a collection of tables (organized in rows and
+columns of data) that are related to each other in some way. 
 
-If you’ve worked in Excel this would be the equivalent to sheets of data. Or, if you have experience with R or Python programming languages, this would be the equivalent to data frames. 
+If you’ve worked in Microsoft Excel this would be the equivalent to sheets of
+data. Or, if you have experience with R or Python programming languages, this
+would be the equivalent to data frames. 
 
 We'll go more in-depth on the *relational* part when we cover the workshop dataset!
 
 
 ## What is SQL?
 
-SQL, also pronounced "sequel," stands for "structured query language." It's a database programming language that allows you to answer questions about a database using a standard set of commands. 
+SQL stands for **structured query language**. SQL is a programming language
+that allows you to answer questions about the data in a database using a
+standard set of commands. You can pronounce SQL as "ess cue ell" or "sequel".
 
-### The SQL Query Blueprint
+
+### What kinds of questions can SQL answer?
+
+If you already work with data, you probably think about answering specific
+questions such as:
+
+* How many of **X** or **Y** are there?
+* What are the unique values of **X**?
+* Which of **X**, **Y**, and **Z** that occurred in a given time period?
+
+You can use SQL to answer these kinds of questions.
+
+
+### The Basics of Writing SQL Code
 
 Today we’ll learn about all the following common SQL commands and how they’re used together to view, filter, aggregate, and join data.  
 
@@ -33,36 +51,59 @@ FROM ...
 > - Write commands in the order of the blueprint
 > - End queries with a semicolon ";"
 
-## What is a Relational Database Management System (RDBMS)?
 
-A RDBMS is a software that interacts with databases, users, and other applications and it's also where you write and execute SQL on a database.
+## What is a Relational Database Management System?
 
-For the workshop we’ll be working with the RDBMS called [SQLite](https://sqlite.org/index.html). 
+A **relational database management system** (RDBMS) is a software system that
+manages the users of and tables within a database. There are many different
+systems available. For instance, you may have heard of MySQL, Postgres, and
+Microsoft SQL Server.
+
+For this workshop, we'll use [SQLite][sqlite], which is likely the simplest and
+most widely-used RDBMS. It runs on Windows, MacOS X, and Linux with no setup
+necessary! 
 
 ![](images/sqlite-logo.png)
 <!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg -->
 
-It runs on Windows, MacOS, and Linux with no complex setup! 
+[sqlite]: https://sqlite.org/
 
-You may have heard of other RDBMS's like MySQL, Postgres, and Microsoft SQL Server that we could work with, but these require an in-depth process to set up.
+Every RDBMS has its own implementation or "dialect" of SQL. In other words, the
+set of SQL commands supported differs from one RDBMS to another, and sometimes
+queries have to be written differently. Details about the supported commands
+for a given RDBMS can be found in that system's documentation. The commands
+covered in this workshop are supported by almost all popular systems.
 
-It's important to note that every RDBMS has it's own implementation or "dialect" of the SQL standard. This means RDBMS's might not share all the same SQL commands or that SQL queries might be written differently. For SQLite there's the sqlite3 dialect, but almost all commands we cover will be applicable to other popular RDBMS's!
 
+## Advantages & Disadvantages of SQL
 
-## Why should you learn to work with databases and SQL?
+SQL queries are **declarative**: you describe the data that you want. Then it's
+up to SQL to determine the most efficient way to get that data. This approach
+to programming has several advantages:
 
-- You can work with large amounts of data
-  - Databases are meant to store and handle "Big Data"
-- You can manage multiple data sources
+* You can work with very large data sets. Databases are typically stored on
+  your computer's hard disk, and only the results from queries need to fit in
+  memory (and there are ways to work around even this limitation).
+* Queries are relatively fast compared to other data programming tools (such as
+  R or Python). This is because the database system is free to choose the most
+  efficient way to run the query.
+* Queries are reproducible. You can save, edit, and run queries at a later
+  date.
+* SQL is less expressive and flexible than other data programming tools, so
+  there are not too many different commands to remember.
+
+SQL also has a few disadvantages:
+
+* SQL is less expressive and flexible than other data programming tools. For
+  instance, you can't use SQL to make a plot.
+* Each RDBMS has its own dialect of SQL, so each time you work with a new
+  database, you must familiarize yourself with which commands are supported.
+* Setting up most database systems (other than SQLite) is a relatively
+  complicated process.
+
+<!--
+* You can manage multiple data sources
   - With an RDBMS, you have access to more than one database
-- Writing SQL is efficient
-  - SQL is optimized to return results __fast__
-  - SQL is reproducible - you can save, edit, and run queries at a later date
+-->
 
-### You're Already Doing This!
 
-If you work with data, you're probably already thinking about answering specific questions:
-
-- I would like to see ***XYZ*** that occurred in a certain time range.
-- How many of ***X*** or ***Y*** are there?
-- What unique values of ***X*** exist?

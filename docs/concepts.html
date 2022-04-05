@@ -79,13 +79,11 @@
 <li class="chapter" data-level="1.1" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database"><i class="fa fa-check"></i><b>1.1</b> What is a Relational Database?</a></li>
 <li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#the-sql-query-blueprint"><i class="fa fa-check"></i><b>1.2.1</b> The SQL Query Blueprint</a></li>
+<li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#what-kinds-of-questions-can-sql-answer"><i class="fa fa-check"></i><b>1.2.1</b> What kinds of questions can SQL answer?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#the-basics-of-writing-sql-code"><i class="fa fa-check"></i><b>1.2.2</b> The Basics of Writing SQL Code</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system-rdbms"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System (RDBMS)?</a></li>
-<li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#why-should-you-learn-to-work-with-databases-and-sql"><i class="fa fa-check"></i><b>1.4</b> Why should you learn to work with databases and SQL?</a>
-<ul>
-<li class="chapter" data-level="1.4.1" data-path="concepts.html"><a href="concepts.html#youre-already-doing-this"><i class="fa fa-check"></i><b>1.4.1</b> You’re Already Doing This!</a></li>
-</ul></li>
+<li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System?</a></li>
+<li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#advantages-disadvantages-of-sql"><i class="fa fa-check"></i><b>1.4</b> Advantages &amp; Disadvantages of SQL</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-background-and-setup.html"><a href="data-background-and-setup.html"><i class="fa fa-check"></i><b>2</b> Data Background and Setup</a>
 <ul>
@@ -166,15 +164,31 @@
 <h1><span class="header-section-number">1</span> Concepts</h1>
 <div id="what-is-a-relational-database" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> What is a Relational Database?</h2>
-<p>A relational database is a collection of tables (organized in rows and columns of data) that are related to each other in some way.</p>
-<p>If you’ve worked in Excel this would be the equivalent to sheets of data. Or, if you have experience with R or Python programming languages, this would be the equivalent to data frames.</p>
+<p>A <strong>relational database</strong> is a collection of tables (organized in rows and
+columns of data) that are related to each other in some way.</p>
+<p>If you’ve worked in Microsoft Excel this would be the equivalent to sheets of
+data. Or, if you have experience with R or Python programming languages, this
+would be the equivalent to data frames.</p>
 <p>We’ll go more in-depth on the <em>relational</em> part when we cover the workshop dataset!</p>
 </div>
 <div id="what-is-sql" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> What is SQL?</h2>
-<p>SQL, also pronounced “sequel,” stands for “structured query language.” It’s a database programming language that allows you to answer questions about a database using a standard set of commands.</p>
-<div id="the-sql-query-blueprint" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> The SQL Query Blueprint</h3>
+<p>SQL stands for <strong>structured query language</strong>. SQL is a programming language
+that allows you to answer questions about the data in a database using a
+standard set of commands. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
+<div id="what-kinds-of-questions-can-sql-answer" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?</h3>
+<p>If you already work with data, you probably think about answering specific
+questions such as:</p>
+<ul>
+<li>How many of <strong>X</strong> or <strong>Y</strong> are there?</li>
+<li>What are the unique values of <strong>X</strong>?</li>
+<li>Which of <strong>X</strong>, <strong>Y</strong>, and <strong>Z</strong> that occurred in a given time period?</li>
+</ul>
+<p>You can use SQL to answer these kinds of questions.</p>
+</div>
+<div id="the-basics-of-writing-sql-code" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> The Basics of Writing SQL Code</h3>
 <p>Today we’ll learn about all the following common SQL commands and how they’re used together to view, filter, aggregate, and join data.</p>
 <pre><code>SELECT [DISTINCT] ...
 FROM ...
@@ -193,43 +207,54 @@ FROM ...
 </blockquote>
 </div>
 </div>
-<div id="what-is-a-relational-database-management-system-rdbms" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System (RDBMS)?</h2>
-<p>A RDBMS is a software that interacts with databases, users, and other applications and it’s also where you write and execute SQL on a database.</p>
-<p>For the workshop we’ll be working with the RDBMS called <a href="https://sqlite.org/index.html">SQLite</a>.</p>
+<div id="what-is-a-relational-database-management-system" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System?</h2>
+<p>A <strong>relational database management system</strong> (RDBMS) is a software system that
+manages the users of and tables within a database. There are many different
+systems available. For instance, you may have heard of MySQL, Postgres, and
+Microsoft SQL Server.</p>
+<p>For this workshop, we’ll use <a href="https://sqlite.org/">SQLite</a>, which is likely the simplest and
+most widely-used RDBMS. It runs on Windows, MacOS X, and Linux with no setup
+necessary!</p>
 <p><img src="images/sqlite-logo.png" />
 <!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg --></p>
-<p>It runs on Windows, MacOS, and Linux with no complex setup!</p>
-<p>You may have heard of other RDBMS’s like MySQL, Postgres, and Microsoft SQL Server that we could work with, but these require an in-depth process to set up.</p>
-<p>It’s important to note that every RDBMS has it’s own implementation or “dialect” of the SQL standard. This means RDBMS’s might not share all the same SQL commands or that SQL queries might be written differently. For SQLite there’s the sqlite3 dialect, but almost all commands we cover will be applicable to other popular RDBMS’s!</p>
+<p>Every RDBMS has its own implementation or “dialect” of SQL. In other words, the
+set of SQL commands supported differs from one RDBMS to another, and sometimes
+queries have to be written differently. Details about the supported commands
+for a given RDBMS can be found in that system’s documentation. The commands
+covered in this workshop are supported by almost all popular systems.</p>
 </div>
-<div id="why-should-you-learn-to-work-with-databases-and-sql" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Why should you learn to work with databases and SQL?</h2>
+<div id="advantages-disadvantages-of-sql" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Advantages &amp; Disadvantages of SQL</h2>
+<p>SQL queries are <strong>declarative</strong>: you describe the data that you want. Then it’s
+up to SQL to determine the most efficient way to get that data. This approach
+to programming has several advantages:</p>
 <ul>
-<li>You can work with large amounts of data
-<ul>
-<li>Databases are meant to store and handle “Big Data”</li>
-</ul></li>
-<li>You can manage multiple data sources
-<ul>
-<li>With an RDBMS, you have access to more than one database</li>
-</ul></li>
-<li>Writing SQL is efficient
-<ul>
-<li>SQL is optimized to return results <strong>fast</strong></li>
-<li>SQL is reproducible - you can save, edit, and run queries at a later date</li>
-</ul></li>
+<li>You can work with very large data sets. Databases are typically stored on
+your computer’s hard disk, and only the results from queries need to fit in
+memory (and there are ways to work around even this limitation).</li>
+<li>Queries are relatively fast compared to other data programming tools (such as
+R or Python). This is because the database system is free to choose the most
+efficient way to run the query.</li>
+<li>Queries are reproducible. You can save, edit, and run queries at a later
+date.</li>
+<li>SQL is less expressive and flexible than other data programming tools, so
+there are not too many different commands to remember.</li>
 </ul>
-<div id="youre-already-doing-this" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> You’re Already Doing This!</h3>
-<p>If you work with data, you’re probably already thinking about answering specific questions:</p>
+<p>SQL also has a few disadvantages:</p>
 <ul>
-<li>I would like to see <strong><em>XYZ</em></strong> that occurred in a certain time range.</li>
-<li>How many of <strong><em>X</em></strong> or <strong><em>Y</em></strong> are there?</li>
-<li>What unique values of <strong><em>X</em></strong> exist?</li>
+<li>SQL is less expressive and flexible than other data programming tools. For
+instance, you can’t use SQL to make a plot.</li>
+<li>Each RDBMS has its own dialect of SQL, so each time you work with a new
+database, you must familiarize yourself with which commands are supported.</li>
+<li>Setting up most database systems (other than SQLite) is a relatively
+complicated process.</li>
 </ul>
+<!--
+* You can manage multiple data sources
+  - With an RDBMS, you have access to more than one database
+-->
 
-</div>
 </div>
 </div>
             </section>
