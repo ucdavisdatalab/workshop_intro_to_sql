@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Intro to SQL for Querying Databases</title>
   <meta name="description" content="Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-04" />
+<meta name="date" content="2022-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,9 +34,8 @@
   
 
 <link rel="next" href="concepts.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -52,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -169,30 +166,48 @@
 <h1 class="title">Intro to SQL for Querying Databases</h1>
 <p class="author"><em>Nicholas Alonzo</em></p>
 <p class="author"><em>Michele Tobias</em></p>
-<p class="date"><em>2022-04-04</em></p>
+<p class="date"><em>2022-04-05</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
-<p>This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.</p>
-<p><strong>Goals</strong><br />
-After this workshop learners should be able to:</p>
+<p>Structured Query Language (SQL) is a programming language for interacting with
+relational databases. This workshop covers basic SQL commands to view, filter,
+aggregate, and combine tables in a database. SQL is supported by many different
+database systems. The examples in this workshop use a <a href="https://sqlite.org/">SQLite</a>
+database, but most of the commands are applicable to other database systems as
+well. The workshop also covers how to use <a href="https://sqlitestudio.pl/">SQLiteStudio</a>, an
+integrated development environment for SQL code.</p>
+<p>We’ll focus on querying data to get to know a database and answer questions,
+and joining data from separate tables.</p>
+<div id="learning-objectives" class="section level4 unnumbered">
+<h4>Learning Objectives</h4>
+<p>After this workshop learners should be able to:</p>
 <ul>
-<li>Perform common SQL commands including viewing, filtering, aggregating, and joining data.</li>
-<li>Combine commands to construct a query to answer a specific question.</li>
-<li>Identify the benefits of working with SQL.</li>
-<li>Access additional resources for using SQL in other software like R.</li>
+<li>Describe the advantages and disadvantages of using SQL for data problems.</li>
+<li>Use SQL queries to view, filter, aggregate, and combine data.</li>
+<li>Combine SQL keywords to develop sophisticated queries.</li>
+<li>Use SQL queries to solve problems with and answer questions about data.</li>
+<li>Identify additional resources for learning more about SQL (such as how to use
+SQL with the R programming language).</li>
 </ul>
-<p><strong>Prerequisites</strong><br />
-No prior programming experience is necessary:</p>
+</div>
+<div id="prerequisites" class="section level4 unnumbered">
+<h4>Prerequisites</h4>
+<p>No prior programming experience is necessary. Before the workshop, learners
+should:</p>
 <ul>
-<li>Have <a href="https://sqlitestudio.pl/">SQLiteStudio</a> installed on your computer and running. View the install guide <a href="https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio">here</a>.</li>
-<li>Download <em>2022-04-04_intro-sql.zip</em> from the Google Drive link <a href="https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing">here</a>. Make sure to unzip the file and keep track of where it’s saved on your computer. It contains a data set and script that will be used during the workshop.
+<li>Install <a href="https://sqlitestudio.pl/">SQLiteStudio</a> and verify that it runs. See the
+<a href="https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio">install guide</a> for details.</li>
+<li>Download the file <code>2022-04-04_intro-sql.zip</code> from <a href="https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing">this link</a>.
+Unzip the file and keep track of where it’s saved on your computer. It
+contains a data set and a script that will be used during the workshop:
 <ul>
-<li>lcdb.db</li>
-<li>intro_to_sql_spring22.sql</li>
+<li><code>lcdb.db</code></li>
+<li><code>intro_to_sql_spring22.sql</code></li>
 </ul></li>
 </ul>
 
+</div>
 </div>
             </section>
 
@@ -204,6 +219,7 @@ No prior programming experience is necessary:</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -233,10 +249,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section"
 }

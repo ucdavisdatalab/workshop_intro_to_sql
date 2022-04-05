@@ -25,20 +25,44 @@ output:
 
 # Overview {-}
 
-This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.
+Structured Query Language (SQL) is a programming language for interacting with
+relational databases. This workshop covers basic SQL commands to view, filter,
+aggregate, and combine tables in a database. SQL is supported by many different
+database systems. The examples in this workshop use a [SQLite][sqlite]
+database, but most of the commands are applicable to other database systems as
+well. The workshop also covers how to use [SQLiteStudio][sqlitestudio], an
+integrated development environment for SQL code.
 
-__Goals__  
+We’ll focus on querying data to get to know a database and answer questions,
+and joining data from separate tables.
+
+
+#### Learning Objectives {-}
+
 After this workshop learners should be able to:
 
-- Perform common SQL commands including viewing, filtering, aggregating, and joining data.
-- Combine commands to construct a query to answer a specific question.
-- Identify the benefits of working with SQL.
-- Access additional resources for using SQL in other software like R.
+* Describe the advantages and disadvantages of using SQL for data problems.
+* Use SQL queries to view, filter, aggregate, and combine data.
+* Combine SQL keywords to develop sophisticated queries.
+* Use SQL queries to solve problems with and answer questions about data.
+* Identify additional resources for learning more about SQL (such as how to use
+  SQL with the R programming language).
 
-__Prerequisites__  
-No prior programming experience is necessary: 
 
-- Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
-- Download *2022-04-04_intro-sql.zip* from the Google Drive link [here](https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing). Make sure to unzip the file and keep track of where it's saved on your computer. It contains a data set and script that will be used during the workshop.
-  - lcdb.db
-  - intro_to_sql_spring22.sql
+#### Prerequisites {-}
+
+No prior programming experience is necessary. Before the workshop, learners
+should:
+
+* Install [SQLiteStudio][sqlitestudio] and verify that it runs. See the
+  [install guide][install] for details.
+* Download the file `2022-04-04_intro-sql.zip` from [this link][materials].
+  Unzip the file and keep track of where it's saved on your computer. It
+  contains a data set and a script that will be used during the workshop:
+    + `lcdb.db`
+    + `intro_to_sql_spring22.sql`
+
+[sqlite]: https://sqlite.org/
+[sqlitestudio]: https://sqlitestudio.pl/
+[install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
+[materials]: https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing
