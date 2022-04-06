@@ -1,4 +1,4 @@
-# Hands-On
+# Hands-On with SQL Code
 
 ## Viewing Data
 
@@ -12,20 +12,24 @@ Place your cursor anywhere on `SELECT` and then click the *Execute query* button
 
 This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specifiy which table to get the columns from.
 
-The query asks the database to select everything (* means "everything") from the table *users*. It ends with a semicolon to tell the database that this is the end of the request.
+The query asks the database to select everything (`*` means "everything") from
+the table `users`. It ends with a semicolon to tell the database that this is
+the end of the request.
 
-The below query does exactly the same thing as the first one, hence the need for the end of query indicator. We can use new lines to help us organize queries to make them easier to read.
+SQL ignores capitalization, spaces, and new lines in a query. Some tools which
+use SQL also ignore semicolons. However, it's conventional to:
+
+* Write SQL keywords (`SELECT`, `FROM`, and so on) in UPPERCASE
+* Write table and column names in lowercase
+* Write a semicolon `;` at the end of the query
+
+You can use new lines to help organize queries and make them easier to read.
+For instance, this query does the same thing as the query above:
 
 ```
 SELECT * 
 FROM users;
 ```
-
-> **NOTE**:  
-> Capitalization in queries follows some best practices:
-> 
-> - SQL commands are in all caps
-> - Table names and column names are all lowercase
 
 
 ### Selecting Columns
@@ -105,6 +109,8 @@ As we're writing queries, sometimes we want to write helpful comments to ourselv
 1. Single line comments: text following two dashses "*--*", like so `-- comment here`
 2. Multiline comments: text between the characters "*/\* \*/*", like so `/* comment here */`
 
+<!--- * --->
+
 ```
 /*
 all users in the library system 
@@ -118,41 +124,33 @@ ORDER BY birth_date DESC; -- sort most recent here
 > **CHECKPOINT**:  
 > Try and use all viewing commands together to give you insight to the dataset. Write your insights in comments.
 
+
 ## Filtering Data
 
 Now that we've seen some ways to view our data, let’s learn how we can filter our data. This is really the core of SQL, where we can start to answer our own questions about the data!
 
-We use the `WHERE` command to filter rows of a query by specifying one or more conditions. Below are common operators that can be used and combined with `WHERE` to create conditions, some of which you may have seen before in other programming languages.
+We use the `WHERE` command to filter rows of a query by specifying one or more
+conditions. The table below shows comparison operators that can be used and
+combined with `WHERE` to create conditions, some of which you may have seen
+before in other programming languages.
 
-| Comparison Operators | Arithmetic Operators |
-| :--- | :--- |
-| `=` (equals) | `+` (addition) |
-| `>` (greater than) | `-` (subtraction) |
-| `>=` (greater than or equal to) | `*` (multiplication) |
-| `<` (less than) | `/` (division) |
-| `<=` (less than or equal to) | `%` (modulus) |
-| `<>` or `!=` (not equal to) |     |
+| Comparison Operator | Description
+| :---                | :---
+| `=`                 | equals
+| `>`                 | greater than
+| `>=`                | greater than or equal to
+| `<`                 | less than
+| `<=`                | less than or equal to
+| `<>` or `!=`        | not equal to
 
-__Common Rules__:
+In general, the type of data on each side of the operator needs to be the same:
+compare numbers to numbers, text to text, and so on. When working with **text**
+or **date** data, it's necessary to wrap values in single quotes. For instance:
 
-- Comparison operators are used to compare same data type values or columns. 
-  - *text_column* `=` *text_value*
-  - *date_column* `>` *date_value*
-  - *numeric_column* `>=` *numeric_value*
-  - *numeric_column* `>=` *numeric_column*
+* `'text_value'` is a text value
+* `'2000-01-01'` is a date
 
-- Arithmetic operators are used with numeric data types or columns.
-  - *numeric_column* `+` *numeric_value*
-  - *numeric_column1* `-` *numeric_column2*
-  
-- When working with **text** or **date** data types, it's necessary to wrap values in single quotes.
-  - *text_column* `=` `'text_value'`
-  - *date_column* `>` `'2000-01-01'`
-
-- When working with **numeric** data types, values don't need to be wrapped in single quotes.
-  - *numeric_column* `+` `1`
-
-Now that we've gone through the rules. Let's write a query to find all users that live in Davis.
+Now let's write a query to find all users that live in Davis:
 
 ```
 SELECT * 
@@ -160,18 +158,29 @@ FROM users
 WHERE city = 'Davis';
 ```
 
+SQL also provides a variety of arithmetic operators for working with numeric
+data:
+
+| Arithmetic Operators | Description
+| :---                 | :---
+| `+`                  | addition
+| `-`                  | subtraction
+| `*`                  | multiplication
+| `/`                  | division
+| `%`                  | modulus
+
+
 ### AND & OR Operators
 
-In the previous example, we saw a condition with one column, but the power of writing queries is being able to combine multiple conditions.
+Often we'll need to filter data based on more than one condition. We can ask
+`WHERE` to check multiple conditions with the keywords:
 
-We can ask `WHERE` to meet multiple conditions using
-
-- `AND` (when a record must match both conditions)
-- `OR` (when a record can match either of two conditions)
+- `AND`, meaning a record must satisfy both conditions
+- `OR`, meaning a record must satisfy at least one of two conditions
 
 These are logical operators in SQL that evaluate to TRUE or FALSE.
 
-Let's find all users who live in Davis ***and*** have a zip code of 95616.
+Let's find all users who live in Davis *and* have a zip code of 95616.
 
 ```
 SELECT * 
@@ -180,7 +189,7 @@ WHERE city = 'Davis' AND
       zip_code = 95616;
 ```
 
-Let's now find all users who live in Davis ***or*** Sacramento.
+Let's now find all users who live in Davis *or* Sacramento.
 
 ```
 SELECT * 
@@ -191,6 +200,7 @@ WHERE city = 'Davis' OR
 
 > **NOTE**:  
 > `AND` & `OR` will follow the order of operations. To use `AND` & `OR` in the same query, wrap parenthesis around the `OR` conditions.
+
 
 ### IN Operator
 
@@ -221,7 +231,8 @@ WHERE birth_date BETWEEN '1990-01-01' AND '1999-12-31';
 
 ### LIKE Operator
 
-`LIKE` is used to search for patterns in strings using the wildcard (`%`). `%` is placeholder that means it can match *anything*. `LIKE` is case-insensitive.
+`LIKE` is used to search for patterns in strings using the wildcard `%`, which
+matches any one character. `LIKE` is case-insensitive.
 
 Let’s look at an example to indicate we want to match the beginning of a string, but the end is allowed to vary. To show this, let's find users that have a phone number area code that begins with 530 and can end with anything.
 
@@ -232,7 +243,7 @@ WHERE phone LIKE '530%';
 ```
 
 > **NOTE**:  
-> The wildcard `%` can be used multiple times depending on how complicated your pattern is.
+> The wildcard `%` can be used multiple times in one pattern.
 > 
 > You can also use regular expressions in SQLite to match in more complicated situations. Read more about using regular expressions [here](https://www.sqlite.org/lang_expr.html#regexp).
 > 
@@ -241,7 +252,9 @@ WHERE phone LIKE '530%';
 
 ### IS NULL Operator
 
-So far we've worked with complete data, but how do we work with missing data? In databases, *NULL* means missing data. `IS NULL` is used to test whether there is missing data in a column.
+So far we've worked with complete data, but how do we work with missing data?
+In databases, `NULL` means missing data. `IS NULL` is used to test whether
+there is missing data in a column.
 
 Let's look at an example to find users with a missing address.
 
@@ -256,7 +269,8 @@ WHERE address IS NULL;
 
 ### NOT Operator
 
-There will be times where we want to find the opposite (negate) the conditions we create. To do this we use `NOT` combined with the other operators like so,
+There will be times where we want to find only the rows that do not satisfy
+some condition. To do this, use `NOT` combined with other operators:
 
 - `NOT IN`
 - `NOT BETWEEN`
@@ -271,13 +285,20 @@ FROM users
 WHERE phone NOT LIKE '530%';
 ```
 
-## Aggretating Data
+## Aggregating Data
 
 We've just looked at a number of ways to filter data, but now let's look at some ways to aggregate data.
 
+
 ### Count
 
-We can count the total number of rows in a table using the `COUNT()` function. `COUNT()` takes any column as an argument. Let's see how many total books have been checked out.
+Suppose we want to find out how many books have been checked out.
+
+We can count the total number of rows in a table using the `COUNT` function.
+The function takes a column or `*` as an argument, but the argument doesn't
+actually affect the count.
+
+Here's how we can use `COUNT` to answer our question:
 
 ```
 SELECT 
@@ -285,24 +306,32 @@ SELECT
 FROM checkouts;
 ```
 
+> **NOTE**:  
+> You can combine `DISTINCT` with `COUNT` using `COUNT(DISTINCT column_name)`
+> to get a unique count of values in a column when duplicate values exist.
+>
+> **CHALLENGE**:  
+> Find the total number of users that have checked out a book.
+
+
+
 #### Renaming/Aliasing Columns
 
-In the previous query, you'll notice that the default column name in the result isn't easy to read or interpret. We can use `AS` to rename (*alias*) a column in the result of the query. This is handy if you're planning to export the result for future use, especially if you're sending it to someone else. 
+In the previous query, notice that the name of the column in the result is
+`COUNT(id)`, which isn't easy to use in subsequent SQL queries or with other
+data programming tools.
 
-Let's rename the column to *total_checkouts*. This is something interpretable and representative of what it is.
+We can use `AS` to rename or **alias** a column in the result of the query.
+This is handy if you're planning to export the result for future use,
+especially if you're sending it to someone else. 
+
+Let's rename the column to `total_checkouts`:
 
 ```
 SELECT 
     COUNT(id) AS total_checkouts
 FROM checkouts;
 ```
-
-> **NOTE**:  
-> You can combine `DISTINCT` with `COUNT()` using `COUNT(DISTINCT column_name)` to get a unique count of values in a column when duplicate values exist.
->
-> **CHALLENGE**:  
-> Find the total number of users that have checked out a book.
-
 
 We can also include `WHERE`. Let's see how many books were checked out just today.
 
@@ -315,7 +344,8 @@ WHERE checkout_date = '2022-04-11';
 
 ### Average
 
-`AVG()` is another way to aggregate our data. It returns the average value of a numeric column. Let's find the average days a person is checking out a book for.
+The `AVG` function returns the average value of a numeric column. Let's find
+the average number of days a book is checked out for:
 
 ```
 SELECT 
@@ -325,7 +355,8 @@ FROM checkouts;
 
 ### Sum
 
-We can also sum the values in a column with `SUM()`. It returns the total sum of a numeric column. Let's find the total number of books that were returned with damage.
+We can also sum the values in a numeric column with the `SUM` function. Let's
+find the total number of books that were returned with damage:
 
 ```
 SELECT 
@@ -333,7 +364,7 @@ SELECT
 FROM checkouts;
 ```
 
-Below is another way to accomplish the same task using `COUNT()` and `WHERE`.
+Here's another way to accomplish the same task using `COUNT` and `WHERE`:
 
 ```
 SELECT 
@@ -344,7 +375,10 @@ WHERE returned_with_damage = 1;
 
 ### Grouping Data
 
-So now you've seen several functions working on a single column, but we sometimes want to summarize our data in more sophisticated ways. Let's see what grouping can do for our data. Let's write a query that counts the number of books checked out ***per day***.
+So now you've seen several functions working on a single column, but we
+sometimes want to summarize our data in more sophisticated ways. Let's see what
+grouping can do for our data. Let's write a query that counts the number of
+books checked out ***per day***:
 
 ```
 SELECT 
@@ -354,7 +388,8 @@ FROM checkouts
 GROUP BY checkout_date;
 ```
 
-Notice here how we asked for two columns - the *checkout_date* and the count of *book_id*.
+Notice here how we asked for two columns - the `checkout_date` and the count of
+`book_id`.
 
 > **CHALLENGE**:  
 > You can also `GROUP BY` more than one column. How would you find the total number of times a person checked out a book on a given day?
@@ -415,7 +450,7 @@ What kinds of joins are there?
     
 Below are the steps for writing a JOIN: 
 
-1.  We start in just the same way: `SELECT` the columns we want in the output (using column references).
+1. `SELECT` the columns we want in the output (using column references).
 
 > **NOTE**:  
 > Column referencing helps you distinguish from what table the columns come from. Use the table name followed by a period to reference the column: `table_name.column_name`.
