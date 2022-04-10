@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Hands-On with SQL Code | Intro to SQL for Querying Databases</title>
   <meta name="description" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-05" />
+<meta name="date" content="2022-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +34,9 @@
   
 <link rel="prev" href="the-library-checkouts-database.html"/>
 <link rel="next" href="conclusion.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +52,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -80,7 +83,6 @@
 <li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#what-kinds-of-questions-can-sql-answer"><i class="fa fa-check"></i><b>1.2.1</b> What kinds of questions can SQL answer?</a></li>
-<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#the-basics-of-writing-sql-code"><i class="fa fa-check"></i><b>1.2.2</b> The Basics of Writing SQL Code</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System?</a></li>
 <li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#advantages-disadvantages-of-sql"><i class="fa fa-check"></i><b>1.4</b> Advantages &amp; Disadvantages of SQL</a></li>
@@ -131,7 +133,10 @@
 <li class="chapter" data-level="3.4.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#left-join"><i class="fa fa-check"></i><b>3.4.4</b> LEFT JOIN</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#subqueries"><i class="fa fa-check"></i><b>3.5</b> Subqueries</a></li>
-<li class="chapter" data-level="3.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>3.6</b> Saving Query Results</a></li>
+<li class="chapter" data-level="3.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>3.6</b> Saving Query Results</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#export-query-results"><i class="fa fa-check"></i><b>3.6.1</b> Export Query Results</a></li>
+</ul></li>
 <li class="chapter" data-level="3.7" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#data-management"><i class="fa fa-check"></i><b>3.7</b> Data Management</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#update-tables"><i class="fa fa-check"></i><b>3.7.1</b> Update Tables</a></li>
@@ -158,14 +163,18 @@
             <section class="normal" id="section-">
 <div id="hands-on-with-sql-code" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Hands-On with SQL Code</h1>
+<p>Remember, SQL is a language that can help answer questions about the data in a
+database.</p>
 <div id="viewing-data" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Viewing Data</h2>
+<p>What if we want to know, who are the users in the database?</p>
 <div id="select-from" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> SELECT &amp; FROM</h3>
-<p>We’re ready to write our first query! Type this into the <em>SQL Editor Pane</em>:</p>
+<p>Let’s see how we can view the <em>users</em> table with SQL by writing our first query!
+Type this into the <em>SQL Editor Pane</em>:</p>
 <p><code>SELECT * FROM users;</code></p>
-<p>Place your cursor anywhere on <code>SELECT</code> and then click the <em>Execute query</em> button. <img src="images/Button_Execute.PNG" alt="alt text" /></p>
-<p>This is the most common query you’ll write as you start exploring your data. <code>SELECT</code> is used to display the columns of tables you want and <code>FROM</code> is used to specifiy which table to get the columns from.</p>
+<p>Place your cursor anywhere before the semicolon and then click the <em>Execute query</em> button <img src="images/Button_Execute.PNG" alt="alt text" /> or F9 key on your keyboard.</p>
+<p>This is the most common query you’ll write as you start exploring your data. <code>SELECT</code> is used to display the columns of tables you want and <code>FROM</code> is used to specify which table to get the columns from.</p>
 <p>The query asks the database to select everything (<code>*</code> means “everything”) from
 the table <code>users</code>. It ends with a semicolon to tell the database that this is
 the end of the request.</p>
@@ -198,7 +207,10 @@ You can rearrange the columns however you’d like in the <code>SELECT</code> st
 </div>
 <div id="unique-values" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Unique Values</h3>
-<p>In your data exploration, you might want to know which unique values exist in a column. <code>SELECT DISTINCT</code> is the statement we run on one or more columns to achieve this.</p>
+<p>What if we now want to know, in what cities do the people live in? We could scroll
+through the results and try to keep track of unique values, but that is tedious.</p>
+<p>Instead we can use the <code>SELECT DISTINCT</code> keywords on one or more columns to show
+all the unique values.</p>
 <p>Let’s look at the <em>users</em> table again and see which cities our users live in.</p>
 <pre><code>SELECT DISTINCT city
 FROM users;</code></pre>
@@ -210,7 +222,10 @@ FROM users;</code></pre>
 </div>
 <div id="ordering-results" class="section level3" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> Ordering Results</h3>
-<p>While we continue our data exploration, we also might want to sort the results in a specific way. You can sort on one or more columns with a combination of ascending or descending order using the <code>ORDER BY</code> command.</p>
+<p>What if we want to know, are the users young or old? We could scroll through
+the table and look their birth dates.</p>
+<p>While we continue our data exploration, we also might want to sort the results in a specific way.</p>
+<p>With SQL, you can sort on one or more columns with a combination of ascending or descending order using the <code>ORDER BY</code> keyword.</p>
 <p>Let’s sort the <em>users</em> table by birth date.</p>
 <pre><code>SELECT *
 FROM users
@@ -248,14 +263,14 @@ FROM users
 ORDER BY birth_date DESC; -- sort most recent here</code></pre>
 <blockquote>
 <p><strong>CHECKPOINT</strong>:<br />
-Try and use all viewing commands together to give you insight to the dataset. Write your insights in comments.</p>
+Try and use all viewing keywords together to give you insight to the dataset. Write your insights in comments.</p>
 </blockquote>
 </div>
 </div>
 <div id="filtering-data" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Filtering Data</h2>
 <p>Now that we’ve seen some ways to view our data, let’s learn how we can filter our data. This is really the core of SQL, where we can start to answer our own questions about the data!</p>
-<p>We use the <code>WHERE</code> command to filter rows of a query by specifying one or more
+<p>We use the <code>WHERE</code> clause to filter rows of a query by specifying one or more
 conditions. The table below shows comparison operators that can be used and
 combined with <code>WHERE</code> to create conditions, some of which you may have seen
 before in other programming languages.</p>
@@ -341,15 +356,15 @@ data:</p>
 <p>Often we’ll need to filter data based on more than one condition. We can ask
 <code>WHERE</code> to check multiple conditions with the keywords:</p>
 <ul>
-<li><code>AND</code>, meaning a record must satisfy both conditions</li>
-<li><code>OR</code>, meaning a record must satisfy at least one of two conditions</li>
+<li><code>AND</code>, meaning a row must satisfy both conditions</li>
+<li><code>OR</code>, meaning a row must satisfy at least one of two conditions</li>
 </ul>
 <p>These are logical operators in SQL that evaluate to TRUE or FALSE.</p>
-<p>Let’s find all users who live in Davis <em>and</em> have a zip code of 95616.</p>
+<p>Let’s find all users who live in Davis <em>and</em> were born before 1980.</p>
 <pre><code>SELECT * 
 FROM users
 WHERE city = &#39;Davis&#39; AND
-      zip_code = 95616;</code></pre>
+      zip_code &lt; &#39;1980-01-01&#39;;</code></pre>
 <p>Let’s now find all users who live in Davis <em>or</em> Sacramento.</p>
 <pre><code>SELECT * 
 FROM users
@@ -518,7 +533,7 @@ HAVING COUNT(book_id) &gt; 5;</code></pre>
 </div>
 <div id="joining-data" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Joining Data</h2>
-<p>Joining tables allows us to combine information from more than one table into a new table. The tables need to have a <strong><em>key</em></strong> to do so. In our Library Checkouts ERD, the <em>id</em> column in <em>books</em> is a key column that links to</p>
+<p>Joining tables allows us to combine information from more than one table into a new table. The tables need to have a <strong><em>key</em></strong> column to be able to link the tables together. In our Library Checkouts ERD, the <em>id</em> column in <em>books</em> is a key column that links to</p>
 <ul>
 <li><p><em>book_id</em> in <em>checkouts</em></p>
 <p>and</p></li>
@@ -535,14 +550,14 @@ The above images come from the <a href="https://www.w3schools.com/sql/sql_join.a
 </blockquote>
 <p>What kinds of joins are there?</p>
 <ul>
-<li><p><code>INNER JOIN</code>: Returns records that have matching values in both tables; it gets you what’s in the middle of the venn diagram.</p></li>
-<li><p><code>LEFT JOIN</code>: Returns all records from the left table, and the matched records from the right table; the “left” table is the first table you write in the query.</p></li>
-<li><p><code>RIGHT JOIN</code>: Returns all records from the right table, and the matched records from the left table; the “right” table is the second table you write in the query or the “join” table.</p>
+<li><p><code>INNER JOIN</code>: Returns rows that have matching values in both tables; it gets you what’s in the middle of the venn diagram.</p></li>
+<li><p><code>LEFT JOIN</code>: Returns all rows from the left table, and the matched rows from the right table; the “left” table is the first table you write in the query.</p></li>
+<li><p><code>RIGHT JOIN</code>: Returns all rows from the right table, and the matched rows from the left table; the “right” table is the second table you write in the query or the “join” table.</p>
 <blockquote>
 <p><strong>NOTE</strong>:<br />
 This is not supported in SQLite, however switching the tables in a <code>LEFT JOIN</code> will emulate a <code>RIGHT JOIN</code>.</p>
 </blockquote></li>
-<li><p><code>FULL OUTER JOIN</code>: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn’t have a match in the other table.</p>
+<li><p><code>FULL OUTER JOIN</code>: Returns all rows when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn’t have a match in the other table.</p>
 <blockquote>
 <p><strong>NOTE</strong>:<br />
 This is not supported in SQLite, however you can emulate a <code>FULL OUTER JOIN</code> described <a href="https://www.sqlitetutorial.net/sqlite-full-outer-join/">here</a>.</p>
@@ -551,6 +566,13 @@ This is not supported in SQLite, however you can emulate a <code>FULL OUTER JOIN
 </div>
 <div id="join-steps" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> JOIN steps</h3>
+<p>The anatomy of a JOIN:</p>
+<pre><code>SELECT 
+  left_table.column1,
+  right_table.column1,
+  ...
+FROM left_table
+  [INNER | LEFT] JOIN right_table ON left_table.key_column = right_table.key_column;</code></pre>
 <p>Below are the steps for writing a JOIN:</p>
 <ol style="list-style-type: decimal">
 <li><code>SELECT</code> the columns we want in the output (using column references).</li>
@@ -569,30 +591,22 @@ Column referencing helps you distinguish from what table the columns come from. 
 <h3><span class="header-section-number">3.4.3</span> INNER JOIN</h3>
 <p>Let’s try an <code>INNER JOIN</code> to see how this works:</p>
 <pre><code>SELECT 
-    checkouts.user_id,
     books.title AS book,
     checkouts.checkout_date
 FROM books
     INNER JOIN checkouts ON books.id = checkouts.book_id;</code></pre>
 <p>We interpret the <code>INNER JOIN</code> query as, “all books that have been checked out.”</p>
-<blockquote>
-<p><strong>NOTE</strong>:<br />
-Notice that you can alias a table and columns in the same query. This will come handy when we learn about <code>JOIN</code>!</p>
-<p><strong>CHALLENEGE</strong>:<br />
-How would you reference the columns when the table is aliased? Can you use <em>users</em>, <em>students</em>, or both?</p>
-</blockquote>
 </div>
 <div id="left-join" class="section level3" number="3.4.4">
 <h3><span class="header-section-number">3.4.4</span> LEFT JOIN</h3>
 <p>Now let’s try a <code>LEFT JOIN</code>:</p>
 <pre><code>SELECT 
-    checkouts.user_id,
     books.title AS book,
     checkouts.checkout_date
 FROM books
     LEFT JOIN checkouts ON books.id = checkouts.book_id;</code></pre>
 <p>We interpret the <code>LEFT JOIN</code> query as, “all books and if they have been checked out or not.”</p>
-<p>You might be thinking, what would happed if the tables in the <code>LEFT JOIN</code> were flipped? We would get the same result as the <code>INNER JOIN</code> query! That’s because there’s no instances where a checkout without a book could ever happen!</p>
+<p>You might be thinking, what would happen if the tables in the <code>LEFT JOIN</code> were flipped? We would get the same result as the <code>INNER JOIN</code> query! That’s because there’s no instances where a checkout without a book could ever happen!</p>
 <blockquote>
 <p><strong>CHALLENGE</strong>:<br />
 Can you write a query that contains the title of the books and the names of the genres they’re categorized to?</p>
@@ -601,7 +615,7 @@ Can you write a query that contains the title of the books and the names of the 
 </div>
 <div id="subqueries" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Subqueries</h2>
-<p>So far we’ve been working with one <code>SELECT</code> statement, but we can actually combine multiple <code>SELECT</code> statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other commands like <code>JOIN</code> and <code>WHERE</code>. Below are 2 examples of these use cases.</p>
+<p>So far we’ve been working with one <code>SELECT</code> statement, but we can actually combine multiple <code>SELECT</code> statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like <code>JOIN</code> and <code>WHERE</code>. Below are 2 examples of these use cases.</p>
 <p>Let’s first look at a subquery in the <code>WHERE</code> clause:</p>
 <pre><code>-- main query
 SELECT * 
@@ -677,13 +691,20 @@ If you’re still a bit confused, just remember that every query results in a ta
         INNER JOIN checkouts ON users.id = checkouts.user_id
         INNER JOIN books ON checkouts.book_id = books.id
     WHERE users.city = &#39;Davis&#39;;</code></pre>
+<div id="export-query-results" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Export Query Results</h3>
+<p>SQLiteStudio has the ability to export out query results to CSV files for further analysis.</p>
+<p>Click the “Export” icon <img src="images/sqlitestudio-export-icon.png" /> at the top of the interface and
+follow the export dialog.</p>
+<p><img src="images/sqlitestudio-export-dialog.png" /></p>
+</div>
 </div>
 <div id="data-management" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Data Management</h2>
 <div id="update-tables" class="section level3" number="3.7.1">
 <h3><span class="header-section-number">3.7.1</span> Update Tables</h3>
 <p>You might have noticed at the beginning the <em>users</em> table has <em>NULL</em> values across different columns. We can fix this fairly easily, but we need to be careful. It’s challenging to undo something in a database so we want to be sure we’re doing it right. Let’s update the <em>NULL</em> values in the <em>users.address</em> to “<em>N/A</em>”.</p>
-<p>It’s first helpful to write a query to be sure these are the records you want to update:</p>
+<p>It’s first helpful to write a query to be sure these are the rows you want to update:</p>
 <pre><code>SELECT *
 FROM users
 WHERE address IS NULL;</code></pre>
@@ -691,7 +712,7 @@ WHERE address IS NULL;</code></pre>
 <pre><code>UPDATE users
 SET address = &#39;N/A&#39;
 WHERE address IS NULL;</code></pre>
-<p>The <code>SET</code> command specifically targets just the <em>address</em> column and replaces <em>NULL</em> values with “<em>N/A</em>” when the condition is met in the <code>WHERE</code> clause. It leaves the other values alone. If the <code>WHERE</code> clause is removed, it will set all values in the whole column to “<em>N/A</em>” overwriting the users address, so proceed with caution!</p>
+<p>The <code>SET</code> keyword specifically targets just the <em>address</em> column and replaces <em>NULL</em> values with “<em>N/A</em>” when the condition is met in the <code>WHERE</code> clause. It leaves the other values alone. If the <code>WHERE</code> clause is removed, it will set all values in the whole column to “<em>N/A</em>” overwriting the users address, so proceed with caution!</p>
 </div>
 <div id="add-populate-a-column" class="section level3" number="3.7.2">
 <h3><span class="header-section-number">3.7.2</span> Add &amp; Populate a Column</h3>
@@ -721,7 +742,6 @@ WHERE state IS NOT NULL;</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -751,6 +771,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

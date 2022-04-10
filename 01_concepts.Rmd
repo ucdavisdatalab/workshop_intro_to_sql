@@ -5,9 +5,8 @@
 A **relational database** is a collection of tables (organized in rows and
 columns of data) that are related to each other in some way. 
 
-If you’ve worked in Microsoft Excel this would be the equivalent to sheets of
-data. Or, if you have experience with R or Python programming languages, this
-would be the equivalent to data frames. 
+Database tables would be the equivalent to spreadsheets in Excel and data frames
+in programming languages like R or Python.
 
 We'll go more in-depth on the *relational* part when we cover the workshop dataset!
 
@@ -16,7 +15,11 @@ We'll go more in-depth on the *relational* part when we cover the workshop datas
 
 SQL stands for **structured query language**. SQL is a programming language
 that allows you to answer questions about the data in a database using a
-standard set of commands. You can pronounce SQL as "ess cue ell" or "sequel".
+standard set of keywords. You can pronounce SQL as "ess cue ell" or "sequel".
+
+- A **query** is a request for information.
+- A **SQL query** is a set of instructions made up of keywords sent to the database 
+to retrieve rows of table(s).
 
 
 ### What kinds of questions can SQL answer?
@@ -29,27 +32,6 @@ questions such as:
 * Which of **X**, **Y**, and **Z** that occurred in a given time period?
 
 You can use SQL to answer these kinds of questions.
-
-
-### The Basics of Writing SQL Code
-
-Today we’ll learn about all the following common SQL commands and how they’re used together to view, filter, aggregate, and join data.  
-
-```
-SELECT [DISTINCT] ...
-FROM ...
-[WHERE ...]
-    [ [INNER | LEFT] JOIN ...]
-[GROUP BY ... [HAVING ...]]
-[ORDER BY ...] 
-[LIMIT ...];
-```
-
-> **NOTE**:
-> 
-> - Commands in brackets "[ ]" are optional
-> - Write commands in the order of the blueprint
-> - End queries with a semicolon ";"
 
 
 ## What is a Relational Database Management System?
@@ -69,9 +51,9 @@ necessary!
 [sqlite]: https://sqlite.org/
 
 Every RDBMS has its own implementation or "dialect" of SQL. In other words, the
-set of SQL commands supported differs from one RDBMS to another, and sometimes
-queries have to be written differently. Details about the supported commands
-for a given RDBMS can be found in that system's documentation. The commands
+set of SQL keywords supported differs from one RDBMS to another, and sometimes
+queries have to be written differently. Details about the supported keywords
+for a given RDBMS can be found in that system's documentation. The keywords
 covered in this workshop are supported by almost all popular systems.
 
 
@@ -90,14 +72,14 @@ to programming has several advantages:
 * Queries are reproducible. You can save, edit, and run queries at a later
   date.
 * SQL is less expressive and flexible than other data programming tools, so
-  there are not too many different commands to remember.
+  there are not too many different keywords to remember.
 
 SQL also has a few disadvantages:
 
 * SQL is less expressive and flexible than other data programming tools. For
   instance, you can't use SQL to make a plot.
 * Each RDBMS has its own dialect of SQL, so each time you work with a new
-  database, you must familiarize yourself with which commands are supported.
+  database, you must familiarize yourself with which keywords are supported.
 * Setting up most database systems (other than SQLite) is a relatively
   complicated process.
 

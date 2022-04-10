@@ -26,10 +26,10 @@ output:
 # Overview {-}
 
 Structured Query Language (SQL) is a programming language for interacting with
-relational databases. This workshop covers basic SQL commands to view, filter,
+relational databases. This workshop covers basic SQL keywords to view, filter,
 aggregate, and combine tables in a database. SQL is supported by many different
 database systems. The examples in this workshop use a [SQLite][sqlite]
-database, but most of the commands are applicable to other database systems as
+database, but most of the keywords are applicable to other database systems as
 well. The workshop also covers how to use [SQLiteStudio][sqlitestudio], an
 integrated development environment for SQL code.
 

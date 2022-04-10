@@ -1,16 +1,22 @@
 # Hands-On with SQL Code
 
+Remember, SQL is a language that can help answer questions about the data in a 
+database. 
+
 ## Viewing Data
+
+What if we want to know, who are the users in the database?
 
 ### SELECT & FROM
 
-We're ready to write our first query! Type this into the *SQL Editor Pane*:
+Let's see how we can view the *users* table with SQL by writing our first query! 
+Type this into the *SQL Editor Pane*:
 
 `SELECT * FROM users;`
 
-Place your cursor anywhere on `SELECT` and then click the *Execute query* button. ![alt text](images/Button_Execute.PNG)
+Place your cursor anywhere before the semicolon and then click the *Execute query* button ![alt text](images/Button_Execute.PNG) or F9 key on your keyboard.
 
-This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specifiy which table to get the columns from.
+This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specify which table to get the columns from.
 
 The query asks the database to select everything (`*` means "everything") from
 the table `users`. It ends with a semicolon to tell the database that this is
@@ -51,7 +57,11 @@ FROM users;
 
 ### Unique Values
 
-In your data exploration, you might want to know which unique values exist in a column. `SELECT DISTINCT` is the statement we run on one or more columns to achieve this.
+What if we now want to know, in what cities do the people live in? We could scroll
+through the results and try to keep track of unique values, but that is tedious.
+
+Instead we can use the `SELECT DISTINCT` keywords on one or more columns to show
+all the unique values.
 
 Let's look at the *users* table again and see which cities our users live in.
 
@@ -71,7 +81,12 @@ FROM users;
 
 ### Ordering Results
 
-While we continue our data exploration, we also might want to sort the results in a specific way. You can sort on one or more columns with a combination of ascending or descending order using the `ORDER BY` command.
+What if we want to know, are the users young or old? We could scroll through
+the table and look their birth dates. 
+
+While we continue our data exploration, we also might want to sort the results in a specific way. 
+
+With SQL, you can sort on one or more columns with a combination of ascending or descending order using the `ORDER BY` keyword.
 
 Let's sort the *users* table by birth date.
 
@@ -122,14 +137,14 @@ ORDER BY birth_date DESC; -- sort most recent here
 ```
 
 > **CHECKPOINT**:  
-> Try and use all viewing commands together to give you insight to the dataset. Write your insights in comments.
+> Try and use all viewing keywords together to give you insight to the dataset. Write your insights in comments.
 
 
 ## Filtering Data
 
 Now that we've seen some ways to view our data, let’s learn how we can filter our data. This is really the core of SQL, where we can start to answer our own questions about the data!
 
-We use the `WHERE` command to filter rows of a query by specifying one or more
+We use the `WHERE` clause to filter rows of a query by specifying one or more
 conditions. The table below shows comparison operators that can be used and
 combined with `WHERE` to create conditions, some of which you may have seen
 before in other programming languages.
@@ -175,18 +190,18 @@ data:
 Often we'll need to filter data based on more than one condition. We can ask
 `WHERE` to check multiple conditions with the keywords:
 
-- `AND`, meaning a record must satisfy both conditions
-- `OR`, meaning a record must satisfy at least one of two conditions
+- `AND`, meaning a row must satisfy both conditions
+- `OR`, meaning a row must satisfy at least one of two conditions
 
 These are logical operators in SQL that evaluate to TRUE or FALSE.
 
-Let's find all users who live in Davis *and* have a zip code of 95616.
+Let's find all users who live in Davis *and* were born before 1980.
 
 ```
 SELECT * 
 FROM users
 WHERE city = 'Davis' AND
-      zip_code = 95616;
+      zip_code < '1980-01-01';
 ```
 
 Let's now find all users who live in Davis *or* Sacramento.
@@ -411,7 +426,7 @@ Now we've seen how we can use functions to aggregate data and how grouping data 
 
 ## Joining Data
 
-Joining tables allows us to combine information from more than one table into a new table. The tables need to have a ***key***  to do so. In our Library Checkouts ERD, the *id* column in *books* is a key column that links to
+Joining tables allows us to combine information from more than one table into a new table. The tables need to have a ***key***  column to be able to link the tables together. In our Library Checkouts ERD, the *id* column in *books* is a key column that links to
 
 - *book_id* in *checkouts*
 
@@ -432,21 +447,32 @@ SQL has 4 main kinds of joins:
 
 What kinds of joins are there?
 
-- `INNER JOIN`: Returns records that have matching values in both tables; it gets you what's in the middle of the venn diagram.
+- `INNER JOIN`: Returns rows that have matching values in both tables; it gets you what's in the middle of the venn diagram.
     
-- `LEFT JOIN`: Returns all records from the left table, and the matched records from the right table; the "left" table is the first table you write in the query.
+- `LEFT JOIN`: Returns all rows from the left table, and the matched rows from the right table; the "left" table is the first table you write in the query.
     
-- `RIGHT JOIN`: Returns all records from the right table, and the matched records from the left table; the "right" table is the second table you write in the query or the "join" table. 
+- `RIGHT JOIN`: Returns all rows from the right table, and the matched rows from the left table; the "right" table is the second table you write in the query or the "join" table. 
 
 	> **NOTE**:  
 	> This is not supported in SQLite, however switching the tables in a `LEFT JOIN` will emulate a `RIGHT JOIN`.
     
-- `FULL OUTER JOIN`: Returns all records when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table. 
+- `FULL OUTER JOIN`: Returns all rows when there is a match in either left or right table; nulls are generated in the table when a row in one table doesn't have a match in the other table. 
 
 	> **NOTE**:  
 	> This is not supported in SQLite, however you can emulate a `FULL OUTER JOIN` described [here](https://www.sqlitetutorial.net/sqlite-full-outer-join/).
     
 ### JOIN steps
+    
+The anatomy of a JOIN:
+
+```
+SELECT 
+  left_table.column1,
+  right_table.column1,
+  ...
+FROM left_table
+  [INNER | LEFT] JOIN right_table ON left_table.key_column = right_table.key_column;
+```
     
 Below are the steps for writing a JOIN: 
 
@@ -465,7 +491,6 @@ Let's try an `INNER JOIN` to see how this works:
 
 ```
 SELECT 
-    checkouts.user_id,
     books.title AS book,
     checkouts.checkout_date
 FROM books
@@ -474,19 +499,12 @@ FROM books
 
 We interpret the `INNER JOIN` query as, "all books that have been checked out." 
 
-> **NOTE**:  
-> Notice that you can alias a table and columns in the same query. This will come handy when we learn about `JOIN`!
-> 
-> **CHALLENEGE**:  
-> How would you reference the columns when the table is aliased? Can you use *users*, *students*, or both?
-
 ### LEFT JOIN
 
 Now let's try a `LEFT JOIN`:
 
 ```
 SELECT 
-    checkouts.user_id,
     books.title AS book,
     checkouts.checkout_date
 FROM books
@@ -495,14 +513,14 @@ FROM books
 
 We interpret the `LEFT JOIN` query as, "all books and if they have been checked out or not."
 
-You might be thinking, what would happed if the tables in the `LEFT JOIN` were flipped? We would get the same result as the  `INNER JOIN` query! That's because there's no instances where a checkout without a book could ever happen!
+You might be thinking, what would happen if the tables in the `LEFT JOIN` were flipped? We would get the same result as the  `INNER JOIN` query! That's because there's no instances where a checkout without a book could ever happen!
 
 > **CHALLENGE**:  
 > Can you write a query that contains the title of the books and the names of the genres they're categorized to?
 
 ## Subqueries
 
-So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other commands like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases.
+So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases.
 
 Let's first look at a subquery in the `WHERE` clause:
 
@@ -591,13 +609,23 @@ CREATE VIEW davis_resident_checkouts AS
 	WHERE users.city = 'Davis';
 ```
 
+### Export Query Results
+
+SQLiteStudio has the ability to export out query results to CSV files for further analysis.
+
+Click the "Export" icon ![](images/sqlitestudio-export-icon.png) at the top of the interface and 
+follow the export dialog. 
+
+![](images/sqlitestudio-export-dialog.png)
+
+
 ## Data Management
 
 ### Update Tables
 
 You might have noticed at the beginning the *users* table has *NULL* values across different columns. We can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right. Let's update the *NULL* values in the *users.address* to "*N/A*".
 
-It's first helpful to write a query to be sure these are the records you want to update:
+It's first helpful to write a query to be sure these are the rows you want to update:
 
 ```
 SELECT *
@@ -613,7 +641,7 @@ SET address = 'N/A'
 WHERE address IS NULL;
 ```
 
-The `SET` command specifically targets just the *address* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
+The `SET` keyword specifically targets just the *address* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
 
 ### Add & Populate a Column
 

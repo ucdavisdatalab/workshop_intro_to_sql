@@ -2,7 +2,6 @@ concepts
 what-is-a-relational-database
 what-is-sql
 what-kinds-of-questions-can-sql-answer
-the-basics-of-writing-sql-code
 what-is-a-relational-database-management-system
 advantages-disadvantages-of-sql
 the-library-checkouts-database
@@ -40,6 +39,7 @@ inner-join
 left-join
 subqueries
 saving-query-results
+export-query-results
 data-management
 update-tables
 add-populate-a-column

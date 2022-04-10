@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Concepts | Intro to SQL for Querying Databases</title>
   <meta name="description" content="1 Concepts | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Concepts | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-05" />
+<meta name="date" content="2022-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +34,9 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="the-library-checkouts-database.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +52,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -80,7 +83,6 @@
 <li class="chapter" data-level="1.2" data-path="concepts.html"><a href="concepts.html#what-is-sql"><i class="fa fa-check"></i><b>1.2</b> What is SQL?</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="concepts.html"><a href="concepts.html#what-kinds-of-questions-can-sql-answer"><i class="fa fa-check"></i><b>1.2.1</b> What kinds of questions can SQL answer?</a></li>
-<li class="chapter" data-level="1.2.2" data-path="concepts.html"><a href="concepts.html#the-basics-of-writing-sql-code"><i class="fa fa-check"></i><b>1.2.2</b> The Basics of Writing SQL Code</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="concepts.html"><a href="concepts.html#what-is-a-relational-database-management-system"><i class="fa fa-check"></i><b>1.3</b> What is a Relational Database Management System?</a></li>
 <li class="chapter" data-level="1.4" data-path="concepts.html"><a href="concepts.html#advantages-disadvantages-of-sql"><i class="fa fa-check"></i><b>1.4</b> Advantages &amp; Disadvantages of SQL</a></li>
@@ -131,7 +133,10 @@
 <li class="chapter" data-level="3.4.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#left-join"><i class="fa fa-check"></i><b>3.4.4</b> LEFT JOIN</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#subqueries"><i class="fa fa-check"></i><b>3.5</b> Subqueries</a></li>
-<li class="chapter" data-level="3.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>3.6</b> Saving Query Results</a></li>
+<li class="chapter" data-level="3.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>3.6</b> Saving Query Results</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#export-query-results"><i class="fa fa-check"></i><b>3.6.1</b> Export Query Results</a></li>
+</ul></li>
 <li class="chapter" data-level="3.7" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#data-management"><i class="fa fa-check"></i><b>3.7</b> Data Management</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#update-tables"><i class="fa fa-check"></i><b>3.7.1</b> Update Tables</a></li>
@@ -162,16 +167,20 @@
 <h2><span class="header-section-number">1.1</span> What is a Relational Database?</h2>
 <p>A <strong>relational database</strong> is a collection of tables (organized in rows and
 columns of data) that are related to each other in some way.</p>
-<p>If you’ve worked in Microsoft Excel this would be the equivalent to sheets of
-data. Or, if you have experience with R or Python programming languages, this
-would be the equivalent to data frames.</p>
+<p>Database tables would be the equivalent to spreadsheets in Excel and data frames
+in programming languages like R or Python.</p>
 <p>We’ll go more in-depth on the <em>relational</em> part when we cover the workshop dataset!</p>
 </div>
 <div id="what-is-sql" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> What is SQL?</h2>
 <p>SQL stands for <strong>structured query language</strong>. SQL is a programming language
 that allows you to answer questions about the data in a database using a
-standard set of commands. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
+standard set of keywords. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
+<ul>
+<li>A <strong>query</strong> is a request for information.</li>
+<li>A <strong>SQL query</strong> is a set of instructions made up of keywords sent to the database
+to retrieve rows of table(s).</li>
+</ul>
 <div id="what-kinds-of-questions-can-sql-answer" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?</h3>
 <p>If you already work with data, you probably think about answering specific
@@ -182,25 +191,6 @@ questions such as:</p>
 <li>Which of <strong>X</strong>, <strong>Y</strong>, and <strong>Z</strong> that occurred in a given time period?</li>
 </ul>
 <p>You can use SQL to answer these kinds of questions.</p>
-</div>
-<div id="the-basics-of-writing-sql-code" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> The Basics of Writing SQL Code</h3>
-<p>Today we’ll learn about all the following common SQL commands and how they’re used together to view, filter, aggregate, and join data.</p>
-<pre><code>SELECT [DISTINCT] ...
-FROM ...
-[WHERE ...]
-    [ [INNER | LEFT] JOIN ...]
-[GROUP BY ... [HAVING ...]]
-[ORDER BY ...] 
-[LIMIT ...];</code></pre>
-<blockquote>
-<p><strong>NOTE</strong>:</p>
-<ul>
-<li>Commands in brackets “[ ]” are optional</li>
-<li>Write commands in the order of the blueprint</li>
-<li>End queries with a semicolon “;”</li>
-</ul>
-</blockquote>
 </div>
 </div>
 <div id="what-is-a-relational-database-management-system" class="section level2" number="1.3">
@@ -215,9 +205,9 @@ necessary!</p>
 <p><img src="images/sqlite-logo.png" />
 <!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg --></p>
 <p>Every RDBMS has its own implementation or “dialect” of SQL. In other words, the
-set of SQL commands supported differs from one RDBMS to another, and sometimes
-queries have to be written differently. Details about the supported commands
-for a given RDBMS can be found in that system’s documentation. The commands
+set of SQL keywords supported differs from one RDBMS to another, and sometimes
+queries have to be written differently. Details about the supported keywords
+for a given RDBMS can be found in that system’s documentation. The keywords
 covered in this workshop are supported by almost all popular systems.</p>
 </div>
 <div id="advantages-disadvantages-of-sql" class="section level2" number="1.4">
@@ -235,14 +225,14 @@ efficient way to run the query.</li>
 <li>Queries are reproducible. You can save, edit, and run queries at a later
 date.</li>
 <li>SQL is less expressive and flexible than other data programming tools, so
-there are not too many different commands to remember.</li>
+there are not too many different keywords to remember.</li>
 </ul>
 <p>SQL also has a few disadvantages:</p>
 <ul>
 <li>SQL is less expressive and flexible than other data programming tools. For
 instance, you can’t use SQL to make a plot.</li>
 <li>Each RDBMS has its own dialect of SQL, so each time you work with a new
-database, you must familiarize yourself with which commands are supported.</li>
+database, you must familiarize yourself with which keywords are supported.</li>
 <li>Setting up most database systems (other than SQLite) is a relatively
 complicated process.</li>
 </ul>
@@ -263,7 +253,6 @@ complicated process.</li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -293,6 +282,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
