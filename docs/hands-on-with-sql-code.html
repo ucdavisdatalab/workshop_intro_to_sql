@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Hands-On with SQL Code | Intro to SQL for Querying Databases</title>
   <meta name="description" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-10" />
+<meta name="date" content="2022-04-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,9 +34,8 @@
   
 <link rel="prev" href="the-library-checkouts-database.html"/>
 <link rel="next" href="conclusion.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -52,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -397,16 +394,26 @@ Find all users with a zip code from 95000 - 96000.</p>
 </div>
 <div id="like-operator" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> LIKE Operator</h3>
-<p><code>LIKE</code> is used to search for patterns in strings using the wildcard <code>%</code>, which
-matches any one character. <code>LIKE</code> is case-insensitive.</p>
-<p>Let’s look at an example to indicate we want to match the beginning of a string, but the end is allowed to vary. To show this, let’s find users that have a phone number area code that begins with 530 and can end with anything.</p>
+<p>The <code>LIKE</code> keyword tests whether text values match a given pattern. There are
+two different wildcard characters that you can use in the pattern:</p>
+<ul>
+<li><code>_</code> matches exactly one character</li>
+<li><code>*</code> matches zero or more characters</li>
+</ul>
+<p>Let’s look at an example to indicate we want to match the beginning of a
+string, but the end is allowed to vary. To show this, let’s find users that
+have a phone number area code that begins with 530 and can end with anything.</p>
 <pre><code>SELECT * 
 FROM users
 WHERE phone LIKE &#39;530%&#39;;</code></pre>
 <blockquote>
 <p><strong>NOTE</strong>:<br />
 The wildcard <code>%</code> can be used multiple times in one pattern.</p>
-<p>You can also use regular expressions in SQLite to match in more complicated situations. Read more about using regular expressions <a href="https://www.sqlite.org/lang_expr.html#regexp">here</a>.</p>
+<p>You can also use regular expressions in SQLite to match in more complicated
+situations. Read more about using regular expressions
+<a href="https://www.sqlite.org/lang_expr.html#regexp">here</a>.</p>
+<p>The LIKE keyword differs between dialects of SQL, so it’s also a good idea to
+check the documentation for your RDBMS before using LIKE.</p>
 <p><strong>CHALLENGE</strong>:<br />
 How would you write a query so that the wild card finds users with an email that ends with icloud.com?</p>
 </blockquote>
@@ -742,6 +749,7 @@ WHERE state IS NOT NULL;</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -771,10 +779,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section"
 }

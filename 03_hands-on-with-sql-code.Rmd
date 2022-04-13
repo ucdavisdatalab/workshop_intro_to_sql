@@ -246,10 +246,15 @@ WHERE birth_date BETWEEN '1990-01-01' AND '1999-12-31';
 
 ### LIKE Operator
 
-`LIKE` is used to search for patterns in strings using the wildcard `%`, which
-matches any one character. `LIKE` is case-insensitive.
+The `LIKE` keyword tests whether text values match a given pattern. There are
+two different wildcard characters that you can use in the pattern:
 
-Let’s look at an example to indicate we want to match the beginning of a string, but the end is allowed to vary. To show this, let's find users that have a phone number area code that begins with 530 and can end with anything.
+* `_` matches exactly one character
+* `*` matches zero or more characters
+
+Let’s look at an example to indicate we want to match the beginning of a
+string, but the end is allowed to vary. To show this, let's find users that
+have a phone number area code that begins with 530 and can end with anything.
 
 ```
 SELECT * 
@@ -260,7 +265,12 @@ WHERE phone LIKE '530%';
 > **NOTE**:  
 > The wildcard `%` can be used multiple times in one pattern.
 > 
-> You can also use regular expressions in SQLite to match in more complicated situations. Read more about using regular expressions [here](https://www.sqlite.org/lang_expr.html#regexp).
+> You can also use regular expressions in SQLite to match in more complicated
+> situations. Read more about using regular expressions
+> [here](https://www.sqlite.org/lang_expr.html#regexp).
+>
+> The LIKE keyword differs between dialects of SQL, so it's also a good idea to
+> check the documentation for your RDBMS before using LIKE.
 > 
 > **CHALLENGE**:  
 > How would you write a query so that the wild card finds users with an email that ends with icloud.com?
