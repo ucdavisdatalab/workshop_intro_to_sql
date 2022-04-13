@@ -66,3 +66,10 @@ should:
 [sqlitestudio]: https://sqlitestudio.pl/
 [install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
 [materials]: https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing
+
+#### GradPathways Microcredential Assessment {-}
+
+If you're taking this workshop to complete a GradPathways microcredential
+track, you can download the assessment [here][assessment].
+
+[assessment]: https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/main/materials/assessment.sql
