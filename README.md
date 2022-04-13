@@ -3,29 +3,46 @@
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Spring 2022_  
 _Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
+_Authors_: [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Michele Tobias](https://github.com/MicheleTobias)  
+_Editor:_ [Nick Ulle](https://github.com/nick-ulle)  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
 * [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-sql-for-querying-databases/)
 
-__Authors__: [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Michele Tobias](https://github.com/MicheleTobias)
+This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This
+workshop provides an overview of the utility and base SQL commands for working
+with data in a relational database. We’ll focus on querying data to get to know
+a database and answer questions, and joining data from separate tables.
 
-This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This workshop provides an overview of the utility and base SQL commands for working with data in a relational database. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.
+## Goals
 
-__Goals__  
 After this workshop learners should be able to:
 
-- Perform common SQL commands including viewing, filtering, aggregating, and joining data.
-- Combine commands to construct a query to answer a specific question.
-- Identify the benefits of working with SQL.
-- Access additional resources for using SQL in other software like R.
+* Describe the advantages and disadvantages of using SQL for data problems.
+* Use SQL queries to view, filter, aggregate, and combine data.
+* Combine SQL keywords to develop sophisticated queries.
+* Use SQL queries to solve problems with and answer questions about data.
+* Identify additional resources for learning more about SQL (such as how to use
+  SQL with the R programming language).
 
-__Prerequisites__  
-No prior programming experience is necessary: 
 
-- Have [SQLiteStudio](https://sqlitestudio.pl/) installed on your computer and running. View the install guide [here](https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio).
-- Download *2022-04-04_intro-sql.zip* from the Google Drive link [here](https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing). Make sure to unzip the file and keep track of where it's saved on your computer. It contains a data set and script that will be used during the workshop.
-  - lcdb.db
-  - intro_to_sql_spring22.sql
+## Prerequisites
+
+No prior programming experience is necessary. Before the workshop, learners
+should:
+
+* Install [SQLiteStudio][sqlitestudio] and verify that it runs. See the
+  [install guide][install] for details.
+* Download the file `2022-04-04_intro-sql.zip` from [this link][materials].
+  Unzip the file and keep track of where it's saved on your computer. It
+  contains a data set and a script that will be used during the workshop:
+    + `lcdb.db`
+    + `intro_to_sql_spring22.sql`
+
+[sqlite]: https://sqlite.org/
+[sqlitestudio]: https://sqlitestudio.pl/
+[install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
+[materials]: https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing
 
 
 ## Contributing
@@ -95,79 +112,5 @@ Beware that caching doesn't work with some packages, especially packages that
 use external libraries. Because of this, it's best to leave caching off for
 code chunks that are not resource-intensive.
 
-
-<!--
-### Large Files
-
-If you want to include a large file (say over 1 MB), you should use git LFS.
-You can register a large file with git LFS with the shell command:
-
-```sh
-git lfs track YOUR_FILE
-```
-
-This command updates the `.gitattributes` file at the top level of the repo. To
-make sure the change is saved, you also need to run:
-
-```sh
-git add .gitattributes
-```
-
-Now that your large is registered with git LFS, you can add, commit, and push
-the file with git the same way you would any other file, and git LFS will
-automatically intercede as needed.
-
-GitHub provides 1 GB of storage and 1 GB of monthly bandwidth free per repo for
-large files. If your large file is more than 50 MB, check with the other
-contributors before adding it.
--->
-
-### Github Actions
-
-GitHub Actions can be set up to automatically render your reader when you push 
-new content to a repo. If you would like to use this function, download the 
-materials in [datalab-dev/utilities/render_bookdown_site][render-site] and 
-follow the instructions there.
-
-[render-site]: https://github.com/datalab-dev/utilities/tree/main/render_bookdown_site
-
-## Setup
-
-
-<!--
-### Git LFS
-
-This repo uses [Git Large File Storage][git-lfs] (git LFS) for large files. If
-you don't have git LFS installed, [download it][git-lfs] and run the installer.
-Then in the shell (in any directory), run:
-
-```sh
-git lfs install
-```
-
-Then your one-time setup of git LFS is done. Next, clone this repo with `git
-clone`. The large files will be downloaded automatically with the rest of the
-repo.
-
-[git-lfs]: https://git-lfs.github.com/
--->
-
-
-### R Packages
-
-This repo uses [**renv**](https://rstudio.github.io/renv/) for package
-management. Install **renv** according to the installation instructions on
-their website.
-
-Then open an R session at the top level of the repo and run:
-
-```r
-renv::restore()
-```
-
-This will download and install the correct versions of all the required
-packages to **renv**'s package library. This is separate from your global R
-package library and will not interfere with other versions of packages you have
-installed.
 
 [Back to Top](#top)
