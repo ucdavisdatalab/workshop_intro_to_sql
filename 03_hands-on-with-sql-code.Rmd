@@ -250,7 +250,7 @@ The `LIKE` keyword tests whether text values match a given pattern. There are
 two different wildcard characters that you can use in the pattern:
 
 * `_` matches exactly one character
-* `*` matches zero or more characters
+* `%` matches zero or more characters
 
 Let’s look at an example to indicate we want to match the beginning of a
 string, but the end is allowed to vary. To show this, let's find users that

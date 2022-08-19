@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Concepts | Intro to SQL for Querying Databases</title>
   <meta name="description" content="1 Concepts | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Concepts | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
@@ -25,7 +24,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-13" />
+<meta name="date" content="2022-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +33,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="the-library-checkouts-database.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +50,9 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -141,6 +143,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
 </ul>
 
       </nav>
@@ -158,18 +165,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="concepts" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Concepts</h1>
-<div id="what-is-a-relational-database" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> What is a Relational Database?</h2>
+<div id="concepts" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Concepts<a href="concepts.html#concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-a-relational-database" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> What is a Relational Database?<a href="concepts.html#what-is-a-relational-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>relational database</strong> is a collection of tables (organized in rows and
 columns of data) that are related to each other in some way.</p>
 <p>Database tables would be the equivalent to spreadsheets in Excel and data frames
 in programming languages like R or Python.</p>
 <p>We’ll go more in-depth on the <em>relational</em> part when we cover the workshop dataset!</p>
 </div>
-<div id="what-is-sql" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> What is SQL?</h2>
+<div id="what-is-sql" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> What is SQL?<a href="concepts.html#what-is-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>SQL stands for <strong>structured query language</strong>. SQL is a programming language
 that allows you to answer questions about the data in a database using a
 standard set of keywords. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
@@ -178,8 +185,8 @@ standard set of keywords. You can pronounce SQL as “ess cue ell” or “seque
 <li>A <strong>SQL query</strong> is a set of instructions made up of keywords sent to the database
 to retrieve rows of table(s).</li>
 </ul>
-<div id="what-kinds-of-questions-can-sql-answer" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?</h3>
+<div id="what-kinds-of-questions-can-sql-answer" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?<a href="concepts.html#what-kinds-of-questions-can-sql-answer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you already work with data, you probably think about answering specific
 questions such as:</p>
 <ul>
@@ -190,8 +197,8 @@ questions such as:</p>
 <p>You can use SQL to answer these kinds of questions.</p>
 </div>
 </div>
-<div id="what-is-a-relational-database-management-system" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System?</h2>
+<div id="what-is-a-relational-database-management-system" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System?<a href="concepts.html#what-is-a-relational-database-management-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>relational database management system</strong> (RDBMS) is a software system that
 manages the users of and tables within a database. There are many different
 systems available. For instance, you may have heard of MySQL, Postgres, and
@@ -207,8 +214,8 @@ queries have to be written differently. Details about the supported keywords
 for a given RDBMS can be found in that system’s documentation. The keywords
 covered in this workshop are supported by almost all popular systems.</p>
 </div>
-<div id="advantages-disadvantages-of-sql" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Advantages &amp; Disadvantages of SQL</h2>
+<div id="advantages-disadvantages-of-sql" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Advantages &amp; Disadvantages of SQL<a href="concepts.html#advantages-disadvantages-of-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>SQL queries are <strong>declarative</strong>: you describe the data that you want. Then it’s
 up to SQL to determine the most efficient way to get that data. This approach
 to programming has several advantages:</p>
@@ -250,7 +257,6 @@ complicated process.</li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -280,6 +286,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

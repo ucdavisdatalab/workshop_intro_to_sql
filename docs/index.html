@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Intro to SQL for Querying Databases</title>
   <meta name="description" content="Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
@@ -25,7 +24,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-13" />
+<meta name="date" content="2022-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +33,8 @@
   
 
 <link rel="next" href="concepts.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +50,9 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -141,6 +143,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
 </ul>
 
       </nav>
@@ -162,10 +169,10 @@
 <h1 class="title">Intro to SQL for Querying Databases</h1>
 <p class="author"><em>Nicholas Alonzo</em></p>
 <p class="author"><em>Michele Tobias</em></p>
-<p class="date"><em>2022-04-13</em></p>
+<p class="date"><em>2022-08-18</em></p>
 </div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
+<div id="overview" class="section level1 unnumbered hasAnchor">
+<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Structured Query Language (SQL) is a programming language for interacting with
 relational databases. This workshop covers basic SQL keywords to view, filter,
 aggregate, and combine tables in a database. SQL is supported by many different
@@ -175,8 +182,8 @@ well. The workshop also covers how to use <a href="https://sqlitestudio.pl/about
 integrated development environment for SQL code.</p>
 <p>We’ll focus on querying data to get to know a database and answer questions,
 and joining data from separate tables.</p>
-<div id="learning-objectives" class="section level4 unnumbered">
-<h4>Learning Objectives</h4>
+<div id="learning-objectives" class="section level4 unnumbered hasAnchor">
+<h4>Learning Objectives<a href="index.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>After this workshop learners should be able to:</p>
 <ul>
 <li>Describe the advantages and disadvantages of using SQL for data problems.</li>
@@ -187,8 +194,8 @@ and joining data from separate tables.</p>
 SQL with the R programming language).</li>
 </ul>
 </div>
-<div id="prerequisites" class="section level4 unnumbered">
-<h4>Prerequisites</h4>
+<div id="prerequisites" class="section level4 unnumbered hasAnchor">
+<h4>Prerequisites<a href="index.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>No prior programming experience is necessary. Before the workshop, learners
 should:</p>
 <ul>
@@ -203,8 +210,8 @@ contains a data set and a script that will be used during the workshop:
 </ul></li>
 </ul>
 </div>
-<div id="gradpathways-microcredential-assessment" class="section level4 unnumbered">
-<h4>GradPathways Microcredential Assessment</h4>
+<div id="gradpathways-microcredential-assessment" class="section level4 unnumbered hasAnchor">
+<h4>GradPathways Microcredential Assessment<a href="index.html#gradpathways-microcredential-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If you’re taking this workshop to complete a GradPathways microcredential
 track, you can download the assessment <a href="https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/main/materials/assessment.sql">here</a>.</p>
 
@@ -220,7 +227,6 @@ track, you can download the assessment <a href="https://github.com/ucdavisdatala
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -250,6 +256,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

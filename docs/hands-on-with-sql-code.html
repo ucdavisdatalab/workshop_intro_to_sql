@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Hands-On with SQL Code | Intro to SQL for Querying Databases</title>
   <meta name="description" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Hands-On with SQL Code | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
@@ -25,7 +24,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-13" />
+<meta name="date" content="2022-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +33,8 @@
   
 <link rel="prev" href="the-library-checkouts-database.html"/>
 <link rel="next" href="conclusion.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +50,9 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -141,6 +143,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
 </ul>
 
       </nav>
@@ -158,15 +165,15 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hands-on-with-sql-code" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Hands-On with SQL Code</h1>
+<div id="hands-on-with-sql-code" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Hands-On with SQL Code<a href="hands-on-with-sql-code.html#hands-on-with-sql-code" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Remember, SQL is a language that can help answer questions about the data in a
 database.</p>
-<div id="viewing-data" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Viewing Data</h2>
+<div id="viewing-data" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Viewing Data<a href="hands-on-with-sql-code.html#viewing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What if we want to know, who are the users in the database?</p>
-<div id="select-from" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> SELECT &amp; FROM</h3>
+<div id="select-from" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> SELECT &amp; FROM<a href="hands-on-with-sql-code.html#select-from" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s see how we can view the <em>users</em> table with SQL by writing our first query!
 Type this into the <em>SQL Editor Pane</em>:</p>
 <p><code>SELECT * FROM users;</code></p>
@@ -187,8 +194,8 @@ For instance, this query does the same thing as the query above:</p>
 <pre><code>SELECT * 
 FROM users;</code></pre>
 </div>
-<div id="selecting-columns" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Selecting Columns</h3>
+<div id="selecting-columns" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Selecting Columns<a href="hands-on-with-sql-code.html#selecting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What if we don’t want to see all of the columns in the table? We can ask for just the columns we want to see. Let’s get the first name, birth date, phone, city, and zip code.</p>
 <pre><code>SELECT
     first_name,
@@ -202,8 +209,8 @@ FROM users;</code></pre>
 You can rearrange the columns however you’d like in the <code>SELECT</code> statement and select a column multiple times.</p>
 </blockquote>
 </div>
-<div id="unique-values" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Unique Values</h3>
+<div id="unique-values" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Unique Values<a href="hands-on-with-sql-code.html#unique-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What if we now want to know, in what cities do the people live in? We could scroll
 through the results and try to keep track of unique values, but that is tedious.</p>
 <p>Instead we can use the <code>SELECT DISTINCT</code> keywords on one or more columns to show
@@ -217,8 +224,8 @@ FROM users;</code></pre>
     zip_code
 FROM users;</code></pre>
 </div>
-<div id="ordering-results" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Ordering Results</h3>
+<div id="ordering-results" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Ordering Results<a href="hands-on-with-sql-code.html#ordering-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What if we want to know, are the users young or old? We could scroll through
 the table and look their birth dates.</p>
 <p>While we continue our data exploration, we also might want to sort the results in a specific way.</p>
@@ -236,15 +243,15 @@ ORDER BY birth_date DESC;</code></pre>
 How would you sort <em>users</em> by zip code in descending order and then birth date in ascending order?</p>
 </blockquote>
 </div>
-<div id="limiting-number-of-rows" class="section level3" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> Limiting Number of Rows</h3>
+<div id="limiting-number-of-rows" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Limiting Number of Rows<a href="hands-on-with-sql-code.html#limiting-number-of-rows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes you’ll be working with a large table to analyze with lots of columns and rows. You can use <code>LIMIT</code> to reduce the number of rows the query returns to give you a snapshot of the data you’re working with.</p>
 <pre><code>SELECT *
 FROM users
 LIMIT 10;</code></pre>
 </div>
-<div id="commenting" class="section level3" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> Commenting</h3>
+<div id="commenting" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Commenting<a href="hands-on-with-sql-code.html#commenting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As we’re writing queries, sometimes we want to write helpful comments to ourselves and others. There’s two ways to write comments so that text won’t be interpreted as SQL.</p>
 <ol style="list-style-type: decimal">
 <li>Single line comments: text following two dashses “<em>–</em>”, like so <code>-- comment here</code></li>
@@ -264,8 +271,8 @@ Try and use all viewing keywords together to give you insight to the dataset. Wr
 </blockquote>
 </div>
 </div>
-<div id="filtering-data" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Filtering Data</h2>
+<div id="filtering-data" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Filtering Data<a href="hands-on-with-sql-code.html#filtering-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we’ve seen some ways to view our data, let’s learn how we can filter our data. This is really the core of SQL, where we can start to answer our own questions about the data!</p>
 <p>We use the <code>WHERE</code> clause to filter rows of a query by specifying one or more
 conditions. The table below shows comparison operators that can be used and
@@ -348,8 +355,8 @@ data:</p>
 </tr>
 </tbody>
 </table>
-<div id="and-or-operators" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> AND &amp; OR Operators</h3>
+<div id="and-or-operators" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> AND &amp; OR Operators<a href="hands-on-with-sql-code.html#and-or-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often we’ll need to filter data based on more than one condition. We can ask
 <code>WHERE</code> to check multiple conditions with the keywords:</p>
 <ul>
@@ -372,16 +379,16 @@ WHERE city = &#39;Davis&#39; OR
 <code>AND</code> &amp; <code>OR</code> will follow the order of operations. To use <code>AND</code> &amp; <code>OR</code> in the same query, wrap parenthesis around the <code>OR</code> conditions.</p>
 </blockquote>
 </div>
-<div id="in-operator" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> IN Operator</h3>
+<div id="in-operator" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> IN Operator<a href="hands-on-with-sql-code.html#in-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes we find ourselves writing multiple <code>OR</code> conditions on the same column which can make our query look more complex than it really is. In this scenario we can condense multiple <code>OR</code> conditions using <code>IN</code>.</p>
 <p>Let’s rewrite our previous query to use <code>IN</code>.</p>
 <pre><code>SELECT * 
 FROM users
 WHERE city IN (&#39;Davis&#39;, &#39;Sacramento&#39;);</code></pre>
 </div>
-<div id="between-operator" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> BETWEEN Operator</h3>
+<div id="between-operator" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> BETWEEN Operator<a href="hands-on-with-sql-code.html#between-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can also also filter using ranges of values with <code>BETWEEN</code>. This is handy when you’re working with numerical or date values and you don’t want to list out all possible values to meet your conditions.</p>
 <p>Let’s write a query to find all users born in the 1990’s.</p>
 <pre><code>SELECT * 
@@ -392,13 +399,13 @@ WHERE birth_date BETWEEN &#39;1990-01-01&#39; AND &#39;1999-12-31&#39;;</code></
 Find all users with a zip code from 95000 - 96000.</p>
 </blockquote>
 </div>
-<div id="like-operator" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> LIKE Operator</h3>
+<div id="like-operator" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> LIKE Operator<a href="hands-on-with-sql-code.html#like-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>LIKE</code> keyword tests whether text values match a given pattern. There are
 two different wildcard characters that you can use in the pattern:</p>
 <ul>
 <li><code>_</code> matches exactly one character</li>
-<li><code>*</code> matches zero or more characters</li>
+<li><code>%</code> matches zero or more characters</li>
 </ul>
 <p>Let’s look at an example to indicate we want to match the beginning of a
 string, but the end is allowed to vary. To show this, let’s find users that
@@ -418,8 +425,8 @@ check the documentation for your RDBMS before using LIKE.</p>
 How would you write a query so that the wild card finds users with an email that ends with icloud.com?</p>
 </blockquote>
 </div>
-<div id="is-null-operator" class="section level3" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> IS NULL Operator</h3>
+<div id="is-null-operator" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> IS NULL Operator<a href="hands-on-with-sql-code.html#is-null-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So far we’ve worked with complete data, but how do we work with missing data?
 In databases, <code>NULL</code> means missing data. <code>IS NULL</code> is used to test whether
 there is missing data in a column.</p>
@@ -432,8 +439,8 @@ WHERE address IS NULL;</code></pre>
 How would you write a query to find users with a missing phone number or missing email?</p>
 </blockquote>
 </div>
-<div id="not-operator" class="section level3" number="3.2.6">
-<h3><span class="header-section-number">3.2.6</span> NOT Operator</h3>
+<div id="not-operator" class="section level3 hasAnchor" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> NOT Operator<a href="hands-on-with-sql-code.html#not-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There will be times where we want to find only the rows that do not satisfy
 some condition. To do this, use <code>NOT</code> combined with other operators:</p>
 <ul>
@@ -448,11 +455,11 @@ FROM users
 WHERE phone NOT LIKE &#39;530%&#39;;</code></pre>
 </div>
 </div>
-<div id="aggregating-data" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Aggregating Data</h2>
+<div id="aggregating-data" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Aggregating Data<a href="hands-on-with-sql-code.html#aggregating-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve just looked at a number of ways to filter data, but now let’s look at some ways to aggregate data.</p>
-<div id="count" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Count</h3>
+<div id="count" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Count<a href="hands-on-with-sql-code.html#count" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we want to find out how many books have been checked out.</p>
 <p>We can count the total number of rows in a table using the <code>COUNT</code> function.
 The function takes a column or <code>*</code> as an argument, but the argument doesn’t
@@ -468,8 +475,8 @@ to get a unique count of values in a column when duplicate values exist.</p>
 <p><strong>CHALLENGE</strong>:<br />
 Find the total number of users that have checked out a book.</p>
 </blockquote>
-<div id="renamingaliasing-columns" class="section level4" number="3.3.1.1">
-<h4><span class="header-section-number">3.3.1.1</span> Renaming/Aliasing Columns</h4>
+<div id="renamingaliasing-columns" class="section level4 hasAnchor" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> Renaming/Aliasing Columns<a href="hands-on-with-sql-code.html#renamingaliasing-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the previous query, notice that the name of the column in the result is
 <code>COUNT(id)</code>, which isn’t easy to use in subsequent SQL queries or with other
 data programming tools.</p>
@@ -487,16 +494,16 @@ FROM checkouts
 WHERE checkout_date = &#39;2022-04-11&#39;;</code></pre>
 </div>
 </div>
-<div id="average" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Average</h3>
+<div id="average" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Average<a href="hands-on-with-sql-code.html#average" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>AVG</code> function returns the average value of a numeric column. Let’s find
 the average number of days a book is checked out for:</p>
 <pre><code>SELECT 
     AVG(days_checking_out) AS avg_days_checking_out
 FROM checkouts;</code></pre>
 </div>
-<div id="sum" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Sum</h3>
+<div id="sum" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Sum<a href="hands-on-with-sql-code.html#sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can also sum the values in a numeric column with the <code>SUM</code> function. Let’s
 find the total number of books that were returned with damage:</p>
 <pre><code>SELECT 
@@ -508,8 +515,8 @@ FROM checkouts;</code></pre>
 FROM checkouts
 WHERE returned_with_damage = 1;</code></pre>
 </div>
-<div id="grouping-data" class="section level3" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> Grouping Data</h3>
+<div id="grouping-data" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Grouping Data<a href="hands-on-with-sql-code.html#grouping-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So now you’ve seen several functions working on a single column, but we
 sometimes want to summarize our data in more sophisticated ways. Let’s see what
 grouping can do for our data. Let’s write a query that counts the number of
@@ -526,8 +533,8 @@ GROUP BY checkout_date;</code></pre>
 You can also <code>GROUP BY</code> more than one column. How would you find the total number of times a person checked out a book on a given day?</p>
 </blockquote>
 </div>
-<div id="having" class="section level3" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> Having</h3>
+<div id="having" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> Having<a href="hands-on-with-sql-code.html#having" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>HAVING</code> is similar to <code>WHERE</code>, but it specifically works with <code>GROUP BY</code>. Perhaps we’re only interested in days that had more than 5 checkouts. Let’s see what that looks like:</p>
 <pre><code>SELECT 
     checkout_date, 
@@ -538,16 +545,16 @@ HAVING COUNT(book_id) &gt; 5;</code></pre>
 <p>Now we’ve seen how we can use functions to aggregate data and how grouping data can give us meaningful insights. There are, of course, other functions available in SQL and we can’t go over all of them here, but now you’ve seen how they work and can apply your knowledge to new functions you find.</p>
 </div>
 </div>
-<div id="joining-data" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Joining Data</h2>
+<div id="joining-data" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Joining Data<a href="hands-on-with-sql-code.html#joining-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Joining tables allows us to combine information from more than one table into a new table. The tables need to have a <strong><em>key</em></strong> column to be able to link the tables together. In our Library Checkouts ERD, the <em>id</em> column in <em>books</em> is a key column that links to</p>
 <ul>
 <li><p><em>book_id</em> in <em>checkouts</em></p>
 <p>and</p></li>
 <li><p><em>book_id</em> in <em>book_genre_link</em></p></li>
 </ul>
-<div id="join-types" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> JOIN Types</h3>
+<div id="join-types" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> JOIN Types<a href="hands-on-with-sql-code.html#join-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>SQL has 4 main kinds of joins:</p>
 <p><img src="https://www.w3schools.com/sql/img_innerjoin.gif" alt="INNER JOIN" /> <img src="https://www.w3schools.com/sql/img_leftjoin.gif" alt="LEFT JOIN" /></p>
 <p><img src="https://www.w3schools.com/sql/img_rightjoin.gif" alt="RIGHT JOIN" /> <img src="https://www.w3schools.com/sql/img_fulljoin.gif" alt="FULL OUTER JOIN" /></p>
@@ -571,8 +578,8 @@ This is not supported in SQLite, however you can emulate a <code>FULL OUTER JOIN
 </blockquote></li>
 </ul>
 </div>
-<div id="join-steps" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> JOIN steps</h3>
+<div id="join-steps" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> JOIN steps<a href="hands-on-with-sql-code.html#join-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The anatomy of a JOIN:</p>
 <pre><code>SELECT 
   left_table.column1,
@@ -594,8 +601,8 @@ Column referencing helps you distinguish from what table the columns come from. 
 <li>Finally, we have to say which columns the join should be based on with <code>ON</code> .</li>
 </ol>
 </div>
-<div id="inner-join" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> INNER JOIN</h3>
+<div id="inner-join" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> INNER JOIN<a href="hands-on-with-sql-code.html#inner-join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s try an <code>INNER JOIN</code> to see how this works:</p>
 <pre><code>SELECT 
     books.title AS book,
@@ -604,8 +611,8 @@ FROM books
     INNER JOIN checkouts ON books.id = checkouts.book_id;</code></pre>
 <p>We interpret the <code>INNER JOIN</code> query as, “all books that have been checked out.”</p>
 </div>
-<div id="left-join" class="section level3" number="3.4.4">
-<h3><span class="header-section-number">3.4.4</span> LEFT JOIN</h3>
+<div id="left-join" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> LEFT JOIN<a href="hands-on-with-sql-code.html#left-join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now let’s try a <code>LEFT JOIN</code>:</p>
 <pre><code>SELECT 
     books.title AS book,
@@ -620,8 +627,8 @@ Can you write a query that contains the title of the books and the names of the 
 </blockquote>
 </div>
 </div>
-<div id="subqueries" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Subqueries</h2>
+<div id="subqueries" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Subqueries<a href="hands-on-with-sql-code.html#subqueries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So far we’ve been working with one <code>SELECT</code> statement, but we can actually combine multiple <code>SELECT</code> statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like <code>JOIN</code> and <code>WHERE</code>. Below are 2 examples of these use cases.</p>
 <p>Let’s first look at a subquery in the <code>WHERE</code> clause:</p>
 <pre><code>-- main query
@@ -659,8 +666,8 @@ If you’re still a bit confused, just remember that every query results in a ta
 <p>Also, note that both subquery examples are just different ways to get to the same result, “checked out hardcover books.”</p>
 </blockquote>
 </div>
-<div id="saving-query-results" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Saving Query Results</h2>
+<div id="saving-query-results" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Saving Query Results<a href="hands-on-with-sql-code.html#saving-query-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There will be times when we want to save the results of a query so we can reuse it later when needed. Two commands to save a query as a new database object follow:</p>
 <ol style="list-style-type: decimal">
 <li><code>CREATE TEMPORARY TABLE</code>
@@ -698,18 +705,18 @@ If you’re still a bit confused, just remember that every query results in a ta
         INNER JOIN checkouts ON users.id = checkouts.user_id
         INNER JOIN books ON checkouts.book_id = books.id
     WHERE users.city = &#39;Davis&#39;;</code></pre>
-<div id="export-query-results" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> Export Query Results</h3>
+<div id="export-query-results" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Export Query Results<a href="hands-on-with-sql-code.html#export-query-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>SQLiteStudio has the ability to export out query results to CSV files for further analysis.</p>
 <p>Click the “Export” icon <img src="images/sqlitestudio-export-icon.png" /> at the top of the interface and
 follow the export dialog.</p>
 <p><img src="images/sqlitestudio-export-dialog.png" /></p>
 </div>
 </div>
-<div id="data-management" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Data Management</h2>
-<div id="update-tables" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> Update Tables</h3>
+<div id="data-management" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Data Management<a href="hands-on-with-sql-code.html#data-management" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="update-tables" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Update Tables<a href="hands-on-with-sql-code.html#update-tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You might have noticed at the beginning the <em>users</em> table has <em>NULL</em> values across different columns. We can fix this fairly easily, but we need to be careful. It’s challenging to undo something in a database so we want to be sure we’re doing it right. Let’s update the <em>NULL</em> values in the <em>users.address</em> to “<em>N/A</em>”.</p>
 <p>It’s first helpful to write a query to be sure these are the rows you want to update:</p>
 <pre><code>SELECT *
@@ -721,8 +728,8 @@ SET address = &#39;N/A&#39;
 WHERE address IS NULL;</code></pre>
 <p>The <code>SET</code> keyword specifically targets just the <em>address</em> column and replaces <em>NULL</em> values with “<em>N/A</em>” when the condition is met in the <code>WHERE</code> clause. It leaves the other values alone. If the <code>WHERE</code> clause is removed, it will set all values in the whole column to “<em>N/A</em>” overwriting the users address, so proceed with caution!</p>
 </div>
-<div id="add-populate-a-column" class="section level3" number="3.7.2">
-<h3><span class="header-section-number">3.7.2</span> Add &amp; Populate a Column</h3>
+<div id="add-populate-a-column" class="section level3 hasAnchor" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> Add &amp; Populate a Column<a href="hands-on-with-sql-code.html#add-populate-a-column" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes we want to make a new column and add data into it. Let’s make a new column called <em>country</em> in the <em>users</em> table and populate it with “<em>USA</em>” if there is a value in the column <em>state</em>.</p>
 <p>First we’ll add the column and set the default value to “<em>N/A</em>”:</p>
 <pre><code>ALTER TABLE users
@@ -749,7 +756,6 @@ WHERE state IS NOT NULL;</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -779,6 +785,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

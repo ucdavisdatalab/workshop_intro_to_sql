@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 The Library Checkouts Database | Intro to SQL for Querying Databases</title>
   <meta name="description" content="2 The Library Checkouts Database | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 The Library Checkouts Database | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_intro_to_sql/" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
@@ -25,7 +24,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2022-04-13" />
+<meta name="date" content="2022-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +33,8 @@
   
 <link rel="prev" href="concepts.html"/>
 <link rel="next" href="hands-on-with-sql-code.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +50,9 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -141,6 +143,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
 </ul>
 
       </nav>
@@ -158,8 +165,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-library-checkouts-database" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> The Library Checkouts Database</h1>
+<div id="the-library-checkouts-database" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> The Library Checkouts Database<a href="the-library-checkouts-database.html#the-library-checkouts-database" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We’ll be working with the Library Checkouts Database, a fictitious SQLite database about how and what a library keeps track of when lending books. This includes information like:</p>
 <ul>
 <li>Books and their details: title, author, genres, etc…</li>
@@ -184,8 +191,8 @@
 </ul></li>
 </ul>
 <p>For more detailed information on how the SQLite database was put together, refer to the GitHub repository <a href="https://github.com/diversifyds/library-checkouts-db">here</a>.</p>
-<div id="entity-relationship-diagrams" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Entity Relationship Diagrams</h2>
+<div id="entity-relationship-diagrams" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Entity Relationship Diagrams<a href="the-library-checkouts-database.html#entity-relationship-diagrams" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An <strong>entity relationship diagram</strong> ERD is a visual representation of a
 relational database. ERDs help with understanding what data is available, how
 the data is stored, and how tables and columns are related. These details are
@@ -211,8 +218,8 @@ important for determining what types of questions you can answer with SQL!</p>
 The Library Checkouts ERD was made with the diagramming software <a href="https://www.lucidchart.com/">Lucidchart</a>. Lucidchart also does an excellent job of breaking down Entity Relationship Diagrams <a href="https://www.lucidchart.com/pages/er-diagrams">here</a>.</p>
 </blockquote>
 </div>
-<div id="data-definitions" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Data Definitions</h2>
+<div id="data-definitions" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Data Definitions<a href="the-library-checkouts-database.html#data-definitions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below are the data definitions of the tables and columns in the Library Checkouts Database.</p>
 <table>
 <caption><strong>users</strong>: All users that signed up for a library card with the library</caption>
@@ -435,8 +442,8 @@ The Library Checkouts ERD was made with the diagramming software <a href="https:
 </tbody>
 </table>
 </div>
-<div id="sqlitestudio" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> SQLiteStudio</h2>
+<div id="sqlitestudio" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> SQLiteStudio<a href="the-library-checkouts-database.html#sqlitestudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="images/sqlitestudio-logo.png" /></p>
 <p>To work with our database, we’ll use <a href="https://sqlitestudio.pl/about/">SQLiteStudio</a>. It’s a free, open
 source, multi-platform desktop application for browsing SQLite databases and
@@ -446,8 +453,8 @@ data:</p>
 <p><img src="images/sqlitestudio-interface.png" /></p>
 <p>You can view databases in the pane outlined in green. You can also write and
 run queries in the editor pane outlined in orange.</p>
-<div id="load-the-database" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Load the Database</h3>
+<div id="load-the-database" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Load the Database<a href="the-library-checkouts-database.html#load-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Click the “Add a database” icon <img src="images/sqlitestudio-add-db-icon.png" /> [<strong>3</strong>] and the <em>Database Dialog Window</em> will pop up.</li>
 </ol>
@@ -478,8 +485,8 @@ run queries in the editor pane outlined in orange.</p>
 </ul></li>
 </ol>
 </div>
-<div id="load-the-sql-script" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Load the SQL Script</h3>
+<div id="load-the-sql-script" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Load the SQL Script<a href="the-library-checkouts-database.html#load-the-sql-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Click the “Open SQL editor” icon <img src="images/sqlitestudio-editor-icon.png" /> [<strong>1</strong>]
 <ul>
@@ -509,7 +516,6 @@ run queries in the editor pane outlined in orange.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -539,6 +545,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

@@ -8,6 +8,7 @@ _Editor:_ [Nick Ulle](https://github.com/nick-ulle)
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
 * [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-sql-for-querying-databases/)
+* [Event Recording](https://video.ucdavis.edu/media/t/1_ymmhls5c)
 
 This workshop teaches the basics of SQL using SQLite and SQLiteStudio. This
 workshop provides an overview of the utility and base SQL commands for working
