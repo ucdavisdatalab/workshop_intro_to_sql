@@ -1,10 +1,10 @@
-# Workshop: Intro to SQL for Querying Databases
+# Workshop: Introduction to SQL for Querying Databases
 
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Spring 2022_  
 _Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
 _Authors_: [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Michele Tobias](https://github.com/MicheleTobias)  
-_Editor:_ [Nick Ulle](https://github.com/nick-ulle)  
+_Editors:_ [Nick Ulle](https://github.com/nick-ulle) and [Pamela Reynolds](https://github.com/plnreynolds)  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
 * [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-sql-for-querying-databases/)
@@ -29,8 +29,8 @@ After this workshop learners should be able to:
 
 ## Prerequisites
 
-No prior programming experience is necessary. Before the workshop, learners
-should:
+No prior programming experience is necessary. Prior experience working with data is recommended.
+Before the workshop, learners should:
 
 * Install [SQLiteStudio][sqlitestudio] and verify that it runs. See the
   [install guide][install] for details.
