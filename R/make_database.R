@@ -1,4 +1,4 @@
-
+# This script makes a SQLite database from the library checkouts dataset.
 library("dplyr")
 library("lubridate")
 library("purrr")
@@ -7,61 +7,19 @@ library("stringr")
 library("RSQLite")
 
 
-str_normalize = function(string) {
-  string = str_to_lower(string)
-  string = str_replace_all(string, "[()]", "")
-  string = str_replace_all(string, "[ .,]+", "_")
-  string
+#' Entry point to run the script.
+#'
+main = function() {
+  dataset = read_library_dataset()
+  do.call(make_library_database, dataset)
 }
 
 
-get_earliest_year = function(years) {
-  if (length(years) == 0) return (NA)
-
-  min(as.numeric(years))
-}
-
-
-create_table = function(con, name, value, primary_key = NULL) {
-  if (!is.null(primary_key)) {
-    col_names = paste(names(value), collapse = ", ")
-    query <- sprintf(
-      "CREATE TABLE %s(%s, PRIMARY KEY(%s))", name, col_names, primary_key)
-    dbExecute(con, query)
-  }
-
-  dbWriteTable(con, name, value, append = TRUE)
-}
-
-
-# user_group (users)
-# creation_date (users) -- user acount creation date
-# barcode (items)
-# loan_date (checkouts)
-# due_date (checkouts)
-# item_id (checkouts, items)
-# location_code (items) -- which collection the item belonged to at checkout
-# title (items)
-# author (items)
-# subjects (items)
-# material_type (items)
-# publisher (items)
-# receiving_date (items) -- date item was added to collection
-# publication_years (items)
-# resource_type (items)
-# language_code (items)
-# publication_place (items)
-# patron_id (checkouts, users)
-# description (items)
-# lifecycle (items) -- status of item in collection
-# loans_not_in_house (items) -- ILL of item to others?
-# recalls (items)
-# loans_in_house (items) -- loans of item?
-
-
-make_database = function() {
-  #path = "data/2024-03-06_loan-data.csv"
+#' Read and clean the library dataset.
+#'
+read_library_dataset = function(
   path = "data/2024-03-14_loan-data_v2.csv"
+) {
   loans = read_csv(path)
 
   # Fix column names.
@@ -103,9 +61,18 @@ make_database = function() {
   checkouts = distinct(loans[checkouts_cols])
 
   #setdiff(names(loans), c(names(items), names(users), names(checkouts)))
+  list(items = items, users = users, checkouts = checkouts)
+}
 
+
+#' Make a SQLite database from the library dataset.
+#'
+make_library_database = function(
+  items, users, checkouts,
+  path = "data/library.sqlite"
+) {
   # Store in SQLite database.
-  con = dbConnect(SQLite(), "data/library.sqlite")
+  con = dbConnect(SQLite(), path)
   #create_table(con, "items", items, primary_key = "item_id")
   create_table(con, "items", items)
   create_table(con, "patrons", users, primary_key = "patron_id")
@@ -114,10 +81,45 @@ make_database = function() {
 }
 
 
-main = make_database
+#' Normalize column names by converting to lowercase, removing parentheses, and
+#' replacing whitespace and punctuation with underscores.
+#'
+str_normalize = function(string) {
+  string = str_to_lower(string)
+  string = str_replace_all(string, "[()]", "")
+  string = str_replace_all(string, "[ .,]+", "_")
+  string
+}
 
 
-eda = function() {
+#' Get the chronologically first year in a vector of years.
+#'
+get_earliest_year = function(years) {
+  if (length(years) == 0) return (NA)
+
+  min(as.numeric(years))
+}
+
+
+#' Create a table with a primary key in a database.
+#'
+#' The `dbWriteTable` function can create tables, but it doesn't support
+#' setting a primary key. This function solves that problem.
+#'
+create_table = function(con, name, value, primary_key = NULL) {
+  if (!is.null(primary_key)) {
+    col_names = paste(names(value), collapse = ", ")
+    query <- sprintf(
+      "CREATE TABLE %s(%s, PRIMARY KEY(%s))", name, col_names, primary_key)
+    dbExecute(con, query)
+  }
+
+  dbWriteTable(con, name, value, append = TRUE)
+}
+
+
+# Exploratory/prototyping code
+if (FALSE) {
   # CSV is broken at line 2686
   #is_change = which(loans$material_type != c(loans$material_type[-1], "hi"))
   #as.data.frame(loans[is_change[1], ])
@@ -143,3 +145,28 @@ eda = function() {
 
   filter(z, item_id %in% !!odd_items)[c("item_id", "title")]
 }
+
+
+# user_group (users)
+# creation_date (users) -- user acount creation date
+# barcode (items)
+# loan_date (checkouts)
+# due_date (checkouts)
+# item_id (checkouts, items)
+# location_code (items) -- which collection the item belonged to at checkout
+# title (items)
+# author (items)
+# subjects (items)
+# material_type (items)
+# publisher (items)
+# receiving_date (items) -- date item was added to collection
+# publication_years (items)
+# resource_type (items)
+# language_code (items)
+# publication_place (items)
+# patron_id (checkouts, users)
+# description (items)
+# lifecycle (items) -- status of item in collection
+# loans_not_in_house (items) -- ILL of item to others?
+# recalls (items)
+# loans_in_house (items) -- loans of item?
