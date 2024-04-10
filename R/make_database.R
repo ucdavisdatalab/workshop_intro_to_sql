@@ -6,11 +6,14 @@ library("readr")
 library("stringr")
 library("RSQLite")
 
+set.seed(409)
+
 
 #' Entry point to run the script.
 #'
 main = function() {
   dataset = read_library_dataset()
+  dataset = do.call(subset_library_dataset, dataset)
   do.call(make_library_database, dataset)
 }
 
@@ -20,6 +23,7 @@ main = function() {
 read_library_dataset = function(
   path = "data/2024-03-14_loan-data_v2.csv"
 ) {
+  message("Reading '", path, "'")
   loans = read_csv(path)
 
   # Fix column names.
@@ -65,6 +69,28 @@ read_library_dataset = function(
 }
 
 
+#' Subset the library data set to get the file size down to about 35 MB.
+#'
+#' This function mostly operates on the `items` table. It removes the
+#' `subjects` column and removes all items that aren't checked out except for a
+#' sample of about 15,000.
+#'
+subset_library_dataset = function(items, users, checkouts, n = 15000) {
+  # Active checkouts have a non-negative `patron_id`.
+  active = filter(checkouts, patron_id != -1)
+
+  # Get `item_id`s for active items as well as a sample of inactive items.
+  keep = unique(active$item_id)
+  inactive_items = setdiff(items$item_id, keep)
+  keep = c(keep, sample(inactive_items, n, replace = FALSE))
+
+  items = filter(items, item_id %in% keep)
+  items = select(items, -subjects)
+
+  list(items = items, users = users, checkouts = checkouts)
+}
+
+
 #' Make a SQLite database from the library dataset.
 #'
 make_library_database = function(
@@ -78,6 +104,7 @@ make_library_database = function(
   create_table(con, "patrons", users, primary_key = "patron_id")
   create_table(con, "checkouts", checkouts)
   dbDisconnect(con)
+  message("Wrote '", path, "'")
 }
 
 
@@ -144,6 +171,21 @@ if (FALSE) {
     , odd)$item_id
 
   filter(z, item_id %in% !!odd_items)[c("item_id", "title")]
+
+
+  # ---
+  active = filter(checkouts, patron_id != -1)
+  active_items = filter(items, item_id %in% active$item_id)
+
+  dup_item = filter(count(items, item_id), n > 1)$item_id
+
+  by_year = split(checkouts, year(checkouts$loan_date))
+  sapply(by_year, \(y) format(object.size(
+        filter(items, item_id %in% y$item_id)), units = "Mb"))
+
+  ix = sample(seq_len(nrow(items)), 15000)
+  (10 / as.numeric(object.size(items) / nrow(items))) * nrow(items)
+  format(object.size(items[ix, ]), units = "Mb")
 }
 
 
@@ -170,3 +212,24 @@ if (FALSE) {
 # loans_not_in_house (items) -- ILL of item to others?
 # recalls (items)
 # loans_in_house (items) -- loans of item?
+
+
+# Size statistics:
+# 157,964 items (103.4 MB)
+#   * 4,123 of these have multiple entries
+#       * 1,539 of these are checked out
+#   * 152,714 unique items
+#   * Items by year:
+#     >      2019      2020      2021      2022      2023
+#     > "43.9 Mb" "16.8 Mb" "16.5 Mb" "27.8 Mb"   "30 Mb"
+#   * Items column sizes above 2 MB:
+#     >     title                 author           subjects
+#     > "17.5 Mb"               "8.5 Mb"          "54.4 Mb"
+#     > publisher      publication_place
+#     >    "4 Mb"               "2.4 Mb"
+#   * Active items alone require 22 MB (or 10.5 MB without subjects).
+# 2,595 unique users (0.1 MB), all with checkouts
+# 240,424 checkouts (13.1 MB) spanning 2019-01-02 to 2023-12-28
+#   * 152,714 unique items
+#   * 31,464 active checkouts (i.e., associated with a user)
+#       * 29,283 unique items
