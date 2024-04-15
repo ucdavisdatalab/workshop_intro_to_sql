@@ -1,26 +1,26 @@
 # Hands-On with SQL Code
 
-Remember, SQL is a language that can help answer questions about the data in a 
-database. 
+We just learned that SQL is a language that allows us to interact with and manage a database. Let's learn some SQL queries to get some hands-on experience.
 
 ## Viewing Data
 
-What if we want to know, who are the users in the database?
-
 ### SELECT & FROM
 
-Let's see how we can view the *users* table with SQL by writing our first query! 
-Type this into the *SQL Editor Pane*:
+We're ready to write our first queries! The most common query you'll use is the SELECT statement.  In it's most basic form, it shows you the data in a table, but you can add option to customize the view you get back.  Let's try!  Type this query into the query box:
 
-`SELECT * FROM users;`
+```SELECT * FROM items;```
 
-Place your cursor anywhere before the semicolon and then click the *Execute query* button ![alt text](images/Button_Execute.PNG) or F9 key on your keyboard.
+Now click the *Execute all* button. ![alt text](images/Button_Execute.PNG)
 
-This is the most common query you'll write as you start exploring your data. `SELECT` is used to display the columns of tables you want and `FROM` is used to specify which table to get the columns from.
+This query asks the database to select everything (* means "everything") from the table *items*.  It ends with a semicolon to tell the database that this is the end of our request.  
 
-The query asks the database to select everything (`*` means "everything") from
-the table `users`. It ends with a semicolon to tell the database that this is
-the end of the request.
+```
+SELECT 
+* 
+FROM 
+items;
+```
+The above query does exactly the same thing as the first one, hence the need for the end of query indicator.  We can use new lines to help us organize large queries to make them easier to read.
 
 SQL ignores capitalization, spaces, and new lines in a query. Some tools which
 use SQL also ignore semicolons. However, it's conventional to:
@@ -29,91 +29,83 @@ use SQL also ignore semicolons. However, it's conventional to:
 * Write table and column names in lowercase
 * Write a semicolon `;` at the end of the query
 
-You can use new lines to help organize queries and make them easier to read.
-For instance, this query does the same thing as the query above:
-
-```
-SELECT * 
-FROM users;
-```
-
 
 ### Selecting Columns
 
-What if we don't want to see all of the columns in the table? We can ask for just the columns we want to see. Let's get the first name, birth date, phone, city, and zip code.
+The *items* table has a lot of columns. What if we don't want to see all of the columns in the table? We can ask for just the columns we want to see. Let's get just the item ID, title, and material type.
 
 ```
 SELECT
-    first_name,
-    birth_date,
-    phone,
-    city, 
-    zip_code 
-FROM users;
+    item_id,
+	title,
+	material_type
+FROM items;
 ```
 
 > **NOTE**:  
-> You can rearrange the columns however you'd like in the `SELECT` statement and select a column multiple times.
+> You can order the columns however you'd like in the `SELECT` statement and select a column multiple times.
 
 ### Unique Values
 
-What if we now want to know, in what cities do the people live in? We could scroll
-through the results and try to keep track of unique values, but that is tedious.
+What if we now want to knowwhat all the possible languages are in our data set? We could scroll through the results and try to keep track of unique values, but that is tedious - and we'll likely miss some, especially if they are uncommon.
 
 Instead we can use the `SELECT DISTINCT` keywords on one or more columns to show
 all the unique values.
 
-Let's look at the *users* table again and see which cities our users live in.
+Let's look at the *items* table again and see which languages our items are published in.
 
 ```
-SELECT DISTINCT city
-FROM users;
+SELECT DISTINCT language_code
+FROM items;
 ```
 
-If we wanted to see unique combinations across multiple columns, we just add the columns we're interested in. The query below shows unique city and zip code combinations.
+If we wanted to see unique combinations across multiple columns, we just add the columns we're interested in. Let's see which languages each publisher publishes in:
 
 ```
 SELECT DISTINCT 
-    city, 
-    zip_code
-FROM users;
+    language_code,
+	publisher
+FROM items;
 ```
 
 ### Ordering Results
 
-What if we want to know, are the users young or old? We could scroll through
-the table and look their birth dates. 
-
-While we continue our data exploration, we also might want to sort the results in a specific way. 
+Sometimes sorting data is useful for understanding the output of a query.
 
 With SQL, you can sort on one or more columns with a combination of ascending or descending order using the `ORDER BY` keyword.
 
-Let's sort the *users* table by birth date.
+Let's sort the *items* table by the year of first publication.
 
 ```
-SELECT *
-FROM users
-ORDER BY birth_date;
+SELECT 
+	title,
+	author,
+	first_publication_year
+FROM items
+ORDER BY first_publication_year;
 ```
 
 By default, `ORDER BY` sorts in ascending order. We can sort in descending order to get users born more recently by adding `DESC` after the column.
 
 ```
-SELECT *
-FROM users
-ORDER BY birth_date DESC;
+SELECT 
+	title,
+	author,
+	first_publication_year
+FROM items
+ORDER BY first_publication_year DESC;
 ```
 
 > **CHALLENGE**:  
-> How would you sort *users* by zip code in descending order and then birth date in ascending order?
+> How would you sort *items* by author in descending order?
 
 ### Limiting Number of Rows
 
-Sometimes you'll be working with a large table to analyze with lots of columns and rows. You can use `LIMIT` to reduce the number of rows the query returns to give you a snapshot of the data you're working with.
+Sometimes you'll be working with a large table to analyze with lots of columns and rows. You can use `LIMIT` to reduce the number of rows the query returns to give you a snapshot of the data you're working with. Limiting the output is particularly useful when you are building a complex query on a large amount of data. Limiting makes the query quicker so you can see an example of the results more quickly for troubleshooting. Once your limited query returns the results you want, then you can run the full query.
 
 ```
 SELECT *
-FROM users
+FROM items
 LIMIT 10;
 ```
 
@@ -121,23 +113,23 @@ LIMIT 10;
 
 As we're writing queries, sometimes we want to write helpful comments to ourselves and others. There's two ways to write comments so that text won't be interpreted as SQL. 
 
-1. Single line comments: text following two dashses "*--*", like so `-- comment here`
-2. Multiline comments: text between the characters "*/\* \*/*", like so `/* comment here */`
+1. Single line comments: text following two dashses "*--*": `-- comment here`
+2. Multiline comments: text between the characters "*/\* \*/*": `/* comment here */`
 
 <!--- * --->
 
 ```
 /*
-all users in the library system 
-sorted by most recent birth date
+all items in the library system 
+sorted by first publication year
 */
-SELECT *
-FROM users
-ORDER BY birth_date DESC; -- sort most recent here
+SELECT 
+	title,
+	author,
+	first_publication_year
+FROM items
+ORDER BY first_publication_year DESC; -- sort most recent to the top
 ```
-
-> **CHECKPOINT**:  
-> Try and use all viewing keywords together to give you insight to the dataset. Write your insights in comments.
 
 
 ## Filtering Data
