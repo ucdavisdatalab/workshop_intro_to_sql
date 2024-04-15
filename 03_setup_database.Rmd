@@ -1,0 +1,51 @@
+## SQLiteStudio
+
+![](images/sqlitestudio-logo.png)
+
+To work with our database, we'll use [SQLiteStudio][]. It's a free, open
+source, multi-platform desktop application for browsing SQLite databases and
+writing SQL queries.
+
+[SQLiteStudio]: https://sqlitestudio.pl/about/
+
+SQLiteStudio has a number of tools and panes to help you interact with your
+data:
+
+![](images/sqlitestudio-interface.png)
+
+You can view databases in the pane outlined in green. You can also write and
+run queries in the editor pane outlined in orange.
+
+
+### Load the Database
+
+1. Click the "Add a database" icon ![](images/sqlitestudio-add-db-icon.png) [**3**] and the *Database Dialog Window* will pop up. 
+
+![Database Dialog Window](images/sqlitestudio-db-dialog.png) 
+    
+2. Click the "Browse for existing database file on your local computer" icon ![](images/sqlitestudio-folder-icon.png)
+    - Your computer file explorer window will pop up
+    
+3. Navigate to the  `lcdb.db` file on your computer and double-click
+    - The *Database Dialog Window* will appear again
+    
+4. Click the "OK" button ![](images/sqlitestudio-db-dialog-ok-button.png) at the bottom right
+    - The `lcdb.db` file will load to the left under the *Databases Pane* of the interface (outlined in green)
+    
+5. Click `lcdb` under the *Databases Pane* to highlight
+    - ![](images/sqlitestudio-lcdb-highligh.png)
+    
+6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) [**4**]
+    - You are now connected to the database and can execute SQL to the database!
+
+
+### Load the SQL Script
+
+1. Click the "Open SQL editor" icon ![](images/sqlitestudio-editor-icon.png) [**1**]
+    - The *SQL Editor Pane* of the interface will appear (outlined in green)
+2. Click the "Load SQL from file" icon ![](images/sqlitestudio-folder-icon.png) [**2**] 
+    - Your computer file explorer window will pop up
+3. Navigate to the `intro_to_sql_spring22.sql` file on your computer and double-click
+    - The SQL file will load in the *SQL Editor Pane*. This is where we'll write our SQL queries!
+4. Click the "Save SQL to file" icon ![](images/sqlitestudio-save-sql-icon.png) to save the queries you write to `intro_to_sql_spring22.sql`
+
