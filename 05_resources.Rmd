@@ -1,0 +1,21 @@
+# Resources
+
+[W3Schools SQL Materials](https://www.w3schools.com/sql/default.asp) - This is an excellent reference for SQL syntax with a fun "try it yourself" feature.
+
+[Sofware Carpentry's SQL Novice Workshop](http://swcarpentry.github.io/sql-novice-survey/)
+
+[Clark Fitzgeralds & Nick Ulle's SQL Workshop](https://github.com/clarkfitzg/SQLworkshop)
+
+[Clark Fitzgeralds & Nick Ulle's SQL Cheatsheet](https://github.com/clarkfitzg/SQLworkshop/blob/master/sql_cheatsheet.pdf)
+
+[Michele Tobias' Spatial SQL Workshop](https://github.com/MicheleTobias/Spatial_SQL)
+
+[Lucidchart's Entity Relationship Diagrams Overview](https://www.lucidchart.com/pages/er-diagrams)
+
+[Diversify Data Science's Library Checkout Database - v0.1.0-alpha](https://github.com/diversifyds/library-checkouts-db/releases/tag/v0.1.0-alpha)
+
+Working with SQL databases and queries in R:
+
+* [University of Michigan's Stat 701 Class Notes](http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html)
+
+* [RStudio's Database Queries with R](https://db.rstudio.com/getting-started/database-queries/)
