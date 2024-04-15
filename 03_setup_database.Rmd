@@ -20,11 +20,14 @@ run queries in the editor pane outlined in orange.
 
 ### Create a Database
 
-We are going to work with a database that has already been created for us. To learn about how to create your own database from scratch using data stored in CSV files, see Geeks for Geeks' tutorial for how to [Import a CSV File Into an SQLite Table](https://www.geeksforgeeks.org/import-a-csv-file-into-an-sqlite-table/)
+We are going to work with a database that has already been created for us. BUT, To learn about how to create your own database from scratch using data stored in CSV files, see:
+
+* [Create a New Database](https://github.com/pawelsalawa/sqlitestudio/wiki/User_Manual#creating-new-database)
+* Geeks for Geeks' tutorial for how to [Import a CSV File Into an SQLite Table](https://www.geeksforgeeks.org/import-a-csv-file-into-an-sqlite-table/) - see the "Using SQLStudio" section near the middle of the page.
 
 ### Load the Database
 
-
+Let's connect to the database that we'll be using for this workshop:
 
 1. Click the "Add a database" icon ![](images/sqlitestudio-add-db-icon.png) [**3**] and the *Database Dialog Window* will pop up. 
 
@@ -46,13 +49,7 @@ We are going to work with a database that has already been created for us. To le
     - You are now connected to the database and can execute SQL to the database!
 
 
-### Load the SQL Script
+### Saving Scripts
 
-1. Click the "Open SQL editor" icon ![](images/sqlitestudio-editor-icon.png) [**1**]
-    - The *SQL Editor Pane* of the interface will appear (outlined in green)
-2. Click the "Load SQL from file" icon ![](images/sqlitestudio-folder-icon.png) [**2**] 
-    - Your computer file explorer window will pop up
-3. Navigate to the `intro_to_sql_spring22.sql` file on your computer and double-click
-    - The SQL file will load in the *SQL Editor Pane*. This is where we'll write our SQL queries!
-4. Click the "Save SQL to file" icon ![](images/sqlitestudio-save-sql-icon.png) to save the queries you write to `intro_to_sql_spring22.sql`
+You can save a text file with a .sql extension that contains SQL commands to run as a script. Like scripts in other programming languages, the commands run from top to bottom. For today's workshop, writing a script that we have to execute over and over doesn't make sense. We're still learning and we'll need to run individual queries over and over as we correct our mistakes.  For data cleaning tasks that you repeat every time you add new data, for example, these scripts can save a lot of time and make your process repeatable.
 
