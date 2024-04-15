@@ -2,86 +2,97 @@
 
 ## What is a Relational Database?
 
-A **relational database** is a collection of tables (organized in rows and
-columns of data) that are related to each other in some way. 
+A **relational database** is a collection of tables (organized in rows and columns of data) that are related to each other in some way. 
 
-Database tables would be the equivalent to spreadsheets in Excel and data frames
-in programming languages like R or Python.
+Database tables are analogous to CSV files, spreadsheets in Excel, or data frames in programming languages like R or Python.
 
-We'll go more in-depth on the *relational* part when we cover the workshop dataset!
+Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a **key**. For example, a key commonly used on campus is your student or employee ID number.
+
+Let's look at an example dataset of fictional student data with data about courses, grades, and employment.  Can we say anything about the relationship between course grades and employment based on this data?
+
+**Table: Student**
+
+|ID|Name|
+|--|--|
+|123|Jane Smith|
+|456|Maria Martinez|
+|789|Paul Jones|
+
+**Table: Courses**
+
+|ID|Course|Grade|
+|--|--|--|
+|123|Calculus|A-|
+|456|Calculus|A|
+|789|Calculus|C+|
+|123|Data Science|A-|
+|456|Data Science|B|
+|789|Data Science|B-|
+
+**Table: Employment**
+
+|ID|Position|Employer|HoursPerWeek|
+|--|--|--|--|
+|123|Student Assistant|University Research Lab|5|
+|456|Customer Service|Alumni Center|5|
+|456|Research Assistant|University Research Lab|15|
+|789|Student Assistant|University Research Lab|10|
+|789|Stock Room|Medical Supplier|20|
+|789|Customer Service|Alumi Center|15|
+
 
 
 ## What is SQL?
 
-SQL stands for **structured query language**. SQL is a programming language
-that allows you to answer questions about the data in a database using a
-standard set of keywords. You can pronounce SQL as "ess cue ell" or "sequel".
-
-- A **query** is a request for information.
-- A **SQL query** is a set of instructions made up of keywords sent to the database 
-to retrieve rows of table(s).
+SQL stands for **structured query language**. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as "ess cue ell" or "sequel".
 
 
 ### What kinds of questions can SQL answer?
 
-If you already work with data, you probably think about answering specific
-questions such as:
+SQL excels at extracting and combining information from large datasets. Some questions you might ask with SQL include:
 
-* How many of **X** or **Y** are there?
-* What are the unique values of **X**?
-* Which of **X**, **Y**, and **Z** that occurred in a given time period?
-
-You can use SQL to answer these kinds of questions.
+* How many items are there in my data with a specific label?
+* What re the unique values in a given column?
+* Which records (rows) relate to a specific time period in my data?
 
 
 ## What is a Relational Database Management System?
 
-A **relational database management system** (RDBMS) is a software system that
-manages the users of and tables within a database. There are many different
-systems available. For instance, you may have heard of MySQL, Postgres, and
-Microsoft SQL Server.
+A **relational database management system** (RDBMS) is a software system that creates, updates, and manages relational databases as well as managing user's access to the database. There are many different systems available. For instance, you may have heard of MySQL, Postgres, and Microsoft SQL Server.
 
-For this workshop, we'll use [SQLite][sqlite], which is likely the simplest and
-most widely-used RDBMS. It runs on Windows, MacOS X, and Linux with no setup
-necessary! 
+For this workshop, we'll use [SQLite][sqlite], which is a simple and widely-used RDBMS. It runs on Windows, MacOS X, and Linux with no setup necessary! 
 
 ![](images/sqlite-logo.png)
 <!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg -->
 
 [sqlite]: https://sqlite.org/
 
-Every RDBMS has its own implementation or "dialect" of SQL. In other words, the
-set of SQL keywords supported differs from one RDBMS to another, and sometimes
-queries have to be written differently. Details about the supported keywords
-for a given RDBMS can be found in that system's documentation. The keywords
-covered in this workshop are supported by almost all popular systems.
+Every RDBMS has its own implementation or "dialect" of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system's documentation. The keywords covered in this workshop are supported by most systems.
+
+Some RDBMS allow you to add functions with extensions. For example, the PostGIS extension adds keywords to PostgreSQL to all you to work with location information to do spatial analysis.
 
 
 ## Advantages & Disadvantages of SQL
 
-SQL queries are **declarative**: you describe the data that you want. Then it's
-up to SQL to determine the most efficient way to get that data. This approach
-to programming has several advantages:
+SQL has major advantages in several areas important to researchers: 
 
-* You can work with very large data sets. Databases are typically stored on
-  your computer's hard disk, and only the results from queries need to fit in
-  memory (and there are ways to work around even this limitation).
-* Queries are relatively fast compared to other data programming tools (such as
-  R or Python). This is because the database system is free to choose the most
-  efficient way to run the query.
-* Queries are reproducible. You can save, edit, and run queries at a later
-  date.
-* SQL is less expressive and flexible than other data programming tools, so
-  there are not too many different keywords to remember.
+ * Efficiency
+    + Write a few lines of code rather than lots of manual data manipulation
+    + SQL is meant for data manipulation
+ * Reproducibility 
+    + save queries as a record of your workflow
+    + re-run code with updates
+ * Work with large amounts of data
+    + Typically faster to run a process in a database than in a spreadsheet
+    + Store lots of data (compare with Excel's row limits)
+ * Data management
+    + One database file stores many, many tables which is represented as one file in your file browser
+    + Write a query instead of making a new files or tabs
 
-SQL also has a few disadvantages:
+What does SQL not do well?
 
-* SQL is less expressive and flexible than other data programming tools. For
-  instance, you can't use SQL to make a plot.
-* Each RDBMS has its own dialect of SQL, so each time you work with a new
-  database, you must familiarize yourself with which keywords are supported.
-* Setting up most database systems (other than SQLite) is a relatively
-  complicated process.
+ * Most RDBMS do not visualize data, however, you can connect your database to visualization tools to perform these kinds of tasks seamlessly.
+ * SQL is designed to work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.
 
 <!--
 * You can manage multiple data sources
