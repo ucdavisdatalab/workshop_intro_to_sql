@@ -1,6 +1,6 @@
 ---
 title: Intro to SQL for Querying Databases
-author: [Nicholas Alonzo, Michele Tobias]
+author: [Michele Tobias, Nicholas Alonzo, Nick Ulle]
 date: "`r Sys.Date()`"
 
 github-repo: ucdavisdatalab/workshop_intro_to_sql
