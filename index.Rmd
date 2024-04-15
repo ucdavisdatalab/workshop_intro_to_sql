@@ -57,6 +57,8 @@ should:
   [install guide][install] for details.
 * Download the file `2024-04-09_library-data.sqlite` from [this link][materials].
 
+Please see these [recommendations for making SQLiteStudio easier to read](https://veroniiiica.com/sqlitestudio-and-low-vision/), particularly for those with low vision and those who use a screen reader.
+
 [sqlite]: https://sqlite.org/
 [sqlitestudio]: https://sqlitestudio.pl/
 [install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio

@@ -1,3 +1,5 @@
+# Database Set Up
+
 ## SQLiteStudio
 
 ![](images/sqlitestudio-logo.png)
@@ -16,8 +18,13 @@ data:
 You can view databases in the pane outlined in green. You can also write and
 run queries in the editor pane outlined in orange.
 
+### Create a Database
+
+We are going to work with a database that has already been created for us. To learn about how to create your own database from scratch using data stored in CSV files, see Geeks for Geeks' tutorial for how to [Import a CSV File Into an SQLite Table](https://www.geeksforgeeks.org/import-a-csv-file-into-an-sqlite-table/)
 
 ### Load the Database
+
+
 
 1. Click the "Add a database" icon ![](images/sqlitestudio-add-db-icon.png) [**3**] and the *Database Dialog Window* will pop up. 
 
