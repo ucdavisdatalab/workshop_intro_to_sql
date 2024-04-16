@@ -3,7 +3,7 @@
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Spring 2022_  
 _Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
-_Authors_: [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Michele Tobias](https://github.com/MicheleTobias)  
+_Authors_: [Michele Tobias](https://github.com/MicheleTobias), [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Nick Ulle](https://github.com/nick-ulle)   
 _Editors:_ [Nick Ulle](https://github.com/nick-ulle) and [Pamela Reynolds](https://github.com/plnreynolds)  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_intro_to_sql/)
