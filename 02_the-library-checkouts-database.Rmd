@@ -1,10 +1,10 @@
 # The Library Checkouts Database
 
-We'll be working with the Library Checkouts Database, a fictitious SQLite database about how and what a library keeps track of when lending books. This includes information like:
+We'll be working with the Library Checkouts Database, a subset of real data from the UC Davis Library. This includes information like:
 
-- Books and their details: title, author, genres, etc... 
-- People who sign up for a library card: Name and contact info
-- Checkouts of books by who and when etc...
+- Books and their details: title, author, publication year, etc... 
+- Patrons who check out items: ID number, what user group they belong to, and the date their library card was created
+- Checkouts of books by who and when
 
 Why would a library want to track this information in a database? 
 
@@ -17,8 +17,6 @@ Why would a library want to track this information in a database?
       - What types of books are being checked out?
       - Which books are overdue?
 
-For more detailed information on how the SQLite database was put together, refer to the GitHub repository [here](https://github.com/diversifyds/library-checkouts-db).
-
 
 ## Entity Relationship Diagrams
 
@@ -29,14 +27,15 @@ important for determining what types of questions you can answer with SQL!
 
 Here's an ERD for the Library Checkouts database:
 
-![](images/library-checkouts-erd.png)
+![](images/DataDiagram_ucd_library.png)
 
 Lets break down the components of the ERD:
 
-1.  *Entities* represent the tables in the database.
-2.  *Attributes* represent the columns in the database.
-    1.  *Data Types*: Each attribute is made up of a certain *data type*. The most common data types you'll interact with are numeric, string, date, or boolean.
-    2.  *Primary Key (PK)*: This is a column(s) that uniquely identifies a row in a table.
+1.  *Entities*, visualized as a rectangle, represent the tables in the database. The name of the table is written at the top in dark gray.
+2.  *Attributes* represent the columns in the database. 
+	1.  The names of the columns are written in the middle column.
+    1.  *Data Types*: Each attribute is made up of a certain *data type*. The most common data types you'll interact with are numeric, string, date, or boolean. This information is on the right.
+    2.  *Primary Key (PK)*: This is a column(s) that uniquely identifies a row in a table. Key designations are written on the left.
     3.  *Foreign Key (FK)*: This is a column that references a primary key. It’s used to identify a relationship between tables.
 3.  *Relationships* between tables are represented with lines connecting one entity to another
     1.  The symbols at the end of the lines represent *cardinality*, the number of rows between two database tables.
@@ -48,60 +47,46 @@ Lets break down the components of the ERD:
 
 Below are the data definitions of the tables and columns in the Library Checkouts Database.
 
-Table: **users**: All users that signed up for a library card with the library
+Table: **patrons**: Users with checkout privileges
 
 | column | description | data type |
 | :--- | :--- | :--- |
-| id  | unique id of the user | integer |
-| first_name | first name of the user | text |
-| last_name | last name of the user | text |
-| birth_date | birth date of the user | date |
-| phone | cell phone of the user | text |
-| email | email address of the user | text |
-| address | address where the the user lives | text |
-| city | city where the user lives | text |
-| state | state where the user lives | text |
-| zip_code | zip code where the user lives | integer |
+| patron_id  | unique ID for each user of the library | INTEGER |
+| user_group  | the type of borrower - for example, Alumni, Faculty, Undergraduate Students, etc. | TEXT |
+| creation_date  | the date lending privileges were created | DATE |
+
+Table: **items**: All the items (books, etc.) in the library system
+
+| column | description | data type |
+| :--- | :--- | :--- |
+| item_id  | the unique ID for each item | INTEGER |
+| barcode  | the barcode for each item | INTEGER |
+| receiving_date  | the date the item became a part of the library's collection | DATE |
+| title  | the title of the item | TEXT |
+| author  | the names of the authors of the item | TEXT |
+| description  | additional information about the title | TEXT |
+| material_type  | the type of the item (book) | TEXT |
+| resource_type  | the type of resource, for example, Book - Physical, Microforms, etc. | TEXT |
+| language_code  | a three letter code indicating the language of publication | TEXT |
+| publisher  | the name of the publisher | TEXT |
+| publication_years  | the years the item was published | TEXT |
+| first_publication_year  | the year the work was first published | INTEGER |
+| publication_place  | a list of cities the item was published in | TEXT |
+| loans_in_house  | number of loans internal to the library | INTEGER |
+| loans_not_in_house  | number of loans external to the library | INTEGER |
+| recalls  | the number of recalls on an item | INTEGER |
+| lifecycle  | if a book is available for circulation | TEXT |
+
+
 
 Table: **checkouts**: A log of when a user checks out a book from the library
 
 | column | description | data type |
 | :--- | :--- | :--- |
-| id  | unique id of the book checkout | integer |
-| user_id | id of the user who checked out a book | integer |
-| book_id | id of the book that was checked out | integer |
-| checkout_date | date the book was checked out by the user | date |
-| days\_checking\_out | number of days the user will check out the book for | integer |
-| due_date | date the book is due based off days\_checking\_out | date |
-| return_date | date the book was returned by the user | date |
-| days\_checked\_out | number of days the book was checked out for | integer |
-| returned\_with\_damage | a number to distinguish whether the book was returned with damage<br>0 = the book was not returned with damage<br>1 = the book was returned with damage | integer |
-
-Table: **books**: All the books in the library system
-
-| column | description | data type |
-| :--- | :--- | :--- |
-| id  | unique id of the book | integer |
-| title | title of the book | text |
-| author | name of the author | text |
-| isbn | isbn of the book | text |
-| date_published | date the book was published | date |
-| publisher | publisher of the book | text |
-| format | the format of the book Ex) Hardcover | text |
-| pages | the number of pages the book has | integer |
-
-Table: **book\_genre\_link**: A table to link books with their respective genre(s)
-
-| column | description | data type |
-| :--- | :--- | :--- |
-| book_id | id of the book | integer |
-| genre_id | id of the genre | integer |
-
-Table: **genres**: All the genres in the library system
-
-| column | description | data type |
-| :--- | :--- | :--- |
-| id  | unique id of the genre | integer |
-| name | name of the genre | text |
-
-
+| item_id  | the unique ID for each item | INTEGER |
+| patron_id  | unique ID for each user of the library | INTEGER |
+| loan_date  | the date the item was checked out | DATE |
+| due_date  | the date the item is due | DATE |
+| location_code  | a three character code for the location the item can be found | TEXT |
+| location_name  | the location the item can be found | TEXT |
+| library_code  | a short text code indicating the library that holds the item | TEXT |
