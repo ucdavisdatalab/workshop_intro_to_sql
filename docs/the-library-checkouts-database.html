@@ -177,11 +177,11 @@
             <section class="normal" id="section-">
 <div id="the-library-checkouts-database" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> The Library Checkouts Database<a href="the-library-checkouts-database.html#the-library-checkouts-database" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We’ll be working with the Library Checkouts Database, a fictitious SQLite database about how and what a library keeps track of when lending books. This includes information like:</p>
+<p>We’ll be working with the Library Checkouts Database, a subset of real data from the UC Davis Library. This includes information like:</p>
 <ul>
-<li>Books and their details: title, author, genres, etc…</li>
-<li>People who sign up for a library card: Name and contact info</li>
-<li>Checkouts of books by who and when etc…</li>
+<li>Books and their details: title, author, publication year, etc…</li>
+<li>Patrons who check out items: ID number, what user group they belong to, and the date their library card was created</li>
+<li>Checkouts of books by who and when</li>
 </ul>
 <p>Why would a library want to track this information in a database?</p>
 <ul>
@@ -200,7 +200,6 @@
 </ul></li>
 </ul></li>
 </ul>
-<p>For more detailed information on how the SQLite database was put together, refer to the GitHub repository <a href="https://github.com/diversifyds/library-checkouts-db">here</a>.</p>
 <div id="entity-relationship-diagrams" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Entity Relationship Diagrams<a href="the-library-checkouts-database.html#entity-relationship-diagrams" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An <strong>entity relationship diagram</strong> ERD is a visual representation of a
@@ -208,14 +207,15 @@ relational database. ERDs help with understanding what data is available, how
 the data is stored, and how tables and columns are related. These details are
 important for determining what types of questions you can answer with SQL!</p>
 <p>Here’s an ERD for the Library Checkouts database:</p>
-<p><img src="images/library-checkouts-erd.png" /></p>
+<p><img src="images/DataDiagram_ucd_library.png" /></p>
 <p>Lets break down the components of the ERD:</p>
 <ol style="list-style-type: decimal">
-<li><em>Entities</em> represent the tables in the database.</li>
+<li><em>Entities</em>, visualized as a rectangle, represent the tables in the database. The name of the table is written at the top in dark gray.</li>
 <li><em>Attributes</em> represent the columns in the database.
 <ol style="list-style-type: decimal">
-<li><em>Data Types</em>: Each attribute is made up of a certain <em>data type</em>. The most common data types you’ll interact with are numeric, string, date, or boolean.</li>
-<li><em>Primary Key (PK)</em>: This is a column(s) that uniquely identifies a row in a table.</li>
+<li>The names of the columns are written in the middle column.</li>
+<li><em>Data Types</em>: Each attribute is made up of a certain <em>data type</em>. The most common data types you’ll interact with are numeric, string, date, or boolean. This information is on the right.</li>
+<li><em>Primary Key (PK)</em>: This is a column(s) that uniquely identifies a row in a table. Key designations are written on the left.</li>
 <li><em>Foreign Key (FK)</em>: This is a column that references a primary key. It’s used to identify a relationship between tables.</li>
 </ol></li>
 <li><em>Relationships</em> between tables are represented with lines connecting one entity to another
@@ -232,7 +232,12 @@ The Library Checkouts ERD was made with the diagramming software <a href="https:
 <h2><span class="header-section-number">2.2</span> Data Definitions<a href="the-library-checkouts-database.html#data-definitions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below are the data definitions of the tables and columns in the Library Checkouts Database.</p>
 <table>
-<caption><strong>users</strong>: All users that signed up for a library card with the library</caption>
+<caption><strong>patrons</strong>: Users with checkout privileges</caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">column</th>
@@ -242,54 +247,121 @@ The Library Checkouts ERD was made with the diagramming software <a href="https:
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">id</td>
-<td align="left">unique id of the user</td>
-<td align="left">integer</td>
+<td align="left">patron_id</td>
+<td align="left">unique ID for each user of the library</td>
+<td align="left">INTEGER</td>
 </tr>
 <tr class="even">
-<td align="left">first_name</td>
-<td align="left">first name of the user</td>
-<td align="left">text</td>
+<td align="left">user_group</td>
+<td align="left">the type of borrower - for example, Alumni, Faculty, Undergraduate Students, etc.</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="odd">
-<td align="left">last_name</td>
-<td align="left">last name of the user</td>
-<td align="left">text</td>
+<td align="left">creation_date</td>
+<td align="left">the date lending privileges were created</td>
+<td align="left">DATE</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><strong>items</strong>: All the items (books, etc.) in the library system</caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">column</th>
+<th align="left">description</th>
+<th align="left">data type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">item_id</td>
+<td align="left">the unique ID for each item</td>
+<td align="left">INTEGER</td>
 </tr>
 <tr class="even">
-<td align="left">birth_date</td>
-<td align="left">birth date of the user</td>
-<td align="left">date</td>
+<td align="left">barcode</td>
+<td align="left">the barcode for each item</td>
+<td align="left">INTEGER</td>
 </tr>
 <tr class="odd">
-<td align="left">phone</td>
-<td align="left">cell phone of the user</td>
-<td align="left">text</td>
+<td align="left">receiving_date</td>
+<td align="left">the date the item became a part of the library’s collection</td>
+<td align="left">DATE</td>
 </tr>
 <tr class="even">
-<td align="left">email</td>
-<td align="left">email address of the user</td>
-<td align="left">text</td>
+<td align="left">title</td>
+<td align="left">the title of the item</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="odd">
-<td align="left">address</td>
-<td align="left">address where the the user lives</td>
-<td align="left">text</td>
+<td align="left">author</td>
+<td align="left">the names of the authors of the item</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="even">
-<td align="left">city</td>
-<td align="left">city where the user lives</td>
-<td align="left">text</td>
+<td align="left">description</td>
+<td align="left">additional information about the title</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="odd">
-<td align="left">state</td>
-<td align="left">state where the user lives</td>
-<td align="left">text</td>
+<td align="left">material_type</td>
+<td align="left">the type of the item (book)</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="even">
-<td align="left">zip_code</td>
-<td align="left">zip code where the user lives</td>
-<td align="left">integer</td>
+<td align="left">resource_type</td>
+<td align="left">the type of resource, for example, Book - Physical, Microforms, etc.</td>
+<td align="left">TEXT</td>
+</tr>
+<tr class="odd">
+<td align="left">language_code</td>
+<td align="left">a three letter code indicating the language of publication</td>
+<td align="left">TEXT</td>
+</tr>
+<tr class="even">
+<td align="left">publisher</td>
+<td align="left">the name of the publisher</td>
+<td align="left">TEXT</td>
+</tr>
+<tr class="odd">
+<td align="left">publication_years</td>
+<td align="left">the years the item was published</td>
+<td align="left">TEXT</td>
+</tr>
+<tr class="even">
+<td align="left">first_publication_year</td>
+<td align="left">the year the work was first published</td>
+<td align="left">INTEGER</td>
+</tr>
+<tr class="odd">
+<td align="left">publication_place</td>
+<td align="left">a list of cities the item was published in</td>
+<td align="left">TEXT</td>
+</tr>
+<tr class="even">
+<td align="left">loans_in_house</td>
+<td align="left">number of loans internal to the library</td>
+<td align="left">INTEGER</td>
+</tr>
+<tr class="odd">
+<td align="left">loans_not_in_house</td>
+<td align="left">number of loans external to the library</td>
+<td align="left">INTEGER</td>
+</tr>
+<tr class="even">
+<td align="left">recalls</td>
+<td align="left">the number of recalls on an item</td>
+<td align="left">INTEGER</td>
+</tr>
+<tr class="odd">
+<td align="left">lifecycle</td>
+<td align="left">if a book is available for circulation</td>
+<td align="left">TEXT</td>
 </tr>
 </tbody>
 </table>
@@ -309,145 +381,39 @@ The Library Checkouts ERD was made with the diagramming software <a href="https:
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">id</td>
-<td align="left">unique id of the book checkout</td>
-<td align="left">integer</td>
+<td align="left">item_id</td>
+<td align="left">the unique ID for each item</td>
+<td align="left">INTEGER</td>
 </tr>
 <tr class="even">
-<td align="left">user_id</td>
-<td align="left">id of the user who checked out a book</td>
-<td align="left">integer</td>
+<td align="left">patron_id</td>
+<td align="left">unique ID for each user of the library</td>
+<td align="left">INTEGER</td>
 </tr>
 <tr class="odd">
-<td align="left">book_id</td>
-<td align="left">id of the book that was checked out</td>
-<td align="left">integer</td>
-</tr>
-<tr class="even">
-<td align="left">checkout_date</td>
-<td align="left">date the book was checked out by the user</td>
-<td align="left">date</td>
-</tr>
-<tr class="odd">
-<td align="left">days_checking_out</td>
-<td align="left">number of days the user will check out the book for</td>
-<td align="left">integer</td>
+<td align="left">loan_date</td>
+<td align="left">the date the item was checked out</td>
+<td align="left">DATE</td>
 </tr>
 <tr class="even">
 <td align="left">due_date</td>
-<td align="left">date the book is due based off days_checking_out</td>
-<td align="left">date</td>
+<td align="left">the date the item is due</td>
+<td align="left">DATE</td>
 </tr>
 <tr class="odd">
-<td align="left">return_date</td>
-<td align="left">date the book was returned by the user</td>
-<td align="left">date</td>
+<td align="left">location_code</td>
+<td align="left">a three character code for the location the item can be found</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="even">
-<td align="left">days_checked_out</td>
-<td align="left">number of days the book was checked out for</td>
-<td align="left">integer</td>
+<td align="left">location_name</td>
+<td align="left">the location the item can be found</td>
+<td align="left">TEXT</td>
 </tr>
 <tr class="odd">
-<td align="left">returned_with_damage</td>
-<td align="left">a number to distinguish whether the book was returned with damage<br>0 = the book was not returned with damage<br>1 = the book was returned with damage</td>
-<td align="left">integer</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption><strong>books</strong>: All the books in the library system</caption>
-<thead>
-<tr class="header">
-<th align="left">column</th>
-<th align="left">description</th>
-<th align="left">data type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">id</td>
-<td align="left">unique id of the book</td>
-<td align="left">integer</td>
-</tr>
-<tr class="even">
-<td align="left">title</td>
-<td align="left">title of the book</td>
-<td align="left">text</td>
-</tr>
-<tr class="odd">
-<td align="left">author</td>
-<td align="left">name of the author</td>
-<td align="left">text</td>
-</tr>
-<tr class="even">
-<td align="left">isbn</td>
-<td align="left">isbn of the book</td>
-<td align="left">text</td>
-</tr>
-<tr class="odd">
-<td align="left">date_published</td>
-<td align="left">date the book was published</td>
-<td align="left">date</td>
-</tr>
-<tr class="even">
-<td align="left">publisher</td>
-<td align="left">publisher of the book</td>
-<td align="left">text</td>
-</tr>
-<tr class="odd">
-<td align="left">format</td>
-<td align="left">the format of the book Ex) Hardcover</td>
-<td align="left">text</td>
-</tr>
-<tr class="even">
-<td align="left">pages</td>
-<td align="left">the number of pages the book has</td>
-<td align="left">integer</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption><strong>book_genre_link</strong>: A table to link books with their respective genre(s)</caption>
-<thead>
-<tr class="header">
-<th align="left">column</th>
-<th align="left">description</th>
-<th align="left">data type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">book_id</td>
-<td align="left">id of the book</td>
-<td align="left">integer</td>
-</tr>
-<tr class="even">
-<td align="left">genre_id</td>
-<td align="left">id of the genre</td>
-<td align="left">integer</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption><strong>genres</strong>: All the genres in the library system</caption>
-<thead>
-<tr class="header">
-<th align="left">column</th>
-<th align="left">description</th>
-<th align="left">data type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">id</td>
-<td align="left">unique id of the genre</td>
-<td align="left">integer</td>
-</tr>
-<tr class="even">
-<td align="left">name</td>
-<td align="left">name of the genre</td>
-<td align="left">text</td>
+<td align="left">library_code</td>
+<td align="left">a short text code indicating the library that holds the item</td>
+<td align="left">TEXT</td>
 </tr>
 </tbody>
 </table>
