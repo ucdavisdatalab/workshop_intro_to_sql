@@ -500,23 +500,27 @@ You might be thinking, what would happen if the tables in the `LEFT JOIN` were f
 
 ## Subqueries
 
-So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases.
+So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases. 
+
+You can think of a subquery as a process where you write a query to create a table,, then query the table you just constructed. This can be especially helpful with large complex tables where simplifying helps you understand the query better, or when you need to complete a multi-step query and don't want to make extra tables or views (something we'll cover in the next sections).
 
 Let's first look at a subquery in the `WHERE` clause:
 
 ```
 -- main query
 SELECT * 
-FROM checkouts
-WHERE book_id IN (
+FROM checkouts 
+WHERE item_id IN (
+	
 	-- subquery
-	SELECT id
-	FROM books
-	WHERE format = 'Hardcover'
+	
+	SELECT item_id
+	FROM items
+	WHERE resource_type = 'Microforms'
 );
 ```
 
-We retrieve hardcover books in a subquery. We then use the results of the subquery to filter the *checkouts* table using *checkouts.book_id*. In the end we get, "all checked out hardcover books."
+We retrieved microforms in a subquery. We then use the results of the subquery to filter the *checkouts* table using *checkouts.item_id*. In the end we get, "all checked out microforms."
 
 > **NOTE**:  
 > When writing a subquery with `WHERE` and `IN`, the subquery must select only one column for `IN` to filter on.
@@ -524,27 +528,26 @@ We retrieve hardcover books in a subquery. We then use the results of the subque
 Now let's look at a subquery with `JOIN`:
 
 ```
--- main query
 SELECT 
-	checkouts.user_id,
-	hardcover_books.title AS book,
-	checkouts.checkout_date,
-	checkouts.return_date
+	-- get the columns we want from both tables
+    checkouts.patron_id,
+    microforms.title,
+    checkouts.loan_date,
+    checkouts.due_date
 FROM checkouts
-	INNER JOIN (
-		-- subquery
-		SELECT *
-		FROM books
-		WHERE format = 'Hardcover'
-	) AS hardcover_books ON checkouts.book_id = hardcover_books.id;
+INNER JOIN (
+	-- subquery to get all the items in microform format
+    SELECT *
+    FROM items
+    WHERE resource_type = 'Microforms'
+) AS microforms ON checkouts.item_id = microforms.item_id;
 ```
 
-We retrieve hardcover books in a subquery, just like before. Next, we write the subquery after `JOIN` and alias it *hardcover_books*. Finally, we join on the keys and return the columns we want in the main `SELECT` statement.
+We retrieved microforms in a subquery, just like before. Next, we write the subquery after `JOIN` and alias it *microforms*. Finally, we join on the keys and return the columns we want in the main `SELECT` statement. Both subquery examples are just different ways to get to the same result, "checked out hardcover books."
 
 > **NOTE**:  
-> If you're still a bit confused, just remember that every query results in a table. Subqueries give you the ability to create a "new" table on the fly even if that table didn't exist in the database before. 
-> 
-> Also, note that both subquery examples are just different ways to get to the same result, "checked out hardcover books."
+> Why would you want to make such a complex query? First, the sub query can help us limit large or complex tables, or join data before we query it. Second, subqueries give you the ability to create a "new" table on the fly, even if that table didn't exist in the database before, without having to save it. 
+ 
 
 ## Saving Query Results
 
@@ -558,38 +561,44 @@ There will be times when we want to save the results of a query so we can reuse 
 If we want to create a temporary table, we just need to add `CREATE TEMPORARY TABLE our_new_table_name AS`  at the beginning of the query (adding in our own table name, of course). This is what it looks like:
 
 ```
-CREATE TEMPORARY TABLE davis_resident_checkouts AS
+CREATE TEMPORARY TABLE mircoform AS
 	SELECT 
-		users.id AS user_id,
-		users.first_name,
-		users.last_name,
-		books.title AS book,
-		checkouts.checkout_date,
-		checkouts.return_date
-	FROM users
-		INNER JOIN checkouts ON users.id = checkouts.user_id
-		INNER JOIN books ON checkouts.book_id = books.id
-	WHERE users.city = 'Davis';
+		-- get the columns we want from both tables
+		checkouts.patron_id,
+		microforms.title,
+		checkouts.loan_date,
+		checkouts.due_date
+	FROM checkouts
+	INNER JOIN (
+		-- subquery to get all the items in microform format
+		SELECT *
+		FROM items
+		WHERE resource_type = 'Microforms'
+	) AS microforms ON checkouts.item_id = microforms.item_id;
 ```
 
 In much the same way we made the new table, we can make a view:
 
 ```
-CREATE VIEW davis_resident_checkouts AS
+CREATE VIEW mircoform AS
 	SELECT 
-		users.id AS user_id,
-		users.first_name,
-		users.last_name,
-		books.title AS book,
-		checkouts.checkout_date,
-		checkouts.return_date
-	FROM users
-		INNER JOIN checkouts ON users.id = checkouts.user_id
-		INNER JOIN books ON checkouts.book_id = books.id
-	WHERE users.city = 'Davis';
+		-- get the columns we want from both tables
+		checkouts.patron_id,
+		microforms.title,
+		checkouts.loan_date,
+		checkouts.due_date
+	FROM checkouts
+	INNER JOIN (
+		-- subquery to get all the items in microform format
+		SELECT *
+		FROM items
+		WHERE resource_type = 'Microforms'
+	) AS microforms ON checkouts.item_id = microforms.item_id;
 ```
 
-### Export Query Results
+### Connecting Databases to Other Analysis Tools
+
+#### Export Tables
 
 SQLiteStudio has the ability to export out query results to CSV files for further analysis.
 
@@ -598,49 +607,61 @@ follow the export dialog.
 
 ![](images/sqlitestudio-export-dialog.png)
 
+#### Programming Language Connections
+
+Programming languages like R and Python can connect to, read data from, and query your SQL database from your script through additional libraries.
+
 
 ## Data Management
 
 ### Update Tables
 
-You might have noticed at the beginning the *users* table has *NULL* values across different columns. We can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right. Let's update the *NULL* values in the *users.address* to "*N/A*".
+You might have noticed at the beginning the *items* table has *NULL* values across different columns. We can fix this fairly easily, but we need to be careful. It's challenging to undo something in a database so we want to be sure we're doing it right. Let's update the *NULL* values in the *items.receiving_date* column to "*N/A*".
 
 It's first helpful to write a query to be sure these are the rows you want to update:
 
 ```
 SELECT *
-FROM users
-WHERE address IS NULL;
+FROM items
+WHERE receiving_date IS NULL;
 ```
 
 Once you've confirmed, the below statement updates the *NULL* values to "*N/A*"
 
 ```
-UPDATE users
-SET address = 'N/A'
-WHERE address IS NULL;
+UPDATE items
+SET receiving_date = 'N/A'
+WHERE receiving_date IS NULL;
 ```
 
-The `SET` keyword specifically targets just the *address* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
+The `SET` keyword specifically targets just the *receiving_date* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
 
 ### Add & Populate a Column
 
-Sometimes we want to make a new column and add data into it. Let's make a new column called *country* in the *users* table and populate it with "*USA*" if there is a value in the column *state*. 
+Sometimes we want to make a new column and add data into it. Let's make a new column called *year* in the *patrons* table and populate it with the year parsed from the *creation_date* column. 
 
 First we'll add the column and set the default value to "*N/A*":
 
 ```
-ALTER TABLE users
-ADD country TEXT DEFAULT 'N/A';
+ALTER TABLE patrons
+ADD year INTEGER DEFAULT 'N/A';
 ```
 
 > **NOTE**:  
 > The `DEFAULT` argument is optional, but if you leave it blank, it will make the default value *NULL*. 
 
-Now we update all values in the column to be "*USA*" where the state is not null.
+Now we update all values with the results of a string parsing cution that returns the year from our *created_date* string. SQLite has time-date functions, but the date format of our data is not the format SQLite prefers, so when something like this happens, you need to get a little creative to get the information you want.
 
 ```
-UPDATE users
-SET country = 'USA'
+UPDATE patrons
+SET year = substr(creation_date, -4, 4)
 WHERE state IS NOT NULL;
+```
+
+The function substr() creates a substring from a string object - in this case, our *creation_date* string. The second argument, -4, indicates the position to start the substring from. Negative values tell the function to start from the right side of the string (or the end of the string) rather than the left. Finally, the third argument indicates how many characters to include. We chose 4 because our date string has a 4 digit year.
+
+Want to see what our update query did?
+
+```
+SELECT * FROM patrons;
 ```
