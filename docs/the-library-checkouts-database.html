@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 The Library Checkouts Database | Intro to SQL for Querying Databases</title>
   <meta name="description" content="2 The Library Checkouts Database | Intro to SQL for Querying Databases" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 The Library Checkouts Database | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
@@ -20,11 +20,12 @@
   
   
 
-<meta name="author" content="Nicholas Alonzo" />
 <meta name="author" content="Michele Tobias" />
+<meta name="author" content="Nicholas Alonzo" />
+<meta name="author" content="Nick Ulle" />
 
 
-<meta name="date" content="2022-08-18" />
+<meta name="date" content="2024-04-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +33,7 @@
   
   
 <link rel="prev" href="concepts.html"/>
-<link rel="next" href="hands-on-with-sql-code.html"/>
+<link rel="next" href="database-set-up.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,6 +57,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -90,59 +95,64 @@
 <ul>
 <li class="chapter" data-level="2.1" data-path="the-library-checkouts-database.html"><a href="the-library-checkouts-database.html#entity-relationship-diagrams"><i class="fa fa-check"></i><b>2.1</b> Entity Relationship Diagrams</a></li>
 <li class="chapter" data-level="2.2" data-path="the-library-checkouts-database.html"><a href="the-library-checkouts-database.html#data-definitions"><i class="fa fa-check"></i><b>2.2</b> Data Definitions</a></li>
-<li class="chapter" data-level="2.3" data-path="the-library-checkouts-database.html"><a href="the-library-checkouts-database.html#sqlitestudio"><i class="fa fa-check"></i><b>2.3</b> SQLiteStudio</a>
+</ul></li>
+<li class="chapter" data-level="3" data-path="database-set-up.html"><a href="database-set-up.html"><i class="fa fa-check"></i><b>3</b> Database Set Up</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="the-library-checkouts-database.html"><a href="the-library-checkouts-database.html#load-the-database"><i class="fa fa-check"></i><b>2.3.1</b> Load the Database</a></li>
-<li class="chapter" data-level="2.3.2" data-path="the-library-checkouts-database.html"><a href="the-library-checkouts-database.html#load-the-sql-script"><i class="fa fa-check"></i><b>2.3.2</b> Load the SQL Script</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html"><i class="fa fa-check"></i><b>3</b> Hands-On with SQL Code</a>
+<li class="chapter" data-level="3.1" data-path="database-set-up.html"><a href="database-set-up.html#sqlitestudio"><i class="fa fa-check"></i><b>3.1</b> SQLiteStudio</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#viewing-data"><i class="fa fa-check"></i><b>3.1</b> Viewing Data</a>
+<li class="chapter" data-level="3.1.1" data-path="database-set-up.html"><a href="database-set-up.html#create-a-database"><i class="fa fa-check"></i><b>3.1.1</b> Create a Database</a></li>
+<li class="chapter" data-level="3.1.2" data-path="database-set-up.html"><a href="database-set-up.html#load-the-database"><i class="fa fa-check"></i><b>3.1.2</b> Load the Database</a></li>
+<li class="chapter" data-level="3.1.3" data-path="database-set-up.html"><a href="database-set-up.html#saving-scripts"><i class="fa fa-check"></i><b>3.1.3</b> Saving Scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html"><i class="fa fa-check"></i><b>4</b> Hands-On with SQL Code</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#select-from"><i class="fa fa-check"></i><b>3.1.1</b> SELECT &amp; FROM</a></li>
-<li class="chapter" data-level="3.1.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#selecting-columns"><i class="fa fa-check"></i><b>3.1.2</b> Selecting Columns</a></li>
-<li class="chapter" data-level="3.1.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#unique-values"><i class="fa fa-check"></i><b>3.1.3</b> Unique Values</a></li>
-<li class="chapter" data-level="3.1.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#ordering-results"><i class="fa fa-check"></i><b>3.1.4</b> Ordering Results</a></li>
-<li class="chapter" data-level="3.1.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>3.1.5</b> Limiting Number of Rows</a></li>
-<li class="chapter" data-level="3.1.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#commenting"><i class="fa fa-check"></i><b>3.1.6</b> Commenting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#filtering-data"><i class="fa fa-check"></i><b>3.2</b> Filtering Data</a>
+<li class="chapter" data-level="4.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#viewing-data"><i class="fa fa-check"></i><b>4.1</b> Viewing Data</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#and-or-operators"><i class="fa fa-check"></i><b>3.2.1</b> AND &amp; OR Operators</a></li>
-<li class="chapter" data-level="3.2.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#in-operator"><i class="fa fa-check"></i><b>3.2.2</b> IN Operator</a></li>
-<li class="chapter" data-level="3.2.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#between-operator"><i class="fa fa-check"></i><b>3.2.3</b> BETWEEN Operator</a></li>
-<li class="chapter" data-level="3.2.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#like-operator"><i class="fa fa-check"></i><b>3.2.4</b> LIKE Operator</a></li>
-<li class="chapter" data-level="3.2.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#is-null-operator"><i class="fa fa-check"></i><b>3.2.5</b> IS NULL Operator</a></li>
-<li class="chapter" data-level="3.2.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#not-operator"><i class="fa fa-check"></i><b>3.2.6</b> NOT Operator</a></li>
+<li class="chapter" data-level="4.1.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#select-from"><i class="fa fa-check"></i><b>4.1.1</b> SELECT &amp; FROM</a></li>
+<li class="chapter" data-level="4.1.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#selecting-columns"><i class="fa fa-check"></i><b>4.1.2</b> Selecting Columns</a></li>
+<li class="chapter" data-level="4.1.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#unique-values"><i class="fa fa-check"></i><b>4.1.3</b> Unique Values</a></li>
+<li class="chapter" data-level="4.1.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#ordering-results"><i class="fa fa-check"></i><b>4.1.4</b> Ordering Results</a></li>
+<li class="chapter" data-level="4.1.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#limiting-number-of-rows"><i class="fa fa-check"></i><b>4.1.5</b> Limiting Number of Rows</a></li>
+<li class="chapter" data-level="4.1.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#commenting"><i class="fa fa-check"></i><b>4.1.6</b> Commenting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#aggregating-data"><i class="fa fa-check"></i><b>3.3</b> Aggregating Data</a>
+<li class="chapter" data-level="4.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#filtering-data"><i class="fa fa-check"></i><b>4.2</b> Filtering Data</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#count"><i class="fa fa-check"></i><b>3.3.1</b> Count</a></li>
-<li class="chapter" data-level="3.3.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#average"><i class="fa fa-check"></i><b>3.3.2</b> Average</a></li>
-<li class="chapter" data-level="3.3.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#sum"><i class="fa fa-check"></i><b>3.3.3</b> Sum</a></li>
-<li class="chapter" data-level="3.3.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#grouping-data"><i class="fa fa-check"></i><b>3.3.4</b> Grouping Data</a></li>
-<li class="chapter" data-level="3.3.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#having"><i class="fa fa-check"></i><b>3.3.5</b> Having</a></li>
+<li class="chapter" data-level="4.2.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#and-or-operators"><i class="fa fa-check"></i><b>4.2.1</b> AND &amp; OR Operators</a></li>
+<li class="chapter" data-level="4.2.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#in-operator"><i class="fa fa-check"></i><b>4.2.2</b> IN Operator</a></li>
+<li class="chapter" data-level="4.2.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#between-operator"><i class="fa fa-check"></i><b>4.2.3</b> BETWEEN Operator</a></li>
+<li class="chapter" data-level="4.2.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#like-operator"><i class="fa fa-check"></i><b>4.2.4</b> LIKE Operator</a></li>
+<li class="chapter" data-level="4.2.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#is-null-operator"><i class="fa fa-check"></i><b>4.2.5</b> IS NULL Operator</a></li>
+<li class="chapter" data-level="4.2.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#not-operator"><i class="fa fa-check"></i><b>4.2.6</b> NOT Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#joining-data"><i class="fa fa-check"></i><b>3.4</b> Joining Data</a>
+<li class="chapter" data-level="4.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#aggregating-data"><i class="fa fa-check"></i><b>4.3</b> Aggregating Data</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#join-types"><i class="fa fa-check"></i><b>3.4.1</b> JOIN Types</a></li>
-<li class="chapter" data-level="3.4.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#join-steps"><i class="fa fa-check"></i><b>3.4.2</b> JOIN steps</a></li>
-<li class="chapter" data-level="3.4.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#inner-join"><i class="fa fa-check"></i><b>3.4.3</b> INNER JOIN</a></li>
-<li class="chapter" data-level="3.4.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#left-join"><i class="fa fa-check"></i><b>3.4.4</b> LEFT JOIN</a></li>
+<li class="chapter" data-level="4.3.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#count"><i class="fa fa-check"></i><b>4.3.1</b> Count</a></li>
+<li class="chapter" data-level="4.3.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#average"><i class="fa fa-check"></i><b>4.3.2</b> Average</a></li>
+<li class="chapter" data-level="4.3.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#sum"><i class="fa fa-check"></i><b>4.3.3</b> Sum</a></li>
+<li class="chapter" data-level="4.3.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#grouping-data"><i class="fa fa-check"></i><b>4.3.4</b> Grouping Data</a></li>
+<li class="chapter" data-level="4.3.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#having"><i class="fa fa-check"></i><b>4.3.5</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#subqueries"><i class="fa fa-check"></i><b>3.5</b> Subqueries</a></li>
-<li class="chapter" data-level="3.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>3.6</b> Saving Query Results</a>
+<li class="chapter" data-level="4.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#joining-data"><i class="fa fa-check"></i><b>4.4</b> Joining Data</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#export-query-results"><i class="fa fa-check"></i><b>3.6.1</b> Export Query Results</a></li>
+<li class="chapter" data-level="4.4.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#join-types"><i class="fa fa-check"></i><b>4.4.1</b> JOIN Types</a></li>
+<li class="chapter" data-level="4.4.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#join-steps"><i class="fa fa-check"></i><b>4.4.2</b> JOIN steps</a></li>
+<li class="chapter" data-level="4.4.3" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#inner-join"><i class="fa fa-check"></i><b>4.4.3</b> INNER JOIN</a></li>
+<li class="chapter" data-level="4.4.4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#left-join"><i class="fa fa-check"></i><b>4.4.4</b> LEFT JOIN</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#data-management"><i class="fa fa-check"></i><b>3.7</b> Data Management</a>
+<li class="chapter" data-level="4.5" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#subqueries"><i class="fa fa-check"></i><b>4.5</b> Subqueries</a></li>
+<li class="chapter" data-level="4.6" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#saving-query-results"><i class="fa fa-check"></i><b>4.6</b> Saving Query Results</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#update-tables"><i class="fa fa-check"></i><b>3.7.1</b> Update Tables</a></li>
-<li class="chapter" data-level="3.7.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#add-populate-a-column"><i class="fa fa-check"></i><b>3.7.2</b> Add &amp; Populate a Column</a></li>
+<li class="chapter" data-level="4.6.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#connecting-databases-to-other-analysis-tools"><i class="fa fa-check"></i><b>4.6.1</b> Connecting Databases to Other Analysis Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#data-management"><i class="fa fa-check"></i><b>4.7</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#update-tables"><i class="fa fa-check"></i><b>4.7.1</b> Update Tables</a></li>
+<li class="chapter" data-level="4.7.2" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html#add-populate-a-column"><i class="fa fa-check"></i><b>4.7.2</b> Add &amp; Populate a Column</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="6" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a></li>
 <li class="divider"></li>
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
   <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
@@ -441,69 +451,7 @@ The Library Checkouts ERD was made with the diagramming software <a href="https:
 </tr>
 </tbody>
 </table>
-</div>
-<div id="sqlitestudio" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> SQLiteStudio<a href="the-library-checkouts-database.html#sqlitestudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="images/sqlitestudio-logo.png" /></p>
-<p>To work with our database, we’ll use <a href="https://sqlitestudio.pl/about/">SQLiteStudio</a>. It’s a free, open
-source, multi-platform desktop application for browsing SQLite databases and
-writing SQL queries.</p>
-<p>SQLiteStudio has a number of tools and panes to help you interact with your
-data:</p>
-<p><img src="images/sqlitestudio-interface.png" /></p>
-<p>You can view databases in the pane outlined in green. You can also write and
-run queries in the editor pane outlined in orange.</p>
-<div id="load-the-database" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Load the Database<a href="the-library-checkouts-database.html#load-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Click the “Add a database” icon <img src="images/sqlitestudio-add-db-icon.png" /> [<strong>3</strong>] and the <em>Database Dialog Window</em> will pop up.</li>
-</ol>
-<div class="figure">
-<img src="images/sqlitestudio-db-dialog.png" alt="" />
-<p class="caption">Database Dialog Window</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li>Click the “Browse for existing database file on your local computer” icon <img src="images/sqlitestudio-folder-icon.png" />
-<ul>
-<li>Your computer file explorer window will pop up</li>
-</ul></li>
-<li>Navigate to the <code>lcdb.db</code> file on your computer and double-click
-<ul>
-<li>The <em>Database Dialog Window</em> will appear again</li>
-</ul></li>
-<li>Click the “OK” button <img src="images/sqlitestudio-db-dialog-ok-button.png" /> at the bottom right
-<ul>
-<li>The <code>lcdb.db</code> file will load to the left under the <em>Databases Pane</em> of the interface (outlined in green)</li>
-</ul></li>
-<li>Click <code>lcdb</code> under the <em>Databases Pane</em> to highlight
-<ul>
-<li><img src="images/sqlitestudio-lcdb-highligh.png" /></li>
-</ul></li>
-<li>Click the “Connect to the database” icon <img src="images/sqlitestudio-connect-db-icon.png" /> [<strong>4</strong>]
-<ul>
-<li>You are now connected to the database and can execute SQL to the database!</li>
-</ul></li>
-</ol>
-</div>
-<div id="load-the-sql-script" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Load the SQL Script<a href="the-library-checkouts-database.html#load-the-sql-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Click the “Open SQL editor” icon <img src="images/sqlitestudio-editor-icon.png" /> [<strong>1</strong>]
-<ul>
-<li>The <em>SQL Editor Pane</em> of the interface will appear (outlined in green)</li>
-</ul></li>
-<li>Click the “Load SQL from file” icon <img src="images/sqlitestudio-folder-icon.png" /> [<strong>2</strong>]
-<ul>
-<li>Your computer file explorer window will pop up</li>
-</ul></li>
-<li>Navigate to the <code>intro_to_sql_spring22.sql</code> file on your computer and double-click
-<ul>
-<li>The SQL file will load in the <em>SQL Editor Pane</em>. This is where we’ll write our SQL queries!</li>
-</ul></li>
-<li>Click the “Save SQL to file” icon <img src="images/sqlitestudio-save-sql-icon.png" /> to save the queries you write to <code>intro_to_sql_spring22.sql</code></li>
-</ol>
 
-</div>
 </div>
 </div>
             </section>
@@ -512,7 +460,7 @@ run queries in the editor pane outlined in orange.</p>
         </div>
       </div>
 <a href="concepts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hands-on-with-sql-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="database-set-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -544,7 +492,7 @@ gitbook.start({
 "link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/master/02_the-library-checkouts-database.Rmd",
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

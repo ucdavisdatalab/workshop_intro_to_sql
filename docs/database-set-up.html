@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Concepts | Intro to SQL for Querying Databases</title>
-  <meta name="description" content="1 Concepts | Intro to SQL for Querying Databases" />
+  <title>3 Database Set Up | Intro to SQL for Querying Databases</title>
+  <meta name="description" content="3 Database Set Up | Intro to SQL for Querying Databases" />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Concepts | Intro to SQL for Querying Databases" />
+  <meta property="og:title" content="3 Database Set Up | Intro to SQL for Querying Databases" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop_intro_to_sql" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Concepts | Intro to SQL for Querying Databases" />
+  <meta name="twitter:title" content="3 Database Set Up | Intro to SQL for Querying Databases" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="the-library-checkouts-database.html"/>
+<link rel="prev" href="the-library-checkouts-database.html"/>
+<link rel="next" href="hands-on-with-sql-code.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,186 +175,65 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="concepts" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Concepts<a href="concepts.html#concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="what-is-a-relational-database" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> What is a Relational Database?<a href="concepts.html#what-is-a-relational-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <strong>relational database</strong> is a collection of tables (organized in rows and columns of data) that are related to each other in some way.</p>
-<p>Database tables are analogous to CSV files, spreadsheets in Excel, or data frames in programming languages like R or Python.</p>
-<p>Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a <strong>key</strong>. For example, a key commonly used on campus is your student or employee ID number.</p>
-<p>Let’s look at an example dataset of fictional student data with data about courses, grades, and employment. Can we say anything about the relationship between course grades and employment based on this data?</p>
-<p><strong>Table: Student</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Jane Smith</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Maria Martinez</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Paul Jones</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table: Courses</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Course</th>
-<th>Grade</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Calculus</td>
-<td>A-</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Calculus</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Calculus</td>
-<td>C+</td>
-</tr>
-<tr class="even">
-<td>123</td>
-<td>Data Science</td>
-<td>A-</td>
-</tr>
-<tr class="odd">
-<td>456</td>
-<td>Data Science</td>
-<td>B</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Data Science</td>
-<td>B-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table: Employment</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Position</th>
-<th>Employer</th>
-<th>HoursPerWeek</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>123</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>456</td>
-<td>Customer Service</td>
-<td>Alumni Center</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>456</td>
-<td>Research Assistant</td>
-<td>University Research Lab</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td>789</td>
-<td>Stock Room</td>
-<td>Medical Supplier</td>
-<td>20</td>
-</tr>
-<tr class="even">
-<td>789</td>
-<td>Customer Service</td>
-<td>Alumi Center</td>
-<td>15</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="what-is-sql" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> What is SQL?<a href="concepts.html#what-is-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>SQL stands for <strong>structured query language</strong>. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
-<div id="what-kinds-of-questions-can-sql-answer" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?<a href="concepts.html#what-kinds-of-questions-can-sql-answer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>SQL excels at extracting and combining information from large datasets. Some questions you might ask with SQL include:</p>
+<div id="database-set-up" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Database Set Up<a href="database-set-up.html#database-set-up" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sqlitestudio" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> SQLiteStudio<a href="database-set-up.html#sqlitestudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/sqlitestudio-logo.png" /></p>
+<p>To work with our database, we’ll use <a href="https://sqlitestudio.pl/about/">SQLiteStudio</a>. It’s a free, open
+source, multi-platform desktop application for browsing SQLite databases and
+writing SQL queries.</p>
+<p>SQLiteStudio has a number of tools and panes to help you interact with your
+data:</p>
+<p><img src="images/sqlitestudio-interface.png" /></p>
+<p>You can view databases in the pane outlined in green. You can also write and
+run queries in the editor pane outlined in orange.</p>
+<div id="create-a-database" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Create a Database<a href="database-set-up.html#create-a-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We are going to work with a database that has already been created for us. BUT, To learn about how to create your own database from scratch using data stored in CSV files, see:</p>
 <ul>
-<li>How many items are there in my data with a specific label?</li>
-<li>What re the unique values in a given column?</li>
-<li>Which records (rows) relate to a specific time period in my data?</li>
+<li><a href="https://github.com/pawelsalawa/sqlitestudio/wiki/User_Manual#creating-new-database">Create a New Database</a></li>
+<li>Geeks for Geeks’ tutorial for how to <a href="https://www.geeksforgeeks.org/import-a-csv-file-into-an-sqlite-table/">Import a CSV File Into an SQLite Table</a> - see the “Using SQLStudio” section near the middle of the page.</li>
 </ul>
 </div>
+<div id="load-the-database" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Load the Database<a href="database-set-up.html#load-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s connect to the database that we’ll be using for this workshop:</p>
+<ol style="list-style-type: decimal">
+<li>Click the “Add a database” icon <img src="images/sqlitestudio-add-db-icon.png" /> [<strong>3</strong>] and the <em>Database Dialog Window</em> will pop up.</li>
+</ol>
+<div class="float">
+<img src="images/sqlitestudio-db-dialog.png" alt="Database Dialog Window" />
+<div class="figcaption">Database Dialog Window</div>
 </div>
-<div id="what-is-a-relational-database-management-system" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> What is a Relational Database Management System?<a href="concepts.html#what-is-a-relational-database-management-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <strong>relational database management system</strong> (RDBMS) is a software system that creates, updates, and manages relational databases as well as managing user’s access to the database. There are many different systems available. For instance, you may have heard of MySQL, Postgres, and Microsoft SQL Server.</p>
-<p>For this workshop, we’ll use <a href="https://sqlite.org/">SQLite</a>, which is a simple and widely-used RDBMS. It runs on Windows, MacOS X, and Linux with no setup necessary!</p>
-<p><img src="images/sqlite-logo.png" />
-<!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg --></p>
-<p>Every RDBMS has its own implementation or “dialect” of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system’s documentation. The keywords covered in this workshop are supported by most systems.</p>
-<p>Some RDBMS allow you to add functions with extensions. For example, the PostGIS extension adds keywords to PostgreSQL to all you to work with location information to do spatial analysis.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Click the “Browse for existing database file on your local computer” icon <img src="images/sqlitestudio-folder-icon.png" />
+<ul>
+<li>Your computer file explorer window will pop up</li>
+</ul></li>
+<li>Navigate to the <code>lcdb.db</code> file on your computer and double-click
+<ul>
+<li>The <em>Database Dialog Window</em> will appear again</li>
+</ul></li>
+<li>Click the “OK” button <img src="images/sqlitestudio-db-dialog-ok-button.png" /> at the bottom right
+<ul>
+<li>The <code>lcdb.db</code> file will load to the left under the <em>Databases Pane</em> of the interface (outlined in green)</li>
+</ul></li>
+<li>Click <code>lcdb</code> under the <em>Databases Pane</em> to highlight
+<ul>
+<li><img src="images/sqlitestudio-lcdb-highligh.png" /></li>
+</ul></li>
+<li>Click the “Connect to the database” icon <img src="images/sqlitestudio-connect-db-icon.png" /> [<strong>4</strong>]
+<ul>
+<li>You are now connected to the database and can execute SQL to the database!</li>
+</ul></li>
+</ol>
 </div>
-<div id="advantages-disadvantages-of-sql" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Advantages &amp; Disadvantages of SQL<a href="concepts.html#advantages-disadvantages-of-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>SQL has major advantages in several areas important to researchers:</p>
-<ul>
-<li>Efficiency
-<ul>
-<li>Write a few lines of code rather than lots of manual data manipulation</li>
-<li>SQL is meant for data manipulation</li>
-</ul></li>
-<li>Reproducibility
-<ul>
-<li>save queries as a record of your workflow</li>
-<li>re-run code with updates</li>
-</ul></li>
-<li>Work with large amounts of data
-<ul>
-<li>Typically faster to run a process in a database than in a spreadsheet</li>
-<li>Store lots of data (compare with Excel’s row limits)</li>
-</ul></li>
-<li>Data management
-<ul>
-<li>One database file stores many, many tables which is represented as one file in your file browser</li>
-<li>Write a query instead of making a new files or tabs</li>
-</ul></li>
-</ul>
-<p>What does SQL not do well?</p>
-<ul>
-<li>Most RDBMS do not visualize data, however, you can connect your database to visualization tools to perform these kinds of tasks seamlessly.</li>
-<li>SQL is designed to work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.</li>
-</ul>
-<!--
-* You can manage multiple data sources
-  - With an RDBMS, you have access to more than one database
--->
+<div id="saving-scripts" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Saving Scripts<a href="database-set-up.html#saving-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can save a text file with a .sql extension that contains SQL commands to run as a script. Like scripts in other programming languages, the commands run from top to bottom. For today’s workshop, writing a script that we have to execute over and over doesn’t make sense. We’re still learning and we’ll need to run individual queries over and over as we correct our mistakes. For data cleaning tasks that you repeat every time you add new data, for example, these scripts can save a lot of time and make your process repeatable.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -362,8 +241,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-library-checkouts-database.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-library-checkouts-database.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hands-on-with-sql-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -384,7 +263,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/edit/master/01_concepts.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/edit/master/03_setup_database.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -392,7 +271,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/master/01_concepts.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/master/03_setup_database.Rmd",
 "text": null
 },
 "download": ["_main.pdf"],

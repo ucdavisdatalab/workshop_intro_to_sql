@@ -17,7 +17,7 @@ a database and answer questions, and joining data from separate tables.
 
 ## Goals
 
-fter this workshop learners should be able to:
+After this workshop learners should be able to:
 
 * Describe the advantages and disadvantages of using SQL with your own data.
 * Use SQL queries to view, filter, aggregate, and combine data.

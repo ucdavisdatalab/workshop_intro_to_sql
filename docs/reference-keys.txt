@@ -7,9 +7,11 @@ advantages-disadvantages-of-sql
 the-library-checkouts-database
 entity-relationship-diagrams
 data-definitions
+database-set-up
 sqlitestudio
+create-a-database
 load-the-database
-load-the-sql-script
+saving-scripts
 hands-on-with-sql-code
 viewing-data
 select-from
@@ -39,7 +41,11 @@ inner-join
 left-join
 subqueries
 saving-query-results
-export-query-results
+connecting-databases-to-other-analysis-tools
+export-tables
+programming-language-connections
 data-management
 update-tables
 add-populate-a-column
+conclusion
+resources
