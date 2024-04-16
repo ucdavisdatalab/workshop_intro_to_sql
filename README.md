@@ -17,28 +17,29 @@ a database and answer questions, and joining data from separate tables.
 
 ## Goals
 
-After this workshop learners should be able to:
+fter this workshop learners should be able to:
 
-* Describe the advantages and disadvantages of using SQL for data problems.
+* Describe the advantages and disadvantages of using SQL with your own data.
 * Use SQL queries to view, filter, aggregate, and combine data.
 * Combine SQL keywords to develop sophisticated queries.
 * Use SQL queries to solve problems with and answer questions about data.
-* Identify additional resources for learning more about SQL (such as how to use
-  SQL with the R programming language).
+* Identify additional resources for learning more about SQL, such as how to use
+  SQL with the R programming language.
 
 
 ## Prerequisites
 
-No prior programming experience is necessary. Prior experience working with data is recommended.
-Before the workshop, learners should:
+No prior programming experience is necessary. We recommend learners either attend or review the written materials for DataLab's[Overview of Databases & Data Storage Technologies](https://ucdavisdatalab.github.io/workshop_intro_to_databases/) workshop. 
+
+Before the workshop, learners
+should:
 
 * Install [SQLiteStudio][sqlitestudio] and verify that it runs. See the
   [install guide][install] for details.
-* Download the file `2022-04-04_intro-sql.zip` from [this link][materials].
-  Unzip the file and keep track of where it's saved on your computer. It
-  contains a data set and a script that will be used during the workshop:
-    + `lcdb.db`
-    + `intro_to_sql_spring22.sql`
+* Download the file `2024-04-09_library-data.sqlite` from [this link][materials].
+
+Please see these [recommendations for making SQLiteStudio easier to read](https://veroniiiica.com/sqlitestudio-and-low-vision/), particularly for those with low vision and those who use a screen reader.
+
 
 [sqlite]: https://sqlite.org/
 [sqlitestudio]: https://sqlitestudio.pl/
