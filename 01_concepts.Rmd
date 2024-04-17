@@ -6,14 +6,17 @@ A **relational database** is a collection of tables (organized in rows and colum
 
 Database tables are analogous to CSV files, spreadsheets in Excel, or data frames in programming languages like R or Python.
 
-Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a **key**. For example, a key commonly used on campus is your student or employee ID number.
+Ideally each table can be connected to another table by a column that is present
+in both tables. That column may have different numbers of observations in each
+table, but the values will match up. This column is called a **key**. For
+example, a key commonly used on campus is your student or employee ID number.
 
 Let's look at an example dataset of fictional student data with data about courses, grades, and employment.  Can we say anything about the relationship between course grades and employment based on this data?
 
 **Table: Student**
 
 |ID|Name|
-|--|--|
+|:--|:--|
 |123|Jane Smith|
 |456|Maria Martinez|
 |789|Paul Jones|
@@ -21,7 +24,7 @@ Let's look at an example dataset of fictional student data with data about cours
 **Table: Courses**
 
 |ID|Course|Grade|
-|--|--|--|
+|:--|:--|:--|
 |123|Calculus|A-|
 |456|Calculus|A|
 |789|Calculus|C+|
@@ -32,7 +35,7 @@ Let's look at an example dataset of fictional student data with data about cours
 **Table: Employment**
 
 |ID|Position|Employer|HoursPerWeek|
-|--|--|--|--|
+|:--|:--|:--|:--|
 |123|Student Assistant|University Research Lab|5|
 |456|Customer Service|Alumni Center|5|
 |456|Research Assistant|University Research Lab|15|
@@ -45,14 +48,14 @@ Let's look at an example dataset of fictional student data with data about cours
 ## What is SQL?
 
 SQL stands for **structured query language**. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as "ess cue ell" or "sequel".
-
+<!-- love the pronunciation guide -->
 
 ### What kinds of questions can SQL answer?
 
 SQL excels at extracting and combining information from large datasets. Some questions you might ask with SQL include:
 
 * How many items are there in my data with a specific label?
-* What re the unique values in a given column?
+* What are the unique values in a given column?
 * Which records (rows) relate to a specific time period in my data?
 
 
@@ -68,6 +71,9 @@ For this workshop, we'll use [SQLite][sqlite], which is a simple and widely-used
 [sqlite]: https://sqlite.org/
 
 Every RDBMS has its own implementation or "dialect" of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system's documentation. The keywords covered in this workshop are supported by most systems.
+
+<!-- I might add something here about how when googling, it is important to specify -->
+<!-- which version of SQL you are using (ex sqlite, postgres, ms server) -->
 
 Some RDBMS allow you to add functions with extensions. For example, the PostGIS extension adds keywords to PostgreSQL to all you to work with location information to do spatial analysis.
 
@@ -86,13 +92,16 @@ SQL has major advantages in several areas important to researchers:
     + Typically faster to run a process in a database than in a spreadsheet
     + Store lots of data (compare with Excel's row limits)
  * Data management
-    + One database file stores many, many tables which is represented as one file in your file browser
+    + One database file is the equivalent to many, many spreadsheet files (like csvs or xlsx files)
     + Write a query instead of making a new files or tabs
 
 What does SQL not do well?
 
  * Most RDBMS do not visualize data, however, you can connect your database to visualization tools to perform these kinds of tasks seamlessly.
- * SQL is designed to work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.
+ * The SQL language is designed for data querying not data analysis. If you want
+   to run statistics on your data you can connect to your database from a
+   programming language like R or python, or from statistical software.
+ * SQL assumes you work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.
 
 <!--
 * You can manage multiple data sources
