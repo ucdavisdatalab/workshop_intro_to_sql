@@ -25,7 +25,7 @@
 <meta name="author" content="Nick Ulle" />
 
 
-<meta name="date" content="2024-04-16" />
+<meta name="date" content="2024-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,28 +181,31 @@
 <h2><span class="header-section-number">1.1</span> What is a Relational Database?<a href="concepts.html#what-is-a-relational-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>relational database</strong> is a collection of tables (organized in rows and columns of data) that are related to each other in some way.</p>
 <p>Database tables are analogous to CSV files, spreadsheets in Excel, or data frames in programming languages like R or Python.</p>
-<p>Ideally each table can be connected to another table by a column that both tables have that store the information to match up the rows. This column is called a <strong>key</strong>. For example, a key commonly used on campus is your student or employee ID number.</p>
+<p>Ideally each table can be connected to another table by a column that is present
+in both tables. That column may have different numbers of observations in each
+table, but the values will match up. This column is called a <strong>key</strong>. For
+example, a key commonly used on campus is your student or employee ID number.</p>
 <p>Let’s look at an example dataset of fictional student data with data about courses, grades, and employment. Can we say anything about the relationship between course grades and employment based on this data?</p>
 <p><strong>Table: Student</strong></p>
 <table>
 <thead>
 <tr class="header">
-<th>ID</th>
-<th>Name</th>
+<th align="left">ID</th>
+<th align="left">Name</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>123</td>
-<td>Jane Smith</td>
+<td align="left">123</td>
+<td align="left">Jane Smith</td>
 </tr>
 <tr class="even">
-<td>456</td>
-<td>Maria Martinez</td>
+<td align="left">456</td>
+<td align="left">Maria Martinez</td>
 </tr>
 <tr class="odd">
-<td>789</td>
-<td>Paul Jones</td>
+<td align="left">789</td>
+<td align="left">Paul Jones</td>
 </tr>
 </tbody>
 </table>
@@ -210,41 +213,41 @@
 <table>
 <thead>
 <tr class="header">
-<th>ID</th>
-<th>Course</th>
-<th>Grade</th>
+<th align="left">ID</th>
+<th align="left">Course</th>
+<th align="left">Grade</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>123</td>
-<td>Calculus</td>
-<td>A-</td>
+<td align="left">123</td>
+<td align="left">Calculus</td>
+<td align="left">A-</td>
 </tr>
 <tr class="even">
-<td>456</td>
-<td>Calculus</td>
-<td>A</td>
+<td align="left">456</td>
+<td align="left">Calculus</td>
+<td align="left">A</td>
 </tr>
 <tr class="odd">
-<td>789</td>
-<td>Calculus</td>
-<td>C+</td>
+<td align="left">789</td>
+<td align="left">Calculus</td>
+<td align="left">C+</td>
 </tr>
 <tr class="even">
-<td>123</td>
-<td>Data Science</td>
-<td>A-</td>
+<td align="left">123</td>
+<td align="left">Data Science</td>
+<td align="left">A-</td>
 </tr>
 <tr class="odd">
-<td>456</td>
-<td>Data Science</td>
-<td>B</td>
+<td align="left">456</td>
+<td align="left">Data Science</td>
+<td align="left">B</td>
 </tr>
 <tr class="even">
-<td>789</td>
-<td>Data Science</td>
-<td>B-</td>
+<td align="left">789</td>
+<td align="left">Data Science</td>
+<td align="left">B-</td>
 </tr>
 </tbody>
 </table>
@@ -252,61 +255,62 @@
 <table>
 <thead>
 <tr class="header">
-<th>ID</th>
-<th>Position</th>
-<th>Employer</th>
-<th>HoursPerWeek</th>
+<th align="left">ID</th>
+<th align="left">Position</th>
+<th align="left">Employer</th>
+<th align="left">HoursPerWeek</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>123</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>5</td>
+<td align="left">123</td>
+<td align="left">Student Assistant</td>
+<td align="left">University Research Lab</td>
+<td align="left">5</td>
 </tr>
 <tr class="even">
-<td>456</td>
-<td>Customer Service</td>
-<td>Alumni Center</td>
-<td>5</td>
+<td align="left">456</td>
+<td align="left">Customer Service</td>
+<td align="left">Alumni Center</td>
+<td align="left">5</td>
 </tr>
 <tr class="odd">
-<td>456</td>
-<td>Research Assistant</td>
-<td>University Research Lab</td>
-<td>15</td>
+<td align="left">456</td>
+<td align="left">Research Assistant</td>
+<td align="left">University Research Lab</td>
+<td align="left">15</td>
 </tr>
 <tr class="even">
-<td>789</td>
-<td>Student Assistant</td>
-<td>University Research Lab</td>
-<td>10</td>
+<td align="left">789</td>
+<td align="left">Student Assistant</td>
+<td align="left">University Research Lab</td>
+<td align="left">10</td>
 </tr>
 <tr class="odd">
-<td>789</td>
-<td>Stock Room</td>
-<td>Medical Supplier</td>
-<td>20</td>
+<td align="left">789</td>
+<td align="left">Stock Room</td>
+<td align="left">Medical Supplier</td>
+<td align="left">20</td>
 </tr>
 <tr class="even">
-<td>789</td>
-<td>Customer Service</td>
-<td>Alumi Center</td>
-<td>15</td>
+<td align="left">789</td>
+<td align="left">Customer Service</td>
+<td align="left">Alumi Center</td>
+<td align="left">15</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="what-is-sql" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> What is SQL?<a href="concepts.html#what-is-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>SQL stands for <strong>structured query language</strong>. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as “ess cue ell” or “sequel”.</p>
+<p>SQL stands for <strong>structured query language</strong>. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as “ess cue ell” or “sequel”.
+<!-- love the pronunciation guide --></p>
 <div id="what-kinds-of-questions-can-sql-answer" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> What kinds of questions can SQL answer?<a href="concepts.html#what-kinds-of-questions-can-sql-answer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>SQL excels at extracting and combining information from large datasets. Some questions you might ask with SQL include:</p>
 <ul>
 <li>How many items are there in my data with a specific label?</li>
-<li>What re the unique values in a given column?</li>
+<li>What are the unique values in a given column?</li>
 <li>Which records (rows) relate to a specific time period in my data?</li>
 </ul>
 </div>
@@ -318,6 +322,8 @@
 <p><img src="images/sqlite-logo.png" />
 <!-- https://en.wikipedia.org/wiki/SQLite#/media/File:SQLite370.svg --></p>
 <p>Every RDBMS has its own implementation or “dialect” of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system’s documentation. The keywords covered in this workshop are supported by most systems.</p>
+<!-- I might add something here about how when googling, it is important to specify -->
+<!-- which version of SQL you are using (ex sqlite, postgres, ms server) -->
 <p>Some RDBMS allow you to add functions with extensions. For example, the PostGIS extension adds keywords to PostgreSQL to all you to work with location information to do spatial analysis.</p>
 </div>
 <div id="advantages-disadvantages-of-sql" class="section level2 hasAnchor" number="1.4">
@@ -341,14 +347,17 @@
 </ul></li>
 <li>Data management
 <ul>
-<li>One database file stores many, many tables which is represented as one file in your file browser</li>
+<li>One database file is the equivalent to many, many spreadsheet files (like csvs or xlsx files)</li>
 <li>Write a query instead of making a new files or tabs</li>
 </ul></li>
 </ul>
 <p>What does SQL not do well?</p>
 <ul>
 <li>Most RDBMS do not visualize data, however, you can connect your database to visualization tools to perform these kinds of tasks seamlessly.</li>
-<li>SQL is designed to work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.</li>
+<li>The SQL language is designed for data querying not data analysis. If you want
+to run statistics on your data you can connect to your database from a
+programming language like R or python, or from statistical software.</li>
+<li>SQL assumes you work with tabular data. If your data is another type - for example graph data or tree data - you might want to explore other database types.</li>
 </ul>
 <!--
 * You can manage multiple data sources
