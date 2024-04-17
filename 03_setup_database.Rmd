@@ -48,6 +48,8 @@ Let's connect to the database that we'll be using for this workshop:
 6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) [**4**]
     - You are now connected to the database and can execute SQL to the database!
 
+<!-- What are the [3] and [4] for? -->
+
 
 ### Saving Scripts
 
