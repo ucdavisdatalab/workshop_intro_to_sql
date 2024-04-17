@@ -48,6 +48,9 @@ Let's connect to the database that we'll be using for this workshop:
 6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) [**4**]
     - You are now connected to the database and can execute SQL to the database!
 
+<!-- What are the [3] and [4] for? Also the file isn't called lcdb, so you 
+might want to change how you refer to it or change the name of the file -->
+
 
 ### Saving Scripts
 

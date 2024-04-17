@@ -2,6 +2,8 @@
 
 We just learned that SQL is a language that allows us to interact with and manage a database. Let's learn some SQL queries to get some hands-on experience.
 
+<!-- I would add a sentence or two here about how to open up the SQL editor -->
+
 ## Viewing Data
 
 ### SELECT & FROM
@@ -14,13 +16,17 @@ Now click the *Execute all* button. ![alt text](images/Button_Execute.PNG)
 
 This query asks the database to select everything (* means "everything") from the table *items*.  It ends with a semicolon to tell the database that this is the end of our request.  
 
+SQL doesn't care if you add extra white space (spaces, tabs, or new lines)
+to your query to make it easier to read. All that matters is that you use the 
+correct keyword structure and end your query with a semicolon (;). Because of
+this, the query below does exactly the same thing as the first query we ran.
+
 ```
 SELECT 
 * 
 FROM 
 items;
 ```
-The above query does exactly the same thing as the first one, hence the need for the end of query indicator.  We can use new lines to help us organize large queries to make them easier to read.
 
 SQL ignores capitalization, spaces, and new lines in a query. Some tools which
 use SQL also ignore semicolons. However, it's conventional to:
@@ -47,7 +53,7 @@ FROM items;
 
 ### Unique Values
 
-What if we now want to knowwhat all the possible languages are in our data set? We could scroll through the results and try to keep track of unique values, but that is tedious - and we'll likely miss some, especially if they are uncommon.
+What if we now want to know what all the possible languages are in our data set? We could scroll through the results and try to keep track of unique values, but that is tedious - and we'll likely miss some, especially if they are uncommon.
 
 Instead we can use the `SELECT DISTINCT` keywords on one or more columns to show
 all the unique values.
@@ -295,6 +301,10 @@ There will be times where we want to find only the rows that do not satisfy some
 
 Below is a query to find items that ***do not*** have a certain number of recalls - in this case, we're excluding items with 0, 1, or 3 recalls.
 
+<!--Why would you want to exclude items with 0, 1, 3 recalls? I mean it doesn't
+matter that much, but it seems a bit arbitrary. What about excluding checkouts
+that happened during the pandeming (2020-22?) -->
+
 ```
 SELECT * 
 FROM items
@@ -391,7 +401,9 @@ Notice here how we asked for two columns - the `library_code` and the count of
 `item_id`.
 
 > **CHALLENGE**:  
-> You can also `GROUP BY` more than one column by listing the columns to group by with each column name separated by a comma. How would you find the total number of times a patron checked out in each library?
+> You can also `GROUP BY` more than one column by listing the columns to group by with each column name separated by a comma. How would you find the total number of times a patron checked out an item at each library?
+
+<!-- Are you going to bring up the use of -1 as the missing value for patron_id? -->
 
 ### Having
 
@@ -411,7 +423,7 @@ Now we've seen how we can use functions to aggregate data and how grouping data 
 
 ## Joining Data
 
-Joining tables allows us to combine information from more than one table into a new table. The tables need to have a ***key***  column to be able to link the tables together. A key is a column that contains information that allows it to relate to information in another table. In our Library Checkouts ERD, the *item_id* column in *itmes* is a key column that links to *item_id* in *checkouts*.
+Joining tables allows us to combine information from more than one table into a new table. The tables need to have a ***key***  column to be able to link the tables together. A key is a column that contains information that allows it to relate to information in another table. In our Library Checkouts ERD, the *item_id* column in *items* is a key column that links to *item_id* in *checkouts*.
 
 
 ### JOIN Types
@@ -471,8 +483,8 @@ SELECT
 	items.title,
 	checkouts.item_id,
 	checkouts.due_date
-FROM checkouts
-INNER JOIN items ON items.item_id = checkouts.item_id;
+FROM items
+INNER JOIN checkouts ON items.item_id = checkouts.item_id;
 ```
 
 We interpret the `INNER JOIN` query as, "all books that have been checked out." 
@@ -487,13 +499,11 @@ SELECT
 	items.title,
 	checkouts.item_id,
 	checkouts.due_date
-FROM checkouts
-LEFT JOIN items ON items.item_id = checkouts.item_id;
+FROM items
+LEFT JOIN checkouts ON items.item_id = checkouts.item_id;
 ```
 
 We interpret the `LEFT JOIN` query as, "all books and if they have been checked out or not."
-
-You might be thinking, what would happen if the tables in the `LEFT JOIN` were flipped? We would get the same result as the  `INNER JOIN` query! That's because there's no instances where a checkout without a book could ever happen!
 
 > **CHALLENGE**:  
 > Can you write a query that contains the title of the books and the ID of the patrons that checked them out?
@@ -502,7 +512,7 @@ You might be thinking, what would happen if the tables in the `LEFT JOIN` were f
 
 So far we've been working with one `SELECT` statement, but we can actually combine multiple `SELECT` statements using subqueries. Subqueries are nested queries enclosed in parentheses that can be used with other keywords like  `JOIN` and  `WHERE`. Below are 2 examples of these use cases. 
 
-You can think of a subquery as a process where you write a query to create a table,, then query the table you just constructed. This can be especially helpful with large complex tables where simplifying helps you understand the query better, or when you need to complete a multi-step query and don't want to make extra tables or views (something we'll cover in the next sections).
+You can think of a subquery as a process where you write a query to create a table, then query the table you just constructed. This can be especially helpful with large complex tables where simplifying helps you understand the query better, or when you need to complete a multi-step query and don't want to make extra tables or views (something we'll cover in the next sections).
 
 Let's first look at a subquery in the `WHERE` clause:
 
@@ -577,6 +587,10 @@ CREATE TEMPORARY TABLE mircoform AS
 	) AS microforms ON checkouts.item_id = microforms.item_id;
 ```
 
+<!-- when I run this code, a new table does not appear on the databases pane on
+the left where it lists out the tables in the database. This isn't necessarily
+an issue but you may get some questions about whether it has worked. -->
+
 In much the same way we made the new table, we can make a view:
 
 ```
@@ -636,6 +650,8 @@ WHERE receiving_date IS NULL;
 
 The `SET` keyword specifically targets just the *receiving_date* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
 
+<!-- why would you prefer N/A over NULL for this? -->
+
 ### Add & Populate a Column
 
 Sometimes we want to make a new column and add data into it. Let's make a new column called *year* in the *patrons* table and populate it with the year parsed from the *creation_date* column. 
@@ -655,7 +671,7 @@ Now we update all values with the results of a string parsing cution that return
 ```
 UPDATE patrons
 SET year = substr(creation_date, -4, 4)
-WHERE state IS NOT NULL;
+WHERE creation_date IS NOT NULL;
 ```
 
 The function substr() creates a substring from a string object - in this case, our *creation_date* string. The second argument, -4, indicates the position to start the substring from. Negative values tell the function to start from the right side of the string (or the end of the string) rather than the left. Finally, the third argument indicates how many characters to include. We chose 4 because our date string has a 4 digit year.
