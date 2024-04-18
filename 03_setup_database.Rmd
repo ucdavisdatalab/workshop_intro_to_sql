@@ -29,27 +29,25 @@ We are going to work with a database that has already been created for us. BUT, 
 
 Let's connect to the database that we'll be using for this workshop:
 
-1. Click the "Add a database" icon ![](images/sqlitestudio-add-db-icon.png) [**3**] and the *Database Dialog Window* will pop up. 
+1. Click the "Add a database" icon ![](images/sqlitestudio-add-db-icon.png) and the *Database Dialog Window* will pop up. 
 
 ![Database Dialog Window](images/sqlitestudio-db-dialog.png) 
     
 2. Click the "Browse for existing database file on your local computer" icon ![](images/sqlitestudio-folder-icon.png)
     - Your computer file explorer window will pop up
     
-3. Navigate to the  `lcdb.db` file on your computer and double-click
+3. Navigate to the  `2024-04-09_library-data.sqlite` file on your computer and double-click
     - The *Database Dialog Window* will appear again
     
 4. Click the "OK" button ![](images/sqlitestudio-db-dialog-ok-button.png) at the bottom right
-    - The `lcdb.db` file will load to the left under the *Databases Pane* of the interface (outlined in green)
+    - The database file will load to the left under the *Databases Pane* of the interface (outlined in green)
     
-5. Click `lcdb` under the *Databases Pane* to highlight
+5. Click the database name under the *Databases Pane* to highlight
     - ![](images/sqlitestudio-lcdb-highligh.png)
     
-6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) [**4**]
+6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) 
     - You are now connected to the database and can execute SQL to the database!
 
-<!-- What are the [3] and [4] for? Also the file isn't called lcdb, so you 
-might want to change how you refer to it or change the name of the file -->
 
 
 ### Saving Scripts

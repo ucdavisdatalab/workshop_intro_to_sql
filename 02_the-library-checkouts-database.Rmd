@@ -27,8 +27,6 @@ important for determining what types of questions you can answer with SQL!
 
 Here's an ERD for the Library Checkouts database:
 
-<!-- the loans-in-house is spelled wrong (laons-in-house) -->
-
 ![](images/DataDiagram_ucd_library.png)
 
 Lets break down the components of the ERD:
