@@ -31,7 +31,7 @@ output:
 
 Structured Query Language (SQL) is a programming language for interacting with relational databases. This workshop covers basic SQL keywords to view, filter, aggregate, and combine tables in a database. SQL is supported by many different database management systems. We’ll focus on querying data to get to know a database and answer questions, and joining data from separate tables.
 
-The examples in this workshop use a [SQLite][sqlite] database, but most of the keywords are applicable to other database systems as well. The workshop also covers how to use [SQLiteStudio][sqlitestudio], an integrated development environment for SQL code.
+The examples in this workshop use a SQLite database, but most of the keywords are applicable to other database systems as well. The workshop also covers how to use [SQLiteStudio][sqlitestudio], an integrated development environment for SQL code.
 
 
 #### Learning Objectives {-}
@@ -53,7 +53,6 @@ No prior programming experience is necessary. We recommend learners either atten
 Before the workshop, learners
 should:
 
-<!-- I think the link to the SQLiteStudio website here is confusing. -->
 * Install SQLiteStudio using the [install guide][install] and verify that it runs.
 * Download the file `2024-04-09_library-data.sqlite` from [this link][materials].
 
@@ -62,8 +61,7 @@ should:
 > installer and select open. If you open the installer regularly, the Mac
 > operating system will block the installer from running.
 
-<!-- Pamela told me to remove my references to GradPathways from my presentation
-I would check with her about including this -->
+
 Please see these [recommendations for making SQLiteStudio easier to read](https://veroniiiica.com/sqlitestudio-and-low-vision/), particularly for those with low vision and those who use a screen reader.
 
 [sqlite]: https://sqlite.org/
@@ -71,9 +69,14 @@ Please see these [recommendations for making SQLiteStudio easier to read](https:
 [install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
 [materials]: https://drive.google.com/file/d/1QehzesXxUBrNDW00aFrvm0jJ5Y1KnIFt/view?usp=sharing
 
+<!-- Elise: Pamela told me to remove my references to GradPathways from my presentation
+I would check with her about including this -->
+<!--
 #### GradPathways Microcredential Assessment {-}
 
 If you're taking this workshop to complete a GradPathways microcredential
 track, you can download the assessment [here][assessment].
 
 [assessment]: https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/main/materials/assessment.sql
+
+-->
