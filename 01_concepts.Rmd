@@ -48,7 +48,6 @@ Let's look at an example dataset of fictional student data with data about cours
 ## What is SQL?
 
 SQL stands for **structured query language**. SQL is a programming language that allows you to request (query) information from a database using a standard set of keywords. You can pronounce SQL as "ess cue ell" or "sequel".
-<!-- love the pronunciation guide -->
 
 ### What kinds of questions can SQL answer?
 
@@ -70,10 +69,7 @@ For this workshop, we'll use [SQLite][sqlite], which is a simple and widely-used
 
 [sqlite]: https://sqlite.org/
 
-Every RDBMS has its own implementation or "dialect" of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system's documentation. The keywords covered in this workshop are supported by most systems.
-
-<!-- I might add something here about how when googling, it is important to specify -->
-<!-- which version of SQL you are using (ex sqlite, postgres, ms server) -->
+Every RDBMS has its own implementation or "dialect" of SQL. In other words, the set of SQL keywords supported differs slightly from one RDBMS to another, and sometimes queries have to be written differently, but the basics are the same. Details about the supported keywords for a given RDBMS can be found in that system's documentation. How does this impact you working with any given SQL RDBMS? When you're searching for help with syntax, include the version of SQL you're working with.  The keywords covered in this workshop are supported by most systems. 
 
 Some RDBMS allow you to add functions with extensions. For example, the PostGIS extension adds keywords to PostgreSQL to all you to work with location information to do spatial analysis.
 
