@@ -11,6 +11,7 @@ database-set-up
 sqlitestudio
 create-a-database
 load-the-database
+open-the-sql-editor
 saving-scripts
 hands-on-with-sql-code
 viewing-data

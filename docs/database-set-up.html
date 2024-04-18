@@ -25,7 +25,7 @@
 <meta name="author" content="Nick Ulle" />
 
 
-<meta name="date" content="2024-04-17" />
+<meta name="date" content="2024-04-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,7 +102,8 @@
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="database-set-up.html"><a href="database-set-up.html#create-a-database"><i class="fa fa-check"></i><b>3.1.1</b> Create a Database</a></li>
 <li class="chapter" data-level="3.1.2" data-path="database-set-up.html"><a href="database-set-up.html#load-the-database"><i class="fa fa-check"></i><b>3.1.2</b> Load the Database</a></li>
-<li class="chapter" data-level="3.1.3" data-path="database-set-up.html"><a href="database-set-up.html#saving-scripts"><i class="fa fa-check"></i><b>3.1.3</b> Saving Scripts</a></li>
+<li class="chapter" data-level="3.1.3" data-path="database-set-up.html"><a href="database-set-up.html#open-the-sql-editor"><i class="fa fa-check"></i><b>3.1.3</b> Open the SQL Editor</a></li>
+<li class="chapter" data-level="3.1.4" data-path="database-set-up.html"><a href="database-set-up.html#saving-scripts"><i class="fa fa-check"></i><b>3.1.4</b> Saving Scripts</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hands-on-with-sql-code.html"><a href="hands-on-with-sql-code.html"><i class="fa fa-check"></i><b>4</b> Hands-On with SQL Code</a>
@@ -200,7 +201,7 @@ run queries in the editor pane outlined in orange.</p>
 <h3><span class="header-section-number">3.1.2</span> Load the Database<a href="database-set-up.html#load-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s connect to the database that we’ll be using for this workshop:</p>
 <ol style="list-style-type: decimal">
-<li>Click the “Add a database” icon <img src="images/sqlitestudio-add-db-icon.png" /> [<strong>3</strong>] and the <em>Database Dialog Window</em> will pop up.</li>
+<li>Click the “Add a database” icon <img src="images/sqlitestudio-add-db-icon.png" /> and the <em>Database Dialog Window</em> will pop up.</li>
 </ol>
 <div class="float">
 <img src="images/sqlitestudio-db-dialog.png" alt="Database Dialog Window" />
@@ -211,28 +212,30 @@ run queries in the editor pane outlined in orange.</p>
 <ul>
 <li>Your computer file explorer window will pop up</li>
 </ul></li>
-<li>Navigate to the <code>lcdb.db</code> file on your computer and double-click
+<li>Navigate to the <code>2024-04-09_library-data.sqlite</code> file on your computer and double-click
 <ul>
 <li>The <em>Database Dialog Window</em> will appear again</li>
 </ul></li>
 <li>Click the “OK” button <img src="images/sqlitestudio-db-dialog-ok-button.png" /> at the bottom right
 <ul>
-<li>The <code>lcdb.db</code> file will load to the left under the <em>Databases Pane</em> of the interface (outlined in green)</li>
+<li>The database file will load to the left under the <em>Databases Pane</em> of the interface (outlined in green)</li>
 </ul></li>
-<li>Click <code>lcdb</code> under the <em>Databases Pane</em> to highlight
+<li>Click the database name under the <em>Databases Pane</em> to highlight
 <ul>
 <li><img src="images/sqlitestudio-lcdb-highligh.png" /></li>
 </ul></li>
-<li>Click the “Connect to the database” icon <img src="images/sqlitestudio-connect-db-icon.png" /> [<strong>4</strong>]
+<li>Click the “Connect to the database” icon <img src="images/sqlitestudio-connect-db-icon.png" />
 <ul>
 <li>You are now connected to the database and can execute SQL to the database!</li>
 </ul></li>
 </ol>
-<!-- What are the [3] and [4] for? Also the file isn't called lcdb, so you 
-might want to change how you refer to it or change the name of the file -->
 </div>
-<div id="saving-scripts" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Saving Scripts<a href="database-set-up.html#saving-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="open-the-sql-editor" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Open the SQL Editor<a href="database-set-up.html#open-the-sql-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To write SQL queries, we need to open the SQL Editor. With the database selected (highlighted) in the list of databases on the left side of the screen, click the <em>Open SQL Editor</em> icon <img src="images/sqlitestudio-editor-icon.png" /></p>
+</div>
+<div id="saving-scripts" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Saving Scripts<a href="database-set-up.html#saving-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can save a text file with a .sql extension that contains SQL commands to run as a script. Like scripts in other programming languages, the commands run from top to bottom. For today’s workshop, writing a script that we have to execute over and over doesn’t make sense. We’re still learning and we’ll need to run individual queries over and over as we correct our mistakes. For data cleaning tasks that you repeat every time you add new data, for example, these scripts can save a lot of time and make your process repeatable.</p>
 
 </div>
