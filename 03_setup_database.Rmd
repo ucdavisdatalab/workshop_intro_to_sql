@@ -48,7 +48,9 @@ Let's connect to the database that we'll be using for this workshop:
 6. Click the "Connect to the database" icon ![](images/sqlitestudio-connect-db-icon.png) 
     - You are now connected to the database and can execute SQL to the database!
 
+### Open the SQL Editor
 
+To write SQL queries, we need to open the SQL Editor. With the database selected (highlighted) in the list of databases on the left side of the screen, click the *Open SQL Editor* icon ![](images/sqlitestudio-editor-icon.png)
 
 ### Saving Scripts
 
