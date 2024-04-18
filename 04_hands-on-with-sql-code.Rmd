@@ -398,9 +398,8 @@ Notice here how we asked for two columns - the `library_code` and the count of
 `item_id`.
 
 > **CHALLENGE**:  
-> You can also `GROUP BY` more than one column by listing the columns to group by with each column name separated by a comma. How would you find the total number of times a patron checked out an item at each library?
+> You can also `GROUP BY` more than one column by listing the columns to group by with each column name separated by a comma. How would you find the total number of times a patron checked out an item at each library? Note that -1 is the missing value for patron_id.
 
-<!-- Are you going to bring up the use of -1 as the missing value for patron_id? -->
 
 ### Having
 
@@ -584,9 +583,7 @@ CREATE TEMPORARY TABLE mircoform AS
 	) AS microforms ON checkouts.item_id = microforms.item_id;
 ```
 
-<!-- when I run this code, a new table does not appear on the databases pane on
-the left where it lists out the tables in the database. This isn't necessarily
-an issue but you may get some questions about whether it has worked. -->
+At the time of writing, SQLiteStudio has a bug where accessing temporary tables is complicated. The good news is that for the most part, you probably won't need this option. You can use subqueries instead or use a View if you know you'll need continued access to the results of a query.
 
 In much the same way we made the new table, we can make a view:
 
@@ -647,7 +644,6 @@ WHERE receiving_date IS NULL;
 
 The `SET` keyword specifically targets just the *receiving_date* column and replaces *NULL* values with "*N/A*" when the condition is met in the `WHERE` clause. It leaves the other values alone. If the `WHERE` clause is removed, it will set all values in the whole column to "*N/A*" overwriting the users address, so proceed with caution! 
 
-<!-- why would you prefer N/A over NULL for this? -->
 
 ### Add & Populate a Column
 
