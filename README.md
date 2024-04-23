@@ -2,7 +2,7 @@
 
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Spring 2022_  
-_Instructor: Nicholas Alonzo <<nicholas@diversifyds.org>>_  
+_Instructor: [Michele Tobias](https://github.com/MicheleTobias)_  
 _Authors_: [Michele Tobias](https://github.com/MicheleTobias), [Nicholas Alonzo](https://github.com/nicholas-alonzo) & [Nick Ulle](https://github.com/nick-ulle)   
 _Editors:_ [Nick Ulle](https://github.com/nick-ulle), [Pamela Reynolds](https://github.com/plnreynolds), and [Elise Hellwig](https://github.com/elisehellwig)
 
@@ -45,6 +45,11 @@ Please see these [recommendations for making SQLiteStudio easier to read](https:
 [sqlitestudio]: https://sqlitestudio.pl/
 [install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
 [materials]: https://drive.google.com/file/d/1Ans5_GIMgDlpLrNjPK0J9BhbqDTi4zUe/view?usp=sharing
+
+
+## Data Disclosure and Appropriate Use
+
+The database in this lesson is based on a subset of data provisioned courtesy of the UC Davis Shields Library in 2024. All unique patron identifiers have been removed. Checkouts have been assigned a deidentified patron ID value. Use of these data is restricted to educational and operational purposes and is not intended for research. Patron groupings with fewer than 5 unique patron IDs have been lumped into broader categories to maintain privacy. If you have questions regarding the dataset and use, please contact us at [datalab-training@ucdavis.edu](mailto:datalab-training@ucdavis.edu) or the Library's Scholarly Communications Officer at [mladisch@ucdavis.edu](mailto:mladisch@ucdavis.edu).
 
 
 ## Contributing
