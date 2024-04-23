@@ -69,13 +69,15 @@ Please see these [recommendations for making SQLiteStudio easier to read](https:
 [install]: https://ucdavisdatalab.github.io/install_guides/sql-and-database-tools.html#sqlitestudio
 [materials]: https://drive.google.com/file/d/1QehzesXxUBrNDW00aFrvm0jJ5Y1KnIFt/view?usp=sharing
 
-<!-- Elise: Pamela told me to remove my references to GradPathways from my presentation
-I would check with her about including this -->
-<!--
-#### GradPathways Microcredential Assessment {-}
 
-If you're taking this workshop to complete a GradPathways microcredential
-track, you can download the assessment [here][assessment].
+## Data Disclosure and Appropriate Use
+
+The database in this lesson is based on a subset of data provisioned courtesy of the UC Davis Shields Library in 2024. All unique patron identifiers have been removed. Checkouts have been assigned a deidentified patron ID value. Use of these data is restricted to educational and operational purposes and is not intended for research. Patron groupings with fewer than 5 unique patron IDs have been lumped into broader categories to maintain privacy. If you have questions regarding the dataset and use, please contact us at [datalab-training@ucdavis.edu](mailto:datalab-training@ucdavis.edu) or the Library's Scholarly Communications Officer at [mladisch@ucdavis.edu](mailto:mladisch@ucdavis.edu).
+
+
+#### Microcredential Assessment {-}
+
+If you're taking this workshop to complete a microcredential, you can download the assessment [here][assessment].
 
 [assessment]: https://github.com/ucdavisdatalab/workshop_intro_to_sql/blob/main/materials/assessment.sql
 
