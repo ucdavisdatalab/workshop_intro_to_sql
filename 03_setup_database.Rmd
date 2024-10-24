@@ -36,7 +36,7 @@ Let's connect to the database that we'll be using for this workshop:
 2. Click the "Browse for existing database file on your local computer" icon ![](images/sqlitestudio-folder-icon.png)
     - Your computer file explorer window will pop up
     
-3. Navigate to the  `2024-04-09_library-data.sqlite` file on your computer and double-click
+3. Navigate to the  `2024-10-24_library-data.sqlite` file on your computer and double-click
     - The *Database Dialog Window* will appear again
     
 4. Click the "OK" button ![](images/sqlitestudio-db-dialog-ok-button.png) at the bottom right
