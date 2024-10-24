@@ -87,6 +87,12 @@ subset_library_dataset = function(items, users, checkouts, n = 15000) {
   items = filter(items, item_id %in% keep)
   items = select(items, -subjects)
 
+  # Filter out law school users and checkouts.
+  is_law = str_starts(users$user_group, "Law ")
+  users = users[!is_law, ]
+  patron_ids = unique(users$patron_id)
+  checkouts = filter(checkouts, patron_id %in% c(patron_ids, -1))
+
   list(items = items, users = users, checkouts = checkouts)
 }
 
